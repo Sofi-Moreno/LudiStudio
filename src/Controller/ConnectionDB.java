@@ -20,7 +20,7 @@ public class ConnectionDB {
     String url = "jdbc:mysql://localhost:3306/"+db;
     String user = "root";
     String pass = "23082018";
-    
+    String basura="Hola mi amor";
     
     public Connection conectarDB(){
         try {
