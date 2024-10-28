@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class ConnectionDB {
     Connection cx;
-    String db = "x-genia";
+    String db = "proyecpoo";
     String url = "jdbc:mysql://localhost:3306/"+db;
     String user = "root";
     String pass = "23082018";

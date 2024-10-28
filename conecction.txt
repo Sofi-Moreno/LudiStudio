@@ -1,0 +1,47 @@
+ public static void main(String[] args){
+        ConnectionDB c=new ConnectionDB();
+        ConnectionDB conec=new ConnectionDB();
+        Statement stt;
+        PreparedStatement st;
+        ResultSet rs;
+        try{
+            st = c.cx.prepareStatement("insert into trabajadores values(?,?,?,?)");
+            st.setString(1,"Guadalupe");
+            st.setString(2,"Vivas");
+            st.setString(3,"gsvivas");
+            st.setString(4,"09876");
+            int rowsInserted = st.executeUpdate();
+            if(rowsInserted>0){
+                System.out.println("Usuario nuevo registrado");
+            }
+            c.cx.close();
+        } catch (Exception e) {
+            System.out.println("No se conecto");
+        }
+        
+        try{
+            stt = conec.cx.createStatement();
+            rs = stt.executeQuery("select * from trabajadores");
+            while(rs.next()){
+                System.out.println(rs.getInt("id_trabajador")+" "+rs.getString("Nombre")+" "+rs.getString("Apellido")+" "+rs.getString("Usuario")+" "+rs.getString("Contraseña"));
+            }
+            c.cx.close();
+        } catch (Exception e) {
+            System.out.println("No se conecto");
+        }
+
+
+
+
+
+public static boolean usuarioExiste(String usuario, Connection connection) throws SQLException {
+        // Preparar la consulta (suponiendo que "nombre_usuario" es el campo único)
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE nombre_usuario = ?");
+        statement.setString(1, usuario);
+
+        // Ejecutar la consulta
+        ResultSet resultSet = statement.executeQuery();
+
+        // Verificar si se encontraron resultados
+        return resultSet.next();
+    }
