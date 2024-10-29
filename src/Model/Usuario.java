@@ -14,14 +14,9 @@ import java.util.regex.Pattern;
  * @author Sofia Moreno
  */
 public class Usuario {
-    private String nombreUsuario;
-    private String apellidoUsuario;
-    private String usuario;
-    private String clave;
-    private String monedaUsuario;
-    private String paisUsuario;
-    private String institucionUsuario;
-    private String carreraUsuario;
+    private String nombreUsuario, apellidoUsuario, usuario, clave, 
+           monedaUsuario, paisUsuario, institucionUsuario, carreraUsuario;
+
 
     public Usuario(String nombreUsuario, String apellidoUsuario, String usuario, String clave, String monedaUsuario, String paisUsuario, String institucionUsuario, String carreraUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -98,8 +93,8 @@ public class Usuario {
         this.carreraUsuario = carreraUsuario;
     }
     
-    public String ingresarnameUsuario(String cadena){
-        Scanner scan= new Scanner(System.in);
+    public void ingresarnameUsuario(String cadena){
+        /*Scanner scan= new Scanner(System.in);
         String patron1= "^[A-Z][a-z]*$"; //Patron para ingresar una sola palabra con mayuscula al inicio.
         boolean usuarioval= false;
         try{
@@ -107,24 +102,25 @@ public class Usuario {
                 Pattern pattern = Pattern.compile(patron1);
                 Matcher matcher1 = pattern.matcher(cadena);
                 if (!matcher1.matches()){
-                    System.out.println("ERROR por favor solo ingrese una palabra.");
+                    System.out.println("ERROR por favor solo ingrese una palabra:");
+                    cadena= scan.next();
                 }
             }
         }catch(InputMismatchException e) {
         System.out.println("Error: Ingrese por favor un caracter valido.");
         scan.nextLine();  
         }
-        return cadena; //OJOOOOOOOOO METODO POR TESTEAR
+        return cadena; //OJOOOOOOOOO METODO POR TESTEAR*/
     }
         public void pedirDatos(){
-            Scanner esca= new Scanner(System.in);
+            /*Scanner esca= new Scanner(System.in);
             String cad;
             System.out.println("Ingrese su primer nombre: ");
             cad = esca.next();
             nombreUsuario = ingresarnameUsuario(cad);
             System.out.println("Ingrese su primer apellido: ");
             cad = esca.next();
-            apellidoUsuario = ingresarnameUsuario(cad);
+            apellidoUsuario = ingresarnameUsuario(cad);*/
         }
         public void verUsuario(){
 
