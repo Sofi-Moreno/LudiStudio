@@ -93,35 +93,36 @@ public class Usuario {
         this.carreraUsuario = carreraUsuario;
     }
     
-    public void ingresarnameUsuario(String cadena){
-        /*Scanner scan= new Scanner(System.in);
-        String patron1= "^[A-Z][a-z]*$"; //Patron para ingresar una sola palabra con mayuscula al inicio.
-        boolean usuarioval= false;
-        try{
-            while(!usuarioval){
-                Pattern pattern = Pattern.compile(patron1);
-                Matcher matcher1 = pattern.matcher(cadena);
-                if (!matcher1.matches()){
-                    System.out.println("ERROR por favor solo ingrese una palabra:");
-                    cadena= scan.next();
-                }
-            }
-        }catch(InputMismatchException e) {
-        System.out.println("Error: Ingrese por favor un caracter valido.");
-        scan.nextLine();  
+    public boolean validarNombreApellido(String cadena){
+        boolean boleano = false;
+        String patron= "^[A-Z][a-z]*$"; //Patron para ingresar una sola palabra con mayuscula al inicio.
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(cadena);
+        if (!matcher.matches() || cadena.length()>25){
+            boleano = true;
         }
-        return cadena; //OJOOOOOOOOO METODO POR TESTEAR*/
+        return boleano;
     }
-        public void pedirDatos(){
-            /*Scanner esca= new Scanner(System.in);
-            String cad;
-            System.out.println("Ingrese su primer nombre: ");
-            cad = esca.next();
-            nombreUsuario = ingresarnameUsuario(cad);
-            System.out.println("Ingrese su primer apellido: ");
-            cad = esca.next();
-            apellidoUsuario = ingresarnameUsuario(cad);*/
+    
+    public boolean validarUsuario(String cadena){
+        boolean boleano = false;
+        if(cadena.length()>15){
+            boleano = true;
         }
+        return boleano;
+    }
+    
+    public boolean validarContraseña(String cadena){
+        boolean boleano = false;
+        String patron = "";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(cadena);
+        if(!matcher.matches() || cadena.length()>15){
+            
+        }
+        return boleano;
+    }
+    
         public void verUsuario(){
 
     }
