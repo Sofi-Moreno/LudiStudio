@@ -44,7 +44,6 @@ public class ConnectionDB {
         ResultSet rs;
         String sql = "SELECT * FROM usuario";
         try {
-            
             stmt = conexion.createStatement();
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
