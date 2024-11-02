@@ -358,6 +358,7 @@ public class registroUsuario extends javax.swing.JPanel {
                                                 break;
                                             default:
                                                 controller.guardarRegistroDB(usuarioActual);
+                                                //decir ya se registro el usuario
                                                 break;
                                         }
                                         break;
@@ -366,7 +367,9 @@ public class registroUsuario extends javax.swing.JPanel {
                         break;
                 }
             }while(controller.validarNombreApellidoRegistro(usuarioActual,"nombre")!=0 
-                    || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0);
+                    || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0
+                    || controller.validarUsuarioRegistro(usuarioActual)!=0
+                    || controller.validarContraseña(usuarioActual)!=0);
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
