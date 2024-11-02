@@ -92,9 +92,16 @@ public class inicioSesion extends javax.swing.JPanel {
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 620, -1));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
             }
         });
 
@@ -131,7 +138,7 @@ public class inicioSesion extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 170, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -199,13 +206,16 @@ public class inicioSesion extends javax.swing.JPanel {
                 try {
                     if(!controller.validarUsuario(usuarioActual)){
                         JOptionPane.showMessageDialog(null, "El usuario que desea ingresar no existe en nuestro sistema, ingreselo nuevamente.");
-                        //aqui deberia refrescar y pedir los datos nuevamente
+                        break;
                     }else if(controller.validarClave(usuarioActual)){
                         JOptionPane.showMessageDialog(null, "La contraseña ingresada no coincide con el usuario, ingresela nuevamente.");
-                         //aqui deberia refrescar y pedir los datos nuevamente
+                        break;
                     }
                     else{
                         controller.iniciarSesion(usuarioActual);
+                        MainMenu menu = new MainMenu();
+                        menu.setVisible(true);
+                        this.setVisible(false);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,10 +224,16 @@ public class inicioSesion extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        MainMenu menu = new MainMenu();
-        menu.setVisible(true);
-        this.setVisible(false);
+   
     }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

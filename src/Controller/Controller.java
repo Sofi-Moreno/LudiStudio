@@ -141,7 +141,7 @@ public class Controller {
             conex.close();
             con.desconectar();
         } catch (SQLException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);           
         }
     }
      

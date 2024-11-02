@@ -106,7 +106,7 @@ public class registroUsuario extends javax.swing.JPanel {
         carreraLabel.setText("Carrera");
         jPanel6.add(carreraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        monedaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)", " " }));
+        monedaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)" }));
         monedaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monedaBoxActionPerformed(evt);
@@ -151,9 +151,16 @@ public class registroUsuario extends javax.swing.JPanel {
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 260, 250));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
             }
         });
 
@@ -197,7 +204,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, -1));
 
         apellidoTxt.setBackground(new java.awt.Color(0, 153, 153));
         apellidoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -215,7 +222,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 apellidoTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 190, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -233,7 +240,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 userTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 190, -1));
 
         passTxt.setBackground(new java.awt.Color(0, 153, 153));
         passTxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -245,7 +252,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 190, -1));
         jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, 20));
         jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 20));
         jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 20));
@@ -270,10 +277,7 @@ public class registroUsuario extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,79 +287,136 @@ public class registroUsuario extends javax.swing.JPanel {
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
         usuarioActual=new Usuario();
+        int salida = 0;
         try{
             do{
                 switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
                     case 1:
-                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
-                                + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
-                        //refrescar
-                        break;
+                        if (salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                            + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                            salida=1;
+                            break;
+                        }
+                        break;                       
                     case 2:
-                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
-                                + "con mayuscula y continuar con minuscula.");
-                        //refrescar
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                            + "con mayuscula y continuar con minuscula.");
+                            salida=1;
+                            break;
+                        }                   
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
-                        //refrescar
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
+                            salida=1;
+                            break;
+                        }          
                         break;
                     default:
                         switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
                             case 1:
-                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
-                                        + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
-                                //refrescar
+                                if(salida==0){
+                                   JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                    + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                                   salida=1;
+                                   break; 
+                                }
                                 break;
                             case 2:
-                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
-                                        + "con mayuscula y continuar con minuscula.");
-                                //refrescar
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                    + "con mayuscula y continuar con minuscula.");
+                                    salida=1;
+                                    break;
+                                }     
                                 break;
                             case 3:
-                                JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
-                                //refrescar
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
+                                    salida=1;
+                                    break;
+                                }
                                 break;
+                                
                             default:   
                                 switch(controller.validarUsuarioRegistro(usuarioActual)){
                                     case 1:
-                                        JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
-                                        //refrescar
+                                        if(salida==0){
+                                           JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
+                                           salida=1;
+                                           break;
+                                        }
+                                        
                                         break;
                                     case 2:
-                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
-                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
-                                                + "correcto (3-10).");
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
+                                            + "correcto (3-10).");
+                                            salida=1;
+                                            break;
+                                        }
+                                        break;
+                                        
                                         //refrescar
-                                        break;
                                     case 3:
-                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
-                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
-                                        break;
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
+                                            salida=1;
+                                            break;   
+                                        }
+                                        break; 
+                                        
                                     case 4:
-                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
+                                            salida=1;
+                                            break;
+                                        }
                                         break;
+                                        
                                     default:
                                         switch(controller.validarContraseña(usuarioActual)){
                                             case 1:
-                                                JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
-                                                //refrescar
+                                                if(salida==0){
+                                                    JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
+                                                    salida=1;
+                                                    break;
+                                                }                                                
                                                 break;
                                             case 2:
-                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
-                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
-                                                + "y no cumple con el tamaño correcto (3-10).");
-                                                //refrescar
+                                                if(salida==0){
+                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                    + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
+                                                    + "y no cumple con el tamaño correcto (3-10).");
+                                                    //refrescar
+                                                    salida=1;
+                                                    break;
+                                                }
                                                 break;
+                                                
                                             case 3:
-                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
-                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
-                                                //refrescar
+                                                if(salida==0){
+                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                    + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
+                                                    //refrescar
+                                                    salida=1;
+                                                    break;
+                                                }
                                                 break;
+                                                
                                             case 4:
-                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
-                                                //refrescar
+                                                if(salida==0){
+                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
+                                                    salida=1;
+                                                    break;
+                                                }
                                                 break;
+                                               
+                                                
                                             default:
                                                 controller.guardarRegistroDB(usuarioActual);
                                                 //decir ya se registro el usuario
@@ -363,19 +424,21 @@ public class registroUsuario extends javax.swing.JPanel {
                                         }
                                         break;
                                 }
+                                break;
                         }
                         break;
                 }
+                break;
             }while(controller.validarNombreApellidoRegistro(usuarioActual,"nombre")!=0 
                     || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0
                     || controller.validarUsuarioRegistro(usuarioActual)!=0
                     || controller.validarContraseña(usuarioActual)!=0);
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                inicioSesion inicio = new inicioSesion();
+                inicio.setVisible(true);
+                this.setVisible(false);
         }
-        inicioSesion inicio = new inicioSesion();
-        inicio.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_entrarButtomMouseClicked
 
     private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
@@ -482,6 +545,14 @@ public class registroUsuario extends javax.swing.JPanel {
     private void paisBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paisBoxActionPerformed
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
