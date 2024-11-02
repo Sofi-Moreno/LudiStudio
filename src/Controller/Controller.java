@@ -24,33 +24,14 @@ import javax.swing.JTextField;
  * @author Sofia Moreno, Ricardo Barrios, Aquiles Millan, Luis Morales.
  */
 public class Controller {
-    JTextField usuarioInicio, contraseñaInicio;
-    JTextField usuarioRegistro, claveRegistro, nombreRegistro, apellidoRegistro, paisRegistro, 
-               institucionRegistro, carreraRegistro;
-    JComboBox moneda;
+//    JTextField usuarioInicio, contraseñaInicio;
+//    JTextField usuarioRegistro, claveRegistro, nombreRegistro, apellidoRegistro, paisRegistro, 
+//               institucionRegistro, carreraRegistro;
+//    JComboBox moneda;
     JFrame ventana;
     
-    public Controller(JFrame ventana, JTextField usuarioInicio, JTextField contraseñaInicio){
+    public Controller(JFrame ventana){
         this.ventana = ventana;
-        this.usuarioInicio = usuarioInicio;
-        this.contraseñaInicio = contraseñaInicio;
-    }
-    
-    //CON ESTOS METODOS SE INICIALIZA USUARIO
-    //este metodo para inicial sesion
-    public void iniciarSesion(Usuario user){
-        user.setUsuario(usuarioInicio.getText());
-        user.setClave(contraseñaInicio.getText());
-    }
-    //este metodo para registrar usuario
-    public void registrarUsuario(Usuario user){
-        user.setUsuario(usuarioRegistro.getText());
-        user.setClave(claveRegistro.getText());
-        user.setNombreUsuario(nombreRegistro.getText());
-        user.setApellidoUsuario(apellidoRegistro.getText());
-        user.setPaisUsuario(paisRegistro.getText());
-        user.setInstitucionUsuario(institucionRegistro.getText());
-        user.setCarreraUsuario(carreraRegistro.getText());
     }
     
     //VALIDACIONES PARA INICIAR SESION
@@ -86,7 +67,6 @@ public class Controller {
         PreparedStatement st;
         ResultSet rs;
         boolean bol = false;
-        int id =0;
         String pas ="";
         String sql1 = "SELECT id_usuario FROM usuario WHERE usuario = ?";
         try {
@@ -94,9 +74,9 @@ public class Controller {
             st.setString(1, user.getUsuario());
             rs = st.executeQuery();
             if (rs.next()) {
-                id = rs.getInt("id_usuario");
+                user.setId_usuario(rs.getInt("id_usuario"));
             }
-            String sql2 = "SELECT contraseña FROM usuario WHERE id_usuario = "+id;
+            String sql2 = "SELECT contraseña FROM usuario WHERE id_usuario = "+user.getId_usuario();
             st = conex.prepareStatement(sql2);
             rs = st.executeQuery();
             if(rs.next()){
@@ -108,13 +88,38 @@ public class Controller {
             else{
                 user.setClave(pas);
             }
+            conex.close();
+            con.desconectar();
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return bol;
     }
-    
+    //inicializacion de usuario en caso de que no existan errores
+    public void iniciarSesion(Usuario user){
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection();
+        Statement stmt;
+        ResultSet rs;
+        String sql = "SELECT * FROM usuario WHERE id_usuario = "+user.getId_usuario();
+        try {
+            stmt = conex.createStatement();
+            rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                user.setApellidoUsuario(rs.getString("apellido"));
+                user.setNombreUsuario(rs.getString("nombre"));
+                user.setMonedaUsuario(rs.getString("moneda"));
+                user.setPaisUsuario(rs.getString("pais"));
+                user.setInstitucionUsuario(rs.getString("institucion"));
+                user.setCarreraUsuario(rs.getString("carrera"));
+            }
+            conex.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     //VALIDACIONES DE REGISTRAR USUARIO
     //validar nombre o apellido
@@ -157,18 +162,20 @@ public class Controller {
                     bol = true;
                 }
             }
-            if(bol==true && (dato.getText().length()>15 || dato.getText().length()<3)){
+            if(bol==true && (dato.getText().length()>10 || dato.getText().length()<3)){
                 val = 1; //error si no cumple las dos condiciones
             }
             else if(bol==true){
                 val = 2; //error si este usuario ya existe
             }
-            else if(dato.getText().length()>15 || dato.getText().length()<3){
+            else if(dato.getText().length()>10 || dato.getText().length()<3){
                 val = 3; //error si no tiene el tamaño correcto
             }
             else{
                 user.setUsuario(dato.getText());
             }
+            conex.close();
+            con.desconectar();
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -180,19 +187,48 @@ public class Controller {
         String patron = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!&$._*-]).*$";
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher(dato.getText());
-        if(!matcher.matches() && (dato.getText().length()>15 || dato.getText().length()<3)){
+        if(!matcher.matches() && (dato.getText().length()>10 || dato.getText().length()<3)){
             val = 1; //si no cumple con ambas condiciones
         }
         else if(!matcher.matches()){
             val = 2; //si no cumple el patron
         }
-        else if(dato.getText().length()>15 || dato.getText().length()<3){
+        else if(dato.getText().length()>10 || dato.getText().length()<3){
             val = 3; //si no cumple la longitud
         }
         else{
             user.setClave(dato.getText());
         } 
         return val;
+    }
+    //registro de usuario en caso de que no existan errores
+    public boolean guardarRegistroDB(Usuario user){
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        boolean bol = false;
+        PreparedStatement st;
+        ResultSet rs;
+        String sql = "INSERT INTO usuario (usuario, contraseña, apellido, nombre, pais, moneda, institucion, carrera) VALUES (?,?,?,?,?,?,?,?)";
+        try {
+            st = conex.prepareStatement(sql);
+            st.setString(1,user.getUsuario());
+            st.setString(2,user.getClave());
+            st.setString(3,user.getApellidoUsuario());
+            st.setString(4,user.getNombreUsuario());
+            st.setString(5,user.getPaisUsuario());
+            st.setString(6,user.getMonedaUsuario());
+            st.setString(7,user.getInstitucionUsuario());
+            st.setString(8,user.getCarreraUsuario());
+            int rowsInserted = st.executeUpdate();
+            if(rowsInserted>0){
+                bol = true;
+            }
+            conex.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return bol;
     }
     
 }

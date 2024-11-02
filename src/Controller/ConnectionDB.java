@@ -38,25 +38,4 @@ public class ConnectionDB {
             System.out.println("Conexion cerrada...");
         }
     }
-    
-    public void obtenerUsuarios(Connection conexion){
-        Statement stmt;
-        ResultSet rs;
-        String sql = "SELECT * FROM usuario";
-        try {
-            stmt = conexion.createStatement();
-            rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                int id = rs.getInt("id_usuario");
-                String usuario = rs.getString("usuario");
-                String clave = rs.getString("contraseña");
-                String apellido = rs.getString("apellido");
-                String nombre = rs.getString("nombre");
-                System.out.println("Id: " + id+ ", Usuario: " + usuario+ ", Contrasena: " + clave+ ", Apellido: " + apellido+ ", Nombre: " + nombre);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
 }

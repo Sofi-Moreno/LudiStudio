@@ -11,9 +11,21 @@ package Model;
 public class Usuario {
     private String nombreUsuario, apellidoUsuario, usuario, clave, 
             monedaUsuario, paisUsuario, institucionUsuario, carreraUsuario;
+    private int id_usuario;
 
+    public Usuario(){
+        id_usuario = 0;
+        usuario = "";
+        clave = "";
+        apellidoUsuario = "";
+        nombreUsuario = "";
+        monedaUsuario = "";
+        paisUsuario = "";
+        institucionUsuario = "";
+        carreraUsuario = "";
+    }
 
-    public Usuario(String nombreUsuario, String apellidoUsuario, String usuario, String clave, String monedaUsuario, String paisUsuario, String institucionUsuario, String carreraUsuario) {
+    public Usuario(String nombreUsuario, String apellidoUsuario, String usuario, String clave, String monedaUsuario, String paisUsuario, String institucionUsuario, String carreraUsuario, int id_usuario) {
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
         this.usuario = usuario;
@@ -22,7 +34,10 @@ public class Usuario {
         this.paisUsuario = paisUsuario;
         this.institucionUsuario = institucionUsuario;
         this.carreraUsuario = carreraUsuario;
+        this.id_usuario = id_usuario;
     }
+    
+    
     
     //getter y setter
 
@@ -89,5 +104,14 @@ public class Usuario {
     public void setCarreraUsuario(String carreraUsuario) {
         this.carreraUsuario = carreraUsuario;
     }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+    
     
 }
