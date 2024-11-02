@@ -4,17 +4,27 @@
  */
 package View;
 
+import Controller.Controller;
+import Model.Usuario;
+import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aquil
  */
 public class registroUsuario extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
+    Controller controller;
     /**
      * Creates new form registoUsuario
      */
     public registroUsuario() {
         initComponents();
+        controller = new Controller(userTxt,passTxt,nombreTxt,apellidoTxt,monedaBox,paisBox,institucionBox,carreraBox,this);
     }
 
     /**
@@ -27,127 +37,243 @@ public class registroUsuario extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        apellidoLabel = new javax.swing.JLabel();
+        usuarioLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        paisLabel = new javax.swing.JLabel();
+        carreraLabel = new javax.swing.JLabel();
+        monedaBox = new javax.swing.JComboBox<>();
+        carreraBox = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        tituloLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        nombreTxt = new javax.swing.JTextField();
+        apellidoTxt = new javax.swing.JTextField();
+        userTxt = new javax.swing.JTextField();
+        passTxt = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        institucionBox = new javax.swing.JComboBox<>();
+        paisBox = new javax.swing.JComboBox<>();
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre: ");
-        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 162, -1, -1));
+        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nombreLabel.setText("Nombre");
+        jPanel6.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Apellido:");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 162, -1, -1));
+        apellidoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        apellidoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        apellidoLabel.setText("Apellido");
+        jPanel6.add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre de Usuario:");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 317, -1, -1));
+        usuarioLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        usuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
+        usuarioLabel.setText("Usuario");
+        jPanel6.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Contraseña:");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 317, -1, -1));
+        jLabel4.setText("Contraseña");
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Moneda:");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 474, -1, -1));
+        jLabel5.setText("Moneda");
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Institución:");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 617, -1, -1));
+        jLabel6.setText("Institución");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("País:");
-        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 474, -1, -1));
+        paisLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        paisLabel.setForeground(new java.awt.Color(255, 255, 255));
+        paisLabel.setText("País");
+        jPanel6.add(paisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Carrera:");
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 609, -1, -1));
+        carreraLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        carreraLabel.setForeground(new java.awt.Color(255, 255, 255));
+        carreraLabel.setText("Carrera");
+        jPanel6.add(carreraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 3, 25)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("¡¡¡Ingresa tus datos para empezar a crear!!!");
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 48, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        monedaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)", " " }));
+        monedaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                monedaBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 190, 203, -1));
+        jPanel6.add(monedaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        carreraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ingenieria Civil", "Ingenieria Informatica", "Arquitectura" }));
+        carreraBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                carreraBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 345, 203, -1));
+        jPanel6.add(carreraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLabel.setText("Crea tu perfil");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(tituloLabel)
+                .addContainerGap(201, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(tituloLabel)
+                .addGap(30, 30, 30))
+        );
+
+        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 620, 100));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario (1).png"))); // NOI18N
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 260, 250));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
             }
         });
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 345, 203, -1));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("REGISTRAR");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(entrarLabel)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtomLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(entrarLabel)
+                .addGap(17, 17, 17))
+        );
+
+        jPanel6.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 170, 60));
+        jPanel6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 190, 20));
+
+        nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
+        nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        nombreTxt.setForeground(new java.awt.Color(204, 204, 204));
+        nombreTxt.setText("Ingrese su nombre");
+        nombreTxt.setToolTipText("");
+        nombreTxt.setBorder(null);
+        nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nombreTxtMousePressed(evt);
             }
         });
-        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 639, 203, -1));
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        nombreTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                nombreTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 190, 203, -1));
+        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+        apellidoTxt.setBackground(new java.awt.Color(0, 153, 153));
+        apellidoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        apellidoTxt.setForeground(new java.awt.Color(204, 204, 204));
+        apellidoTxt.setText("Ingrese su apellido");
+        apellidoTxt.setToolTipText("");
+        apellidoTxt.setBorder(null);
+        apellidoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                apellidoTxtMousePressed(evt);
             }
         });
-        jPanel6.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 631, 203, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bolivares (Bs)", "Dolares ($)" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        apellidoTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                apellidoTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 496, -1, -1));
+        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ecuador", "Venezuela", "El Salvador" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+        userTxt.setBackground(new java.awt.Color(0, 153, 153));
+        userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        userTxt.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt.setText("Ingrese su nombre de usuario");
+        userTxt.setToolTipText("");
+        userTxt.setBorder(null);
+        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxtMousePressed(evt);
             }
         });
-        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 496, -1, -1));
+        userTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxtActionPerformed(evt);
+            }
+        });
+        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        passTxt.setBackground(new java.awt.Color(0, 153, 153));
+        passTxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passTxt.setForeground(new java.awt.Color(204, 204, 204));
+        passTxt.setText("************");
+        passTxt.setBorder(null);
+        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passTxtMousePressed(evt);
+            }
+        });
+        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, 20));
+        jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 20));
+        jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 20));
+
+        institucionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "UCA", "UCAB", "PUCEM" }));
+        institucionBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                institucionBoxActionPerformed(evt);
+            }
+        });
+        jPanel6.add(institucionBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 150, -1));
+
+        paisBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ecuador", "Venezuela", "El Salvador" }));
+        paisBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paisBoxActionPerformed(evt);
+            }
+        });
+        jPanel6.add(paisBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,57 +281,232 @@ public class registroUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        usuarioActual=new Usuario();
+        try{
+            do{
+                switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                                + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                        //refrescar
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                                + "con mayuscula y continuar con minuscula.");
+                        //refrescar
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
+                        //refrescar
+                        break;
+                    default:
+                        switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
+                            case 1:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                        + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                                //refrescar
+                                break;
+                            case 2:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                        + "con mayuscula y continuar con minuscula.");
+                                //refrescar
+                                break;
+                            case 3:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
+                                //refrescar
+                                break;
+                            default:   
+                                switch(controller.validarUsuarioRegistro(usuarioActual)){
+                                    case 1:
+                                        JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
+                                        //refrescar
+                                        break;
+                                    case 2:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
+                                                + "correcto (3-10).");
+                                        //refrescar
+                                        break;
+                                    case 3:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
+                                        break;
+                                    case 4:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
+                                        break;
+                                    default:
+                                        switch(controller.validarContraseña(usuarioActual)){
+                                            case 1:
+                                                JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
+                                                //refrescar
+                                                break;
+                                            case 2:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
+                                                + "y no cumple con el tamaño correcto (3-10).");
+                                                //refrescar
+                                                break;
+                                            case 3:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
+                                                //refrescar
+                                                break;
+                                            case 4:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
+                                                //refrescar
+                                                break;
+                                            default:
+                                                controller.guardarRegistroDB(usuarioActual);
+                                                break;
+                                        }
+                                        break;
+                                }
+                        }
+                        break;
+                }
+            }while(controller.validarNombreApellidoRegistro(usuarioActual,"nombre")!=0 
+                    || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0);
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        inicioSesion inicio = new inicioSesion();
+        inicio.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_entrarButtomMouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
+        if (nombreTxt.getText().equals("Ingrese su nombre")){
+            nombreTxt.setText("");
+            nombreTxt.setForeground(Color.black);
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()){
+            passTxt.setText("************");
+            passTxt.setForeground(new Color(204,204,204));
+        }
+        if (userTxt.getText().isEmpty()){
+            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setForeground(new Color(204,204,204));
+        }
+        if (apellidoTxt.getText().isEmpty()){
+            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_nombreTxtMousePressed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void nombreTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_nombreTxtActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void apellidoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellidoTxtMousePressed
+        if (apellidoTxt.getText().equals("Ingrese su apellido")){
+            apellidoTxt.setText("");
+            apellidoTxt.setForeground(Color.black);
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()){
+            passTxt.setText("************");
+            passTxt.setForeground(new Color(204,204,204));
+        }
+        if (userTxt.getText().isEmpty()){
+            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setForeground(new Color(204,204,204));
+        }
+        if (nombreTxt.getText().isEmpty()){
+            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_apellidoTxtMousePressed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void apellidoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_apellidoTxtActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
+        if (userTxt.getText().equals("Ingrese su nombre de usuario")){
+            userTxt.setText("");
+            userTxt.setForeground(Color.black);
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()){
+            passTxt.setText("************");
+            passTxt.setForeground(new Color(204,204,204));
+        }
+        if (nombreTxt.getText().isEmpty()){
+            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setForeground(new Color(204,204,204));
+        }
+        if (apellidoTxt.getText().isEmpty()){
+            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_userTxtMousePressed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_userTxtActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
+        if (String.valueOf(passTxt.getPassword()).equals("************")){
+            passTxt.setText("");
+            passTxt.setForeground(Color.black);
+        }
+        if (nombreTxt.getText().isEmpty()){
+            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setForeground(new Color(204,204,204));
+        }
+        if (apellidoTxt.getText().isEmpty()){
+            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setForeground(new Color(204,204,204));
+        }
+        if (userTxt.getText().isEmpty()){
+            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setForeground(new Color(204,204,204));
+        }
+        
+    }//GEN-LAST:event_passTxtMousePressed
+
+    private void monedaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monedaBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_monedaBoxActionPerformed
+
+    private void institucionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_institucionBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_institucionBoxActionPerformed
+
+    private void carreraBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carreraBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carreraBoxActionPerformed
+
+    private void paisBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paisBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel apellidoLabel;
+    private javax.swing.JTextField apellidoTxt;
+    private javax.swing.JComboBox<String> carreraBox;
+    private javax.swing.JLabel carreraLabel;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
+    private javax.swing.JComboBox<String> institucionBox;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JComboBox<String> monedaBox;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField nombreTxt;
+    private javax.swing.JComboBox<String> paisBox;
+    private javax.swing.JLabel paisLabel;
+    private javax.swing.JPasswordField passTxt;
+    private javax.swing.JLabel tituloLabel;
+    private javax.swing.JTextField userTxt;
+    private javax.swing.JLabel usuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

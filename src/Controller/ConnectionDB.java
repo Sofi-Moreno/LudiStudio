@@ -4,8 +4,6 @@
  */
 package Controller;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 public class ConnectionDB {
     //datos de la conexion a la base de datos
     private static Connection connection;
