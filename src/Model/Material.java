@@ -154,18 +154,4 @@ public class Material {
     public void setCantidadMaterial(int cantidadMaterial) {
         this.cantidadMaterial = cantidadMaterial;
     }
-    
-    public void crearMaterial(){
-        
-    }
-    public void eliminarMaterial(){
-        
-    }
-    public void modificarMaterial(){
-        
-    }
-    public void validarMaterial(){
-        
-    }
-           
 }

@@ -9,15 +9,24 @@ package Model;
  * @author LAMM
  */
 public class Proyecto {
-    private String nombreProyecto,fechaDeCreacion,usuario;
+    private String nombreProyecto,fechaDeCreacion;
     private double presupuesto, presupuestoTotal;
+    private int id_usuario;
+    
+    public Proyecto(){
+        nombreProyecto = "";
+        fechaDeCreacion = "";
+        id_usuario = 0;
+        presupuesto = 0.0;
+        presupuestoTotal = 0.0;
+    }
 
-    public Proyecto(String nombreProyecto, double presupuesto, double presupuestoTotal, String fechaDeCreacion, String usuario) {
+    public Proyecto(String nombreProyecto, double presupuesto, double presupuestoTotal, String fechaDeCreacion, int id_usuario) {
         this.nombreProyecto = nombreProyecto;
         this.presupuesto = presupuesto;
         this.presupuestoTotal = presupuestoTotal;
         this.fechaDeCreacion = fechaDeCreacion;
-        this.usuario = usuario;
+        this.id_usuario = id_usuario;
     }
 
     public String getNombreProyecto() {
@@ -52,30 +61,13 @@ public class Proyecto {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
+
     
-    public void crearProyecto(){
-        
-    }
-    public void verProyectos(){
-        
-    }
-    public void eliminarProyectos(){
-        
-    }
-    public void modificarProyectos(){
-        
-    }
-    public void calcularPresupuesto(){
-        
-    }
-    public void validarProyecto(){
-        
-    }
 }

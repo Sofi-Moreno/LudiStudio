@@ -4,8 +4,6 @@
  */
 package Controller;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 public class ConnectionDB {
     //datos de la conexion a la base de datos
     private static Connection connection;
@@ -37,26 +35,5 @@ public class ConnectionDB {
         if(connection==null){
             System.out.println("Conexion cerrada...");
         }
-    }
-    
-    public void obtenerUsuarios(Connection conexion){
-        Statement stmt;
-        ResultSet rs;
-        String sql = "SELECT * FROM usuario";
-        try {
-            stmt = conexion.createStatement();
-            rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                int id = rs.getInt("id_usuario");
-                String usuario = rs.getString("usuario");
-                String clave = rs.getString("contraseña");
-                String apellido = rs.getString("apellido");
-                String nombre = rs.getString("nombre");
-                System.out.println("Id: " + id+ ", Usuario: " + usuario+ ", Contrasena: " + clave+ ", Apellido: " + apellido+ ", Nombre: " + nombre);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
     }
 }

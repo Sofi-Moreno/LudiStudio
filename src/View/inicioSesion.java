@@ -4,19 +4,27 @@
  */
 package View;
 
+import Controller.Controller;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aquil
  */
 public class inicioSesion extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
+    Controller controller;
     /**
      * Creates new form inicioSesion
      */
     public inicioSesion() {
         initComponents();
+        controller = new Controller(userTxt, passTxt,this);
     }
 
     /**
@@ -185,9 +193,27 @@ public class inicioSesion extends javax.swing.JPanel {
     }//GEN-LAST:event_passTxtMousePressed
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        String user, pass;
-        user=userTxt.getText();
-        pass=String.valueOf(passTxt.getPassword());
+        usuarioActual = new Usuario();
+        try {
+            do{
+                try {
+                    if(!controller.validarUsuario(usuarioActual)){
+                        JOptionPane.showMessageDialog(null, "El usuario que desea ingresar no existe en nuestro sistema, ingreselo nuevamente.");
+                        //aqui deberia refrescar y pedir los datos nuevamente
+                    }else if(controller.validarClave(usuarioActual)){
+                        JOptionPane.showMessageDialog(null, "La contraseña ingresada no coincide con el usuario, ingresela nuevamente.");
+                         //aqui deberia refrescar y pedir los datos nuevamente
+                    }
+                    else{
+                        controller.iniciarSesion(usuarioActual);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }while(!controller.validarUsuario(usuarioActual) || controller.validarClave(usuarioActual));
+        } catch (SQLException ex) {
+            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         MainMenu menu = new MainMenu();
         menu.setVisible(true);
         this.setVisible(false);

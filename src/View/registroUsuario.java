@@ -4,19 +4,27 @@
  */
 package View;
 
+import Controller.Controller;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aquil
  */
 public class registroUsuario extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
+    Controller controller;
     /**
      * Creates new form registoUsuario
      */
     public registroUsuario() {
         initComponents();
+        controller = new Controller(userTxt,passTxt,nombreTxt,apellidoTxt,monedaBox,paisBox,institucionBox,carreraBox,this);
     }
 
     /**
@@ -37,8 +45,8 @@ public class registroUsuario extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         paisLabel = new javax.swing.JLabel();
         carreraLabel = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        monedaBox = new javax.swing.JComboBox<>();
+        carreraBox = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         tituloLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -52,8 +60,8 @@ public class registroUsuario extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        institucionBox = new javax.swing.JComboBox<>();
+        paisBox = new javax.swing.JComboBox<>();
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,21 +106,21 @@ public class registroUsuario extends javax.swing.JPanel {
         carreraLabel.setText("Carrera");
         jPanel6.add(carreraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        monedaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)", " " }));
+        monedaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                monedaBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, -1));
+        jPanel6.add(monedaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ingenieria Civil", "Ingenieria Informatica", "Arquitectura" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        carreraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ingenieria Civil", "Ingenieria Informatica", "Arquitectura" }));
+        carreraBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                carreraBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel6.add(carreraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -242,21 +250,21 @@ public class registroUsuario extends javax.swing.JPanel {
         jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 20));
         jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 20));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "UCA", "UCAB", "PUCEM" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        institucionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "UCA", "UCAB", "PUCEM" }));
+        institucionBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                institucionBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 150, -1));
+        jPanel6.add(institucionBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 150, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ecuador", "Venezuela", "El Salvador" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        paisBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ecuador", "Venezuela", "El Salvador" }));
+        paisBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                paisBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
+        jPanel6.add(paisBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -274,9 +282,97 @@ public class registroUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        String user, pass;
-        user=userTxt.getText();
-        pass=String.valueOf(passTxt.getPassword());
+        usuarioActual=new Usuario();
+        try{
+            do{
+                switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                                + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                        //refrescar
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                                + "con mayuscula y continuar con minuscula.");
+                        //refrescar
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
+                        //refrescar
+                        break;
+                    default:
+                        switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
+                            case 1:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                        + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                                //refrescar
+                                break;
+                            case 2:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                                        + "con mayuscula y continuar con minuscula.");
+                                //refrescar
+                                break;
+                            case 3:
+                                JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
+                                //refrescar
+                                break;
+                            default:   
+                                switch(controller.validarUsuarioRegistro(usuarioActual)){
+                                    case 1:
+                                        JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
+                                        //refrescar
+                                        break;
+                                    case 2:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
+                                                + "correcto (3-10).");
+                                        //refrescar
+                                        break;
+                                    case 3:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
+                                        break;
+                                    case 4:
+                                        JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
+                                        break;
+                                    default:
+                                        switch(controller.validarContraseña(usuarioActual)){
+                                            case 1:
+                                                JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
+                                                //refrescar
+                                                break;
+                                            case 2:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
+                                                + "y no cumple con el tamaño correcto (3-10).");
+                                                //refrescar
+                                                break;
+                                            case 3:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                                + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
+                                                //refrescar
+                                                break;
+                                            case 4:
+                                                JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
+                                                //refrescar
+                                                break;
+                                            default:
+                                                controller.guardarRegistroDB(usuarioActual);
+                                                //decir ya se registro el usuario
+                                                break;
+                                        }
+                                        break;
+                                }
+                        }
+                        break;
+                }
+            }while(controller.validarNombreApellidoRegistro(usuarioActual,"nombre")!=0 
+                    || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0
+                    || controller.validarUsuarioRegistro(usuarioActual)!=0
+                    || controller.validarContraseña(usuarioActual)!=0);
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         inicioSesion inicio = new inicioSesion();
         inicio.setVisible(true);
         this.setVisible(false);
@@ -371,33 +467,31 @@ public class registroUsuario extends javax.swing.JPanel {
         
     }//GEN-LAST:event_passTxtMousePressed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void monedaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monedaBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_monedaBoxActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void institucionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_institucionBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_institucionBoxActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void carreraBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carreraBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_carreraBoxActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void paisBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_paisBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellidoLabel;
     private javax.swing.JTextField apellidoTxt;
+    private javax.swing.JComboBox<String> carreraBox;
     private javax.swing.JLabel carreraLabel;
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> institucionBox;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -408,8 +502,10 @@ public class registroUsuario extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JComboBox<String> monedaBox;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTxt;
+    private javax.swing.JComboBox<String> paisBox;
     private javax.swing.JLabel paisLabel;
     private javax.swing.JPasswordField passTxt;
     private javax.swing.JLabel tituloLabel;
