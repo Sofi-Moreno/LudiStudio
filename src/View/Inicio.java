@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aquil
@@ -30,13 +33,14 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        content = new javax.swing.JPanel();
+        salirButom = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        iniciarSesionButtom1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        crearUsuarioButom = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -62,83 +66,138 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 540, 190));
-
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Iniciar Sesión");
-        jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 540, 190));
-
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Registrar Usuario");
-        jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 540, 190));
-
-        jLabel2.setFont(new java.awt.Font("Lucida Calligraphy", 3, 70)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 3, 70)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SLAR");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 250, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 250, -1));
+
+        salirButom.setBackground(new java.awt.Color(102, 102, 102));
+        salirButom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        salirButom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirButomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                salirButomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                salirButomMouseExited(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Salir");
+
+        javax.swing.GroupLayout salirButomLayout = new javax.swing.GroupLayout(salirButom);
+        salirButom.setLayout(salirButomLayout);
+        salirButomLayout.setHorizontalGroup(
+            salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salirButomLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel1)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+        salirButomLayout.setVerticalGroup(
+            salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salirButomLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(salirButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 340, 120));
+
+        iniciarSesionButtom1.setBackground(new java.awt.Color(102, 102, 102));
+        iniciarSesionButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarSesionButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarSesionButtom1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarSesionButtom1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarSesionButtom1MouseExited(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Iniciar Sesión");
+
+        javax.swing.GroupLayout iniciarSesionButtom1Layout = new javax.swing.GroupLayout(iniciarSesionButtom1);
+        iniciarSesionButtom1.setLayout(iniciarSesionButtom1Layout);
+        iniciarSesionButtom1Layout.setHorizontalGroup(
+            iniciarSesionButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iniciarSesionButtom1Layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(43, 43, 43))
+        );
+        iniciarSesionButtom1Layout.setVerticalGroup(
+            iniciarSesionButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarSesionButtom1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel3)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(iniciarSesionButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 130));
+
+        crearUsuarioButom.setBackground(new java.awt.Color(51, 51, 51));
+        crearUsuarioButom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        crearUsuarioButom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearUsuarioButomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                crearUsuarioButomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                crearUsuarioButomMouseExited(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Crear Usuario");
+
+        javax.swing.GroupLayout crearUsuarioButomLayout = new javax.swing.GroupLayout(crearUsuarioButom);
+        crearUsuarioButom.setLayout(crearUsuarioButomLayout);
+        crearUsuarioButomLayout.setHorizontalGroup(
+            crearUsuarioButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crearUsuarioButomLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(43, 43, 43))
+        );
+        crearUsuarioButomLayout.setVerticalGroup(
+            crearUsuarioButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crearUsuarioButomLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(crearUsuarioButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 340, 130));
 
         content.setBackground(new java.awt.Color(0, 153, 153));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1540090.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
-        jLabel3.setText("¡¡¡BIENVENIDO!!!");
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(213, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(210, 210, 210))
-            .addGroup(contentLayout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 617, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addGap(84, 84, 84))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -146,60 +205,84 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(content, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void salirButomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseClicked
+        int confirmacion = JOptionPane.showOptionDialog(
+                        null,"¿Desea salir del sistema?", " ",
+                        JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+        if (confirmacion==0) 
+            this.dispose();
+    }//GEN-LAST:event_salirButomMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        inicioSesion p1 = new inicioSesion();
-        p1.setSize(935,780);
-        p1.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        content.revalidate();
-        content.repaint();
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        registroUsuario p2 = new registroUsuario();
-        p2.setSize(935,780);
+    private void iniciarSesionButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseClicked
+        inicioSesion p2 = new inicioSesion();
+        p2.setSize(617,530);
         p2.setLocation(0,0);
         
         content.removeAll();
         content.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_iniciarSesionButtom1MouseClicked
+
+    private void crearUsuarioButomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseClicked
+        registroUsuario p2 = new registroUsuario();
+        p2.setSize(617,530);
+        p2.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_crearUsuarioButomMouseClicked
+
+    private void iniciarSesionButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseEntered
+        iniciarSesionButtom1.setBackground(Color.gray);
+    }//GEN-LAST:event_iniciarSesionButtom1MouseEntered
+
+    private void iniciarSesionButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseExited
+        iniciarSesionButtom1.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_iniciarSesionButtom1MouseExited
+
+    private void crearUsuarioButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseEntered
+        crearUsuarioButom.setBackground(Color.gray);
+    }//GEN-LAST:event_crearUsuarioButomMouseEntered
+
+    private void crearUsuarioButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseExited
+        crearUsuarioButom.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_crearUsuarioButomMouseExited
+
+    private void salirButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseEntered
+        salirButom.setBackground(Color.gray);
+    }//GEN-LAST:event_salirButomMouseEntered
+
+    private void salirButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseExited
+        salirButom.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_salirButomMouseExited
 
     /**
      * @param args the command line arguments
@@ -241,15 +324,16 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel crearUsuarioButom;
+    private javax.swing.JPanel iniciarSesionButtom1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel salirButom;
     // End of variables declaration//GEN-END:variables
 }
