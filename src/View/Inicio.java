@@ -40,6 +40,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         crearUsuarioButom = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -66,17 +67,17 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 3, 70)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 3, 64)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SLAR");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 250, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 180, -1));
 
-        salirButom.setBackground(new java.awt.Color(102, 102, 102));
+        salirButom.setBackground(new java.awt.Color(0, 153, 153));
         salirButom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salirButom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,7 +114,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel2.add(salirButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 340, 120));
 
-        iniciarSesionButtom1.setBackground(new java.awt.Color(102, 102, 102));
+        iniciarSesionButtom1.setBackground(new java.awt.Color(0, 153, 153));
         iniciarSesionButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iniciarSesionButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,7 +151,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel2.add(iniciarSesionButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 130));
 
-        crearUsuarioButom.setBackground(new java.awt.Color(51, 51, 51));
+        crearUsuarioButom.setBackground(new java.awt.Color(0, 153, 153));
         crearUsuarioButom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         crearUsuarioButom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -187,7 +188,12 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel2.add(crearUsuarioButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 340, 130));
 
-        content.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel6.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Desing");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, 30));
+
+        content.setBackground(new java.awt.Color(0, 204, 204));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -331,6 +337,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
