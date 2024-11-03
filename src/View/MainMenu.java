@@ -69,25 +69,25 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 28)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 27)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Salir");
+        jLabel1.setText("Cerrar sesión");
 
         javax.swing.GroupLayout salirButomLayout = new javax.swing.GroupLayout(salirButom);
         salirButom.setLayout(salirButomLayout);
         salirButomLayout.setHorizontalGroup(
             salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salirButomLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(91, 91, 91)
                 .addComponent(jLabel1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         salirButomLayout.setVerticalGroup(
             salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salirButomLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel2.add(salirButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 340, 90));
@@ -115,9 +115,9 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarUsuarioButtom1Layout.setHorizontalGroup(
             gestionarUsuarioButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarUsuarioButtom1Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(62, 62, 62))
+                .addGap(55, 55, 55))
         );
         gestionarUsuarioButtom1Layout.setVerticalGroup(
             gestionarUsuarioButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,16 +152,16 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarMaterialesButomLayout.setHorizontalGroup(
             gestionarMaterialesButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarMaterialesButomLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(37, 37, 37))
+                .addGap(21, 21, 21))
         );
         gestionarMaterialesButomLayout.setVerticalGroup(
             gestionarMaterialesButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarMaterialesButomLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel4)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jPanel2.add(gestionarMaterialesButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 340, 100));
@@ -194,16 +194,16 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarProyectosButom1Layout.setHorizontalGroup(
             gestionarProyectosButom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarProyectosButom1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(39, 39, 39))
+                .addGap(29, 29, 29))
         );
         gestionarProyectosButom1Layout.setVerticalGroup(
             gestionarProyectosButom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarProyectosButom1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel5)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jPanel2.add(gestionarProyectosButom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 340, 100));
