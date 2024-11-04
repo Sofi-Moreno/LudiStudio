@@ -38,7 +38,7 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarMaterialesButom = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        gestionarProyectosButom1 = new javax.swing.JPanel();
+        gestionarProyectosButtom = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         content2 = new javax.swing.JPanel();
 
@@ -171,17 +171,17 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel6.setText("Desing");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, 30));
 
-        gestionarProyectosButom1.setBackground(new java.awt.Color(0, 153, 153));
-        gestionarProyectosButom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        gestionarProyectosButom1.addMouseListener(new java.awt.event.MouseAdapter() {
+        gestionarProyectosButtom.setBackground(new java.awt.Color(0, 153, 153));
+        gestionarProyectosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gestionarProyectosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gestionarProyectosButom1MouseClicked(evt);
+                gestionarProyectosButtomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                gestionarProyectosButom1MouseEntered(evt);
+                gestionarProyectosButtomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                gestionarProyectosButom1MouseExited(evt);
+                gestionarProyectosButtomMouseExited(evt);
             }
         });
 
@@ -189,24 +189,24 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Gestionar proyectos");
 
-        javax.swing.GroupLayout gestionarProyectosButom1Layout = new javax.swing.GroupLayout(gestionarProyectosButom1);
-        gestionarProyectosButom1.setLayout(gestionarProyectosButom1Layout);
-        gestionarProyectosButom1Layout.setHorizontalGroup(
-            gestionarProyectosButom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarProyectosButom1Layout.createSequentialGroup()
+        javax.swing.GroupLayout gestionarProyectosButtomLayout = new javax.swing.GroupLayout(gestionarProyectosButtom);
+        gestionarProyectosButtom.setLayout(gestionarProyectosButtomLayout);
+        gestionarProyectosButtomLayout.setHorizontalGroup(
+            gestionarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarProyectosButtomLayout.createSequentialGroup()
                 .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(29, 29, 29))
         );
-        gestionarProyectosButom1Layout.setVerticalGroup(
-            gestionarProyectosButom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gestionarProyectosButom1Layout.createSequentialGroup()
+        gestionarProyectosButtomLayout.setVerticalGroup(
+            gestionarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gestionarProyectosButtomLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel5)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        jPanel2.add(gestionarProyectosButom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 340, 100));
+        jPanel2.add(gestionarProyectosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 340, 100));
 
         content2.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -260,11 +260,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_salirButomMouseClicked
 
     private void salirButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseEntered
-        salirButom.setBackground(Color.gray);
+        salirButom.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_salirButomMouseEntered
 
     private void salirButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseExited
-        salirButom.setBackground(new Color(102,102,102));
+        salirButom.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_salirButomMouseExited
 
     private void gestionarUsuarioButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarUsuarioButtom1MouseClicked
@@ -279,11 +279,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionarUsuarioButtom1MouseClicked
 
     private void gestionarUsuarioButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarUsuarioButtom1MouseEntered
-        gestionarUsuarioButtom1.setBackground(Color.gray);
+        gestionarUsuarioButtom1.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_gestionarUsuarioButtom1MouseEntered
 
     private void gestionarUsuarioButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarUsuarioButtom1MouseExited
-        gestionarUsuarioButtom1.setBackground(new Color(102,102,102));
+        gestionarUsuarioButtom1.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_gestionarUsuarioButtom1MouseExited
 
     private void gestionarMaterialesButomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarMaterialesButomMouseClicked
@@ -298,14 +298,14 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionarMaterialesButomMouseClicked
 
     private void gestionarMaterialesButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarMaterialesButomMouseEntered
-        gestionarMaterialesButom.setBackground(Color.gray);
+        gestionarMaterialesButom.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_gestionarMaterialesButomMouseEntered
 
     private void gestionarMaterialesButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarMaterialesButomMouseExited
-        gestionarMaterialesButom.setBackground(new Color(51,51,51));
+        gestionarMaterialesButom.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_gestionarMaterialesButomMouseExited
 
-    private void gestionarProyectosButom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButom1MouseClicked
+    private void gestionarProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButtomMouseClicked
         gestionarProyectos p5 = new gestionarProyectos();
         p5.setSize(613,530);
         p5.setLocation(0,0);
@@ -314,15 +314,15 @@ public class MainMenu extends javax.swing.JFrame {
         content2.add(p5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         content2.revalidate();
         content2.repaint();
-    }//GEN-LAST:event_gestionarProyectosButom1MouseClicked
+    }//GEN-LAST:event_gestionarProyectosButtomMouseClicked
 
-    private void gestionarProyectosButom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButom1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gestionarProyectosButom1MouseEntered
+    private void gestionarProyectosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButtomMouseEntered
+        gestionarProyectosButtom.setBackground(new Color(0,51,51));
+    }//GEN-LAST:event_gestionarProyectosButtomMouseEntered
 
-    private void gestionarProyectosButom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButom1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gestionarProyectosButom1MouseExited
+    private void gestionarProyectosButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButtomMouseExited
+        gestionarProyectosButtom.setBackground(new Color(0,153,153));
+    }//GEN-LAST:event_gestionarProyectosButtomMouseExited
 
     /**
      * @param args the command line arguments
@@ -363,7 +363,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content2;
     private javax.swing.JPanel gestionarMaterialesButom;
-    private javax.swing.JPanel gestionarProyectosButom1;
+    private javax.swing.JPanel gestionarProyectosButtom;
     private javax.swing.JPanel gestionarUsuarioButtom1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

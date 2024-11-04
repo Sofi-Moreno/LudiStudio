@@ -56,6 +56,7 @@ public class registroUsuario extends javax.swing.JPanel {
         nombreTxt = new javax.swing.JTextField();
         apellidoTxt = new javax.swing.JTextField();
         userTxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         passTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -148,7 +149,7 @@ public class registroUsuario extends javax.swing.JPanel {
         jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 620, 100));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario (1).png"))); // NOI18N
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 260, 250));
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 260, 250));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -185,13 +186,13 @@ public class registroUsuario extends javax.swing.JPanel {
                 .addGap(17, 17, 17))
         );
 
-        jPanel6.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 170, 60));
-        jPanel6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 190, 20));
+        jPanel6.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 170, 60));
+        jPanel6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 340, 20));
 
         nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         nombreTxt.setForeground(new java.awt.Color(204, 204, 204));
-        nombreTxt.setText("Ingrese su nombre");
+        nombreTxt.setText("Ingrese su nombre (Primera letra en mayuscula)");
         nombreTxt.setToolTipText("");
         nombreTxt.setBorder(null);
         nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,12 +205,12 @@ public class registroUsuario extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, -1));
+        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 260, -1));
 
         apellidoTxt.setBackground(new java.awt.Color(0, 153, 153));
         apellidoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         apellidoTxt.setForeground(new java.awt.Color(204, 204, 204));
-        apellidoTxt.setText("Ingrese su apellido");
+        apellidoTxt.setText("Ingrese su apellido (Primera letra en mayuscula)");
         apellidoTxt.setToolTipText("");
         apellidoTxt.setBorder(null);
         apellidoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,12 +223,12 @@ public class registroUsuario extends javax.swing.JPanel {
                 apellidoTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 190, -1));
+        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingrese su nombre de usuario");
+        userTxt.setText("Nombre de usuario (Usar un caracter !&$._*-  y Mayuscula )");
         userTxt.setToolTipText("");
         userTxt.setBorder(null);
         userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,10 +241,15 @@ public class registroUsuario extends javax.swing.JPanel {
                 userTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 190, -1));
+        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("(Usar un caracter !&$._*-  y una mayuscula )");
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
 
         passTxt.setBackground(new java.awt.Color(0, 153, 153));
-        passTxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         passTxt.setForeground(new java.awt.Color(204, 204, 204));
         passTxt.setText("************");
         passTxt.setBorder(null);
@@ -252,10 +258,10 @@ public class registroUsuario extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 190, -1));
-        jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, 20));
-        jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 20));
-        jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 20));
+        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 330, 20));
+        jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 320, 20));
+        jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 320, 20));
+        jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 320, 20));
 
         institucionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "UCA", "UCAB", "PUCEM" }));
         institucionBox.addActionListener(new java.awt.event.ActionListener() {
@@ -419,6 +425,10 @@ public class registroUsuario extends javax.swing.JPanel {
                                                 
                                             default:
                                                 controller.guardarRegistroDB(usuarioActual);
+                                                JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
+                                                MainMenu main = new MainMenu();
+                                                main.setVisible(true);
+                                                this.setVisible(false);
                                                 //decir ya se registro el usuario
                                                 break;
                                         }
@@ -435,14 +445,12 @@ public class registroUsuario extends javax.swing.JPanel {
                     || controller.validarContraseña(usuarioActual)!=0);
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-                inicioSesion inicio = new inicioSesion();
-                inicio.setVisible(true);
-                this.setVisible(false);
+                
         }
     }//GEN-LAST:event_entrarButtomMouseClicked
 
     private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
-        if (nombreTxt.getText().equals("Ingrese su nombre")){
+        if (nombreTxt.getText().equals("Ingrese su nombre (Primera letra en mayuscula)")){
             nombreTxt.setText("");
             nombreTxt.setForeground(Color.black);
         }
@@ -451,11 +459,11 @@ public class registroUsuario extends javax.swing.JPanel {
             passTxt.setForeground(new Color(204,204,204));
         }
         if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setText("Nombre de usuario (Usar un caracter !&$._*-  y Mayuscula )");
             userTxt.setForeground(new Color(204,204,204));
         }
         if (apellidoTxt.getText().isEmpty()){
-            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setText("Ingrese su apellido (Primera letra en mayuscula)");
             apellidoTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_nombreTxtMousePressed
@@ -465,7 +473,7 @@ public class registroUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreTxtActionPerformed
 
     private void apellidoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellidoTxtMousePressed
-        if (apellidoTxt.getText().equals("Ingrese su apellido")){
+        if (apellidoTxt.getText().equals("Ingrese su apellido (Primera letra en mayuscula)")){
             apellidoTxt.setText("");
             apellidoTxt.setForeground(Color.black);
         }
@@ -474,11 +482,11 @@ public class registroUsuario extends javax.swing.JPanel {
             passTxt.setForeground(new Color(204,204,204));
         }
         if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setText("Nombre de usuario (Usar un caracter !&$._*-  y Mayuscula )");
             userTxt.setForeground(new Color(204,204,204));
         }
         if (nombreTxt.getText().isEmpty()){
-            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setText("Ingrese su nombre (Primera letra en mayuscula)");
             nombreTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_apellidoTxtMousePressed
@@ -488,7 +496,7 @@ public class registroUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_apellidoTxtActionPerformed
 
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingrese su nombre de usuario")){
+        if (userTxt.getText().equals("Nombre de usuario (Usar un caracter !&$._*-  y Mayuscula )")){
             userTxt.setText("");
             userTxt.setForeground(Color.black);
         }
@@ -497,11 +505,11 @@ public class registroUsuario extends javax.swing.JPanel {
             passTxt.setForeground(new Color(204,204,204));
         }
         if (nombreTxt.getText().isEmpty()){
-            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setText("Ingrese su nombre (Primera letra en mayuscula)");
             nombreTxt.setForeground(new Color(204,204,204));
         }
         if (apellidoTxt.getText().isEmpty()){
-            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setText("Ingrese su apellido (Primera letra en mayuscula)");
             apellidoTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_userTxtMousePressed
@@ -516,15 +524,15 @@ public class registroUsuario extends javax.swing.JPanel {
             passTxt.setForeground(Color.black);
         }
         if (nombreTxt.getText().isEmpty()){
-            nombreTxt.setText("Ingrese su nombre");
+            nombreTxt.setText("Ingrese su nombre (Primera letra en mayuscula)");
             nombreTxt.setForeground(new Color(204,204,204));
         }
         if (apellidoTxt.getText().isEmpty()){
-            apellidoTxt.setText("Ingrese su apellido");
+            apellidoTxt.setText("Ingrese su apellido (Primera letra en mayuscula)");
             apellidoTxt.setForeground(new Color(204,204,204));
         }
         if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setText("Nombre de usuario (Usar un caracter !&$._*-  y Mayuscula )");
             userTxt.setForeground(new Color(204,204,204));
         }
         
@@ -563,6 +571,7 @@ public class registroUsuario extends javax.swing.JPanel {
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
     private javax.swing.JComboBox<String> institucionBox;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

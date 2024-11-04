@@ -267,27 +267,27 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_crearUsuarioButomMouseClicked
 
     private void iniciarSesionButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseEntered
-        iniciarSesionButtom1.setBackground(Color.gray);
+        iniciarSesionButtom1.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_iniciarSesionButtom1MouseEntered
 
     private void iniciarSesionButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseExited
-        iniciarSesionButtom1.setBackground(new Color(102,102,102));
+        iniciarSesionButtom1.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_iniciarSesionButtom1MouseExited
 
     private void crearUsuarioButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseEntered
-        crearUsuarioButom.setBackground(Color.gray);
+        crearUsuarioButom.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_crearUsuarioButomMouseEntered
 
     private void crearUsuarioButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseExited
-        crearUsuarioButom.setBackground(new Color(51,51,51));
+        crearUsuarioButom.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_crearUsuarioButomMouseExited
 
     private void salirButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseEntered
-        salirButom.setBackground(Color.gray);
+        salirButom.setBackground(new Color(0,51,51));
     }//GEN-LAST:event_salirButomMouseEntered
 
     private void salirButomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseExited
-        salirButom.setBackground(new Color(102,102,102));
+        salirButom.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_salirButomMouseExited
 
     /**
