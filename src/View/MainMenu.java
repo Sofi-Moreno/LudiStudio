@@ -268,7 +268,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_salirButomMouseExited
 
     private void gestionarUsuarioButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarUsuarioButtom1MouseClicked
-        gestionarUsuario p3 = new gestionarUsuario();
+        Cerramientos p3 = new Cerramientos();
         p3.setSize(613,530);
         p3.setLocation(0,0);
 

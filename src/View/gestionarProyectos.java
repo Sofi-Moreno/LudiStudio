@@ -28,6 +28,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         crearProyectoButtom = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -38,11 +39,16 @@ public class gestionarProyectos extends javax.swing.JPanel {
         modificarProyectosButtom = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
+        jButton1.setText("jButton1");
+
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         crearProyectoButtom.setBackground(new java.awt.Color(0, 102, 102));
         crearProyectoButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         crearProyectoButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearProyectoButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 crearProyectoButtomMouseEntered(evt);
             }
@@ -126,7 +132,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
             .addGroup(eliminarProyectoButtomLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel7)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         eliminarProyectoButtomLayout.setVerticalGroup(
             eliminarProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,9 +184,9 @@ public class gestionarProyectos extends javax.swing.JPanel {
                     .addComponent(modificarProyectosButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crearProyectoButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eliminarProyectoButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(verProyectosButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(verProyectosButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eliminarProyectoButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -241,10 +247,17 @@ public class gestionarProyectos extends javax.swing.JPanel {
         modificarProyectosButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_modificarProyectosButtomMouseExited
 
+    private void crearProyectoButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearProyectoButtomMouseClicked
+        SelectorDePartes partes = new SelectorDePartes();
+        partes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_crearProyectoButtomMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel crearProyectoButtom;
     private javax.swing.JPanel eliminarProyectoButtom;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
