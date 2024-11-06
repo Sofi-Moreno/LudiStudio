@@ -152,16 +152,16 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarMaterialesButomLayout.setHorizontalGroup(
             gestionarMaterialesButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarMaterialesButomLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(21, 21, 21))
+                .addGap(25, 25, 25))
         );
         gestionarMaterialesButomLayout.setVerticalGroup(
             gestionarMaterialesButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarMaterialesButomLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel4)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel2.add(gestionarMaterialesButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 340, 100));
@@ -201,9 +201,9 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarProyectosButtomLayout.setVerticalGroup(
             gestionarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarProyectosButtomLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel5)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jPanel2.add(gestionarProyectosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 340, 100));
@@ -268,7 +268,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_salirButomMouseExited
 
     private void gestionarUsuarioButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarUsuarioButtom1MouseClicked
-        Cerramientos p3 = new Cerramientos();
+        gestionarUsuario p3 = new gestionarUsuario();
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
