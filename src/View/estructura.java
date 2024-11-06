@@ -696,7 +696,7 @@ public class estructura extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(precio3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(deshabilitarButtom3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, Short.MAX_VALUE))
+                                .addComponent(deshabilitarButtom3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rampaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -1375,23 +1375,23 @@ public class estructura extends javax.swing.JPanel {
 
         tituloLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         tituloLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel2.setText("ELEMENTOS COMPLEMENTARIOS");
+        tituloLabel2.setText("ESTRUCTURA");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tituloLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addContainerGap(185, Short.MAX_VALUE)
+                .addComponent(tituloLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(tituloLabel2)
-                .addGap(36, 36, 36))
+                .addGap(37, 37, 37))
         );
 
         deshabilitarButtom9.setBackground(new java.awt.Color(0, 102, 102));
@@ -1585,6 +1585,11 @@ public class estructura extends javax.swing.JPanel {
 
         guardarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarButtom2MouseClicked(evt);
+            }
+        });
 
         guardarLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         guardarLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2481,7 +2486,7 @@ public class estructura extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(precio12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(deshabilitarButtom15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, Short.MAX_VALUE))
+                                .addComponent(deshabilitarButtom15, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE))
                             .addGroup(contentElementosLayout.createSequentialGroup()
                                 .addComponent(rampaLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -3295,6 +3300,10 @@ public class estructura extends javax.swing.JPanel {
     private void guardarButtom4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtom4MouseExited
         guardarButtom.setBackground(new Color(0,102,102));
 
+        
+    }//GEN-LAST:event_guardarButtom4MouseExited
+
+    private void guardarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtom2MouseClicked
         elementosComplementarios p3 = new elementosComplementarios();
         p3.setSize(613,530);
         p3.setLocation(0,0);
@@ -3303,7 +3312,7 @@ public class estructura extends javax.swing.JPanel {
         contentElementos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         contentElementos.revalidate();
         contentElementos.repaint();
-    }//GEN-LAST:event_guardarButtom4MouseExited
+    }//GEN-LAST:event_guardarButtom2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

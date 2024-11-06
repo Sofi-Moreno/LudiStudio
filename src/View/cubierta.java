@@ -279,6 +279,9 @@ public class cubierta extends javax.swing.JPanel {
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         guardarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 guardarButtomMouseEntered(evt);
             }
@@ -488,6 +491,10 @@ public class cubierta extends javax.swing.JPanel {
     private void guardarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseExited
         guardarButtom.setBackground(new Color(0,102,102));
 
+        
+    }//GEN-LAST:event_guardarButtomMouseExited
+
+    private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
         estructura p3 = new estructura();
         p3.setSize(613,530);
         p3.setLocation(0,0);
@@ -496,7 +503,7 @@ public class cubierta extends javax.swing.JPanel {
         contentCubierta.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         contentCubierta.revalidate();
         contentCubierta.repaint();
-    }//GEN-LAST:event_guardarButtomMouseExited
+    }//GEN-LAST:event_guardarButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

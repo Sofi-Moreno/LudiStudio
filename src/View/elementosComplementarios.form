@@ -544,6 +544,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="guardarButtomMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -601,7 +604,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Rampas"/>
+            <Property name="text" type="java.lang.String" value="Losas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="techoLabel">
@@ -612,7 +615,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Techo"/>
+            <Property name="text" type="java.lang.String" value="Entrepiso"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="escaleraLabel">
@@ -623,7 +626,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Escaleras"/>
+            <Property name="text" type="java.lang.String" value="Columnas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="barandasLabel">
@@ -634,7 +637,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Barandas"/>
+            <Property name="text" type="java.lang.String" value="Vigas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="materialBox3">

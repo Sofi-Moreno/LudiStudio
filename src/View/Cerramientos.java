@@ -274,6 +274,11 @@ public class Cerramientos extends javax.swing.JPanel {
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarButtomMouseClicked(evt);
+            }
+        });
 
         guardarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         guardarLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -639,6 +644,10 @@ public class Cerramientos extends javax.swing.JPanel {
     private void deshabilitarButtom3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom3MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_deshabilitarButtom3MouseExited
+
+    private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

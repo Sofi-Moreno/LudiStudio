@@ -284,6 +284,11 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarButtomMouseClicked(evt);
+            }
+        });
 
         guardarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         guardarLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,19 +317,19 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
         rampaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         rampaLabel.setForeground(new java.awt.Color(0, 102, 102));
-        rampaLabel.setText("Rampas");
+        rampaLabel.setText("Losas");
 
         techoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         techoLabel.setForeground(new java.awt.Color(0, 102, 102));
-        techoLabel.setText("Techo");
+        techoLabel.setText("Entrepiso");
 
         escaleraLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         escaleraLabel.setForeground(new java.awt.Color(0, 102, 102));
-        escaleraLabel.setText("Escaleras");
+        escaleraLabel.setText("Columnas");
 
         barandasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         barandasLabel.setForeground(new java.awt.Color(0, 102, 102));
-        barandasLabel.setText("Barandas");
+        barandasLabel.setText("Vigas");
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -828,6 +833,10 @@ public class elementosComplementarios extends javax.swing.JPanel {
     private void deshabilitarButtom4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom4MouseExited
        deshabilitarButtom4.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_deshabilitarButtom4MouseExited
+
+    private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
+        
+    }//GEN-LAST:event_guardarButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
