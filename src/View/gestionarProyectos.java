@@ -81,6 +81,9 @@ public class gestionarProyectos extends javax.swing.JPanel {
         verProyectosButtom.setBackground(new java.awt.Color(0, 102, 102));
         verProyectosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verProyectosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProyectosButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProyectosButtomMouseEntered(evt);
             }
@@ -252,6 +255,10 @@ public class gestionarProyectos extends javax.swing.JPanel {
         partes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_crearProyectoButtomMouseClicked
+
+    private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verProyectosButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
