@@ -11,22 +11,34 @@ package Model;
 public class Proyecto {
     private String nombreProyecto,fechaDeCreacion;
     private double presupuesto, presupuestoTotal;
-    private int id_usuario;
+    private int idProyecto, idUsuario, idMateriales;
     
     public Proyecto(){
         nombreProyecto = "";
         fechaDeCreacion = "";
-        id_usuario = 0;
+        idProyecto = 0;
+        idUsuario = 0;
+        idMateriales =0;
         presupuesto = 0.0;
         presupuestoTotal = 0.0;
     }
 
-    public Proyecto(String nombreProyecto, double presupuesto, double presupuestoTotal, String fechaDeCreacion, int id_usuario) {
+    public Proyecto(String nombreProyecto, String fechaDeCreacion, double presupuesto, double presupuestoTotal, int idProyecto, int idUsuario, int idMateriales) {
         this.nombreProyecto = nombreProyecto;
+        this.fechaDeCreacion = fechaDeCreacion;
         this.presupuesto = presupuesto;
         this.presupuestoTotal = presupuestoTotal;
-        this.fechaDeCreacion = fechaDeCreacion;
-        this.id_usuario = id_usuario;
+        this.idProyecto = idProyecto;
+        this.idUsuario = idUsuario;
+        this.idMateriales = idMateriales;
+    }
+
+    public int getIdProyecto() {
+        return idProyecto;
+    }
+
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
     }
 
     public String getNombreProyecto() {
@@ -61,13 +73,23 @@ public class Proyecto {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
+
+    public int getIdMateriales() {
+        return idMateriales;
+    }
+
+    public void setIdMateriales(int idMateriales) {
+        this.idMateriales = idMateriales;
+    }
+
+    
 
     
 }
