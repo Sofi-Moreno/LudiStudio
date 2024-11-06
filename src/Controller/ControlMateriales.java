@@ -29,6 +29,9 @@ public class ControlMateriales {
             costoHerraRegistro;
     JComboBox unidadRegistro,sustRegistro,manodRegistro,transRegistro,herraRegistro;
     JPanel ventana;
+    
+    //Atributo para eliminar
+    JTextField nombreEliminar;
 
     public ControlMateriales(JTextField rubroRegistro, JTextField nombreRegistro, JTextField cantidadRegistro, JTextField costoMRegistro, JTextField proveRegistro, JTextField costransRegistro, JTextField costomanoRegistro, JTextField costoHerraRegistro, JComboBox unidadRegistro, JComboBox sustRegistro, JComboBox manodRegistro, JComboBox transRegistro, JComboBox herraRegistro, JPanel ventana) {
         this.rubroRegistro = rubroRegistro;
@@ -46,7 +49,13 @@ public class ControlMateriales {
         this.herraRegistro = herraRegistro;
         this.ventana = ventana;
     }
-
+    
+    //Constructor para eliminar
+    public ControlMateriales(JTextField nombreEliminar) {
+        this.nombreEliminar = nombreEliminar;
+    }
+    
+ 
     
     //METODO PARA VALIDAR EL NOMBRE DEL MATERIAL
     public int validarMaterialNombre(Material mat) throws SQLException{
@@ -200,5 +209,67 @@ public class ControlMateriales {
             con.desconectar();
         }
         return bol;
+    }
+    //====================ELIMINAR MATERIAL====================================
+    public int eliminarRegistroDB() throws SQLException {
+        int veri=0;//VALOR SIN ERRORES
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection();
+        boolean bol = false;
+        PreparedStatement st = null, st2 = null;
+        ResultSet rs = null;
+        String patron = "^[a-zA-Z0-9\\s.,;:-^()\\/]+\\s*(\\([a-zA-Z0-9\\s.,;:-^()\\/]+\\))*$";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(nombreEliminar.getText());
+        String sql1 = "SELECT COUNT(*) FROM material WHERE nombre_material = ?";
+        String sql2 = "DELETE FROM material WHERE nombre_material = ?";
+
+        try {
+            if (!matcher.matches()){
+                veri=1; //No coincide con el patron establecido
+            }else if(!matcher.matches() && (nombreEliminar.getText().length()>25 || nombreEliminar.getText().length()<3)){
+                veri = 2; //si no cumple el patron y no tiene la longitud correcta
+            }else if(nombreEliminar.getText().length()>25 || nombreEliminar.getText().length()<3){
+                veri = 3; //error si no tiene el tamaño correcto
+            }else{
+            // Verifica si el material existe
+            st = conex.prepareStatement(sql1);
+            st.setString(1, nombreEliminar.getText());
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                if (count > 0) {
+                    // El material existe y procede con la eliminacion
+                    st2 = conex.prepareStatement(sql2);
+                    st2.setString(1, nombreEliminar.getText());
+                    int rowsDeleted = st2.executeUpdate();
+                    if (rowsDeleted > 0) {
+                        bol = true;
+                    }
+                } else {
+                    veri= 4; //material no encontrado
+                }
+            } else {
+                veri=5; // Error encontrando material
+            }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (st != null) {
+                st.close();
+            }
+            if (st2 != null) {
+                st2.close();
+            }
+            conex.close();
+            con.desconectar();
+        }
+
+        return veri;
     }
 }
