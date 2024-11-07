@@ -4,6 +4,8 @@
  */
 package View;
 
+import java.awt.Color;
+
 /**
  *
  * @author Riarb
@@ -27,54 +29,171 @@ public class SelectorDePartes extends javax.swing.JPanel {
     private void initComponents() {
 
         contentSelector = new javax.swing.JPanel();
-        comenzarButton = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        ingresarButtom = new javax.swing.JPanel();
+        ingresarLabel = new javax.swing.JLabel();
+        nombreTxt = new javax.swing.JTextField();
+        presupuestoLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        panelTitle = new javax.swing.JPanel();
+        tituloLabel = new javax.swing.JLabel();
+        sustentabilidadBox = new javax.swing.JComboBox<>();
+        sustentabilidadLabel = new javax.swing.JLabel();
+        presupuestTxt = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        nombreLabel = new javax.swing.JLabel();
 
-        contentSelector.setBackground(new java.awt.Color(0, 204, 204));
+        contentSelector.setBackground(new java.awt.Color(0, 153, 153));
 
-        comenzarButton.setBackground(new java.awt.Color(255, 153, 51));
-        comenzarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                comenzarButtonMouseClicked(evt);
+                ingresarButtomMouseClicked(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("COMENZAR!!!");
+        ingresarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarLabel.setText("Ingresar");
 
-        javax.swing.GroupLayout comenzarButtonLayout = new javax.swing.GroupLayout(comenzarButton);
-        comenzarButton.setLayout(comenzarButtonLayout);
-        comenzarButtonLayout.setHorizontalGroup(
-            comenzarButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, comenzarButtonLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(22, 22, 22))
+        javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
+        ingresarButtom.setLayout(ingresarButtomLayout);
+        ingresarButtomLayout.setHorizontalGroup(
+            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ingresarButtomLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(ingresarLabel)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
-        comenzarButtonLayout.setVerticalGroup(
-            comenzarButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(comenzarButtonLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addContainerGap(20, Short.MAX_VALUE))
+        ingresarButtomLayout.setVerticalGroup(
+            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(ingresarLabel)
+                .addGap(18, 18, 18))
         );
+
+        nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
+        nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        nombreTxt.setForeground(new java.awt.Color(204, 204, 204));
+        nombreTxt.setText("Ingrese el nombre del proyecto");
+        nombreTxt.setToolTipText("");
+        nombreTxt.setBorder(null);
+        nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nombreTxtMousePressed(evt);
+            }
+        });
+        nombreTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreTxtActionPerformed(evt);
+            }
+        });
+
+        presupuestoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        presupuestoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        presupuestoLabel.setText("Presupuesto");
+        presupuestoLabel.setToolTipText("");
+
+        panelTitle.setBackground(new java.awt.Color(0, 102, 102));
+
+        tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLabel.setText("CREAR NUEVO PROYECTO");
+
+        javax.swing.GroupLayout panelTitleLayout = new javax.swing.GroupLayout(panelTitle);
+        panelTitle.setLayout(panelTitleLayout);
+        panelTitleLayout.setHorizontalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTitleLayout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(tituloLabel)
+                .addContainerGap(168, Short.MAX_VALUE))
+        );
+        panelTitleLayout.setVerticalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addComponent(tituloLabel)
+                .addGap(37, 37, 37))
+        );
+
+        sustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        sustentabilidadLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        sustentabilidadLabel.setForeground(new java.awt.Color(255, 255, 255));
+        sustentabilidadLabel.setText("Sustentabilidad");
+        sustentabilidadLabel.setToolTipText("");
+
+        presupuestTxt.setBackground(new java.awt.Color(0, 153, 153));
+        presupuestTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        presupuestTxt.setForeground(new java.awt.Color(204, 204, 204));
+        presupuestTxt.setText("Ingrese el presupuesto del proyecto");
+        presupuestTxt.setToolTipText("");
+        presupuestTxt.setBorder(null);
+        presupuestTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                presupuestTxtMousePressed(evt);
+            }
+        });
+        presupuestTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presupuestTxtActionPerformed(evt);
+            }
+        });
+
+        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nombreLabel.setText("Nombre ");
+        nombreLabel.setToolTipText("");
 
         javax.swing.GroupLayout contentSelectorLayout = new javax.swing.GroupLayout(contentSelector);
         contentSelector.setLayout(contentSelectorLayout);
         contentSelectorLayout.setHorizontalGroup(
             contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorLayout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
-                .addComponent(comenzarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(218, 218, 218))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+            .addGroup(contentSelectorLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreLabel)
+                    .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nombreTxt)
+                        .addComponent(presupuestoLabel)
+                        .addComponent(jSeparator1)
+                        .addComponent(presupuestTxt)
+                        .addComponent(jSeparator2))
+                    .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(sustentabilidadBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sustentabilidadLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contentSelectorLayout.setVerticalGroup(
             contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorLayout.createSequentialGroup()
-                .addContainerGap(400, Short.MAX_VALUE)
-                .addComponent(comenzarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(22, 22, 22)
+                .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nombreLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(presupuestoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(presupuestTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sustentabilidadLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sustentabilidadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -89,7 +208,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comenzarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comenzarButtonMouseClicked
+    private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
         fundamentosYcimentacion p3 = new fundamentosYcimentacion();
         p3.setSize(613,530);
         p3.setLocation(0,0);
@@ -98,12 +217,52 @@ public class SelectorDePartes extends javax.swing.JPanel {
         contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         contentSelector.revalidate();
         contentSelector.repaint();
-    }//GEN-LAST:event_comenzarButtonMouseClicked
+    }//GEN-LAST:event_ingresarButtomMouseClicked
+
+    private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
+        if (nombreTxt.getText().equals("Ingrese el nombre del proyecto")){
+            nombreTxt.setText("");
+            nombreTxt.setForeground(Color.black);
+        }
+        if (presupuestTxt.getText().isEmpty()){
+            presupuestTxt.setText("Ingrese el presupuesto del proyecto");
+            presupuestTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_nombreTxtMousePressed
+
+    private void nombreTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreTxtActionPerformed
+
+    private void presupuestTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_presupuestTxtMousePressed
+        if(presupuestTxt.getText().equals("Ingrese el presupuesto del proyecto")){
+            presupuestTxt.setText("");
+            presupuestTxt.setForeground(Color.black);
+        }
+        if (nombreTxt.getText().isEmpty()){
+            nombreTxt.setText("Ingrese el nombre del proyecto");
+            nombreTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_presupuestTxtMousePressed
+
+    private void presupuestTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presupuestTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presupuestTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel comenzarButton;
     private javax.swing.JPanel contentSelector;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel ingresarButtom;
+    private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField nombreTxt;
+    private javax.swing.JPanel panelTitle;
+    private javax.swing.JTextField presupuestTxt;
+    private javax.swing.JLabel presupuestoLabel;
+    private javax.swing.JComboBox<String> sustentabilidadBox;
+    private javax.swing.JLabel sustentabilidadLabel;
+    private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables
 }

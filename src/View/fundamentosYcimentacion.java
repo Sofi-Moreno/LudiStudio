@@ -11,12 +11,15 @@ import java.awt.Color;
  * @author Riarb
  */
 public class fundamentosYcimentacion extends javax.swing.JPanel {
+    boolean zap, mur;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
     public fundamentosYcimentacion() {
         initComponents();
+        zap=true;
+        mur=true;
     }
 
     /**
@@ -445,6 +448,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
+        zap=false;
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
 
     private void habilitarButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom1MouseClicked
@@ -456,6 +460,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
+        zap=true;
     }//GEN-LAST:event_habilitarButtom1MouseClicked
 
     private void habilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom1MouseEntered
@@ -483,6 +488,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
+        mur=true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
 
     private void deshabilitarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom2MouseClicked
@@ -494,6 +500,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
+        mur=false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
 
     private void habilitarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom2MouseEntered
