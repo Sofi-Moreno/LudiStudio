@@ -11,12 +11,17 @@ import java.awt.Color;
  * @author Riarb
  */
 public class elementosComplementarios extends javax.swing.JPanel {
+    boolean esc,bar,tech,ramp;
 
     /**
      * Creates new form elementosComplementarios
      */
     public elementosComplementarios() {
         initComponents();
+        esc = true;
+        bar= true;
+        tech= true;
+        ramp=true;
     }
 
     /**
@@ -307,22 +312,22 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
         rampaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         rampaLabel.setForeground(new java.awt.Color(0, 102, 102));
-        rampaLabel.setText("Losas");
-        contentElementos.add(rampaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 145, 140, -1));
+        rampaLabel.setText("Rampas");
+        contentElementos.add(rampaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, -1));
 
         techoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         techoLabel.setForeground(new java.awt.Color(0, 102, 102));
-        techoLabel.setText("Entrepiso");
-        contentElementos.add(techoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 272, -1, -1));
+        techoLabel.setText("Techos");
+        contentElementos.add(techoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         escaleraLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         escaleraLabel.setForeground(new java.awt.Color(0, 102, 102));
-        escaleraLabel.setText("Columnas");
+        escaleraLabel.setText("Escalera");
         contentElementos.add(escaleraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 149, 120, -1));
 
         barandasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         barandasLabel.setForeground(new java.awt.Color(0, 102, 102));
-        barandasLabel.setText("Vigas");
+        barandasLabel.setText("Barandas");
         contentElementos.add(barandasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
@@ -331,7 +336,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 materialBox3ActionPerformed(evt);
             }
         });
-        contentElementos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 204, -1, -1));
+        contentElementos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
 
         materialBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -339,7 +344,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 materialBox4ActionPerformed(evt);
             }
         });
-        contentElementos.add(materialBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 341, -1, -1));
+        contentElementos.add(materialBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
 
         precioLabel3.setText("Precio");
 
@@ -347,19 +352,19 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precio3.setLayout(precio3Layout);
         precio3Layout.setHorizontalGroup(
             precio3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio3Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(precioLabel3)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap())
         );
         precio3Layout.setVerticalGroup(
             precio3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(precioLabel3))
+            .addGroup(precio3Layout.createSequentialGroup()
+                .addComponent(precioLabel3)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        contentElementos.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 204, -1, 22));
+        contentElementos.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, 22));
 
         precioLabel4.setText("Precio");
 
@@ -367,19 +372,19 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precio4.setLayout(precio4Layout);
         precio4Layout.setHorizontalGroup(
             precio4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(precioLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         precio4Layout.setVerticalGroup(
             precio4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio4Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(precioLabel4))
+            .addGroup(precio4Layout.createSequentialGroup()
+                .addComponent(precioLabel4)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        contentElementos.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 341, -1, -1));
+        contentElementos.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
 
         habilitarButtom3.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -418,7 +423,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 145, -1, -1));
+        contentElementos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         deshabilitarButtom3.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -449,13 +454,13 @@ public class elementosComplementarios extends javax.swing.JPanel {
         );
         deshabilitarButtom3Layout.setVerticalGroup(
             deshabilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deshabilitarButtom3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(deshabilitarButtom3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(deshabilitarLabel3)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 185, 70, -1));
+        contentElementos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 70, -1));
 
         habilitarButtom4.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -494,7 +499,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 272, -1, -1));
+        contentElementos.add(habilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
         deshabilitarButtom4.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -518,10 +523,10 @@ public class elementosComplementarios extends javax.swing.JPanel {
         deshabilitarButtom4.setLayout(deshabilitarButtom4Layout);
         deshabilitarButtom4Layout.setHorizontalGroup(
             deshabilitarButtom4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deshabilitarButtom4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deshabilitarButtom4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(deshabilitarLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         deshabilitarButtom4Layout.setVerticalGroup(
             deshabilitarButtom4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,7 +536,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        contentElementos.add(deshabilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 310, -1, -1));
+        contentElementos.add(deshabilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -568,7 +573,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, -1));
+        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -591,6 +596,8 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
+        esc= false;
+        
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
 
     private void deshabilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom1MouseEntered
@@ -610,6 +617,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
+        esc = true;
     }//GEN-LAST:event_habilitarButtom1MouseClicked
 
     private void habilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom1MouseEntered
@@ -633,6 +641,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
+        bar = true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
 
     private void habilitarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom2MouseEntered
@@ -652,6 +661,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
+        bar= false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
 
     private void deshabilitarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom2MouseEntered
@@ -679,6 +689,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precioLabel3.setEnabled(true);
         precio3.setEnabled(true);
         materialBox3.setEnabled(true);
+        ramp=true;
     }//GEN-LAST:event_habilitarButtom3MouseClicked
 
     private void habilitarButtom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom3MouseEntered
@@ -698,6 +709,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precioLabel3.setEnabled(false);
         precio3.setEnabled(false);
         materialBox3.setEnabled(false);
+        ramp=false;
     }//GEN-LAST:event_deshabilitarButtom3MouseClicked
 
     private void deshabilitarButtom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom3MouseEntered
@@ -717,6 +729,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precio4.setEnabled(true);
         precioLabel4.setEnabled(true);
         materialBox4.setEnabled(true);
+        tech= true;
     }//GEN-LAST:event_habilitarButtom4MouseClicked
 
     private void habilitarButtom4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom4MouseEntered
@@ -736,6 +749,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         precioLabel4.setEnabled(false);
         precio4.setEnabled(false);
         materialBox4.setEnabled(false);
+        tech = false;
     }//GEN-LAST:event_deshabilitarButtom4MouseClicked
 
     private void deshabilitarButtom4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom4MouseEntered

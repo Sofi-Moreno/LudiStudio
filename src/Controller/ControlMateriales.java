@@ -23,7 +23,7 @@ import javax.swing.JTextField;
  * @author LAMM
  */
 public class ControlMateriales {
-    //atributos materiales
+    //atributos registrar materiales y modificarlos
     JTextField rubroRegistro, nombreRegistro, cantidadRegistro, costoMRegistro,
               proveRegistro, costransRegistro,costomanoRegistro,  
             costoHerraRegistro;
@@ -32,6 +32,7 @@ public class ControlMateriales {
     
     //Atributo para eliminar
     JTextField nombreEliminar;
+    
 
     public ControlMateriales(JTextField rubroRegistro, JTextField nombreRegistro, JTextField cantidadRegistro, JTextField costoMRegistro, JTextField proveRegistro, JTextField costransRegistro, JTextField costomanoRegistro, JTextField costoHerraRegistro, JComboBox unidadRegistro, JComboBox sustRegistro, JComboBox manodRegistro, JComboBox transRegistro, JComboBox herraRegistro, JPanel ventana) {
         this.rubroRegistro = rubroRegistro;
@@ -210,6 +211,7 @@ public class ControlMateriales {
         }
         return bol;
     }
+    
     //====================ELIMINAR MATERIAL====================================
     public int eliminarRegistroDB() throws SQLException {
         int veri=0;//VALOR SIN ERRORES
@@ -272,4 +274,82 @@ public class ControlMateriales {
 
         return veri;
     }
+    
+    public boolean modificarMaterial(Material mat) throws SQLException {
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection();
+        boolean bol = false;
+        PreparedStatement st = null;
+
+        String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ? WHERE nombre_material = ?";
+        try {
+            st = conex.prepareStatement(sql);
+            st.setString(1,mat.getRubro());
+            st.setString(2,mat.getNombreMaterial());
+            st.setString(3,(String)unidadRegistro.getSelectedItem());
+            st.setInt(4,mat.getCantidadMaterial());
+            st.setDouble(5,mat.getCostoMaterial());
+            st.setString(6,(String)sustRegistro.getSelectedItem());
+            st.setString(7,mat.getProveedor());
+            st.setString(8,(String)transRegistro.getSelectedItem());
+            st.setDouble(9,mat.getCostoTransporte());
+            st.setString(10,(String)manodRegistro.getSelectedItem());
+            st.setDouble(11,mat.getCostoMDObra());
+            st.setString(12,(String)herraRegistro.getSelectedItem());
+            st.setDouble(13,mat.getCostoHerramientas());
+            st.setDouble(14,mat.getCostoTotatalMaterial());
+
+            int rowsUpdated = st.executeUpdate();
+            if (rowsUpdated > 0) {
+                bol = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (st != null) {
+                st.close();
+            }
+            conex.close();
+            con.desconectar();
+        }
+
+        return bol;
+    }
+    
+    //ESTA FUNCION VE TODOS LOS MATERIALES, SERA UTILIZADA PARA OTRA FUNCION
+    public ResultSet selecTodosMateriales() throws SQLException {
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM material";
+
+        try {
+          stmt = conex.createStatement();
+          rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+          Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+          stmt.close();
+          conex.close();
+          con.desconectar();
+        }
+
+        return rs;
+      }
+    
+    //ESTA FUNCION LLAMA A LA DE ARRIBA PARA MOSTRAR LO QUE VE
+    public void mostrarTodosMateriales() throws SQLException {
+        ResultSet rs =  selecTodosMateriales();
+
+        // Imprimir los resultados en la consola (Ejemplo)
+        while (rs.next()) {
+          String nombreMaterial = rs.getString("nombre_material");
+          String rubroMaterial = rs.getString("rubro_material");
+          
+        }
+
+       // POR TERMINAR PORQUE HAY QUE VER COMO SE VA A MOSTRAR EN LA INTERFAZ
+      }
+    
 }

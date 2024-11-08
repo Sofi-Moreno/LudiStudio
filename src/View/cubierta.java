@@ -11,12 +11,16 @@ import java.awt.Color;
  * @author Riarb
  */
 public class cubierta extends javax.swing.JPanel {
-
+    boolean estructCubieta, cubiert;
     /**
      * Creates new form cubierta
      */
     public cubierta() {
         initComponents();
+        estructCubieta=true;
+        cubiert= true;
+        
+        
     }
 
     /**
@@ -413,6 +417,7 @@ public class cubierta extends javax.swing.JPanel {
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
+        estructCubieta=false;
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
 
     private void deshabilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom1MouseEntered
@@ -432,6 +437,8 @@ public class cubierta extends javax.swing.JPanel {
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
+        estructCubieta=true;
+        
     }//GEN-LAST:event_habilitarButtom1MouseClicked
 
     private void habilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom1MouseEntered
@@ -455,6 +462,7 @@ public class cubierta extends javax.swing.JPanel {
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
+        cubiert=true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
 
     private void habilitarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilitarButtom2MouseEntered
@@ -474,6 +482,7 @@ public class cubierta extends javax.swing.JPanel {
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
+        cubiert=false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
 
     private void deshabilitarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom2MouseEntered

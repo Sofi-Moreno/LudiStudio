@@ -205,7 +205,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 260, -1));
+        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, -1));
 
         apellidoTxt.setBackground(new java.awt.Color(0, 153, 153));
         apellidoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -223,7 +223,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 apellidoTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, -1));
+        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 290, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
