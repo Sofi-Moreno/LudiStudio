@@ -426,7 +426,7 @@ public class registroUsuario extends javax.swing.JPanel {
                                             default:
                                                 controller.guardarRegistroDB(usuarioActual);
                                                 JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
-                                                MainMenu main = new MainMenu();
+                                                MainMenu main = new MainMenu(usuarioActual);
                                                 main.setVisible(true);
                                                 this.setVisible(false);
                                                 //decir ya se registro el usuario

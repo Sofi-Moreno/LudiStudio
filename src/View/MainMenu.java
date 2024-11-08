@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 /**
@@ -11,12 +12,14 @@ import javax.swing.JOptionPane;
  * @author Riarb
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    static Usuario usuarioActual = new Usuario();
     /**
      * Creates new form MainMenu
+     * @param us
      */
-    public MainMenu() {
+    public MainMenu(Usuario us) {
         initComponents();
+        usuarioActual = us;
     }
 
     /**
@@ -306,7 +309,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionarMaterialesButomMouseExited
 
     private void gestionarProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarProyectosButtomMouseClicked
-        gestionarProyectos p5 = new gestionarProyectos();
+        gestionarProyectos p5 = new gestionarProyectos(usuarioActual);
         p5.setSize(613,530);
         p5.setLocation(0,0);
 
@@ -355,7 +358,7 @@ public class MainMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                new MainMenu(usuarioActual).setVisible(true);
             }
         });
     }

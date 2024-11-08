@@ -4,7 +4,13 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,14 +18,27 @@ import java.awt.Color;
  */
 public class fundamentosYcimentacion extends javax.swing.JPanel {
     boolean zap, mur;
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
-    public fundamentosYcimentacion() {
+    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario) {
         initComponents();
         zap=true;
         mur=true;
+        controller=new ControllerProyec(this);
+        proyecto = proyec;
+        usuarioActual=usuario;
+        try {
+            controller.llenarBoxMateriales(materialBox1);
+            controller.llenarBoxMateriales(materialBox2);
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**

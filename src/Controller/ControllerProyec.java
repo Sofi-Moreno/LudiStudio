@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -40,6 +42,9 @@ public class ControllerProyec {
         this.sustentabilidad = sustentabilidad;
         this.ventana = ventana;
     }
+    public ControllerProyec(JPanel ventana){
+        this.ventana = ventana;
+    }
     //constructor para eliminar
     public ControllerProyec(JTextField idProyecto) {
         this.idProyecto = idProyecto;
@@ -47,37 +52,107 @@ public class ControllerProyec {
     //constructor para modificar
     //**************************CREAR PROYECTO**************************
     //validacion de nombre del proyecto
-    public boolean validarNombre(Proyecto proyecto, String nombre) {
+    public boolean validarNombre(Proyecto proyecto) {
         boolean boleano = false;
-        if(nombre.length()>25 || nombre.length()<1){
+        if(nombreProyecto.getText().length()>25 || nombreProyecto.getText().length()<1){
             boleano = true;
         }
         else{
-            proyecto.setNombreProyecto(nombre);
+            proyecto.setNombreProyecto(nombreProyecto.getText());
         }
         return boleano;
     }
     //validacion del presupuesto
-    public boolean validarPresupuesto(Proyecto proyecto, String presupuesto){
+    public boolean validarPresupuesto(Proyecto proyecto){
         boolean boleano = false;
         String patron = "^[\\d.]+$";
         Pattern pattern = Pattern.compile(patron);
-        Matcher matcher = pattern.matcher(presupuesto);
+        Matcher matcher = pattern.matcher(presupuestoInicial.getText());
         if(!matcher.matches()){
             boleano = true;
         }else{
-            proyecto.setPresupuesto(Double.parseDouble(presupuesto));
+            proyecto.setPresupuesto(Double.parseDouble(presupuestoInicial.getText()));
         }
         return boleano;
     }
-    //llenar box de materiales
-    public void llenarBoxMateriales(){
+    //tomar fecha actual del sistema
+    public String fecha(){
+        String fechita;
+        LocalDate fecha = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+        fechita = fecha.format(formato);
+        return fechita;
+    }
+    //guardar datos iniciales
+    public boolean guardarInformacion(Proyecto proyecto) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
+        boolean bol = false;
+        PreparedStatement st = null;
+        PreparedStatement materiales= null;
+        ResultSet resultado = null;
+        try {
+            materiales = conex.prepareStatement("SELECT id_partes FROM partes ORDER BY id_partes DESC LIMIT 1");
+            resultado = materiales.executeQuery();
+            int ultimoIdPartes = 0; 
+            if (resultado.next()) { 
+                ultimoIdPartes = resultado.getInt("id_partes"); 
+            }
+            st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto, fecha, sustentabilidad, materiales) VALUES (?,?,?,?,?,?)");
+            st.setInt(1,proyecto.getIdUsuario());
+            st.setString(2,proyecto.getNombreProyecto());
+            st.setDouble(3,proyecto.getPresupuesto());
+            st.setString(4,fecha());
+            st.setString(5,(String)sustentabilidad.getSelectedItem());
+            st.setInt(6,ultimoIdPartes+1);
+            int rowsInserted = st.executeUpdate();
+            if(rowsInserted>0){
+                bol = true;
+            }
+            proyecto.setFechaDeCreacion(fecha());
+            proyecto.setSustentabilidad((String)sustentabilidad.getSelectedItem());
+            proyecto.setIdMateriales(ultimoIdPartes+1);
+            materiales = conex.prepareStatement("SELECT id_proyecto FROM proyecto WHERE nombre = ?");
+            materiales.setString(1, proyecto.getNombreProyecto()); 
+            resultado = materiales.executeQuery(); 
+            if (resultado.next()) { 
+                proyecto.setIdProyecto(resultado.getInt("id_proyecto"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if (resultado != null) resultado.close(); 
+            if (materiales != null) materiales.close(); 
+            if (st != null) st.close(); 
+            if (conex != null) conex.close();
+        }
+        return bol;
+    }
+    //llenar box de materiales
+    public void llenarBoxMateriales(JComboBox material) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt=  null;
+        ResultSet rs = null;
+        String sql = "SELECT nombre_material FROM material";
+        try {
+            stmt = conex.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                material.addItem(rs.getString("nombre_material"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            stmt.close();
+            rs.close();
+            conex.close();
+            con.desconectar();
+        }
         
     }
     //guardar materiales
-    public void guardarMateriales(JLabel parte,JComboBox material) throws SQLException{
+    public void guardarMateriales(JComboBox material, JLabel parte) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         Statement stmt = null;

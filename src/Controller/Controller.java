@@ -4,8 +4,6 @@
  */
 package Controller;
 import Model.Usuario;
-import Model.Proyecto;
-import Model.Material;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

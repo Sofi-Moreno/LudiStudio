@@ -4,19 +4,31 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Riarb
  */
 public class SelectorDePartes extends javax.swing.JPanel {
-
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
     /**
      * Creates new form SelectorDePartes
+     * @param user
      */
-    public SelectorDePartes() {
+    public SelectorDePartes(Usuario user) {
         initComponents();
+        usuarioActual = user;
+        controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
     }
 
     /**
@@ -209,14 +221,30 @@ public class SelectorDePartes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        fundamentosYcimentacion p3 = new fundamentosYcimentacion();
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
+        proyecto = new Proyecto();
+        proyecto.setIdUsuario(usuarioActual.getId_usuario());
+        if(controller.validarNombre(proyecto)){
+            JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
+        }else{
+            if(controller.validarPresupuesto(proyecto)){
+                JOptionPane.showMessageDialog(null, "El presupuesto no cuenta con el patron de solo contener nuemeros y punto(.), para marcar el decimal.");
+            }else{
+                try {
+                    if(controller.guardarInformacion(proyecto)){
+                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual);
+                        p3.setSize(613,530);
+                        p3.setLocation(0,0);
 
-        contentSelector.removeAll();
-        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentSelector.revalidate();
-        contentSelector.repaint();
+                        contentSelector.removeAll();
+                        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                        contentSelector.revalidate();
+                        contentSelector.repaint();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
     private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed

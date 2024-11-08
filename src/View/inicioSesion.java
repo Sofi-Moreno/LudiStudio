@@ -213,7 +213,7 @@ public class inicioSesion extends javax.swing.JPanel {
                     }
                     else{
                         controller.iniciarSesion(usuarioActual);
-                        MainMenu menu = new MainMenu();
+                        MainMenu menu = new MainMenu(usuarioActual);
                         menu.setVisible(true);
                         this.setVisible(false);
                     }

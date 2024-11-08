@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Usuario;
 import java.awt.Color;
 
 /**
@@ -11,12 +12,13 @@ import java.awt.Color;
  * @author aquil
  */
 public class gestionarProyectos extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
     /**
      * Creates new form gestionarProyectos
      */
-    public gestionarProyectos() {
+    public gestionarProyectos(Usuario user) {
         initComponents();
+        usuarioActual = user;
     }
 
     /**
@@ -251,7 +253,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_modificarProyectosButtomMouseExited
 
     private void crearProyectoButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearProyectoButtomMouseClicked
-        SelectorDePartes p3 = new SelectorDePartes();
+        SelectorDePartes p3 = new SelectorDePartes(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 

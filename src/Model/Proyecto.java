@@ -9,13 +9,14 @@ package Model;
  * @author LAMM
  */
 public class Proyecto {
-    private String nombreProyecto,fechaDeCreacion;
+    private String nombreProyecto,fechaDeCreacion, sustentabilidad;
     private double presupuesto, presupuestoTotal;
     private int idProyecto, idUsuario, idMateriales;
     
     public Proyecto(){
         nombreProyecto = "";
         fechaDeCreacion = "";
+        sustentabilidad = "";
         idProyecto = 0;
         idUsuario = 0;
         idMateriales =0;
@@ -23,15 +24,18 @@ public class Proyecto {
         presupuestoTotal = 0.0;
     }
 
-    public Proyecto(String nombreProyecto, String fechaDeCreacion, double presupuesto, double presupuestoTotal, int idProyecto, int idUsuario, int idMateriales) {
+    public Proyecto(String nombreProyecto, String fechaDeCreacion, String sustentabilidad, double presupuesto, double presupuestoTotal, int idProyecto, int idUsuario, int idMateriales) {
         this.nombreProyecto = nombreProyecto;
         this.fechaDeCreacion = fechaDeCreacion;
+        this.sustentabilidad = sustentabilidad;
         this.presupuesto = presupuesto;
         this.presupuestoTotal = presupuestoTotal;
         this.idProyecto = idProyecto;
         this.idUsuario = idUsuario;
         this.idMateriales = idMateriales;
     }
+
+    
 
     public int getIdProyecto() {
         return idProyecto;
@@ -87,6 +91,14 @@ public class Proyecto {
 
     public void setIdMateriales(int idMateriales) {
         this.idMateriales = idMateriales;
+    }
+
+    public String getSustentabilidad() {
+        return sustentabilidad;
+    }
+
+    public void setSustentabilidad(String sustentabilidad) {
+        this.sustentabilidad = sustentabilidad;
     }
 
     
