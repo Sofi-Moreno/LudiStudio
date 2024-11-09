@@ -28,7 +28,7 @@ public class gestionarMateriales extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        contentSelector = new javax.swing.JPanel();
         eliminarMaterialesButtom = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         verMaterialesButtom = new javax.swing.JPanel();
@@ -38,11 +38,14 @@ public class gestionarMateriales extends javax.swing.JPanel {
         modificarMaterialesButtom = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        contentSelector.setBackground(new java.awt.Color(0, 204, 204));
 
         eliminarMaterialesButtom.setBackground(new java.awt.Color(0, 102, 102));
         eliminarMaterialesButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminarMaterialesButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarMaterialesButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 eliminarMaterialesButtomMouseEntered(evt);
             }
@@ -107,6 +110,9 @@ public class gestionarMateriales extends javax.swing.JPanel {
         crearMaterialesButtom.setBackground(new java.awt.Color(0, 102, 102));
         crearMaterialesButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         crearMaterialesButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearMaterialesButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 crearMaterialesButtomMouseEntered(evt);
             }
@@ -168,30 +174,30 @@ public class gestionarMateriales extends javax.swing.JPanel {
                 .addContainerGap(183, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout contentSelectorLayout = new javax.swing.GroupLayout(contentSelector);
+        contentSelector.setLayout(contentSelectorLayout);
+        contentSelectorLayout.setHorizontalGroup(
+            contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentSelectorLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(crearMaterialesButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(modificarMaterialesButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(eliminarMaterialesButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verMaterialesButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        contentSelectorLayout.setVerticalGroup(
+            contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorLayout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(verMaterialesButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(crearMaterialesButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(modificarMaterialesButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(eliminarMaterialesButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
@@ -201,11 +207,11 @@ public class gestionarMateriales extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,15 +247,37 @@ public class gestionarMateriales extends javax.swing.JPanel {
         eliminarMaterialesButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_eliminarMaterialesButtomMouseExited
 
+    private void crearMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMaterialesButtomMouseClicked
+        crearMateriales p3 = new crearMateriales();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentSelector.removeAll();
+        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentSelector.revalidate();
+        contentSelector.repaint();
+    }//GEN-LAST:event_crearMaterialesButtomMouseClicked
+
+    private void eliminarMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMaterialesButtomMouseClicked
+        eliminarMateriales p3 = new eliminarMateriales();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentSelector.removeAll();
+        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentSelector.revalidate();
+        contentSelector.repaint();
+    }//GEN-LAST:event_eliminarMaterialesButtomMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel contentSelector;
     private javax.swing.JPanel crearMaterialesButtom;
     private javax.swing.JPanel eliminarMaterialesButtom;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel modificarMaterialesButtom;
     private javax.swing.JPanel verMaterialesButtom;
     // End of variables declaration//GEN-END:variables
