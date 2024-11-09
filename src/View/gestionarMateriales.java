@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Usuario;
 import java.awt.Color;
 
 /**
@@ -11,12 +12,13 @@ import java.awt.Color;
  * @author aquil
  */
 public class gestionarMateriales extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
     /**
      * Creates new form gestionarMateriales
      */
-    public gestionarMateriales() {
+    public gestionarMateriales(Usuario user) {
         initComponents();
+        usuarioActual = user;
     }
 
     /**
@@ -248,7 +250,7 @@ public class gestionarMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_eliminarMaterialesButtomMouseExited
 
     private void crearMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMaterialesButtomMouseClicked
-        crearMateriales p3 = new crearMateriales();
+        crearMateriales p3 = new crearMateriales(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
