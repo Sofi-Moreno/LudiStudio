@@ -4,7 +4,14 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,15 +19,29 @@ import java.awt.Color;
  */
 public class Cerramientos extends javax.swing.JPanel {
     boolean mur, vent, puert;
-
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
+    double presupuestoTotal;
     /**
      * Creates new form Cerramientos
      */
-    public Cerramientos() {
+    public Cerramientos(Proyecto proyec, Usuario usuario,double presupuesto) {
         initComponents();
         mur= true;
         vent=true;
         puert=true;
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        proyecto = proyec;
+        presupuestoTotal = presupuesto;
+        try {
+            controller.llenarBoxMateriales(materialBox1);
+            controller.llenarBoxMateriales(materialBox2);
+            controller.llenarBoxMateriales(materialBox3);
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -585,14 +606,35 @@ public class Cerramientos extends javax.swing.JPanel {
     }//GEN-LAST:event_deshabilitarButtom3MouseExited
 
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
-        Estructura p = new Estructura();
-        p.setSize(613,530);
-        p.setLocation(0,0);
-
-        contentCerramientos.removeAll();
-        contentCerramientos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentCerramientos.revalidate();
-        contentCerramientos.repaint();
+        if(mur && materialBox1.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Columnas' esta habilitada y no has escogido un material para ella.");
+        }else if(vent && materialBox3.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Losas' esta habilitada y no has escogido un material para ella.");
+        }else if(puert && materialBox2.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Vigas' esta habilitada y no has escogido un material para ella.");
+        }else{
+            try{
+                if(mur && !materialBox1.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox1,precio1Label);
+                }
+                if(vent && !materialBox3.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox3, precioLabel3);
+                }
+                if(puert && !materialBox2.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox2,precioLabel2);
+                }
+                
+            }catch (SQLException ex) {
+                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            elementosComplementarios p = new elementosComplementarios(proyecto,usuarioActual,presupuestoTotal);
+            p.setSize(613,530);
+            p.setLocation(0,0);
+            contentCerramientos.removeAll();
+            contentCerramientos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentCerramientos.revalidate();
+            contentCerramientos.repaint();
+        }
     }//GEN-LAST:event_guardarButtomMouseClicked
 
     private void guardarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseEntered

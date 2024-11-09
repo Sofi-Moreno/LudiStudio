@@ -4,22 +4,42 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Riarb
  */
 public class cubierta extends javax.swing.JPanel {
-    boolean estructCubieta, cubiert;
+    boolean estructCubierta, cubiert;
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
+    double presupuestoTotal;
     /**
      * Creates new form cubierta
      */
-    public cubierta() {
+    public cubierta(Proyecto proyec, Usuario usuario,double presupuesto) {
         initComponents();
-        estructCubieta=true;
+        estructCubierta=true;
         cubiert= true;
-        
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        proyecto = proyec;
+        presupuestoTotal = presupuesto;
+        try {
+            controller.llenarBoxMateriales(materialBox1);
+            controller.llenarBoxMateriales(materialBox2);
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
@@ -417,7 +437,7 @@ public class cubierta extends javax.swing.JPanel {
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
-        estructCubieta=false;
+        estructCubierta=false;
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
 
     private void deshabilitarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deshabilitarButtom1MouseEntered
@@ -437,7 +457,7 @@ public class cubierta extends javax.swing.JPanel {
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
-        estructCubieta=true;
+        estructCubierta=true;
         
     }//GEN-LAST:event_habilitarButtom1MouseClicked
 
@@ -504,14 +524,30 @@ public class cubierta extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseExited
 
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
-        elementosComplementarios p3 = new elementosComplementarios();
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-
-        contentCubierta.removeAll();
-        contentCubierta.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentCubierta.revalidate();
-        contentCubierta.repaint();
+        if(estructCubierta && materialBox1.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Estructura Cubierta' esta habilitada y no has escogido un material para ella.");
+        }else if(cubiert && materialBox2.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Cubierta' esta habilitada y no has escogido un material para ella.");
+        }else{
+            try{
+                if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox1,precio1Label);
+                }
+                if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox2, precioLabel2);
+                }
+            }catch (SQLException ex) {
+                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal);
+            p3.setSize(613,530);
+            p3.setLocation(0,0);
+            contentCubierta.removeAll();
+            contentCubierta.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentCubierta.revalidate();
+            contentCubierta.repaint();
+        }
+        
     }//GEN-LAST:event_guardarButtomMouseClicked
 
 

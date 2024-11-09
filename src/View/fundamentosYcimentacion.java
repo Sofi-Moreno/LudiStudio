@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,17 +22,19 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
+    double presupuestoTotal;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
-    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario) {
+    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario, double presupuesto) {
         initComponents();
         zap=true;
         mur=true;
         controller=new ControllerProyec(this);
         proyecto = proyec;
         usuarioActual=usuario;
+        presupuestoTotal = presupuesto;
         try {
             controller.llenarBoxMateriales(materialBox1);
             controller.llenarBoxMateriales(materialBox2);
@@ -549,14 +552,29 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseExited
 
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
-        cubierta p3 = new cubierta();
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-
-        contentFundamentos.removeAll();
-        contentFundamentos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentFundamentos.revalidate();
-        contentFundamentos.repaint();
+        if(zap && materialBox1.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Zapata' esta habilitada y no has escogido un material para ella.");
+        }else if(mur && materialBox2.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Muros de Contención' esta habilitada y no has escogido un material para ella.");
+        }else{
+            try{
+                if(zap && !materialBox1.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox1,precio1Label);
+                }
+                if(mur && !materialBox2.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox2, precioLabel2);
+                }
+            }catch (SQLException ex) {
+                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal);
+            p3.setSize(613,530);
+            p3.setLocation(0,0);
+            contentFundamentos.removeAll();
+            contentFundamentos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentFundamentos.revalidate();
+            contentFundamentos.repaint();
+        }
     }//GEN-LAST:event_guardarButtomMouseClicked
 
 

@@ -21,6 +21,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
+    double presupuestoTotal;
     /**
      * Creates new form SelectorDePartes
      * @param user
@@ -28,6 +29,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
     public SelectorDePartes(Usuario user) {
         initComponents();
         usuarioActual = user;
+        presupuestoTotal = 0;
         controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
     }
 
@@ -231,7 +233,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
             }else{
                 try {
                     if(controller.guardarInformacion(proyecto)){
-                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual);
+                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal);
                         p3.setSize(613,530);
                         p3.setLocation(0,0);
 

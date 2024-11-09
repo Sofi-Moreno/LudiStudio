@@ -4,7 +4,14 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,16 +19,31 @@ import java.awt.Color;
  */
 public class elementosComplementarios extends javax.swing.JPanel {
     boolean esc,bar,tech,ramp;
-
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
+    double presupuestoTotal;
     /**
      * Creates new form elementosComplementarios
      */
-    public elementosComplementarios() {
+    public elementosComplementarios(Proyecto proyec, Usuario usuario,double presupuesto) {
         initComponents();
         esc = true;
         bar= true;
         tech= true;
         ramp=true;
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        proyecto = proyec;
+        presupuestoTotal= presupuesto;
+        try {
+            controller.llenarBoxMateriales(materialBox1);
+            controller.llenarBoxMateriales(materialBox2);
+            controller.llenarBoxMateriales(materialBox3);
+            controller.llenarBoxMateriales(materialBox4);
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -761,14 +783,39 @@ public class elementosComplementarios extends javax.swing.JPanel {
     }//GEN-LAST:event_deshabilitarButtom4MouseExited
 
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
-        Cerramientos p = new Cerramientos();
-        p.setSize(613,530);
-        p.setLocation(0,0);
-
-        contentElementos.removeAll();
-        contentElementos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentElementos.revalidate();
-        contentElementos.repaint();
+        if(esc && materialBox1.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Escalera' esta habilitada y no has escogido un material para ella.");
+        }else if(bar && materialBox3.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Barandas' esta habilitada y no has escogido un material para ella.");
+        }else if(ramp && materialBox2.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Rampas' esta habilitada y no has escogido un material para ella.");
+        }else if(tech && materialBox4.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Techos' esta habilitada y no has escogido un material para ella.");
+        }else{
+            try{
+                if(esc && !materialBox1.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox1,precio1Label);
+                }
+                if(bar && !materialBox3.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox3, precioLabel3);
+                }
+                if(ramp && !materialBox2.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox2,precioLabel2);
+                }
+                if(tech && !materialBox4.getSelectedItem().equals("Material")){
+                    controller.guardarMateriales(materialBox4, precioLabel4);
+                }
+            }catch (SQLException ex) {
+                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            mostrarEscogido p = new mostrarEscogido(proyecto,usuarioActual,presupuestoTotal);
+            p.setSize(613,530);
+            p.setLocation(0,0);
+            contentElementos.removeAll();
+            contentElementos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentElementos.revalidate();
+            contentElementos.repaint();
+        }
     }//GEN-LAST:event_guardarButtomMouseClicked
 
     private void guardarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseEntered
