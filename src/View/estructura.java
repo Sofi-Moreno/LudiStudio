@@ -77,10 +77,10 @@ public class Estructura extends javax.swing.JPanel {
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        rampaLabel = new javax.swing.JLabel();
-        techoLabel = new javax.swing.JLabel();
-        escaleraLabel = new javax.swing.JLabel();
-        barandasLabel = new javax.swing.JLabel();
+        losasLabel = new javax.swing.JLabel();
+        entrepisoLabel = new javax.swing.JLabel();
+        culumnaLabel = new javax.swing.JLabel();
+        vigasLabel = new javax.swing.JLabel();
         materialBox3 = new javax.swing.JComboBox<>();
         materialBox4 = new javax.swing.JComboBox<>();
         precio3 = new javax.swing.JPanel();
@@ -335,25 +335,25 @@ public class Estructura extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         contentElementos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 406, 612, 19));
 
-        rampaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        rampaLabel.setForeground(new java.awt.Color(0, 102, 102));
-        rampaLabel.setText("Losas");
-        contentElementos.add(rampaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, -1));
+        losasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        losasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        losasLabel.setText("Losas");
+        contentElementos.add(losasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, -1));
 
-        techoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        techoLabel.setForeground(new java.awt.Color(0, 102, 102));
-        techoLabel.setText("Entrepiso");
-        contentElementos.add(techoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        entrepisoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        entrepisoLabel.setForeground(new java.awt.Color(0, 102, 102));
+        entrepisoLabel.setText("Entrepiso");
+        contentElementos.add(entrepisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
-        escaleraLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        escaleraLabel.setForeground(new java.awt.Color(0, 102, 102));
-        escaleraLabel.setText("Columnas");
-        contentElementos.add(escaleraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 149, 120, -1));
+        culumnaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        culumnaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        culumnaLabel.setText("Columnas");
+        contentElementos.add(culumnaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 149, 120, -1));
 
-        barandasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        barandasLabel.setForeground(new java.awt.Color(0, 102, 102));
-        barandasLabel.setText("Vigas");
-        contentElementos.add(barandasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
+        vigasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        vigasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        vigasLabel.setText("Vigas");
+        contentElementos.add(vigasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -651,7 +651,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(true);
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
-        escaleraLabel.setEnabled(false);
+        culumnaLabel.setEnabled(false);
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
@@ -672,7 +672,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(false);
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
-        escaleraLabel.setEnabled(true);
+        culumnaLabel.setEnabled(true);
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
@@ -696,7 +696,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(false);
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
-        barandasLabel.setEnabled(true);
+        vigasLabel.setEnabled(true);
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
@@ -716,7 +716,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(true);
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
-        barandasLabel.setEnabled(false);
+        vigasLabel.setEnabled(false);
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
@@ -744,7 +744,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel3.setEnabled(false);
         deshabilitarButtom3.setEnabled(true);
         deshabilitarLabel3.setEnabled(true);
-        rampaLabel.setEnabled(true);
+        losasLabel.setEnabled(true);
         precioLabel3.setEnabled(true);
         precio3.setEnabled(true);
         materialBox3.setEnabled(true);
@@ -764,7 +764,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel3.setEnabled(true);
         deshabilitarButtom3.setEnabled(false);
         deshabilitarLabel3.setEnabled(false);
-        rampaLabel.setEnabled(false);
+        losasLabel.setEnabled(false);
         precioLabel3.setEnabled(false);
         precio3.setEnabled(false);
         materialBox3.setEnabled(false);
@@ -784,7 +784,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel4.setEnabled(false);
         deshabilitarButtom4.setEnabled(true);
         deshabilitarLabel4.setEnabled(true);
-        techoLabel.setEnabled(true);
+        entrepisoLabel.setEnabled(true);
         precio4.setEnabled(true);
         precioLabel4.setEnabled(true);
         materialBox4.setEnabled(true);
@@ -804,7 +804,7 @@ public class Estructura extends javax.swing.JPanel {
         habilitarLabel4.setEnabled(true);
         deshabilitarButtom4.setEnabled(false);
         deshabilitarLabel4.setEnabled(false);
-        techoLabel.setEnabled(false);
+        entrepisoLabel.setEnabled(false);
         precioLabel4.setEnabled(false);
         precio4.setEnabled(false);
         materialBox4.setEnabled(false);
@@ -831,16 +831,16 @@ public class Estructura extends javax.swing.JPanel {
         }else{
             try{
                 if(column && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,precio1Label);
+                    controller.guardarMateriales(materialBox1,culumnaLabel);
                 }
                 if(los && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, precioLabel3);
+                    controller.guardarMateriales(materialBox3, losasLabel);
                 }
                 if(vig && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,precioLabel2);
+                    controller.guardarMateriales(materialBox2,vigasLabel);
                 }
                 if(entrep && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox4, precioLabel4);
+                    controller.guardarMateriales(materialBox4, entrepisoLabel);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -866,8 +866,8 @@ public class Estructura extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel barandasLabel;
     private javax.swing.JPanel contentElementos;
+    private javax.swing.JLabel culumnaLabel;
     private javax.swing.JPanel deshabilitarButtom1;
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JPanel deshabilitarButtom3;
@@ -876,7 +876,7 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
     private javax.swing.JLabel deshabilitarLabel4;
-    private javax.swing.JLabel escaleraLabel;
+    private javax.swing.JLabel entrepisoLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;
@@ -892,6 +892,7 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel losasLabel;
     private javax.swing.JComboBox<String> materialBox1;
     private javax.swing.JComboBox<String> materialBox2;
     private javax.swing.JComboBox<String> materialBox3;
@@ -904,8 +905,7 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JLabel precioLabel3;
     private javax.swing.JLabel precioLabel4;
     private javax.swing.JPanel precioPanel2;
-    private javax.swing.JLabel rampaLabel;
-    private javax.swing.JLabel techoLabel;
     private javax.swing.JLabel tituloLabel;
+    private javax.swing.JLabel vigasLabel;
     // End of variables declaration//GEN-END:variables
 }

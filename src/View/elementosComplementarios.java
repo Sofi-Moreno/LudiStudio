@@ -794,16 +794,16 @@ public class elementosComplementarios extends javax.swing.JPanel {
         }else{
             try{
                 if(esc && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,precio1Label);
+                    controller.guardarMateriales(materialBox1,escaleraLabel);
                 }
                 if(bar && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, precioLabel3);
+                    controller.guardarMateriales(materialBox3, barandasLabel);
                 }
                 if(ramp && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,precioLabel2);
+                    controller.guardarMateriales(materialBox2,rampaLabel);
                 }
                 if(tech && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox4, precioLabel4);
+                    controller.guardarMateriales(materialBox4,techoLabel);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);

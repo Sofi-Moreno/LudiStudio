@@ -559,10 +559,10 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         }else{
             try{
                 if(zap && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,precio1Label);
+                    controller.guardarMateriales(materialBox1,zapataLabel);
                 }
                 if(mur && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2, precioLabel2);
+                    controller.guardarMateriales(materialBox2,murosLabel);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);

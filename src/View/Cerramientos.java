@@ -72,8 +72,8 @@ public class Cerramientos extends javax.swing.JPanel {
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        zapataLabel = new javax.swing.JLabel();
         murosLabel = new javax.swing.JLabel();
+        ventanaLabel = new javax.swing.JLabel();
         puertasLabel = new javax.swing.JLabel();
         habilitarButtom3 = new javax.swing.JPanel();
         habilitarLabel3 = new javax.swing.JLabel();
@@ -320,15 +320,15 @@ public class Cerramientos extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         contentCerramientos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 382, 613, 38));
 
-        zapataLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        zapataLabel.setForeground(new java.awt.Color(0, 102, 102));
-        zapataLabel.setText("Muros");
-        contentCerramientos.add(zapataLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 152, 174, -1));
-
         murosLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         murosLabel.setForeground(new java.awt.Color(0, 102, 102));
-        murosLabel.setText("Ventanas");
-        contentCerramientos.add(murosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        murosLabel.setText("Muros");
+        contentCerramientos.add(murosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 152, 174, -1));
+
+        ventanaLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        ventanaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        ventanaLabel.setText("Ventanas");
+        contentCerramientos.add(ventanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         puertasLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         puertasLabel.setForeground(new java.awt.Color(0, 102, 102));
@@ -486,7 +486,7 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(true);
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
-        zapataLabel.setEnabled(false);
+        murosLabel.setEnabled(false);
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
@@ -506,7 +506,7 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(false);
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
-        zapataLabel.setEnabled(true);
+        murosLabel.setEnabled(true);
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
@@ -530,7 +530,7 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(false);
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
-        murosLabel.setEnabled(true);
+        ventanaLabel.setEnabled(true);
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
@@ -550,7 +550,7 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(true);
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
-        murosLabel.setEnabled(false);
+        ventanaLabel.setEnabled(false);
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
@@ -615,13 +615,13 @@ public class Cerramientos extends javax.swing.JPanel {
         }else{
             try{
                 if(mur && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,precio1Label);
+                    controller.guardarMateriales(materialBox1,murosLabel);
                 }
                 if(vent && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, precioLabel3);
+                    controller.guardarMateriales(materialBox3, ventanaLabel);
                 }
                 if(puert && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,precioLabel2);
+                    controller.guardarMateriales(materialBox2,puertasLabel);
                 }
                 
             }catch (SQLException ex) {
@@ -677,6 +677,6 @@ public class Cerramientos extends javax.swing.JPanel {
     private javax.swing.JPanel precioPanel2;
     private javax.swing.JPanel precioPanel3;
     private javax.swing.JLabel puertasLabel;
-    private javax.swing.JLabel zapataLabel;
+    private javax.swing.JLabel ventanaLabel;
     // End of variables declaration//GEN-END:variables
 }

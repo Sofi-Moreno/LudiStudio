@@ -155,20 +155,22 @@ public class ControllerProyec {
     public void guardarMateriales(JComboBox material, JLabel parte) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
-        Statement stmt = null;
         PreparedStatement st = null;
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         int id = 0;
-        String sql1 = "SELECT id_material FROM material WHERE nombre_material = "+material.getSelectedItem();
-        String sql2 = "INSERT INTO partes ("+parte.getText()+") VALUES(?)";
+        String sql1 = "SELECT id_material FROM material WHERE nombre_material = ?";
+        String sql2 = "INSERT INTO partes("+parte.getText()+") VALUES(?)";
         try {
-            stmt = conex.createStatement();
-            rs = stmt.executeQuery(sql1);
+            st = conex.prepareStatement(sql1);
+            st.setString(1, (String)material.getSelectedItem());
+            rs = st.executeQuery();
             if(rs.next()){
                 id = rs.getInt("id_material");
             }
-            st = conex.prepareStatement(sql2);
-            st.setInt(1,id);
+            stmt = conex.prepareStatement(sql2);
+            stmt.setInt(1,id);
+            stmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{

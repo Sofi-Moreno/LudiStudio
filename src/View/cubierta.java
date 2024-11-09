@@ -71,8 +71,8 @@ public class cubierta extends javax.swing.JPanel {
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        zapataLabel = new javax.swing.JLabel();
-        murosLabel = new javax.swing.JLabel();
+        estructuraLabel = new javax.swing.JLabel();
+        cubiertaLabel = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -292,13 +292,13 @@ public class cubierta extends javax.swing.JPanel {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
-        zapataLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        zapataLabel.setForeground(new java.awt.Color(0, 102, 102));
-        zapataLabel.setText("Estructura de cubierta");
+        estructuraLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        estructuraLabel.setForeground(new java.awt.Color(0, 102, 102));
+        estructuraLabel.setText("Estructura de Cubierta");
 
-        murosLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        murosLabel.setForeground(new java.awt.Color(0, 102, 102));
-        murosLabel.setText("Cubierta");
+        cubiertaLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        cubiertaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        cubiertaLabel.setText("Cubierta");
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -349,7 +349,7 @@ public class cubierta extends javax.swing.JPanel {
                                 .addComponent(materialBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(141, 141, 141)
                                 .addComponent(precioPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(murosLabel))
+                            .addComponent(cubiertaLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(habilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,7 +361,7 @@ public class cubierta extends javax.swing.JPanel {
                                 .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(141, 141, 141)
                                 .addComponent(precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(zapataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(estructuraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,7 +389,7 @@ public class cubierta extends javax.swing.JPanel {
                         .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addComponent(zapataLabel)
+                        .addComponent(estructuraLabel)
                         .addGap(15, 15, 15)
                         .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,7 +400,7 @@ public class cubierta extends javax.swing.JPanel {
                 .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contentCubiertaLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(murosLabel)
+                        .addComponent(cubiertaLabel)
                         .addGap(30, 30, 30)
                         .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(materialBox2)
@@ -433,7 +433,7 @@ public class cubierta extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(true);
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
-        zapataLabel.setEnabled(false);
+        estructuraLabel.setEnabled(false);
         precio1Label.setEnabled(false);
         precio1.setEnabled(false);
         materialBox1.setEnabled(false);
@@ -453,7 +453,7 @@ public class cubierta extends javax.swing.JPanel {
         habilitarLabel1.setEnabled(false);
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
-        zapataLabel.setEnabled(true);
+        estructuraLabel.setEnabled(true);
         precio1Label.setEnabled(true);
         precio1.setEnabled(true);
         materialBox1.setEnabled(true);
@@ -478,7 +478,7 @@ public class cubierta extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(false);
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
-        murosLabel.setEnabled(true);
+        cubiertaLabel.setEnabled(true);
         precioLabel2.setEnabled(true);
         precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
@@ -498,7 +498,7 @@ public class cubierta extends javax.swing.JPanel {
         habilitarLabel2.setEnabled(true);
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
-        murosLabel.setEnabled(false);
+        cubiertaLabel.setEnabled(false);
         precioLabel2.setEnabled(false);
         precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
@@ -531,10 +531,10 @@ public class cubierta extends javax.swing.JPanel {
         }else{
             try{
                 if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,precio1Label);
+                    controller.guardarMateriales(materialBox1,estructuraLabel);
                 }
                 if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2, precioLabel2);
+                    controller.guardarMateriales(materialBox2, cubiertaLabel);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -553,10 +553,12 @@ public class cubierta extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentCubierta;
+    private javax.swing.JLabel cubiertaLabel;
     private javax.swing.JPanel deshabilitarButtom1;
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
+    private javax.swing.JLabel estructuraLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;
@@ -569,11 +571,9 @@ public class cubierta extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JComboBox<String> materialBox1;
     private javax.swing.JComboBox<String> materialBox2;
-    private javax.swing.JLabel murosLabel;
     private javax.swing.JPanel precio1;
     private javax.swing.JLabel precio1Label;
     private javax.swing.JLabel precioLabel2;
     private javax.swing.JPanel precioPanel2;
-    private javax.swing.JLabel zapataLabel;
     // End of variables declaration//GEN-END:variables
 }
