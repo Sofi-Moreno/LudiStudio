@@ -531,10 +531,12 @@ public class cubierta extends javax.swing.JPanel {
         }else{
             try{
                 if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,estructuraLabel);
+                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET EstructuraDeCubierta = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
                 if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2, cubiertaLabel);
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Cubierta = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);

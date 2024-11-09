@@ -831,16 +831,20 @@ public class Estructura extends javax.swing.JPanel {
         }else{
             try{
                 if(column && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,culumnaLabel);
+                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Columnas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
                 if(los && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, losasLabel);
+                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Losas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
                 }
                 if(vig && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,vigasLabel);
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes Vigas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
                 if(entrep && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox4, entrepisoLabel);
+                    controller.guardarMateriales(proyecto,materialBox4,"UPDATE partes SET Entrepiso = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel4.getText());
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);

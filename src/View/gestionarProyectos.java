@@ -118,6 +118,9 @@ public class gestionarProyectos extends javax.swing.JPanel {
         eliminarProyectoButtom.setBackground(new java.awt.Color(0, 102, 102));
         eliminarProyectoButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminarProyectoButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarProyectoButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 eliminarProyectoButtomMouseEntered(evt);
             }
@@ -266,6 +269,17 @@ public class gestionarProyectos extends javax.swing.JPanel {
     private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_verProyectosButtomMouseClicked
+
+    private void eliminarProyectoButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarProyectoButtomMouseClicked
+        eliminarProyecto p3 = new eliminarProyecto();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentProyectos.removeAll();
+        contentProyectos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentProyectos.revalidate();
+        contentProyectos.repaint();
+    }//GEN-LAST:event_eliminarProyectoButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

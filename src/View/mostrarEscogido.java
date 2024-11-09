@@ -27,6 +27,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         usuarioActual = usuario;
         proyecto = proyec;
         presupuestoTotal= presupuesto;
+        nombreDato.setText(proyec.getNombreProyecto());
+        
+        
     }
 
     /**

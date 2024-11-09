@@ -128,6 +128,13 @@ public class ControllerProyec {
         }
         return bol;
     }
+    //llenar box de sustentabilidad
+    public void Sustentabilidad(JComboBox sustentabilidad){
+        sustentabilidad.addItem("Muy Sustentable"); 
+        sustentabilidad.addItem("Sustentable");
+        sustentabilidad.addItem("Poco Sustentable");
+        sustentabilidad.addItem("No Sustentable");
+    }
     //llenar box de materiales
     public void llenarBoxMateriales(JComboBox material) throws SQLException{
         ConnectionDB con = new ConnectionDB();
@@ -144,15 +151,15 @@ public class ControllerProyec {
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            stmt.close();
-            rs.close();
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
             conex.close();
             con.desconectar();
         }
         
     }
     //guardar materiales
-    public void guardarMateriales(JComboBox material, JLabel parte) throws SQLException{
+    public void guardarMateriales(Proyecto proyecto,JComboBox material, String sql) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement st = null;
@@ -160,7 +167,6 @@ public class ControllerProyec {
         ResultSet rs = null;
         int id = 0;
         String sql1 = "SELECT id_material FROM material WHERE nombre_material = ?";
-        String sql2 = "INSERT INTO partes("+parte.getText()+") VALUES(?)";
         try {
             st = conex.prepareStatement(sql1);
             st.setString(1, (String)material.getSelectedItem());
@@ -168,15 +174,22 @@ public class ControllerProyec {
             if(rs.next()){
                 id = rs.getInt("id_material");
             }
-            stmt = conex.prepareStatement(sql2);
-            stmt.setInt(1,id);
-            stmt.executeUpdate();
+            if(sql.substring(0, 6).equals("INSERT")){
+                stmt = conex.prepareStatement(sql);
+                stmt.setInt(1,id);
+                stmt.executeUpdate();
+            }else if(sql.substring(0, 6).equals("UPDATE")){
+                stmt = conex.prepareStatement(sql);
+                stmt.setInt(1,id);
+                stmt.setInt(2,proyecto.getIdMateriales());
+                stmt.executeUpdate();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            st.close();
-            stmt.close();
-            rs.close();
+            if(st!=null) st.close();
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
             conex.close();
             con.desconectar();
         }
@@ -233,9 +246,9 @@ public class ControllerProyec {
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            stmt.close();
-            rs.close();
-            st.close();
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            if(st!=null) st.close();
             conex.close();
             con.desconectar();
         }

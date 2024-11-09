@@ -794,16 +794,20 @@ public class elementosComplementarios extends javax.swing.JPanel {
         }else{
             try{
                 if(esc && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,escaleraLabel);
+                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Escalera = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
                 if(bar && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, barandasLabel);
+                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Barandas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
                 if(ramp && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,rampaLabel);
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Rampas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
                 }
                 if(tech && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox4,techoLabel);
+                    controller.guardarMateriales(proyecto,materialBox4,"UPDATE partes SET Techos = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel4.getText());
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);

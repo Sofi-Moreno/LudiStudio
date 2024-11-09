@@ -31,6 +31,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         usuarioActual = user;
         presupuestoTotal = 0;
         controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
+        controller.Sustentabilidad(sustentabilidadBox);
     }
 
     /**

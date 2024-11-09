@@ -615,13 +615,16 @@ public class Cerramientos extends javax.swing.JPanel {
         }else{
             try{
                 if(mur && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox1,murosLabel);
+                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Muros = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
                 if(vent && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox3, ventanaLabel);
+                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Ventanas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
                 if(puert && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(materialBox2,puertasLabel);
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Puertas = ? WHERE id_partes = ?");
+//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
                 }
                 
             }catch (SQLException ex) {
