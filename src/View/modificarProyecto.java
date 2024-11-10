@@ -10,12 +10,12 @@ import java.awt.Color;
  *
  * @author Riarb
  */
-public class verProyecto extends javax.swing.JPanel {
+public class modificarProyecto extends javax.swing.JPanel {
 
     /**
-     * Creates new form verProyecto
+     * Creates new form modificarProyecto
      */
-    public verProyecto() {
+    public modificarProyecto() {
         initComponents();
     }
 
@@ -31,11 +31,14 @@ public class verProyecto extends javax.swing.JPanel {
         contentVer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         tituloLabel1 = new javax.swing.JLabel();
-        nombreLabel = new javax.swing.JLabel();
         nombreMaterialTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         ingresarButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
+        nombreLabel1 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        passTxt = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
 
         contentVer.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -43,14 +46,14 @@ public class verProyecto extends javax.swing.JPanel {
 
         tituloLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         tituloLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel1.setText("Seleccionar Proyecto ");
+        tituloLabel1.setText("Modificar Proyecto ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
+                .addContainerGap(176, Short.MAX_VALUE)
                 .addComponent(tituloLabel1)
                 .addGap(122, 122, 122))
         );
@@ -62,15 +65,10 @@ public class verProyecto extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
-        nombreLabel.setText("Nombre");
-        nombreLabel.setToolTipText("");
-
         nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreMaterialTxt.setForeground(new java.awt.Color(204, 204, 204));
-        nombreMaterialTxt.setText("Ingrese el nombre del proyecto que desea ver");
+        nombreMaterialTxt.setText("Ingrese el nombre del proyecto a modificar");
         nombreMaterialTxt.setToolTipText("");
         nombreMaterialTxt.setBorder(null);
         nombreMaterialTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,22 +110,45 @@ public class verProyecto extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
+        nombreLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        nombreLabel1.setText("Nombre");
+        nombreLabel1.setToolTipText("");
+
+        passwordLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
+        passwordLabel.setText("Contraseña");
+
+        passTxt.setBackground(new java.awt.Color(0, 153, 153));
+        passTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passTxt.setForeground(new java.awt.Color(204, 204, 204));
+        passTxt.setText("************");
+        passTxt.setBorder(null);
+        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passTxtMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentVerLayout = new javax.swing.GroupLayout(contentVer);
         contentVer.setLayout(contentVerLayout);
         contentVerLayout.setHorizontalGroup(
             contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(contentVerLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreLabel)
-                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentVerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
+            .addGroup(contentVerLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreLabel1)
+                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contentVerLayout.setVerticalGroup(
             contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,12 +156,18 @@ public class verProyecto extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(nombreLabel)
+                .addComponent(nombreLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(passwordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -158,9 +185,13 @@ public class verProyecto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMaterialTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proyecto que desea ver")){
+        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proyecto a modificar")){
             nombreMaterialTxt.setText("");
             nombreMaterialTxt.setForeground(Color.black);
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()){
+            passTxt.setText("************");
+            passTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_nombreMaterialTxtMousePressed
 
@@ -173,6 +204,17 @@ public class verProyecto extends javax.swing.JPanel {
         vista.setVisible(true);
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
+    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
+        if (String.valueOf(passTxt.getPassword()).equals("************")){
+            passTxt.setText("");
+            passTxt.setForeground(Color.black);
+        }
+        if (nombreMaterialTxt.getText().isEmpty()){
+            nombreMaterialTxt.setText("Ingrese el nombre del proyecto a modificar");
+            nombreMaterialTxt.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_passTxtMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentVer;
@@ -180,8 +222,11 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel ingresarLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel nombreLabel1;
     private javax.swing.JTextField nombreMaterialTxt;
+    private javax.swing.JPasswordField passTxt;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel tituloLabel1;
     // End of variables declaration//GEN-END:variables
 }
