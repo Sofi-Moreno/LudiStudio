@@ -4,6 +4,7 @@
  */
 package View;
 
+import java.awt.Color;
 /**
  *
  * @author Riarb
@@ -27,18 +28,134 @@ public class verMateriales extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        contentVer = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        tituloLabel1 = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        nombreMaterialTxt = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        ingresarButtom = new javax.swing.JPanel();
+        ingresarLabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+
+        contentVer.setBackground(new java.awt.Color(0, 153, 153));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+
+        tituloLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        tituloLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLabel1.setText("Seleccionar Material ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(153, Short.MAX_VALUE)
+                .addComponent(tituloLabel1)
+                .addGap(122, 122, 122))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(tituloLabel1)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nombreLabel.setText("Nombre");
+        nombreLabel.setToolTipText("");
+
+        nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
+        nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        nombreMaterialTxt.setForeground(new java.awt.Color(204, 204, 204));
+        nombreMaterialTxt.setText("Ingrese el nombre del material que desea ver");
+        nombreMaterialTxt.setToolTipText("");
+        nombreMaterialTxt.setBorder(null);
+        nombreMaterialTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nombreMaterialTxtMousePressed(evt);
+            }
+        });
+        nombreMaterialTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreMaterialTxtActionPerformed(evt);
+            }
+        });
+
+        ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarButtomMouseClicked(evt);
+            }
+        });
+
+        ingresarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarLabel.setText("BUSCAR");
+
+        javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
+        ingresarButtom.setLayout(ingresarButtomLayout);
+        ingresarButtomLayout.setHorizontalGroup(
+            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(ingresarLabel)
+                .addGap(33, 33, 33))
+        );
+        ingresarButtomLayout.setVerticalGroup(
+            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(ingresarLabel)
+                .addGap(15, 15, 15))
+        );
+
+        javax.swing.GroupLayout contentVerLayout = new javax.swing.GroupLayout(contentVer);
+        contentVer.setLayout(contentVerLayout);
+        contentVerLayout.setHorizontalGroup(
+            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(contentVerLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreLabel)
+                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentVerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        contentVerLayout.setVerticalGroup(
+            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentVerLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(nombreLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addComponent(contentVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addComponent(contentVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -53,8 +170,32 @@ public class verMateriales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nombreMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMaterialTxtMousePressed
+        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proyecto que desea ver")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_nombreMaterialTxtMousePressed
+
+    private void nombreMaterialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreMaterialTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreMaterialTxtActionPerformed
+
+    private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+        buscarMaterial vista = new buscarMaterial();
+        vista.setVisible(true);
+    }//GEN-LAST:event_ingresarButtomMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel contentVer;
+    private javax.swing.JPanel ingresarButtom;
+    private javax.swing.JLabel ingresarLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField nombreMaterialTxt;
+    private javax.swing.JLabel tituloLabel1;
     // End of variables declaration//GEN-END:variables
 }
