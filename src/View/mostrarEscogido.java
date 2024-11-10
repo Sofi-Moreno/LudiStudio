@@ -31,12 +31,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         proyecto = proyec;
         presupuestoTotal= presupuesto;
         nombreDato.setText(proyec.getNombreProyecto());
-
-        
-        
-
-          
-          
+        presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
+        autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
+        costoDato.setText(String.valueOf(presupuesto));
     }
 
     /**
@@ -192,16 +189,16 @@ public class mostrarEscogido extends javax.swing.JPanel {
         String aux;
         aux="Pepe";
         autorDato.setText(aux);
-        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
 
         nombreDato.setText("Kiosco 69");
-        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
+        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, 30));
 
         costoDato.setText("4500$");
-        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 30));
 
         presupuestoDato.setText("5000$");
-        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
         entrarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

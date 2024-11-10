@@ -29,7 +29,7 @@ public class eliminarMateriales extends javax.swing.JPanel {
     private void initComponents() {
 
         contentEliminarMateriales = new javax.swing.JPanel();
-        userTxt = new javax.swing.JTextField();
+        nombreElimTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         usuarioLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -42,26 +42,26 @@ public class eliminarMateriales extends javax.swing.JPanel {
 
         contentEliminarMateriales.setBackground(new java.awt.Color(0, 153, 153));
 
-        userTxt.setBackground(new java.awt.Color(0, 153, 153));
-        userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingrese el ID del material");
-        userTxt.setToolTipText("");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        nombreElimTxt.setBackground(new java.awt.Color(0, 153, 153));
+        nombreElimTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        nombreElimTxt.setForeground(new java.awt.Color(204, 204, 204));
+        nombreElimTxt.setText("Ingrese el nombre del material");
+        nombreElimTxt.setToolTipText("");
+        nombreElimTxt.setBorder(null);
+        nombreElimTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
+                nombreElimTxtMousePressed(evt);
             }
         });
-        userTxt.addActionListener(new java.awt.event.ActionListener() {
+        nombreElimTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxtActionPerformed(evt);
+                nombreElimTxtActionPerformed(evt);
             }
         });
 
         usuarioLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         usuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
-        usuarioLabel.setText("ID del Material");
+        usuarioLabel.setText("Nombre del material");
         usuarioLabel.setToolTipText("");
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
@@ -150,7 +150,7 @@ public class eliminarMateriales extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(contentEliminarMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreElimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usuarioLabel)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +165,7 @@ public class eliminarMateriales extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(usuarioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombreElimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -191,29 +191,29 @@ public class eliminarMateriales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingrese el ID del material")){
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+    private void nombreElimTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreElimTxtMousePressed
+        if (nombreElimTxt.getText().equals("Ingrese el ID del material")){
+            nombreElimTxt.setText("");
+            nombreElimTxt.setForeground(Color.black);
         }
         if (String.valueOf(passTxt.getPassword()).isEmpty()){
             passTxt.setText("************");
             passTxt.setForeground(new Color(204,204,204));
         }
-    }//GEN-LAST:event_userTxtMousePressed
+    }//GEN-LAST:event_nombreElimTxtMousePressed
 
-    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
+    private void nombreElimTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreElimTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxtActionPerformed
+    }//GEN-LAST:event_nombreElimTxtActionPerformed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
         if (String.valueOf(passTxt.getPassword()).equals("************")){
             passTxt.setText("");
             passTxt.setForeground(Color.black);
         }
-        if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingrese el ID del material");
-            userTxt.setForeground(new Color(204,204,204));
+        if (nombreElimTxt.getText().isEmpty()){
+            nombreElimTxt.setText("Ingrese el ID del material");
+            nombreElimTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_passTxtMousePressed
 
@@ -238,9 +238,9 @@ public class eliminarMateriales extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField nombreElimTxt;
     private javax.swing.JPasswordField passTxt;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField userTxt;
     private javax.swing.JLabel usuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -46,7 +47,8 @@ public class ControllerProyec {
         this.ventana = ventana;
     }
     //constructor para eliminar
-    public ControllerProyec(JTextField idProyecto) {
+    public ControllerProyec(JPanel ventana,JTextField idProyecto) {
+        this.ventana = ventana;
         this.idProyecto = idProyecto;
     }
     //constructor para modificar
@@ -92,6 +94,8 @@ public class ControllerProyec {
         PreparedStatement materiales= null;
         ResultSet resultado = null;
         try {
+            materiales = conex.prepareStatement("INSERT INTO partes(Zapata) VALUES(?)");
+            materiales.setInt(1, 0);
             materiales = conex.prepareStatement("SELECT id_partes FROM partes ORDER BY id_partes DESC LIMIT 1");
             resultado = materiales.executeQuery();
             int ultimoIdPartes = 0; 
@@ -104,14 +108,14 @@ public class ControllerProyec {
             st.setDouble(3,proyecto.getPresupuesto());
             st.setString(4,fecha());
             st.setString(5,(String)sustentabilidad.getSelectedItem());
-            st.setInt(6,ultimoIdPartes+1);
+            st.setInt(6,ultimoIdPartes);
             int rowsInserted = st.executeUpdate();
             if(rowsInserted>0){
                 bol = true;
             }
             proyecto.setFechaDeCreacion(fecha());
             proyecto.setSustentabilidad((String)sustentabilidad.getSelectedItem());
-            proyecto.setIdMateriales(ultimoIdPartes+1);
+            proyecto.setIdMateriales(ultimoIdPartes);
             materiales = conex.prepareStatement("SELECT id_proyecto FROM proyecto WHERE nombre = ?");
             materiales.setString(1, proyecto.getNombreProyecto()); 
             resultado = materiales.executeQuery(); 
@@ -127,13 +131,6 @@ public class ControllerProyec {
             if (conex != null) conex.close();
         }
         return bol;
-    }
-    //llenar box de sustentabilidad
-    public void Sustentabilidad(JComboBox sustentabilidad){
-        sustentabilidad.addItem("Muy Sustentable"); 
-        sustentabilidad.addItem("Sustentable");
-        sustentabilidad.addItem("Poco Sustentable");
-        sustentabilidad.addItem("No Sustentable");
     }
     //llenar box de materiales
     public void llenarBoxMateriales(JComboBox material) throws SQLException{
@@ -194,6 +191,33 @@ public class ControllerProyec {
             con.desconectar();
         }
     }
+    //llenar tablita de vista previa
+    public void llenarVistaPrevia(JTable tablita, Proyecto proyecto, String parte) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int part =0;
+        try{
+            stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
+            stmt.setInt(1, proyecto.getIdMateriales());
+            rs = stmt.executeQuery();
+            part = rs.getInt(parte);
+            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_partes = ?");
+            stmt.setInt(1, part);
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                //aqui va la llamata de cada columna
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            conex.close();
+            con.desconectar();
+        }
+    }
     
     //**************************VER PROYECTO**************************
     
@@ -209,8 +233,8 @@ public class ControllerProyec {
         String patron = "^\\d+$";
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher(idProyecto.getText());
-        String sql1 = "DELETE FROM parte WHERE id_partes = ?";
-        String sql2 = "DELETE FROM proyecto WHERE nombre = ?";
+        String sql1 = "DELETE FROM partes WHERE id_partes = ?";
+        String sql2 = "DELETE FROM proyecto WHERE id_proyecto = ?";
         String sql3 = "SELECT id_proyecto FROM proyecto";
         String sql4 = "SELECT materiales FROM proyecto WHERE id_proyecto = ?";
         try {
@@ -235,10 +259,10 @@ public class ControllerProyec {
                     //aqui eliminamos
                     st = conex.prepareStatement(sql1);
                     st.setInt(1, idMaterial);
-                    st.execute();
+                    st.executeUpdate();
                     st = conex.prepareStatement(sql2);
                     st.setInt(1, idInt);
-                    st.execute();
+                    st.executeUpdate();
                 }else{
                     val = 2; //si ese id no existe
                 }   

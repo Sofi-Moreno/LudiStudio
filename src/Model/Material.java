@@ -9,19 +9,36 @@ package Model;
  * @author LAMM
  */
 public class Material {
-    private String rubro,nombreMaterial,unidadMaterial,colorimetria,
+    private String rubro,nombreMaterial,unidadMaterial,
             sustentabilidad,proveedor,transporte,manoDeObra,herramientas;
     
     private double costoMaterial,costoTransporte,costoMDObra,
             costoHerramientas,costoTotatalMaterial;
     
     private int cantidadMaterial;
+    
+    public Material(){
+        rubro="";
+        nombreMaterial="";
+        unidadMaterial="";
+        sustentabilidad="";
+        proveedor="";
+        transporte="";
+        manoDeObra="";
+        herramientas="";
+        costoMaterial=0;
+        costoTransporte=0;
+        costoMDObra=0;
+        costoHerramientas=0;
+        costoTotatalMaterial=0;
+        cantidadMaterial=0;
+    
+    }
 
-    public Material(String rubro, String nombreMaterial, String unidadMaterial, String colorimetria, String sustentabilidad, String proveedor, String transporte, String manoDeObra, String herramientas, double costoMaterial, double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotatalMaterial, int cantidadMaterial) {
+    public Material(String rubro, String nombreMaterial, String unidadMaterial, String sustentabilidad, String proveedor, String transporte, String manoDeObra, String herramientas, double costoMaterial, double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotatalMaterial, int cantidadMaterial) {
         this.rubro = rubro;
         this.nombreMaterial = nombreMaterial;
         this.unidadMaterial = unidadMaterial;
-        this.colorimetria = colorimetria;
         this.sustentabilidad = sustentabilidad;
         this.proveedor = proveedor;
         this.transporte = transporte;
@@ -57,14 +74,6 @@ public class Material {
 
     public void setUnidadMaterial(String unidadMaterial) {
         this.unidadMaterial = unidadMaterial;
-    }
-
-    public String getColorimetria() {
-        return colorimetria;
-    }
-
-    public void setColorimetria(String colorimetria) {
-        this.colorimetria = colorimetria;
     }
 
     public String getSustentabilidad() {

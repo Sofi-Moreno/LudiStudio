@@ -4,17 +4,20 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+
 /**
  *
  * @author Riarb
  */
 public class vistaPrevia extends javax.swing.JFrame {
-
+    ControllerProyec controller;
     /**
      * Creates new form vistaPrevia
      */
     public vistaPrevia() {
         initComponents();
+        
     }
 
     /**
@@ -28,10 +31,10 @@ public class vistaPrevia extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablita = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"ZAPATA", null, null, null, null, null, null, null, null, null, null, null, null},
                 {"MUROS DE CONTENCION", null, null, null, null, null, null, null, null, null, null, null, null},
@@ -61,8 +64,8 @@ public class vistaPrevia extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setToolTipText("");
-        jScrollPane2.setViewportView(jTable1);
+        tablita.setToolTipText("");
+        jScrollPane2.setViewportView(tablita);
 
         jButton1.setText("Volver");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,6 +141,6 @@ public class vistaPrevia extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablita;
     // End of variables declaration//GEN-END:variables
 }

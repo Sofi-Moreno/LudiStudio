@@ -290,7 +290,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionarUsuarioButtom1MouseExited
 
     private void gestionarMaterialesButomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionarMaterialesButomMouseClicked
-        gestionarMateriales p4 = new gestionarMateriales();
+        gestionarMateriales p4 = new gestionarMateriales(usuarioActual);
         p4.setSize(613,530);
         p4.setLocation(0,0);
 

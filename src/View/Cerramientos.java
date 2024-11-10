@@ -646,22 +646,22 @@ public class Cerramientos extends javax.swing.JPanel {
 
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
         if(mur && materialBox1.getSelectedItem().equals("Material")){
-            JOptionPane.showMessageDialog(null, "La parte llamada 'Columnas' esta habilitada y no has escogido un material para ella.");
-        }else if(vent && materialBox3.getSelectedItem().equals("Material")){
-            JOptionPane.showMessageDialog(null, "La parte llamada 'Losas' esta habilitada y no has escogido un material para ella.");
-        }else if(puert && materialBox2.getSelectedItem().equals("Material")){
-            JOptionPane.showMessageDialog(null, "La parte llamada 'Vigas' esta habilitada y no has escogido un material para ella.");
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Muros' esta habilitada y no has escogido un material para ella.");
+        }else if(vent && materialBox2.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Ventanas' esta habilitada y no has escogido un material para ella.");
+        }else if(puert && materialBox3.getSelectedItem().equals("Material")){
+            JOptionPane.showMessageDialog(null, "La parte llamada 'Puertas' esta habilitada y no has escogido un material para ella.");
         }else{
             try{
                 if(mur && !materialBox1.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Muros = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
-                if(vent && !materialBox3.getSelectedItem().equals("Material")){
+                if(vent && !materialBox2.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Ventanas = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
-                if(puert && !materialBox2.getSelectedItem().equals("Material")){
+                if(puert && !materialBox3.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Puertas = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
                 }
