@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -35,6 +36,8 @@ public class ControllerProyec {
     //atributos para eliminar
     JTextField idProyecto;
     
+    //atributos de vista previa
+    DefaultTableModel tabla;
     //CONSTRUCTORES
     //constructor para crear proyecto
     public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JPanel ventana){    
@@ -51,6 +54,13 @@ public class ControllerProyec {
         this.ventana = ventana;
         this.idProyecto = idProyecto;
     }
+    //constructor para vista previa
+
+    public ControllerProyec(JPanel ventana, DefaultTableModel tabla) {
+        this.ventana = ventana;
+        this.tabla = tabla;
+    }
+    
     //constructor para modificar
     //**************************CREAR PROYECTO**************************
     //validacion de nombre del proyecto
@@ -192,12 +202,12 @@ public class ControllerProyec {
         }
     }
     //llenar tablita de vista previa
-    public void llenarVistaPrevia(JTable tablita, Proyecto proyecto, String parte) throws SQLException{
+    public void llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        int part =0;
+        int part;
         try{
             stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
             stmt.setInt(1, proyecto.getIdMateriales());
@@ -207,7 +217,20 @@ public class ControllerProyec {
             stmt.setInt(1, part);
             rs = stmt.executeQuery();
             if(rs.next()){
-                //aqui va la llamata de cada columna
+                String rubro = rs.getString("rubro_material");
+                String nombre = rs.getString("nombre_material");
+                String unidad = rs.getString("unidad_material");
+                double costo = rs.getDouble("costo_material");
+                String susten = rs.getString("sustentabilidad_material");
+                String proveedor = rs.getString("proveedor_material");
+                String transporte = rs.getString("transporte_material");
+                double costoTransporte = rs.getDouble("costo_transporte");
+                String manoObra = rs.getString("manodeobra_material");
+                double costoManoObra = rs.getDouble("costo_manodeobra");
+                String herramientas = rs.getString("herramientas_material");
+                double costoHerramientas = rs.getDouble("costo_herramientas");
+                double costoTotal = rs.getDouble("costo_total");
+                tabla.addRow(new Object[]{rubro,nombre,unidad,costo,susten,proveedor,transporte,costoTransporte,manoObra,costoManoObra,herramientas,costoHerramientas,costoTotal});
             }
         }catch(SQLException ex){
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
