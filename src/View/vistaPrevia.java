@@ -5,16 +5,13 @@
 package View;
 
 import Controller.ControllerProyec;
-<<<<<<< HEAD
 import Model.Proyecto;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-=======
 import javax.swing.ImageIcon;
->>>>>>> b0cb520fb555facd21d6959fa0114ca3f90d5b18
 
 /**
  *
@@ -29,17 +26,14 @@ public class vistaPrevia extends javax.swing.JFrame {
      */
     public vistaPrevia(Proyecto proyecto) throws SQLException {
         initComponents();
-<<<<<<< HEAD
         this.proyecto = proyecto;
         modelo = new DefaultTableModel();
         tablita = new JTable();
         controller = new ControllerProyec(this,modelo);
         modelo = controller.llenarVistaPrevia(proyecto,"Zapata");
         tablita.setModel(modelo);
-=======
         this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
->>>>>>> b0cb520fb555facd21d6959fa0114ca3f90d5b18
         
 //        controller.llenarVistaPrevia(proyecto,"MurosDeContención",tablita);        
     }

@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -12,12 +13,14 @@ import javax.swing.JOptionPane;
  * @author aquil
  */
 public class gestionarUsuario extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
     /**
      * Creates new form gestionarUsuario
      */
-    public gestionarUsuario() {
+    public gestionarUsuario(Usuario usuario) {
         initComponents();
+        usuarioActual = usuario;
+        nombreDato.setText(usuario.getNombreUsuario());
     }
 
     /**
