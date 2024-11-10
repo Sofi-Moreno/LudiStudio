@@ -4,7 +4,13 @@
  */
 package View;
 
+import Controller.ControlMateriales;
+import Model.Material;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +18,17 @@ import javax.swing.JOptionPane;
  * @author Riarb
  */
 public class eliminarMateriales extends javax.swing.JPanel {
-
+    ControlMateriales controlM;
+    Material materiales;
+    Usuario usuarioActual;
     /**
      * Creates new form eliminarMateriales
+     * @param user
      */
-    public eliminarMateriales() {
+    public eliminarMateriales(Usuario user) {
         initComponents();
+        usuarioActual = user;
+        controlM = new ControlMateriales(nombreElimTxt);
     }
 
     /**
@@ -178,11 +189,61 @@ public class eliminarMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreElimTxtActionPerformed
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        int salida = 0;
         int option = JOptionPane.showConfirmDialog( null, "¿Deseas continuar?", "Confirmación", JOptionPane.YES_NO_OPTION );
         if (option == JOptionPane.YES_OPTION) { 
             //ELIMINAR MATERIAL
         } else if (option == JOptionPane.NO_OPTION) {
-            //SEGUIMOS CON NUESTRAS VIDAS
+            try{
+            do{
+                
+                switch (controlM.eliminarRegistroDB()){
+                    case 1:
+                        if (salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos.");
+                            salida=1;
+                            break;
+                        }
+                        break;  
+                    case 2:
+                        if (salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos"
+                                    + "y no posee la longitud correcta (1-25 caracteres)");
+                            salida=1;
+                            break;
+                        }
+                        break;
+                    case 3:
+                    if (salida==0){
+                        JOptionPane.showMessageDialog(null, "El nombre del material ingresado no posee la longitud correcta (1-25 caracteres)");
+                        salida=1;
+                        break;
+                    }
+                    break;
+                    case 4:
+                    if (salida==0){
+                        JOptionPane.showMessageDialog(null, "El material a eliminar no existe.");
+                        salida=1;
+                        break;
+                    }
+                    break;
+                    case 5:
+                    if (salida==0){
+                        JOptionPane.showMessageDialog(null, "Error encontrando material");
+                        salida=1;
+                        break;
+                    }
+                    break;
+                    default:
+                        
+                        break;
+                }
+             
+            }while(controlM.eliminarRegistroDB()!=0);
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                
+        }
         }
     }//GEN-LAST:event_entrarButtomMouseClicked
 

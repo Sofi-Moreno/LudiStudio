@@ -30,8 +30,8 @@ public class ControlMateriales {
     JComboBox unidadRegistro,sustRegistro,manodRegistro,transRegistro,herraRegistro;
     JPanel ventana;
     
-    //Atributo para eliminar
-    JTextField nombreEliminar;
+    //Atributo para buscar(sirve para buscar el material a eliminar/modificar
+    JTextField nombreBuscar;
     
 
     public ControlMateriales(JTextField rubroRegistro, JTextField nombreRegistro, JTextField cantidadRegistro, JTextField costoMRegistro, JTextField proveRegistro, JTextField costransRegistro, JTextField costomanoRegistro, JTextField costoHerraRegistro, JComboBox unidadRegistro, JComboBox sustRegistro, JComboBox manodRegistro, JComboBox transRegistro, JComboBox herraRegistro, JPanel ventana) {
@@ -51,12 +51,10 @@ public class ControlMateriales {
         this.ventana = ventana;
     }
     
-    //Constructor para eliminar
-    public ControlMateriales(JTextField nombreEliminar) {
-        this.nombreEliminar = nombreEliminar;
+    //Constructor para buscar
+    public ControlMateriales(JTextField nombreBuscar) {
+        this.nombreBuscar = nombreBuscar;
     }
-    
- 
     
     //METODO PARA VALIDAR EL NOMBRE DEL MATERIAL
     public int validarMaterialNombre(Material mat) throws SQLException{
@@ -222,21 +220,21 @@ public class ControlMateriales {
         ResultSet rs = null;
         String patron = "^[a-zA-Z0-9\\s.,;:-^()\\/]+\\s*(\\([a-zA-Z0-9\\s.,;:-^()\\/]+\\))*$";
         Pattern pattern = Pattern.compile(patron);
-        Matcher matcher = pattern.matcher(nombreEliminar.getText());
+        Matcher matcher = pattern.matcher(nombreBuscar.getText());
         String sql1 = "SELECT COUNT(*) FROM material WHERE nombre_material = ?";
         String sql2 = "DELETE FROM material WHERE nombre_material = ?";
 
         try {
             if (!matcher.matches()){
                 veri=1; //No coincide con el patron establecido
-            }else if(!matcher.matches() && (nombreEliminar.getText().length()>25 || nombreEliminar.getText().length()<3)){
+            }else if(!matcher.matches() && (nombreBuscar.getText().length()>25 || nombreBuscar.getText().length()<3)){
                 veri = 2; //si no cumple el patron y no tiene la longitud correcta
-            }else if(nombreEliminar.getText().length()>25 || nombreEliminar.getText().length()<3){
+            }else if(nombreBuscar.getText().length()>25 || nombreBuscar.getText().length()<3){
                 veri = 3; //error si no tiene el tamaño correcto
             }else{
             // Verifica si el material existe
             st = conex.prepareStatement(sql1);
-            st.setString(1, nombreEliminar.getText());
+            st.setString(1, nombreBuscar.getText());
             rs = st.executeQuery();
 
             if (rs.next()) {
@@ -244,7 +242,7 @@ public class ControlMateriales {
                 if (count > 0) {
                     // El material existe y procede con la eliminacion
                     st2 = conex.prepareStatement(sql2);
-                    st2.setString(1, nombreEliminar.getText());
+                    st2.setString(1, nombreBuscar.getText());
                     int rowsDeleted = st2.executeUpdate();
                     if (rowsDeleted > 0) {
                         bol = true;
@@ -273,6 +271,54 @@ public class ControlMateriales {
         }
 
         return veri;
+    }
+    
+    
+    public int validarNombreModi(Material mat) throws SQLException{
+        int val=0 ; //si se encontro el material
+        boolean bol = false;
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM material";
+        String patron = "^[a-zA-Z0-9\\s.,;:-^()\\/]+\\s*(\\([a-zA-Z0-9\\s.,;:-^()\\/]+\\))*$";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(nombreBuscar.getText());
+        try {
+            //AQUI VERIFICAMOS SI EL MATERIAL YA EXISTE BASANDONOS EN SU NOMBRE
+            stmt = conex.createStatement();
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                if(nombreBuscar.getText().equals(rs.getString("nombre_material"))){
+                    bol = true;
+                }
+            }
+            if(bol==false){
+                val = 1; //no se encontro el material
+                
+            }
+            else if(!matcher.matches() && (nombreBuscar.getText().length()>25 || nombreBuscar.getText().length()<3)){
+                val = 2; //si no cumple el patron y no tiene la longitud correcta
+            }
+            else if(!matcher.matches()){
+                val = 3; //si no cumple el patron
+            }
+            else if(nombreBuscar.getText().length()>25 || nombreBuscar.getText().length()<3){
+                val = 4; //error si no tiene el tamaño correcto
+            }
+            else{
+                mat.setNombreMaterial(nombreBuscar.getText());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            stmt.close();
+            rs.close();
+            conex.close();
+            con.desconectar();
+        }
+        return val;
     }
     
     public boolean modificarMaterial(Material mat) throws SQLException {

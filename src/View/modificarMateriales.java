@@ -17,14 +17,18 @@ import javax.swing.JOptionPane;
  * @author Riarb
  */
 public class modificarMateriales extends javax.swing.JPanel {
-
+    ControlMateriales controller;
+    Material materiales;
+    Usuario usuarioActual;
     /**
-     * Creates new form modificarMateriales
+     * Creates new form crearMateriales
+     * @param user
      */
-    public modificarMateriales() {
+    public modificarMateriales(Usuario user,Material nombreModi) {
         initComponents();
+        usuarioActual = user;
+        controller = new ControlMateriales(rubroTxt, nombreMaterialTxt, cantidadTxt, costoMaterialTxt, nombreProveedorTxt, transporteTxt, costoManoTxt, costoHerramientaTxt, unidadesBox, SustentabilidadBox, ManoDeObraBox, transporteBox, herramientasBox, this);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

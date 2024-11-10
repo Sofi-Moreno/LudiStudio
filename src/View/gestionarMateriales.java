@@ -267,7 +267,7 @@ public class gestionarMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_crearMaterialesButtomMouseClicked
 
     private void eliminarMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMaterialesButtomMouseClicked
-        eliminarMateriales p3 = new eliminarMateriales();
+        eliminarMateriales p3 = new eliminarMateriales(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
@@ -279,7 +279,7 @@ public class gestionarMateriales extends javax.swing.JPanel {
 
     private void modificarMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMaterialesButtomMouseClicked
         // TODO add your handling code here:
-        ingresarMaterialMod p3 = new ingresarMaterialMod();
+        ingresarMaterialMod p3 = new ingresarMaterialMod(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
