@@ -31,7 +31,6 @@ public class SelectorDePartes extends javax.swing.JPanel {
         usuarioActual = user;
         presupuestoTotal = 0;
         controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
-        controller.Sustentabilidad(sustentabilidadBox);
     }
 
     /**
@@ -58,8 +57,10 @@ public class SelectorDePartes extends javax.swing.JPanel {
         nombreLabel = new javax.swing.JLabel();
 
         contentSelector.setBackground(new java.awt.Color(0, 153, 153));
+        contentSelector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresarButtomMouseClicked(evt);
@@ -87,6 +88,8 @@ public class SelectorDePartes extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
 
+        contentSelector.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
+
         nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         nombreTxt.setForeground(new java.awt.Color(204, 204, 204));
@@ -103,11 +106,14 @@ public class SelectorDePartes extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
+        contentSelector.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 182, 229, -1));
 
         presupuestoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         presupuestoLabel.setForeground(new java.awt.Color(255, 255, 255));
         presupuestoLabel.setText("Presupuesto");
         presupuestoLabel.setToolTipText("");
+        contentSelector.add(presupuestoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 231, -1, -1));
+        contentSelector.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 205, 229, 20));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -132,12 +138,16 @@ public class SelectorDePartes extends javax.swing.JPanel {
                 .addGap(37, 37, 37))
         );
 
-        sustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, -1, -1));
+
+        sustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Muy Sustentable", "Sustentable", "Poco Sustentable", "No sustentable" }));
+        contentSelector.add(sustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 356, 167, -1));
 
         sustentabilidadLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         sustentabilidadLabel.setForeground(new java.awt.Color(255, 255, 255));
         sustentabilidadLabel.setText("Sustentabilidad");
         sustentabilidadLabel.setToolTipText("");
+        contentSelector.add(sustentabilidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 315, -1, -1));
 
         presupuestTxt.setBackground(new java.awt.Color(0, 153, 153));
         presupuestTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -155,61 +165,14 @@ public class SelectorDePartes extends javax.swing.JPanel {
                 presupuestTxtActionPerformed(evt);
             }
         });
+        contentSelector.add(presupuestTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 266, -1, -1));
+        contentSelector.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 289, 229, 20));
 
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre ");
         nombreLabel.setToolTipText("");
-
-        javax.swing.GroupLayout contentSelectorLayout = new javax.swing.GroupLayout(contentSelector);
-        contentSelector.setLayout(contentSelectorLayout);
-        contentSelectorLayout.setHorizontalGroup(
-            contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-            .addGroup(contentSelectorLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreLabel)
-                    .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(nombreTxt)
-                        .addComponent(presupuestoLabel)
-                        .addComponent(jSeparator1)
-                        .addComponent(presupuestTxt)
-                        .addComponent(jSeparator2))
-                    .addGroup(contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(sustentabilidadBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sustentabilidadLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(panelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        contentSelectorLayout.setVerticalGroup(
-            contentSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nombreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nombreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(presupuestoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(presupuestTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sustentabilidadLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sustentabilidadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
+        contentSelector.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 147, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

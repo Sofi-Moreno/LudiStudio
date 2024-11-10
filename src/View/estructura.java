@@ -97,6 +97,8 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarLabel4 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
 
         contentElementos.setBackground(new java.awt.Color(0, 204, 204));
         contentElementos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -579,7 +581,7 @@ public class Estructura extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Guardar");
+        jLabel2.setText("GUARDAR");
 
         javax.swing.GroupLayout guardarButtomLayout = new javax.swing.GroupLayout(guardarButtom);
         guardarButtom.setLayout(guardarButtomLayout);
@@ -588,7 +590,7 @@ public class Estructura extends javax.swing.JPanel {
             .addGroup(guardarButtomLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel2)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,7 +600,44 @@ public class Estructura extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 230, -1));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("VOLVER");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(entrarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(entrarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        contentElementos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -609,8 +648,8 @@ public class Estructura extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(contentElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(contentElementos, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -626,7 +665,7 @@ public class Estructura extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -868,6 +907,25 @@ public class Estructura extends javax.swing.JPanel {
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
 
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal);
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentElementos.removeAll();
+        contentElementos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentElementos.revalidate();
+        contentElementos.repaint();
+    }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentElementos;
@@ -880,6 +938,8 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
     private javax.swing.JLabel deshabilitarLabel4;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel entrepisoLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;

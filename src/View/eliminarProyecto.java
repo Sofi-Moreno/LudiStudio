@@ -4,19 +4,28 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Riarb
  */
 public class eliminarProyecto extends javax.swing.JPanel {
-
+    Usuario usuarioActual;
+    ControllerProyec controller;
     /**
      * Creates new form eliminarProyecto
      */
-    public eliminarProyecto() {
+    public eliminarProyecto(Usuario user) {
         initComponents();
+        controller = new ControllerProyec(this,idTxt);
+        usuarioActual = user;
     }
 
     /**
@@ -29,7 +38,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        userTxt = new javax.swing.JTextField();
+        idTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         usuarioLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -42,20 +51,20 @@ public class eliminarProyecto extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        userTxt.setBackground(new java.awt.Color(0, 153, 153));
-        userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingrese el ID del proyecto");
-        userTxt.setToolTipText("");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        idTxt.setBackground(new java.awt.Color(0, 153, 153));
+        idTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        idTxt.setForeground(new java.awt.Color(204, 204, 204));
+        idTxt.setText("Ingrese el ID del proyecto");
+        idTxt.setToolTipText("");
+        idTxt.setBorder(null);
+        idTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
+                idTxtMousePressed(evt);
             }
         });
-        userTxt.addActionListener(new java.awt.event.ActionListener() {
+        idTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxtActionPerformed(evt);
+                idTxtActionPerformed(evt);
             }
         });
 
@@ -150,7 +159,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usuarioLabel)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +174,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(usuarioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -191,34 +200,51 @@ public class eliminarProyecto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingrese el ID del proyecto")){
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+    private void idTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idTxtMousePressed
+        if (idTxt.getText().equals("Ingrese el ID del proyecto")){
+            idTxt.setText("");
+            idTxt.setForeground(Color.black);
         }
         if (String.valueOf(passTxt.getPassword()).isEmpty()){
             passTxt.setText("************");
             passTxt.setForeground(new Color(204,204,204));
         }
-    }//GEN-LAST:event_userTxtMousePressed
+    }//GEN-LAST:event_idTxtMousePressed
 
-    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
+    private void idTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxtActionPerformed
+    }//GEN-LAST:event_idTxtActionPerformed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
         if (String.valueOf(passTxt.getPassword()).equals("************")){
             passTxt.setText("");
             passTxt.setForeground(Color.black);
         }
-        if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingrese el ID del proyecto");
-            userTxt.setForeground(new Color(204,204,204));
+        if (idTxt.getText().isEmpty()){
+            idTxt.setText("Ingrese el ID del proyecto");
+            idTxt.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_passTxtMousePressed
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        
+        try {
+            switch (controller.eliminarProyecto()) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "El id ingresado solo debe poseer numeros.");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, "El id ingresado no existe.");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Proyecto Eliminado Exitosamente.");
+                    MainMenu menu = new MainMenu(usuarioActual);
+                    menu.setVisible(true);
+                    this.setVisible(false);
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(eliminarProyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_entrarButtomMouseClicked
 
@@ -234,6 +260,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
+    private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -241,7 +268,6 @@ public class eliminarProyecto extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField passTxt;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField userTxt;
     private javax.swing.JLabel usuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

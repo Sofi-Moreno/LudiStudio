@@ -79,6 +79,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         murosLabel = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -105,6 +107,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         contentFundamentos.setBackground(new java.awt.Color(0, 204, 204));
+        contentFundamentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -128,6 +131,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38))
         );
+
+        contentFundamentos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 613, -1));
 
         deshabilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -163,6 +168,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addComponent(deshabilitarLabel1)
                 .addContainerGap())
         );
+
+        contentFundamentos.add(deshabilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 194, -1, -1));
 
         habilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,12 +208,15 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        contentFundamentos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 153, 141, -1));
+
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
             }
         });
+        contentFundamentos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 209, -1, -1));
 
         precio1Label.setText("Precio");
 
@@ -225,6 +235,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addComponent(precio1Label)
                 .addGap(0, 6, Short.MAX_VALUE))
         );
+
+        contentFundamentos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 209, -1, -1));
 
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -262,6 +274,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        contentFundamentos.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 277, 136, -1));
+
         deshabilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deshabilitarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -296,6 +310,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        contentFundamentos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 315, -1, -1));
+
         precioLabel2.setText("Precio");
 
         javax.swing.GroupLayout precioPanel2Layout = new javax.swing.GroupLayout(precioPanel2);
@@ -314,19 +330,26 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        contentFundamentos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, -1, 22));
+
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        contentFundamentos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 367, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        contentFundamentos.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 613, 10));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        contentFundamentos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 402, 601, 12));
 
         zapataLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         zapataLabel.setForeground(new java.awt.Color(0, 102, 102));
         zapataLabel.setText("Zapata");
+        contentFundamentos.add(zapataLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 151, 174, -1));
 
         murosLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         murosLabel.setForeground(new java.awt.Color(0, 102, 102));
         murosLabel.setText("Muros de Contención");
+        contentFundamentos.add(murosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 294, -1, -1));
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -344,16 +367,16 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Guardar");
+        jLabel2.setText("GUARDAR");
 
         javax.swing.GroupLayout guardarButtomLayout = new javax.swing.GroupLayout(guardarButtom);
         guardarButtom.setLayout(guardarButtomLayout);
         guardarButtomLayout.setHorizontalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guardarButtomLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,87 +386,44 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout contentFundamentosLayout = new javax.swing.GroupLayout(contentFundamentos);
-        contentFundamentos.setLayout(contentFundamentosLayout);
-        contentFundamentosLayout.setHorizontalGroup(
-            contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(contentFundamentosLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentFundamentosLayout.createSequentialGroup()
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentFundamentosLayout.createSequentialGroup()
-                                .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(zapataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(habilitarButtom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentFundamentosLayout.createSequentialGroup()
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentFundamentosLayout.createSequentialGroup()
-                                .addComponent(materialBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(precioPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(murosLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(habilitarButtom2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(deshabilitarButtom2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(65, 65, 65))))
-            .addComponent(jSeparator1)
-            .addGroup(contentFundamentosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator2)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentFundamentosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guardarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+        contentFundamentos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 432, -1, -1));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("VOLVER");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(entrarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
-        contentFundamentosLayout.setVerticalGroup(
-            contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentFundamentosLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(contentFundamentosLayout.createSequentialGroup()
-                        .addComponent(habilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6))
-                    .addGroup(contentFundamentosLayout.createSequentialGroup()
-                        .addComponent(zapataLabel)
-                        .addGap(15, 15, 15)
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentFundamentosLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(murosLabel)
-                        .addGap(30, 30, 30)
-                        .addGroup(contentFundamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(materialBox2)
-                            .addComponent(precioPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(contentFundamentosLayout.createSequentialGroup()
-                        .addComponent(habilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deshabilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(guardarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(entrarLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        contentFundamentos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -586,6 +566,25 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_guardarButtomMouseClicked
 
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        SelectorDePartes p3 = new SelectorDePartes(usuarioActual);
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentFundamentos.removeAll();
+        contentFundamentos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentFundamentos.revalidate();
+        contentFundamentos.repaint();
+    }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentFundamentos;
@@ -593,6 +592,8 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;

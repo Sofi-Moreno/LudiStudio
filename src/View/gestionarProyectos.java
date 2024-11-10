@@ -267,11 +267,11 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_crearProyectoButtomMouseClicked
 
     private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_verProyectosButtomMouseClicked
 
     private void eliminarProyectoButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarProyectoButtomMouseClicked
-        eliminarProyecto p3 = new eliminarProyecto();
+        eliminarProyecto p3 = new eliminarProyecto(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
