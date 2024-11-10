@@ -80,6 +80,9 @@ public class gestionarMateriales extends javax.swing.JPanel {
         verMaterialesButtom.setBackground(new java.awt.Color(0, 102, 102));
         verMaterialesButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verMaterialesButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verMaterialesButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verMaterialesButtomMouseEntered(evt);
             }
@@ -147,6 +150,9 @@ public class gestionarMateriales extends javax.swing.JPanel {
         modificarMaterialesButtom.setBackground(new java.awt.Color(0, 102, 102));
         modificarMaterialesButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificarMaterialesButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarMaterialesButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 modificarMaterialesButtomMouseEntered(evt);
             }
@@ -270,6 +276,30 @@ public class gestionarMateriales extends javax.swing.JPanel {
         contentSelector.revalidate();
         contentSelector.repaint();
     }//GEN-LAST:event_eliminarMaterialesButtomMouseClicked
+
+    private void modificarMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMaterialesButtomMouseClicked
+        // TODO add your handling code here:
+        ingresarMaterialMod p3 = new ingresarMaterialMod();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentSelector.removeAll();
+        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentSelector.revalidate();
+        contentSelector.repaint();
+    }//GEN-LAST:event_modificarMaterialesButtomMouseClicked
+
+    private void verMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMaterialesButtomMouseClicked
+        // TODO add your handling code here:
+        verMateriales p3 = new verMateriales();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentSelector.removeAll();
+        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentSelector.revalidate();
+        contentSelector.repaint();
+    }//GEN-LAST:event_verMaterialesButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

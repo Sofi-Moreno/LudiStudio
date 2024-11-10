@@ -153,6 +153,9 @@ public class gestionarProyectos extends javax.swing.JPanel {
         modificarProyectosButtom.setBackground(new java.awt.Color(0, 102, 102));
         modificarProyectosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificarProyectosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarProyectosButtomMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 modificarProyectosButtomMouseEntered(evt);
             }
@@ -287,6 +290,10 @@ public class gestionarProyectos extends javax.swing.JPanel {
         contentProyectos.revalidate();
         contentProyectos.repaint();
     }//GEN-LAST:event_eliminarProyectoButtomMouseClicked
+
+    private void modificarProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarProyectosButtomMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificarProyectosButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -76,6 +76,7 @@ public class crearMateriales extends javax.swing.JPanel {
         herramientasBox = new javax.swing.JComboBox<>();
 
         contentSelectorMateriales.setBackground(new java.awt.Color(0, 153, 153));
+        contentSelectorMateriales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -105,6 +106,8 @@ public class crearMateriales extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
 
+        contentSelectorMateriales.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 472, -1, -1));
+
         nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         nombreMaterialTxt.setForeground(new java.awt.Color(204, 204, 204));
@@ -121,6 +124,8 @@ public class crearMateriales extends javax.swing.JPanel {
                 nombreMaterialTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 181, 229, -1));
+        contentSelectorMateriales.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 203, 229, 20));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -132,10 +137,10 @@ public class crearMateriales extends javax.swing.JPanel {
         panelTitle.setLayout(panelTitleLayout);
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTitleLayout.createSequentialGroup()
-                .addGap(168, 168, 168)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tituloLabel1)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(136, 136, 136))
         );
         panelTitleLayout.setVerticalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,15 +150,20 @@ public class crearMateriales extends javax.swing.JPanel {
                 .addGap(37, 37, 37))
         );
 
+        contentSelectorMateriales.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
+        contentSelectorMateriales.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 282, 229, 20));
+
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre");
         nombreLabel.setToolTipText("");
+        contentSelectorMateriales.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 150, -1, -1));
 
         rubroLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         rubroLabel.setForeground(new java.awt.Color(255, 255, 255));
         rubroLabel.setText("Rubro");
         rubroLabel.setToolTipText("");
+        contentSelectorMateriales.add(rubroLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 229, -1, -1));
 
         rubroTxt.setBackground(new java.awt.Color(0, 153, 153));
         rubroTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -171,11 +181,13 @@ public class crearMateriales extends javax.swing.JPanel {
                 rubroTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(rubroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 260, 229, -1));
 
         cantidadLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         cantidadLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantidadLabel.setText("Cantidad");
         cantidadLabel.setToolTipText("");
+        contentSelectorMateriales.add(cantidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 308, -1, -1));
 
         costoMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -193,11 +205,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoMaterialTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(costoMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 421, 144, -1));
+        contentSelectorMateriales.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 361, 229, 20));
 
         costoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoLabel.setText("Costo Material");
         costoLabel.setToolTipText("");
+        contentSelectorMateriales.add(costoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 387, -1, -1));
 
         cantidadTxt.setBackground(new java.awt.Color(0, 153, 153));
         cantidadTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -215,11 +230,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 cantidadTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(cantidadTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 339, 229, -1));
+        contentSelectorMateriales.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 446, 133, 20));
 
         nombreProveedorLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreProveedorLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreProveedorLabel.setText("Nombre Proveedor");
         nombreProveedorLabel.setToolTipText("");
+        contentSelectorMateriales.add(nombreProveedorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 150, -1, -1));
 
         nombreProveedorTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreProveedorTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -237,11 +255,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 nombreProveedorTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(nombreProveedorTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 181, 238, -1));
+        contentSelectorMateriales.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 446, 196, 20));
 
         costoTansporteLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoTansporteLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoTansporteLabel.setText("Costo Transporte");
         costoTansporteLabel.setToolTipText("");
+        contentSelectorMateriales.add(costoTansporteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 229, -1, -1));
 
         transporteTxt.setBackground(new java.awt.Color(0, 153, 153));
         transporteTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -259,11 +280,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 transporteTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(transporteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 260, 178, -1));
+        contentSelectorMateriales.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 203, 181, 20));
 
         costoManoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoManoLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoManoLabel.setText("Costo Mano de Obra");
         costoManoLabel.setToolTipText("");
+        contentSelectorMateriales.add(costoManoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 308, -1, -1));
 
         costoManoTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoManoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -281,11 +305,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoManoTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(costoManoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 339, 316, -1));
+        contentSelectorMateriales.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 282, 178, 20));
 
         costoHerramientaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoHerramientaLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoHerramientaLabel.setText("Costo Herramientas");
         costoHerramientaLabel.setToolTipText("");
+        contentSelectorMateriales.add(costoHerramientaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 387, -1, -1));
 
         costoHerramientaTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoHerramientaTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -303,6 +330,8 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoHerramientaTxtActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(costoHerramientaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 421, 316, -1));
+        contentSelectorMateriales.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 361, 200, 20));
 
         unidadesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidades" }));
         unidadesBox.addActionListener(new java.awt.event.ActionListener() {
@@ -310,150 +339,19 @@ public class crearMateriales extends javax.swing.JPanel {
                 unidadesBoxActionPerformed(evt);
             }
         });
+        contentSelectorMateriales.add(unidadesBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 418, -1, -1));
 
         SustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sustentabilidad", "Item 2", "Item 3", "Item 4" }));
+        contentSelectorMateriales.add(SustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 153, -1, -1));
 
         transporteBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transporte", "Item 2", "Item 3", "Item 4" }));
+        contentSelectorMateriales.add(transporteBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 232, -1, -1));
 
         ManoDeObraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mano de obra", "Item 2", "Item 3", "Item 4" }));
+        contentSelectorMateriales.add(ManoDeObraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 311, -1, -1));
 
         herramientasBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Herramientas", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout contentSelectorMaterialesLayout = new javax.swing.GroupLayout(contentSelectorMateriales);
-        contentSelectorMateriales.setLayout(contentSelectorMaterialesLayout);
-        contentSelectorMaterialesLayout.setHorizontalGroup(
-            contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(costoLabel)
-                            .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(rubroTxt)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cantidadLabel)
-                                    .addComponent(rubroLabel)
-                                    .addComponent(nombreLabel)
-                                    .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                        .addComponent(jSeparator1)
-                                        .addComponent(jSeparator2)))
-                                .addComponent(jSeparator3)
-                                .addComponent(cantidadTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addComponent(costoMaterialTxt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(unidadesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)))
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                                .addComponent(nombreProveedorTxt)
-                                .addGap(78, 78, 78))
-                            .addComponent(costoManoTxt)
-                            .addComponent(costoHerramientaTxt)
-                            .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(transporteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                                        .addComponent(costoTansporteLabel)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(transporteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addComponent(nombreProveedorLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SustentabilidadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addComponent(costoManoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ManoDeObraBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addComponent(costoHerramientaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(herramientasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorMaterialesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-        contentSelectorMaterialesLayout.setVerticalGroup(
-            contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentSelectorMaterialesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreLabel)
-                    .addComponent(nombreProveedorLabel)
-                    .addComponent(SustentabilidadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreProveedorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rubroLabel)
-                    .addComponent(costoTansporteLabel)
-                    .addComponent(transporteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rubroTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transporteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cantidadLabel)
-                    .addComponent(costoManoLabel)
-                    .addComponent(ManoDeObraBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cantidadTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(costoManoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(contentSelectorMaterialesLayout.createSequentialGroup()
-                        .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(costoLabel)
-                            .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(costoHerramientaLabel)
-                                .addComponent(herramientasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contentSelectorMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(costoMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(costoHerramientaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(unidadesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        contentSelectorMateriales.add(herramientasBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 390, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
