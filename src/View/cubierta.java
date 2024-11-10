@@ -346,19 +346,19 @@ public class cubierta extends javax.swing.JPanel {
         guardarButtomLayout.setHorizontalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guardarButtomLayout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(52, 52, 52))
+                .addGap(53, 53, 53))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 436, 220, -1));
+        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 436, 220, 60));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

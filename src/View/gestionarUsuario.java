@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aquil
@@ -27,27 +30,276 @@ public class gestionarUsuario extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        tituloLabel = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        apellidoLabel = new javax.swing.JLabel();
+        usuarioLabel = new javax.swing.JLabel();
+        paisLabel = new javax.swing.JLabel();
+        institucionLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        carreraLabel = new javax.swing.JLabel();
+        monedaLabel = new javax.swing.JLabel();
+        modificarButtom = new javax.swing.JPanel();
+        modificarLabel = new javax.swing.JLabel();
+        eliminarButtom = new javax.swing.JPanel();
+        eliminarLabel = new javax.swing.JLabel();
+        nombreDato = new javax.swing.JLabel();
+        apellidoDato = new javax.swing.JLabel();
+        usuarioDato = new javax.swing.JLabel();
+        passwordDato = new javax.swing.JLabel();
+        paisDato = new javax.swing.JLabel();
+        institucionDato = new javax.swing.JLabel();
+        carreraDato = new javax.swing.JLabel();
+        monedaDato = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel1.setText("usuario");
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+
+        tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLabel.setText("Gestionar Usuario");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(tituloLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(tituloLabel)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nombreLabel.setText("Nombre:");
+
+        apellidoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        apellidoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        apellidoLabel.setText("Apellido:");
+
+        usuarioLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        usuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
+        usuarioLabel.setText("Usuario:");
+
+        paisLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        paisLabel.setForeground(new java.awt.Color(255, 255, 255));
+        paisLabel.setText("Pais:");
+
+        institucionLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        institucionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        institucionLabel.setText("Institución:");
+
+        passwordLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
+        passwordLabel.setText("Contraseña:");
+
+        carreraLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        carreraLabel.setForeground(new java.awt.Color(255, 255, 255));
+        carreraLabel.setText("Carrera:");
+
+        monedaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        monedaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        monedaLabel.setText("Moneda");
+
+        modificarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        modificarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                modificarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                modificarButtomMouseExited(evt);
+            }
+        });
+
+        modificarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        modificarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        modificarLabel.setText("MODIFICAR");
+
+        javax.swing.GroupLayout modificarButtomLayout = new javax.swing.GroupLayout(modificarButtom);
+        modificarButtom.setLayout(modificarButtomLayout);
+        modificarButtomLayout.setHorizontalGroup(
+            modificarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(modificarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        modificarButtomLayout.setVerticalGroup(
+            modificarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(modificarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        eliminarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        eliminarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                eliminarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                eliminarButtomMouseExited(evt);
+            }
+        });
+
+        eliminarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        eliminarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarLabel.setText("ELIMINAR");
+
+        javax.swing.GroupLayout eliminarButtomLayout = new javax.swing.GroupLayout(eliminarButtom);
+        eliminarButtom.setLayout(eliminarButtomLayout);
+        eliminarButtomLayout.setHorizontalGroup(
+            eliminarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(eliminarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        eliminarButtomLayout.setVerticalGroup(
+            eliminarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(eliminarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreDato.setForeground(new java.awt.Color(255, 255, 255));
+        nombreDato.setText("s");
+
+        apellidoDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        apellidoDato.setForeground(new java.awt.Color(255, 255, 255));
+        apellidoDato.setText("s");
+
+        usuarioDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        usuarioDato.setForeground(new java.awt.Color(255, 255, 255));
+        usuarioDato.setText("s");
+
+        passwordDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        passwordDato.setForeground(new java.awt.Color(255, 255, 255));
+        passwordDato.setText("s");
+
+        paisDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        paisDato.setForeground(new java.awt.Color(255, 255, 255));
+        paisDato.setText("s");
+
+        institucionDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        institucionDato.setForeground(new java.awt.Color(255, 255, 255));
+        institucionDato.setText("s");
+
+        carreraDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        carreraDato.setForeground(new java.awt.Color(255, 255, 255));
+        carreraDato.setText("s");
+
+        monedaDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        monedaDato.setForeground(new java.awt.Color(255, 255, 255));
+        monedaDato.setText("s");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel1)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(apellidoLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(apellidoDato))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(nombreLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nombreDato)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(paisLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(paisDato))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(institucionLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(institucionDato)))
+                        .addGap(161, 161, 161))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(usuarioLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(usuarioDato)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(carreraLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(carreraDato)
+                        .addGap(195, 195, 195))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(passwordLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passwordDato)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(monedaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monedaDato)
+                        .addGap(186, 186, 186))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(modificarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(eliminarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombreLabel)
+                    .addComponent(paisLabel)
+                    .addComponent(nombreDato)
+                    .addComponent(paisDato))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apellidoLabel)
+                    .addComponent(institucionLabel)
+                    .addComponent(apellidoDato)
+                    .addComponent(institucionDato))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usuarioLabel)
+                    .addComponent(carreraLabel)
+                    .addComponent(usuarioDato)
+                    .addComponent(carreraDato))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabel)
+                    .addComponent(monedaLabel)
+                    .addComponent(passwordDato)
+                    .addComponent(monedaDato))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modificarButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -62,9 +314,63 @@ public class gestionarUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void modificarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseClicked
+        
+    }//GEN-LAST:event_modificarButtomMouseClicked
+
+    private void modificarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseEntered
+        modificarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_modificarButtomMouseEntered
+
+    private void modificarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseExited
+        modificarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_modificarButtomMouseExited
+
+    private void eliminarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtomMouseClicked
+        int option = JOptionPane.showConfirmDialog( null, "¿Deseas continuar?", "Confirmación", JOptionPane.YES_NO_OPTION );
+        if (option == JOptionPane.YES_OPTION) { 
+            //ELIMINAR USUARIO
+        } else if (option == JOptionPane.NO_OPTION) {
+            //SEGUIMOS CON NUESTRAS VIDAS
+        }
+    }//GEN-LAST:event_eliminarButtomMouseClicked
+
+    private void eliminarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtomMouseEntered
+        eliminarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_eliminarButtomMouseEntered
+
+    private void eliminarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtomMouseExited
+        eliminarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_eliminarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel apellidoDato;
+    private javax.swing.JLabel apellidoLabel;
+    private javax.swing.JLabel carreraDato;
+    private javax.swing.JLabel carreraLabel;
+    private javax.swing.JPanel eliminarButtom;
+    private javax.swing.JLabel eliminarLabel;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JPanel entrarButtom1;
+    private javax.swing.JLabel entrarLabel;
+    private javax.swing.JLabel entrarLabel1;
+    private javax.swing.JLabel institucionDato;
+    private javax.swing.JLabel institucionLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel modificarButtom;
+    private javax.swing.JLabel modificarLabel;
+    private javax.swing.JLabel monedaDato;
+    private javax.swing.JLabel monedaLabel;
+    private javax.swing.JLabel nombreDato;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JLabel paisDato;
+    private javax.swing.JLabel paisLabel;
+    private javax.swing.JLabel passwordDato;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JLabel tituloLabel;
+    private javax.swing.JLabel usuarioDato;
+    private javax.swing.JLabel usuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

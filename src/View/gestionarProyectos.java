@@ -267,7 +267,14 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_crearProyectoButtomMouseClicked
 
     private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
-        
+        verProyecto p3 = new verProyecto();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+
+        contentProyectos.removeAll();
+        contentProyectos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentProyectos.revalidate();
+        contentProyectos.repaint();
     }//GEN-LAST:event_verProyectosButtomMouseClicked
 
     private void eliminarProyectoButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarProyectoButtomMouseClicked

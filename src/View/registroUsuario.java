@@ -136,7 +136,7 @@ public class registroUsuario extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(189, 189, 189)
                 .addComponent(tituloLabel)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +146,7 @@ public class registroUsuario extends javax.swing.JPanel {
                 .addGap(30, 30, 30))
         );
 
-        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 620, 100));
+        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 630, 100));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario (1).png"))); // NOI18N
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 260, 250));
