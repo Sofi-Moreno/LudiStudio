@@ -75,10 +75,8 @@ public class cubierta extends javax.swing.JPanel {
         cubiertaLabel = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
 
-        contentCubierta.setBackground(new java.awt.Color(0, 204, 204));
+        contentCubierta.setBackground(new java.awt.Color(0, 153, 153));
         contentCubierta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
@@ -302,10 +300,10 @@ public class cubierta extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        contentCubierta.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, -1, 22));
+        contentCubierta.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, 22));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
-        contentCubierta.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 367, -1, -1));
+        contentCubierta.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         contentCubierta.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 619, 10));
@@ -314,12 +312,12 @@ public class cubierta extends javax.swing.JPanel {
         contentCubierta.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 401, 613, 27));
 
         estructuraLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        estructuraLabel.setForeground(new java.awt.Color(0, 102, 102));
+        estructuraLabel.setForeground(new java.awt.Color(242, 242, 242));
         estructuraLabel.setText("Estructura de Cubierta");
         contentCubierta.add(estructuraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 151, 367, -1));
 
         cubiertaLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        cubiertaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        cubiertaLabel.setForeground(new java.awt.Color(242, 242, 242));
         cubiertaLabel.setText("Cubierta");
         contentCubierta.add(cubiertaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 294, -1, -1));
 
@@ -358,44 +356,7 @@ public class cubierta extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 436, 220, 60));
-
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(entrarLabel)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(entrarLabel)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        contentCubierta.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
+        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 220, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -533,24 +494,6 @@ public class cubierta extends javax.swing.JPanel {
         
     }//GEN-LAST:event_guardarButtomMouseClicked
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal);
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-        contentCubierta.removeAll();
-        contentCubierta.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentCubierta.revalidate();
-        contentCubierta.repaint();
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentCubierta;
@@ -559,8 +502,6 @@ public class cubierta extends javax.swing.JPanel {
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel estructuraLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;

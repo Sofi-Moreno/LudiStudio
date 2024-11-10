@@ -79,8 +79,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         murosLabel = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -106,7 +104,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        contentFundamentos.setBackground(new java.awt.Color(0, 204, 204));
+        contentFundamentos.setBackground(new java.awt.Color(0, 153, 153));
         contentFundamentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
@@ -342,12 +340,12 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         contentFundamentos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 402, 601, 12));
 
         zapataLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        zapataLabel.setForeground(new java.awt.Color(0, 102, 102));
+        zapataLabel.setForeground(new java.awt.Color(255, 255, 255));
         zapataLabel.setText("Zapata");
         contentFundamentos.add(zapataLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 151, 174, -1));
 
         murosLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        murosLabel.setForeground(new java.awt.Color(0, 102, 102));
+        murosLabel.setForeground(new java.awt.Color(255, 255, 255));
         murosLabel.setText("Muros de Contención");
         contentFundamentos.add(murosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 294, -1, -1));
 
@@ -386,44 +384,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        contentFundamentos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 432, -1, -1));
-
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(entrarLabel)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(entrarLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        contentFundamentos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
+        contentFundamentos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -559,25 +520,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_guardarButtomMouseClicked
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        SelectorDePartes p3 = new SelectorDePartes(usuarioActual);
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-
-        contentFundamentos.removeAll();
-        contentFundamentos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentFundamentos.revalidate();
-        contentFundamentos.repaint();
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentFundamentos;
@@ -585,8 +527,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;

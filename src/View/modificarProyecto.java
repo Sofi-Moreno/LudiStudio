@@ -39,8 +39,10 @@ public class modificarProyecto extends javax.swing.JPanel {
         passwordLabel = new javax.swing.JLabel();
         passTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
 
         contentVer.setBackground(new java.awt.Color(0, 153, 153));
+        contentVer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -53,7 +55,7 @@ public class modificarProyecto extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addComponent(tituloLabel1)
                 .addGap(122, 122, 122))
         );
@@ -65,8 +67,10 @@ public class modificarProyecto extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
+        contentVer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, -1));
+
         nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
-        nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         nombreMaterialTxt.setForeground(new java.awt.Color(204, 204, 204));
         nombreMaterialTxt.setText("Ingrese el nombre del proyecto a modificar");
         nombreMaterialTxt.setToolTipText("");
@@ -81,11 +85,19 @@ public class modificarProyecto extends javax.swing.JPanel {
                 nombreMaterialTxtActionPerformed(evt);
             }
         });
+        contentVer.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 218, 310, -1));
+        contentVer.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 290, 20));
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ingresarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ingresarButtomMouseExited(evt);
             }
         });
 
@@ -110,17 +122,21 @@ public class modificarProyecto extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
+        contentVer.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
+
         nombreLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         nombreLabel1.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel1.setText("Nombre");
         nombreLabel1.setToolTipText("");
+        contentVer.add(nombreLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 183, -1, -1));
 
         passwordLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Contraseña");
+        contentVer.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 278, 170, -1));
 
         passTxt.setBackground(new java.awt.Color(0, 153, 153));
-        passTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passTxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passTxt.setForeground(new java.awt.Color(204, 204, 204));
         passTxt.setText("************");
         passTxt.setBorder(null);
@@ -129,48 +145,11 @@ public class modificarProyecto extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
+        contentVer.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 313, 310, -1));
+        contentVer.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 290, 20));
 
-        javax.swing.GroupLayout contentVerLayout = new javax.swing.GroupLayout(contentVer);
-        contentVer.setLayout(contentVerLayout);
-        contentVerLayout.setHorizontalGroup(
-            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentVerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addGroup(contentVerLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreLabel1)
-                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        contentVerLayout.setVerticalGroup(
-            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentVerLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(nombreLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(passwordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
+        contentVer.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,11 +194,20 @@ public class modificarProyecto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_passTxtMousePressed
 
+    private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
+        ingresarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_ingresarButtomMouseEntered
+
+    private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
+        ingresarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_ingresarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentVer;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

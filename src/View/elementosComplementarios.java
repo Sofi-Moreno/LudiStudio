@@ -94,10 +94,8 @@ public class elementosComplementarios extends javax.swing.JPanel {
         deshabilitarLabel4 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
 
-        contentElementos.setBackground(new java.awt.Color(0, 204, 204));
+        contentElementos.setBackground(new java.awt.Color(0, 153, 153));
         contentElementos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
@@ -160,7 +158,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        contentElementos.add(deshabilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 185, 65, -1));
+        contentElementos.add(deshabilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 65, -1));
 
         habilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -199,7 +197,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 145, -1, -1));
+        contentElementos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +205,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 materialBox1ActionPerformed(evt);
             }
         });
-        contentElementos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 204, -1, -1));
+        contentElementos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         precio1Label.setText("Precio");
 
@@ -227,7 +225,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addComponent(precio1Label))
         );
 
-        contentElementos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 204, -1, -1));
+        contentElementos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -266,7 +264,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 272, 71, -1));
+        contentElementos.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 71, -1));
 
         deshabilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -303,7 +301,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 310, 71, -1));
+        contentElementos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 71, -1));
 
         precioLabel2.setText("Precio");
 
@@ -335,24 +333,24 @@ public class elementosComplementarios extends javax.swing.JPanel {
         contentElementos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 406, 612, 19));
 
         rampaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        rampaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        rampaLabel.setForeground(new java.awt.Color(242, 242, 242));
         rampaLabel.setText("Rampas");
         contentElementos.add(rampaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, -1));
 
         techoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        techoLabel.setForeground(new java.awt.Color(0, 102, 102));
+        techoLabel.setForeground(new java.awt.Color(242, 242, 242));
         techoLabel.setText("Techos");
-        contentElementos.add(techoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        contentElementos.add(techoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         escaleraLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        escaleraLabel.setForeground(new java.awt.Color(0, 102, 102));
+        escaleraLabel.setForeground(new java.awt.Color(242, 242, 242));
         escaleraLabel.setText("Escalera");
         contentElementos.add(escaleraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 149, 120, -1));
 
         barandasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        barandasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        barandasLabel.setForeground(new java.awt.Color(242, 242, 242));
         barandasLabel.setText("Barandas");
-        contentElementos.add(barandasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
+        contentElementos.add(barandasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -437,7 +435,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
             .addGroup(habilitarButtom3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(habilitarLabel3)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         habilitarButtom3Layout.setVerticalGroup(
             habilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,7 +445,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+        contentElementos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 70, -1));
 
         deshabilitarButtom3.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -484,7 +482,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 70, -1));
+        contentElementos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 70, -1));
 
         habilitarButtom4.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -523,7 +521,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentElementos.add(habilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        contentElementos.add(habilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
 
         deshabilitarButtom4.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -560,7 +558,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        contentElementos.add(deshabilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
+        contentElementos.add(deshabilitarButtom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -597,44 +595,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 220, 60));
-
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(entrarLabel)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(entrarLabel)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        contentElementos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
+        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 220, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -870,24 +831,6 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_guardarButtomMouseExited
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal);
-            p3.setSize(613,530);
-            p3.setLocation(0,0);
-            contentElementos.removeAll();
-            contentElementos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-            contentElementos.revalidate();
-            contentElementos.repaint();
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barandasLabel;
@@ -900,8 +843,6 @@ public class elementosComplementarios extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
     private javax.swing.JLabel deshabilitarLabel4;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel escaleraLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;

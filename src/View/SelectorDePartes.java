@@ -55,6 +55,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         presupuestTxt = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         nombreLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         contentSelector.setBackground(new java.awt.Color(0, 153, 153));
         contentSelector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,7 +89,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
 
-        contentSelector.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
+        contentSelector.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
         nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -126,16 +127,16 @@ public class SelectorDePartes extends javax.swing.JPanel {
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTitleLayout.createSequentialGroup()
-                .addGap(168, 168, 168)
+                .addGap(143, 143, 143)
                 .addComponent(tituloLabel)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         panelTitleLayout.setVerticalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+            .addGroup(panelTitleLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(tituloLabel)
-                .addGap(37, 37, 37))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, -1, -1));
@@ -174,6 +175,9 @@ public class SelectorDePartes extends javax.swing.JPanel {
         nombreLabel.setToolTipText("");
         contentSelector.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 147, -1, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/aquitecto.png"))); // NOI18N
+        contentSelector.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,7 +186,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentSelector, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(contentSelector, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -247,6 +251,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
     private javax.swing.JPanel contentSelector;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel nombreLabel;
