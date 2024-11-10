@@ -23,9 +23,11 @@ public class modificarMateriales extends javax.swing.JPanel {
     /**
      * Creates new form crearMateriales
      * @param user
+     * @param nombreModi
      */
     public modificarMateriales(Usuario user,Material nombreModi) {
         initComponents();
+        materiales = nombreModi;
         usuarioActual = user;
         controller = new ControlMateriales(rubroTxt, nombreMaterialTxt, cantidadTxt, costoMaterialTxt, nombreProveedorTxt, transporteTxt, costoManoTxt, costoHerramientaTxt, unidadesBox, SustentabilidadBox, ManoDeObraBox, transporteBox, herramientasBox, this);
     }
@@ -366,7 +368,245 @@ public class modificarMateriales extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+        int salida = 0;
+        try{
+            do{
+                switch (controller.validarMaterialNombre(materiales)){
+                    case 1:
+                        if (salida==0){
+                            JOptionPane.showMessageDialog(null, "El material ingresado ya existe por favor ingrese otro nombre.");
+                            salida=1;
+                            break;
+                        }
+                        break;                       
+                    case 2:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos y no posee la "
+                                    + "longitud correcta (3-25 caracteres)");
+                            salida=1;
+                            break;
+                        }                   
+                        break;
+                    case 3:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos.");
+                            salida=1;
+                            break;
+                        }          
+                        break;
+                    case 4:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre no posee longitud correcta (3-25 caracteres)");
+                            salida=1;
+                            break;
+                        }          
+                        break;
+                    default:
+                        switch (controller.validarRubroProveedorRegistro(materiales,"rubro_material")){
+                            case 1:
+                                if(salida==0){
+                                   JOptionPane.showMessageDialog(null, "El rubro ingresado no cumple con el patron de iniciar "
+                                    + "con mayuscula y continuar con minuscula y no tiene el tamaño correcto (1-25). Ingresar una sola palabra.");
+                                   salida=1;
+                                   break; 
+                                }
+                                break;
+                            case 2:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El rubro ingresado no cumple con el patron de iniciar "
+                                    + "con mayuscula y continuar con minuscula. Ingresar una sola palabra.");
+                                    salida=1;
+                                    break;
+                                }     
+                                break;
+                            case 3:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El rubro ingresado no tiene el tamaño correcto (1-25).");
+                                    salida=1;
+                                    break;
+                                }
+                                break;
+                                
+                            default:   
+                                switch (controller.validarRubroProveedorRegistro(materiales,"proveedor_material")){
+                                    case 1:
+                                        if(salida==0){
+                                           JOptionPane.showMessageDialog(null, "El proveedor ingresado no cumple con el patron de iniciar "
+                                            + "con mayuscula y continuar con minuscula y no tiene el tamaño correcto (1-25). Ingresar una sola palabra.");
+                                           salida=1;
+                                           break; 
+                                        }
+                                        break;
+                                    case 2:
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El proveedor ingresado no cumple con el patron de iniciar "
+                                            + "con mayuscula y continuar con minuscula. Ingresar una sola palabra.");
+                                            salida=1;
+                                            break;
+                                        }     
+                                        break;
+                                    case 3:
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El proveedor ingresado no tiene el tamaño correcto (1-25).");
+                                            salida=1;
+                                            break;
+                                        }
+                                        break;
+                            default:
+                                //costo de material
+                                switch(controller.validarCostos(materiales,"costo_material")){
+                                    case 1:
+                                        if(salida==0){
+                                           JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                           salida=1;
+                                           break;
+                                        }
+                                        
+                                        break;
+                                    case 2:
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                            salida=1;
+                                            break;
+                                        }
+                                        break;
+                                    case 3:
+                                        if(salida==0){
+                                            JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                            salida=1;
+                                            break;   
+                                        }
+                                        break;    
+                            default:
+                                //cantidad de material
+                                switch(controller.validarCostos(materiales,"cantidad_material")){
+                            case 1:
+                                if(salida==0){
+                                   JOptionPane.showMessageDialog(null, "La cantidad ingresada no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                   salida=1;
+                                   break;
+                                }
 
+                                break;
+                            case 2:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "La cantidad ingresada no es un numero");
+                                    salida=1;
+                                    break;
+                                }
+                                break;
+                            case 3:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "La cantidad ingresada no posee la longitud correcta (1-4 digitos)");
+                                    salida=1;
+                                    break;   
+                                }
+                                break;    
+                            default:
+                                //costo mano de obra
+                                switch(controller.validarCostos(materiales,"costo_manodeobra")){
+                            case 1:
+                                if(salida==0){
+                                   JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                   salida=1;
+                                   break;
+                                }
+
+                                break;
+                            case 2:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                    salida=1;
+                                    break;
+                                }
+                                break;
+                            case 3:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                    salida=1;
+                                    break;   
+                                }
+                                break;    
+                            default:
+                                //costo de herramientas
+                        switch(controller.validarCostos(materiales,"costo_herramientas")){
+                            case 1:
+                                if(salida==0){
+                                   JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                   salida=1;
+                                   break;
+                                }
+
+                                break;
+                            case 2:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                    salida=1;
+                                    break;
+                                }
+                                break;
+                            case 3:
+                                if(salida==0){
+                                    JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                    salida=1;
+                                    break;   
+                                }
+                                break;    
+                            default:
+                                    //costo de transporte
+                            switch(controller.validarCostos(materiales,"costo_transporte")){
+                                case 1:
+                                    if(salida==0){
+                                       JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                       salida=1;
+                                       break;
+                                    }
+                                    break;
+                                case 2:
+                                    if(salida==0){
+                                        JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                        salida=1;
+                                        break;
+                                    }
+                                    break;
+                                case 3:
+                                    if(salida==0){
+                                        JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                        salida=1;
+                                        break;   
+                                    }
+                                    break;    
+                                    default:   
+                                        controller.modificarMaterial(materiales);
+                                        JOptionPane.showMessageDialog(null, "El material ha sido modificado con exito.");
+                                        MainMenu main = new MainMenu(usuarioActual);
+                                        main.setVisible(true);
+                                        this.setVisible(false);
+                                        break;
+                                        }
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+                }
+                break;
+            }
+            }
+            }
+            }
+            }while(controller.validarMaterialNombre(materiales)!=0 
+                    || (controller.validarRubroProveedorRegistro(materiales,"rubro_material"))!=0
+                    || (controller.validarRubroProveedorRegistro(materiales,"proveedor_material"))!=0
+                    || (controller.validarCostos(materiales,"costo_material"))!=0
+                    || (controller.validarCostos(materiales,"cantidad_material"))!=0
+                    || (controller.validarCostos(materiales,"costo_manodeobra"))!=0
+                    || (controller.validarCostos(materiales,"costo_herramientas"))!=0
+                    || (controller.validarCostos(materiales,"costo_transporte"))!=0);
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                
+        }
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
     private void nombreMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMaterialTxtMousePressed

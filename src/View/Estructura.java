@@ -26,6 +26,9 @@ public class Estructura extends javax.swing.JPanel {
 
     /**
      * Creates new form Estructura
+     * @param proyec
+     * @param usuario
+     * @param presupuesto
      */
     public Estructura(Proyecto proyec, Usuario usuario,double presupuesto) {
         initComponents();
