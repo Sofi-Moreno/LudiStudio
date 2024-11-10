@@ -19,7 +19,6 @@ import javax.swing.ImageIcon;
  */
 public class vistaPrevia extends javax.swing.JFrame {
     ControllerProyec controller;
-    DefaultTableModel modelo;
     static Proyecto proyecto;
     /**
      * Creates new form vistaPrevia
@@ -27,11 +26,8 @@ public class vistaPrevia extends javax.swing.JFrame {
     public vistaPrevia(Proyecto proyecto) throws SQLException {
         initComponents();
         this.proyecto = proyecto;
-        modelo = new DefaultTableModel();
-        tablita = new JTable();
-        controller = new ControllerProyec(this,modelo);
-        modelo = controller.llenarVistaPrevia(proyecto,"Zapata");
-        tablita.setModel(modelo);
+        controller = new ControllerProyec(this);
+        tablita.setModel(controller.llenarVistaPrevia(proyecto));
         this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         

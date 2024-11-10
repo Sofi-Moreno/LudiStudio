@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -58,9 +61,8 @@ public class ControllerProyec {
     }
     //constructor para vista previa
 
-    public ControllerProyec(JFrame ventanita, DefaultTableModel tabla) {
+    public ControllerProyec(JFrame ventanita) {
         this.ventanita = ventanita;
-        this.tabla = tabla;
     }
     
     //constructor para modificar
@@ -106,14 +108,15 @@ public class ControllerProyec {
         PreparedStatement materiales= null;
         ResultSet resultado = null;
         try {
-            materiales = conex.prepareStatement("INSERT INTO partes(Zapata) VALUES(?)");
-            materiales.setInt(1, 0);
+            materiales = conex.prepareStatement("INSERT INTO partes(Zapata) VALUES(0)");
+            materiales.executeUpdate();
             materiales = conex.prepareStatement("SELECT id_partes FROM partes");
             resultado = materiales.executeQuery();
             int ultimoIdPartes = 0; 
             while (resultado.next()) { 
                 ultimoIdPartes = resultado.getInt("id_partes"); 
             }
+            System.out.println(ultimoIdPartes);
             st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto, fecha, sustentabilidad, materiales) VALUES (?,?,?,?,?,?)");
             st.setInt(1,proyecto.getIdUsuario());
             st.setString(2,proyecto.getNombreProyecto());
@@ -199,48 +202,100 @@ public class ControllerProyec {
         }
     }
     //llenar tablita de vista previa
-    public  DefaultTableModel llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
+//    public  DefaultTableModel llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
+//        ConnectionDB con = new ConnectionDB();
+//        Connection conex = con.getConnection(); 
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//        int part = 0;
+//        try{
+//            stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
+//            stmt.setInt(1, proyecto.getIdMateriales());
+//            System.out.println(proyecto.getIdMateriales());
+//            rs = stmt.executeQuery();
+//            if(rs.next()){
+//                part = rs.getInt(parte);
+//            }
+//            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
+//            stmt.setInt(1, part);
+//            rs = stmt.executeQuery();
+//            if(rs.next()){
+//                String rubro = rs.getString("rubro_material");
+//                String nombre = rs.getString("nombre_material");
+//                String unidad = rs.getString("unidad_material");
+//                double costo = rs.getDouble("costo_material");
+//                String susten = rs.getString("sustentabilidad_material");
+//                String proveedor = rs.getString("proveedor_material");
+//                String transporte = rs.getString("transporte_material");
+//                double costoTransporte = rs.getDouble("costo_transporte");
+//                String manoObra = rs.getString("manodeobra_material");
+//                double costoManoObra = rs.getDouble("costo_manodeobra");
+//                String herramientas = rs.getString("herramientas_material");
+//                double costoHerramientas = rs.getDouble("costo_herramientas");
+//                double costoTotal = rs.getDouble("costo_total");
+//                tabla.addRow(new Object[]{rubro,nombre,unidad,costo,susten,proveedor,transporte,costoTransporte,manoObra,costoManoObra,herramientas,costoHerramientas,costoTotal});
+//            }
+//        }catch(SQLException ex){
+//            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+//        }finally{
+//            if(stmt!=null) stmt.close();
+//            if(rs!=null) rs.close();
+//            conex.close();
+//            con.desconectar();
+//        }
+//        return tabla;
+//    }
+    public DefaultTableModel llenarVistaPrevia(Proyecto proyecto){
+        List<String> partes = new ArrayList<>();
+        partes.add("Zapata");partes.add("MurosDeContención");partes.add("Columnas");partes.add("Vigas");
+        partes.add("Losas");partes.add("Entrepiso");partes.add("EstructuraDeCubierta");partes.add("Cubierta");partes.add("Muros");
+        partes.add("Ventanas");partes.add("Puertas");partes.add("Escalera");partes.add("Rampas");partes.add("Barandas");partes.add("Techos");
+        String [] columnas = {"PARTE","RUBRO", "NOMBRE MATERIAL", "UNIDAD", "PRECIO MATERIAL", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"};
+        String [] registros = new String[14];
+        DefaultTableModel modelo = new DefaultTableModel(null,columnas);
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int part = 0;
-        try{
-            stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
-            stmt.setInt(1, proyecto.getIdMateriales());
-            System.out.println(proyecto.getIdMateriales());
-            rs = stmt.executeQuery();
-            if(rs.next()){
-                part = rs.getInt(parte);
+        int cont = 0;
+        try {
+            while(cont<partes.size()){
+                stmt = conex.prepareStatement("SELECT "+partes.get(cont)+" FROM partes WHERE id_partes = ?");
+                stmt.setInt(1, proyecto.getIdMateriales());
+                rs = stmt.executeQuery();
+                if(rs.next()){
+                    part = rs.getInt(partes.get(cont));
+                }
+                stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
+                stmt.setInt(1, part);
+                rs = stmt.executeQuery();
+                if(rs.next()){
+                    registros[0] = partes.get(cont);
+                    registros[1] = rs.getString("rubro_material");
+                    registros[2] = rs.getString("nombre_material");
+                    registros[3] = rs.getString("unidad_material");
+                    registros[4] = rs.getString("costo_material");
+                    registros[5] = rs.getString("sustentabilidad_material");
+                    registros[6] = rs.getString("proveedor_material");
+                    registros[7] = rs.getString("transporte_material");
+                    registros[8] = rs.getString("costo_transporte");
+                    registros[9] = rs.getString("manodeobra_material");
+                    registros[10] = rs.getString("costo_manodeobra");
+                    registros[11] = rs.getString("herramientas_material");
+                    registros[12] = rs.getString("costo_herramientas");
+                    registros[13] = rs.getString("costo_total");
+                    modelo.addRow(registros);
+                    System.out.println(Arrays.toString(registros));
+                }
+                cont++;
             }
-            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
-            stmt.setInt(1, part);
-            rs = stmt.executeQuery();
-            if(rs.next()){
-                String rubro = rs.getString("rubro_material");
-                String nombre = rs.getString("nombre_material");
-                String unidad = rs.getString("unidad_material");
-                double costo = rs.getDouble("costo_material");
-                String susten = rs.getString("sustentabilidad_material");
-                String proveedor = rs.getString("proveedor_material");
-                String transporte = rs.getString("transporte_material");
-                double costoTransporte = rs.getDouble("costo_transporte");
-                String manoObra = rs.getString("manodeobra_material");
-                double costoManoObra = rs.getDouble("costo_manodeobra");
-                String herramientas = rs.getString("herramientas_material");
-                double costoHerramientas = rs.getDouble("costo_herramientas");
-                double costoTotal = rs.getDouble("costo_total");
-                tabla.addRow(new Object[]{rubro,nombre,unidad,costo,susten,proveedor,transporte,costoTransporte,manoObra,costoManoObra,herramientas,costoHerramientas,costoTotal});
-            }
-        }catch(SQLException ex){
+            
+           
+        } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            if(stmt!=null) stmt.close();
-            if(rs!=null) rs.close();
-            conex.close();
-            con.desconectar();
         }
-        return tabla;
+        return modelo;  
     }
     
     //**************************VER PROYECTO**************************

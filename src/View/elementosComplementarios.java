@@ -824,9 +824,9 @@ public class elementosComplementarios extends javax.swing.JPanel {
     private void guardarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseClicked
         if(esc && materialBox1.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Escalera' esta habilitada y no has escogido un material para ella.");
-        }else if(bar && materialBox3.getSelectedItem().equals("Material")){
+        }else if(bar && materialBox2.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Barandas' esta habilitada y no has escogido un material para ella.");
-        }else if(ramp && materialBox2.getSelectedItem().equals("Material")){
+        }else if(ramp && materialBox3.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Rampas' esta habilitada y no has escogido un material para ella.");
         }else if(tech && materialBox4.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Techos' esta habilitada y no has escogido un material para ella.");
@@ -836,11 +836,11 @@ public class elementosComplementarios extends javax.swing.JPanel {
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Escalera = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
-                if(bar && !materialBox3.getSelectedItem().equals("Material")){
+                if(bar && !materialBox2.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Barandas = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
-                if(ramp && !materialBox2.getSelectedItem().equals("Material")){
+                if(ramp && !materialBox3.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Rampas = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
                 }
