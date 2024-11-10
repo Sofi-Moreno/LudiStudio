@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -38,6 +39,7 @@ public class ControllerProyec {
     
     //atributos de vista previa
     DefaultTableModel tabla;
+    JFrame ventanita;
     //CONSTRUCTORES
     //constructor para crear proyecto
     public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JPanel ventana){    
@@ -56,8 +58,8 @@ public class ControllerProyec {
     }
     //constructor para vista previa
 
-    public ControllerProyec(JPanel ventana, DefaultTableModel tabla) {
-        this.ventana = ventana;
+    public ControllerProyec(JFrame ventanita, DefaultTableModel tabla) {
+        this.ventanita = ventanita;
         this.tabla = tabla;
     }
     
@@ -106,10 +108,10 @@ public class ControllerProyec {
         try {
             materiales = conex.prepareStatement("INSERT INTO partes(Zapata) VALUES(?)");
             materiales.setInt(1, 0);
-            materiales = conex.prepareStatement("SELECT id_partes FROM partes ORDER BY id_partes DESC LIMIT 1");
+            materiales = conex.prepareStatement("SELECT id_partes FROM partes");
             resultado = materiales.executeQuery();
             int ultimoIdPartes = 0; 
-            if (resultado.next()) { 
+            while (resultado.next()) { 
                 ultimoIdPartes = resultado.getInt("id_partes"); 
             }
             st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto, fecha, sustentabilidad, materiales) VALUES (?,?,?,?,?,?)");
@@ -126,6 +128,7 @@ public class ControllerProyec {
             proyecto.setFechaDeCreacion(fecha());
             proyecto.setSustentabilidad((String)sustentabilidad.getSelectedItem());
             proyecto.setIdMateriales(ultimoIdPartes);
+            
             materiales = conex.prepareStatement("SELECT id_proyecto FROM proyecto WHERE nombre = ?");
             materiales.setString(1, proyecto.getNombreProyecto()); 
             resultado = materiales.executeQuery(); 
@@ -181,16 +184,10 @@ public class ControllerProyec {
             if(rs.next()){
                 id = rs.getInt("id_material");
             }
-            if(sql.substring(0, 6).equals("INSERT")){
-                stmt = conex.prepareStatement(sql);
-                stmt.setInt(1,id);
-                stmt.executeUpdate();
-            }else if(sql.substring(0, 6).equals("UPDATE")){
-                stmt = conex.prepareStatement(sql);
-                stmt.setInt(1,id);
-                stmt.setInt(2,proyecto.getIdMateriales());
-                stmt.executeUpdate();
-            }
+            stmt = conex.prepareStatement(sql);
+            stmt.setInt(1,id);
+            stmt.setInt(2,proyecto.getIdMateriales());
+            stmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
@@ -202,18 +199,21 @@ public class ControllerProyec {
         }
     }
     //llenar tablita de vista previa
-    public void llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
+    public  DefaultTableModel llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        int part;
+        int part = 0;
         try{
             stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
             stmt.setInt(1, proyecto.getIdMateriales());
+            System.out.println(proyecto.getIdMateriales());
             rs = stmt.executeQuery();
-            part = rs.getInt(parte);
-            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_partes = ?");
+            if(rs.next()){
+                part = rs.getInt(parte);
+            }
+            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
             stmt.setInt(1, part);
             rs = stmt.executeQuery();
             if(rs.next()){
@@ -240,6 +240,7 @@ public class ControllerProyec {
             conex.close();
             con.desconectar();
         }
+        return tabla;
     }
     
     //**************************VER PROYECTO**************************

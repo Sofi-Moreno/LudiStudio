@@ -200,7 +200,6 @@ public class SelectorDePartes extends javax.swing.JPanel {
                         fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal);
                         p3.setSize(613,530);
                         p3.setLocation(0,0);
-
                         contentSelector.removeAll();
                         contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
                         contentSelector.revalidate();

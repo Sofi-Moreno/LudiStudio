@@ -8,6 +8,9 @@ import Controller.ControllerProyec;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -269,8 +272,13 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_entrarButtomMouseExited
 
     private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
-        vistaPrevia vista = new vistaPrevia();
-        vista.setVisible(true);
+        vistaPrevia vista;
+        try {
+            vista = new vistaPrevia(proyecto);
+             vista.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_mostrarDatosButtomMouseClicked
 
     private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered

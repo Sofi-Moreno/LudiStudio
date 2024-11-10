@@ -536,21 +536,14 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "La parte llamada 'Zapata' esta habilitada y no has escogido un material para ella.");
         }else if(mur && materialBox2.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Muros de Contención' esta habilitada y no has escogido un material para ella.");
-        }else if(!zap && !mur ){
-            JOptionPane.showMessageDialog(null, "Debes escoger Almenos una opcion en esta ventana.");
         }else{
             try{
                 if(zap && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"INSERT INTO partes(Zapata) VALUES(?)");
+                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Zapata = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
                 }
                 if(mur && !materialBox2.getSelectedItem().equals("Material")){
-                    if(!zap){
-                        controller.guardarMateriales(proyecto,materialBox2,"INSERT INTO partes(MurosDeContención) VALUES(?)");
-                    }
-                    else{
-                        controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET MurosDeContención = ? WHERE id_partes = ?");
-                    }
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET MurosDeContención = ? WHERE id_partes = ?");
 //                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
                 }
             }catch (SQLException ex) {

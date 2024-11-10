@@ -5,6 +5,12 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Proyecto;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,12 +18,21 @@ import Controller.ControllerProyec;
  */
 public class vistaPrevia extends javax.swing.JFrame {
     ControllerProyec controller;
+    DefaultTableModel modelo;
+    static Proyecto proyecto;
     /**
      * Creates new form vistaPrevia
      */
-    public vistaPrevia() {
+    public vistaPrevia(Proyecto proyecto) throws SQLException {
         initComponents();
+        this.proyecto = proyecto;
+        modelo = new DefaultTableModel();
+        tablita = new JTable();
+        controller = new ControllerProyec(this,modelo);
+        modelo = controller.llenarVistaPrevia(proyecto,"Zapata");
+        tablita.setModel(modelo);
         
+//        controller.llenarVistaPrevia(proyecto,"MurosDeContención",tablita);        
     }
 
     /**
@@ -36,28 +51,28 @@ public class vistaPrevia extends javax.swing.JFrame {
 
         tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"ZAPATA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"MUROS DE CONTENCION", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"COLUMNAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"VIGAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"LOSAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ENTREPISOS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ESTRUCT CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"MUROS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"VENTANAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"PUERTAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ESCALERAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"RAMPAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"BARANDAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"TECHOS", null, null, null, null, null, null, null, null, null, null, null, null}
+                {"ZAPATA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"MUROS DE CONTENCION", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"COLUMNAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"VIGAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"LOSAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ENTREPISOS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ESTRUCT CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"MUROS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"VENTANAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"PUERTAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ESCALERAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"RAMPAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"BARANDAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"TECHOS", null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "PARTE", "RUBRO", "NOMBRE MATERIAL", "UNIDAD", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"
+                "PARTE", "RUBRO", "NOMBRE MATERIAL", "UNIDAD", "PRECIO MATERIAL", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -128,11 +143,15 @@ public class vistaPrevia extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(vistaPrevia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new vistaPrevia().setVisible(true);
+                try {
+                    new vistaPrevia(proyecto).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(vistaPrevia.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
