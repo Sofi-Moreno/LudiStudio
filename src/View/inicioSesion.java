@@ -42,6 +42,7 @@ public class inicioSesion extends javax.swing.JPanel {
         usuarioLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         tituloLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         entrarButtom = new javax.swing.JPanel();
         entrarLabel = new javax.swing.JLabel();
         passTxt = new javax.swing.JPasswordField();
@@ -72,21 +73,30 @@ public class inicioSesion extends javax.swing.JPanel {
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
         tituloLabel.setText("Iniciar Sesión");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
+                .addContainerGap(141, Short.MAX_VALUE)
                 .addComponent(tituloLabel)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jLabel2)
+                .addGap(90, 90, 90))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(tituloLabel)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(tituloLabel)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 620, -1));
@@ -239,6 +249,7 @@ public class inicioSesion extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
