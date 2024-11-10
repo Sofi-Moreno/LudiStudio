@@ -3,19 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package View;
+import Controller.ControlMateriales;
+import Model.Material;
+import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aquil
  */
 public class ingresarMaterialMod extends javax.swing.JPanel {
-
+    ControlMateriales controller;
+    Material nombreModi;
+    Usuario usuarioActual;
     /**
-     * Creates new form ingresarMaterialMod
+     * Creates new form crearMateriales
+     * @param user
      */
-    public ingresarMaterialMod() {
+    public ingresarMaterialMod(Usuario user) {
         initComponents();
+        usuarioActual = user;
+        controller = new ControlMateriales(nombreMaterialTxt);
     }
 
     /**
@@ -157,7 +169,47 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreMaterialTxtMousePressed
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        modificarMateriales p2 = new modificarMateriales();
+        nombreModi= new Material();
+        int salida = 0;
+        try{
+            do{
+                switch (controller.validarNombreModi(nombreModi)){
+                    case 1:
+                        if (salida==0){
+                            JOptionPane.showMessageDialog(null, "El material ingresado no existe por favor ingrese otro nombre.");
+                            salida=1;
+                            break;
+                        }
+                        break;                       
+                    case 2:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos y no posee la "
+                                    + "longitud correcta (3-25 caracteres)");
+                            salida=1;
+                            break;
+                        }                   
+                        break;
+                    case 3:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos.");
+                            salida=1;
+                            break;
+                        }          
+                        break;
+                    case 4:
+                        if(salida==0){
+                            JOptionPane.showMessageDialog(null, "El nombre no posee longitud correcta (3-25 caracteres)");
+                            salida=1;
+                            break;
+                        }          
+                        break;
+                    default:
+                    }    
+                }while(controller.validarNombreModi(nombreModi)!=0);
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);      
+        }
+        modificarMateriales p2 = new modificarMateriales(usuarioActual,nombreModi);
         p2.setSize(617,530);
         p2.setLocation(0,0);
         
