@@ -29,7 +29,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        contentGestion = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         tituloLabel = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
@@ -53,7 +53,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
         carreraDato = new javax.swing.JLabel();
         monedaDato = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        contentGestion.setBackground(new java.awt.Color(0, 153, 153));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -212,36 +212,36 @@ public class gestionarUsuario extends javax.swing.JPanel {
         monedaDato.setForeground(new java.awt.Color(255, 255, 255));
         monedaDato.setText("s");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout contentGestionLayout = new javax.swing.GroupLayout(contentGestion);
+        contentGestion.setLayout(contentGestionLayout);
+        contentGestionLayout.setHorizontalGroup(
+            contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(contentGestionLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentGestionLayout.createSequentialGroup()
+                        .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contentGestionLayout.createSequentialGroup()
                                 .addComponent(apellidoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(apellidoDato))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(contentGestionLayout.createSequentialGroup()
                                 .addComponent(nombreLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(nombreDato)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contentGestionLayout.createSequentialGroup()
                                 .addComponent(paisLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(paisDato))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(contentGestionLayout.createSequentialGroup()
                                 .addComponent(institucionLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(institucionDato)))
                         .addGap(161, 161, 161))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(contentGestionLayout.createSequentialGroup()
                         .addComponent(usuarioLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(usuarioDato)
@@ -250,7 +250,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(carreraDato)
                         .addGap(195, 195, 195))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(contentGestionLayout.createSequentialGroup()
                         .addComponent(passwordLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(passwordDato)
@@ -259,44 +259,44 @@ public class gestionarUsuario extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(monedaDato)
                         .addGap(186, 186, 186))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(contentGestionLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(modificarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(eliminarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        contentGestionLayout.setVerticalGroup(
+            contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentGestionLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreLabel)
                     .addComponent(paisLabel)
                     .addComponent(nombreDato)
                     .addComponent(paisDato))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apellidoLabel)
                     .addComponent(institucionLabel)
                     .addComponent(apellidoDato)
                     .addComponent(institucionDato))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usuarioLabel)
                     .addComponent(carreraLabel)
                     .addComponent(usuarioDato)
                     .addComponent(carreraDato))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(monedaLabel)
                     .addComponent(passwordDato)
                     .addComponent(monedaDato))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contentGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(modificarButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(eliminarButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71))
@@ -306,16 +306,22 @@ public class gestionarUsuario extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentGestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentGestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void modificarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseClicked
-        
+        modificarUsuario p3 = new modificarUsuario();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+        contentGestion.removeAll();
+        contentGestion.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentGestion.revalidate();
+        contentGestion.repaint();
     }//GEN-LAST:event_modificarButtomMouseClicked
 
     private void modificarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseEntered
@@ -349,15 +355,11 @@ public class gestionarUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel apellidoLabel;
     private javax.swing.JLabel carreraDato;
     private javax.swing.JLabel carreraLabel;
+    private javax.swing.JPanel contentGestion;
     private javax.swing.JPanel eliminarButtom;
     private javax.swing.JLabel eliminarLabel;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JPanel entrarButtom1;
-    private javax.swing.JLabel entrarLabel;
-    private javax.swing.JLabel entrarLabel1;
     private javax.swing.JLabel institucionDato;
     private javax.swing.JLabel institucionLabel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel modificarButtom;
     private javax.swing.JLabel modificarLabel;

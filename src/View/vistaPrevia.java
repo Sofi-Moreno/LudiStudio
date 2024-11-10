@@ -36,28 +36,28 @@ public class vistaPrevia extends javax.swing.JFrame {
 
         tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"ZAPATA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"MUROS DE CONTENCION", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"COLUMNAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"VIGAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"LOSAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ENTREPISOS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ESTRUCT CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"MUROS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"VENTANAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"PUERTAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"ESCALERAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"RAMPAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"BARANDAS", null, null, null, null, null, null, null, null, null, null, null, null},
-                {"TECHOS", null, null, null, null, null, null, null, null, null, null, null, null}
+                {"ZAPATA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"MUROS DE CONTENCION", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"COLUMNAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"VIGAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"LOSAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ENTREPISOS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ESTRUCT CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"CUBIERTA", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"MUROS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"VENTANAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"PUERTAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"ESCALERAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"RAMPAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"BARANDAS", null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {"TECHOS", null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "PARTE", "RUBRO", "NOMBRE MATERIAL", "UNIDAD", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"
+                "PARTE", "RUBRO", "NOMBRE MATERIAL", "UNIDAD", "PRECIO MATERIAL", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
