@@ -138,7 +138,7 @@ public class inicioSesion extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 170, -1));
+        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 310, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -156,7 +156,7 @@ public class inicioSesion extends javax.swing.JPanel {
                 userTxtActionPerformed(evt);
             }
         });
-        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 320, -1));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 190, 20));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 170, -1));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 170, 10));

@@ -84,6 +84,8 @@ public class Cerramientos extends javax.swing.JPanel {
         precioLabel3 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
 
         contentCerramientos.setBackground(new java.awt.Color(0, 204, 204));
         contentCerramientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,9 +101,9 @@ public class Cerramientos extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(235, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
+                .addGap(96, 96, 96))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,26 +450,63 @@ public class Cerramientos extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Guardar");
+        jLabel2.setText("GUARDAR");
 
         javax.swing.GroupLayout guardarButtomLayout = new javax.swing.GroupLayout(guardarButtom);
         guardarButtom.setLayout(guardarButtomLayout);
         guardarButtomLayout.setHorizontalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel2)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guardarButtomLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+            .addGroup(guardarButtomLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addGap(20, 20, 20))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
+        contentCerramientos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 190, -1));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("VOLVER");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(entrarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(entrarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        contentCerramientos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -648,6 +687,24 @@ public class Cerramientos extends javax.swing.JPanel {
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
 
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        cubierta p = new cubierta(proyecto,usuarioActual,presupuestoTotal);
+        p.setSize(613,530);
+        p.setLocation(0,0);
+        contentCerramientos.removeAll();
+        contentCerramientos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentCerramientos.revalidate();
+        contentCerramientos.repaint();
+    }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentCerramientos;
@@ -657,6 +714,8 @@ public class Cerramientos extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;

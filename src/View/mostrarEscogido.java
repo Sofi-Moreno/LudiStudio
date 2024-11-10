@@ -7,7 +7,10 @@ package View;
 import Controller.ControllerProyec;
 import Model.Proyecto;
 import Model.Usuario;
-import java.awt.Color;
+import java.awt.*;
+import javax.swing.*;
+
+
 
 /**
  *
@@ -28,8 +31,12 @@ public class mostrarEscogido extends javax.swing.JPanel {
         proyecto = proyec;
         presupuestoTotal= presupuesto;
         nombreDato.setText(proyec.getNombreProyecto());
+
         
         
+
+          
+          
     }
 
     /**
@@ -42,25 +49,26 @@ public class mostrarEscogido extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollBar1 = new javax.swing.JScrollBar();
-        jPanel1 = new javax.swing.JPanel();
+        contentVista = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         tituloLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         entrarButtom = new javax.swing.JPanel();
         entrarLabel = new javax.swing.JLabel();
-        entrarButtom1 = new javax.swing.JPanel();
+        mostrarDatosButtom = new javax.swing.JPanel();
         entrarLabel1 = new javax.swing.JLabel();
         autorDato = new javax.swing.JLabel();
         nombreDato = new javax.swing.JLabel();
         costoDato = new javax.swing.JLabel();
         presupuestoDato = new javax.swing.JLabel();
+        entrarButtom2 = new javax.swing.JPanel();
+        entrarLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        contentVista.setBackground(new java.awt.Color(0, 153, 153));
+        contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -73,7 +81,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(178, Short.MAX_VALUE)
                 .addComponent(tituloLabel)
                 .addGap(175, 175, 175))
         );
@@ -82,38 +90,30 @@ public class mostrarEscogido extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(tituloLabel)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        contentVista.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 14, 613, -1));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre del proyecto:");
+        contentVista.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Usuario", "Nombre", "Presupuesto", "Costo Total", "Fecha", "Materiales"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Autor: ");
+        contentVista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Costo total: ");
+        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Presupuesto: ");
+        contentVista.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,129 +150,116 @@ public class mostrarEscogido extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        entrarButtom1.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
+        contentVista.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+
+        mostrarDatosButtom.setBackground(new java.awt.Color(0, 102, 102));
+        mostrarDatosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mostrarDatosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtom1MouseClicked(evt);
+                mostrarDatosButtomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtom1MouseEntered(evt);
+                mostrarDatosButtomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtom1MouseExited(evt);
+                mostrarDatosButtomMouseExited(evt);
             }
         });
 
         entrarLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         entrarLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel1.setText("GUARDAR");
+        entrarLabel1.setText("MOSTRAR DATOS");
 
-        javax.swing.GroupLayout entrarButtom1Layout = new javax.swing.GroupLayout(entrarButtom1);
-        entrarButtom1.setLayout(entrarButtom1Layout);
-        entrarButtom1Layout.setHorizontalGroup(
-            entrarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+        javax.swing.GroupLayout mostrarDatosButtomLayout = new javax.swing.GroupLayout(mostrarDatosButtom);
+        mostrarDatosButtom.setLayout(mostrarDatosButtomLayout);
+        mostrarDatosButtomLayout.setHorizontalGroup(
+            mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(entrarLabel1)
-                .addGap(50, 50, 50))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
-        entrarButtom1Layout.setVerticalGroup(
-            entrarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+        mostrarDatosButtomLayout.setVerticalGroup(
+            mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(entrarLabel1)
-                .addContainerGap())
+                .addContainerGap(186, Short.MAX_VALUE))
         );
+
+        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 230, 230));
 
         String aux;
         aux="Pepe";
         autorDato.setText(aux);
+        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         nombreDato.setText("Kiosco 69");
+        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
 
         costoDato.setText("4500$");
+        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
         presupuestoDato.setText("5000$");
+        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombreDato))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(presupuestoDato)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(autorDato))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(costoDato)))
-                        .addGap(100, 100, 100))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(entrarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(entrarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(16, Short.MAX_VALUE))))
+        entrarButtom2.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtom2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtom2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtom2MouseExited(evt);
+            }
+        });
+
+        entrarLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        entrarLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel2.setText("GUARDAR");
+
+        javax.swing.GroupLayout entrarButtom2Layout = new javax.swing.GroupLayout(entrarButtom2);
+        entrarButtom2.setLayout(entrarButtom2Layout);
+        entrarButtom2Layout.setHorizontalGroup(
+            entrarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom2Layout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(entrarLabel2)
+                .addGap(50, 50, 50))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(autorDato)
-                    .addComponent(nombreDato))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(presupuestoDato)
-                    .addComponent(jLabel3)
-                    .addComponent(costoDato))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(entrarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entrarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+        entrarButtom2Layout.setVerticalGroup(
+            entrarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom2Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(entrarLabel2)
+                .addContainerGap())
         );
+
+        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        
+        elementosComplementarios p = new elementosComplementarios(proyecto,usuarioActual,presupuestoTotal);
+        p.setSize(613,530);
+        p.setLocation(0,0);
+        contentVista.removeAll();
+        contentVista.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentVista.revalidate();
+        contentVista.repaint();
 
     }//GEN-LAST:event_entrarButtomMouseClicked
 
@@ -284,35 +271,48 @@ public class mostrarEscogido extends javax.swing.JPanel {
         entrarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_entrarButtomMouseExited
 
-    private void entrarButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entrarButtom1MouseClicked
+    private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
+        vistaPrevia vista = new vistaPrevia();
+        vista.setVisible(true);
+    }//GEN-LAST:event_mostrarDatosButtomMouseClicked
 
-    private void entrarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom1MouseEntered
+    private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_entrarButtom1MouseEntered
+    }//GEN-LAST:event_mostrarDatosButtomMouseEntered
 
-    private void entrarButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom1MouseExited
+    private void mostrarDatosButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_entrarButtom1MouseExited
+    }//GEN-LAST:event_mostrarDatosButtomMouseExited
+
+    private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom2MouseClicked
+
+    private void entrarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom2MouseEntered
+
+    private void entrarButtom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel autorDato;
+    private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
     private javax.swing.JPanel entrarButtom;
-    private javax.swing.JPanel entrarButtom1;
+    private javax.swing.JPanel entrarButtom2;
     private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel entrarLabel1;
+    private javax.swing.JLabel entrarLabel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel mostrarDatosButtom;
     private javax.swing.JLabel nombreDato;
     private javax.swing.JLabel presupuestoDato;
     private javax.swing.JLabel tituloLabel;

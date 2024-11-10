@@ -75,8 +75,11 @@ public class cubierta extends javax.swing.JPanel {
         cubiertaLabel = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
 
         contentCubierta.setBackground(new java.awt.Color(0, 204, 204));
+        contentCubierta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -100,6 +103,8 @@ public class cubierta extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36))
         );
+
+        contentCubierta.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 619, -1));
 
         deshabilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,6 +140,8 @@ public class cubierta extends javax.swing.JPanel {
                 .addComponent(deshabilitarLabel1)
                 .addContainerGap())
         );
+
+        contentCubierta.add(deshabilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 194, -1, -1));
 
         habilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -173,12 +180,15 @@ public class cubierta extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        contentCubierta.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 153, -1, -1));
+
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
             }
         });
+        contentCubierta.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 209, -1, -1));
 
         precio1Label.setText("Precio");
 
@@ -197,6 +207,8 @@ public class cubierta extends javax.swing.JPanel {
                 .addComponent(precio1Label)
                 .addGap(0, 6, Short.MAX_VALUE))
         );
+
+        contentCubierta.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 209, -1, -1));
 
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -234,6 +246,8 @@ public class cubierta extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        contentCubierta.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 277, -1, -1));
+
         deshabilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deshabilitarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,6 +282,8 @@ public class cubierta extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        contentCubierta.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 315, -1, -1));
+
         precioLabel2.setText("Precio");
 
         javax.swing.GroupLayout precioPanel2Layout = new javax.swing.GroupLayout(precioPanel2);
@@ -286,19 +302,26 @@ public class cubierta extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        contentCubierta.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, -1, 22));
+
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        contentCubierta.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 367, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        contentCubierta.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 619, 10));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        contentCubierta.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 401, 613, 27));
 
         estructuraLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         estructuraLabel.setForeground(new java.awt.Color(0, 102, 102));
         estructuraLabel.setText("Estructura de Cubierta");
+        contentCubierta.add(estructuraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 151, 367, -1));
 
         cubiertaLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         cubiertaLabel.setForeground(new java.awt.Color(0, 102, 102));
         cubiertaLabel.setText("Cubierta");
+        contentCubierta.add(cubiertaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 294, -1, -1));
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -316,105 +339,63 @@ public class cubierta extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Guardar");
+        jLabel2.setText("GUARDAR");
 
         javax.swing.GroupLayout guardarButtomLayout = new javax.swing.GroupLayout(guardarButtom);
         guardarButtom.setLayout(guardarButtomLayout);
         guardarButtomLayout.setHorizontalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guardarButtomLayout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout contentCubiertaLayout = new javax.swing.GroupLayout(contentCubierta);
-        contentCubierta.setLayout(contentCubiertaLayout);
-        contentCubiertaLayout.setHorizontalGroup(
-            contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentCubiertaLayout.createSequentialGroup()
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                                .addComponent(materialBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(precioPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cubiertaLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(habilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deshabilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))
-                    .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                                .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(estructuraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(habilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))))
-            .addComponent(jSeparator1)
-            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guardarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator2))
+        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 436, 220, -1));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("VOLVER");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(entrarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
-        contentCubiertaLayout.setVerticalGroup(
-            contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentCubiertaLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addComponent(habilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deshabilitarButtom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6))
-                    .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addComponent(estructuraLabel)
-                        .addGap(15, 15, 15)
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(materialBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(cubiertaLabel)
-                        .addGap(30, 30, 30)
-                        .addGroup(contentCubiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(materialBox2)
-                            .addComponent(precioPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(contentCubiertaLayout.createSequentialGroup()
-                        .addComponent(habilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deshabilitarButtom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(guardarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(entrarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        contentCubierta.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -552,6 +533,24 @@ public class cubierta extends javax.swing.JPanel {
         
     }//GEN-LAST:event_guardarButtomMouseClicked
 
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+        Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal);
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+        contentCubierta.removeAll();
+        contentCubierta.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentCubierta.revalidate();
+        contentCubierta.repaint();
+    }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentCubierta;
@@ -560,6 +559,8 @@ public class cubierta extends javax.swing.JPanel {
     private javax.swing.JPanel deshabilitarButtom2;
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel estructuraLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;

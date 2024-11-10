@@ -94,6 +94,8 @@ public class elementosComplementarios extends javax.swing.JPanel {
         deshabilitarLabel4 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        entrarButtom = new javax.swing.JPanel();
+        entrarLabel = new javax.swing.JLabel();
 
         contentElementos.setBackground(new java.awt.Color(0, 204, 204));
         contentElementos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -576,26 +578,63 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Guardar");
+        jLabel2.setText("GUARDAR");
 
         javax.swing.GroupLayout guardarButtomLayout = new javax.swing.GroupLayout(guardarButtom);
         guardarButtom.setLayout(guardarButtomLayout);
         guardarButtomLayout.setHorizontalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guardarButtomLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         guardarButtomLayout.setVerticalGroup(
             guardarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(guardarButtomLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 220, 60));
+
+        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel.setText("VOLVER");
+
+        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
+        entrarButtom.setLayout(entrarButtomLayout);
+        entrarButtomLayout.setHorizontalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(entrarLabel)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        entrarButtomLayout.setVerticalGroup(
+            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrarButtomLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(entrarLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        contentElementos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -831,6 +870,24 @@ public class elementosComplementarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_guardarButtomMouseExited
 
+    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
+            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal);
+            p3.setSize(613,530);
+            p3.setLocation(0,0);
+            contentElementos.removeAll();
+            contentElementos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentElementos.revalidate();
+            contentElementos.repaint();
+    }//GEN-LAST:event_entrarButtomMouseClicked
+
+    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
+        entrarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_entrarButtomMouseEntered
+
+    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
+        entrarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_entrarButtomMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barandasLabel;
@@ -843,6 +900,8 @@ public class elementosComplementarios extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
     private javax.swing.JLabel deshabilitarLabel4;
+    private javax.swing.JPanel entrarButtom;
+    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel escaleraLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
