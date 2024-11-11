@@ -239,6 +239,7 @@ public class crearMateriales extends javax.swing.JPanel {
         nombreProveedorLabel.setToolTipText("");
         contentSelectorMateriales.add(nombreProveedorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
 
+        nombreProveedorTxt.setEditable(false);
         nombreProveedorTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreProveedorTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         nombreProveedorTxt.setForeground(new java.awt.Color(204, 204, 204));
@@ -367,9 +368,9 @@ public class crearMateriales extends javax.swing.JPanel {
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
        materiales = new Material();
-       int salida = 0;
         try{
-            do{
+            
+                int salida = 0;
                 switch (controller.validarMaterialNombre(materiales)){
                     case 1:
                         if (salida==0){
@@ -485,7 +486,6 @@ public class crearMateriales extends javax.swing.JPanel {
                                    salida=1;
                                    break;
                                 }
-
                                 break;
                             case 2:
                                 if(salida==0){
@@ -592,17 +592,12 @@ public class crearMateriales extends javax.swing.JPanel {
                 }
                 break;
             }
+            break;
             }
+            break;
             }
+            break;
             }
-            }while(controller.validarMaterialNombre(materiales)!=0 
-                    || (controller.validarRubroProveedorRegistro(materiales,"rubro_material"))!=0
-                    || (controller.validarRubroProveedorRegistro(materiales,"proveedor_material"))!=0
-                    || (controller.validarCostos(materiales,"costo_material"))!=0
-                    || (controller.validarCostos(materiales,"cantidad_material"))!=0
-                    || (controller.validarCostos(materiales,"costo_manodeobra"))!=0
-                    || (controller.validarCostos(materiales,"costo_herramientas"))!=0
-                    || (controller.validarCostos(materiales,"costo_transporte"))!=0);
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                 
@@ -622,7 +617,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreMaterialTxtActionPerformed
 
     private void rubroTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rubroTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el rubro del material")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_rubroTxtMousePressed
 
     private void rubroTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubroTxtActionPerformed
@@ -630,7 +628,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_rubroTxtActionPerformed
 
     private void costoMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoMaterialTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el costo material")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_costoMaterialTxtMousePressed
 
     private void costoMaterialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoMaterialTxtActionPerformed
@@ -638,7 +639,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_costoMaterialTxtActionPerformed
 
     private void cantidadTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cantidadTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese la cantidad de material")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_cantidadTxtMousePressed
 
     private void cantidadTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadTxtActionPerformed
@@ -646,7 +650,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_cantidadTxtActionPerformed
 
     private void nombreProveedorTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreProveedorTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proveedor")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_nombreProveedorTxtMousePressed
 
     private void nombreProveedorTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProveedorTxtActionPerformed
@@ -654,7 +661,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreProveedorTxtActionPerformed
 
     private void transporteTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transporteTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el costo del transporte")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_transporteTxtMousePressed
 
     private void transporteTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transporteTxtActionPerformed
@@ -662,7 +672,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_transporteTxtActionPerformed
 
     private void costoManoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoManoTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el costo de la mano de obra")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_costoManoTxtMousePressed
 
     private void costoManoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoManoTxtActionPerformed
@@ -670,7 +683,10 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_costoManoTxtActionPerformed
 
     private void costoHerramientaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoHerramientaTxtMousePressed
-        // TODO add your handling code here:
+        if (nombreMaterialTxt.getText().equals("Ingrese el costo de herramientas")){
+            nombreMaterialTxt.setText("");
+            nombreMaterialTxt.setForeground(Color.black);
+        }
     }//GEN-LAST:event_costoHerramientaTxtMousePressed
 
     private void costoHerramientaTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoHerramientaTxtActionPerformed
