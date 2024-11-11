@@ -15,8 +15,10 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,6 +57,12 @@ public class ControlMateriales {
     public ControlMateriales(JTextField nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
     }
+    
+    //Constructor para ver materiales
+
+    public ControlMateriales() {
+    }
+    
     
     //METODO PARA VALIDAR EL NOMBRE DEL MATERIAL
     public int validarMaterialNombre(Material mat) throws SQLException{
@@ -180,6 +188,8 @@ public class ControlMateriales {
         boolean bol = false;
         PreparedStatement st = null;
         String sql = "INSERT INTO material (rubro_material, nombre_material, unidad_material, cantidad_material, costo_material, sustentabilidad_material, proveedor_material, transporte_material, costo_transporte, manodeobra_material, costo_manodeobra, herramientas_material, costo_herramientas, costo_total) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        mat.setCostoTotalMaterial(mat.getCostoMaterial() + mat.getCostoTransporte() + 
+                    mat.getCostoMDObra() + mat.getCostoHerramientas());
         try {
             st = conex.prepareStatement(sql);
             st.setString(1,mat.getRubro());
@@ -195,7 +205,7 @@ public class ControlMateriales {
             st.setDouble(11,mat.getCostoMDObra());
             st.setString(12,(String)herraRegistro.getSelectedItem());
             st.setDouble(13,mat.getCostoHerramientas());
-            st.setDouble(14,mat.getCostoTotatalMaterial());
+            st.setDouble(14,mat.getCostoTotalMaterial());
             int rowsInserted = st.executeUpdate();
             if(rowsInserted>0){
                 bol = true;
@@ -326,7 +336,8 @@ public class ControlMateriales {
         Connection conex = con.getConnection();
         boolean bol = false;
         PreparedStatement st = null;
-
+        mat.setCostoTotalMaterial(mat.getCostoMaterial() + mat.getCostoTransporte() + 
+                    mat.getCostoMDObra() + mat.getCostoHerramientas());
         String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ? WHERE nombre_material = ?";
         try {
             st = conex.prepareStatement(sql);
@@ -343,7 +354,7 @@ public class ControlMateriales {
             st.setDouble(11,mat.getCostoMDObra());
             st.setString(12,(String)herraRegistro.getSelectedItem());
             st.setDouble(13,mat.getCostoHerramientas());
-            st.setDouble(14,mat.getCostoTotatalMaterial());
+            st.setDouble(14,mat.getCostoTotalMaterial());
 
             int rowsUpdated = st.executeUpdate();
             if (rowsUpdated > 0) {
@@ -362,40 +373,51 @@ public class ControlMateriales {
         return bol;
     }
     
-    //ESTA FUNCION VE TODOS LOS MATERIALES, SERA UTILIZADA PARA OTRA FUNCION
-    public ResultSet selecTodosMateriales() throws SQLException {
+    public DefaultTableModel mostrarMateriales(){
+        String []  nombresColumnas = {"Rubro","Nombre","Unidad","Cantidad", "Costo", "Sustentabilidad", "Proveedor", "Transporte", "Costo Transporte", "Mano De Obra", "Costo M. Obra", "Herramientas", "Costo Herramientas", "Costo Total"};
+        String [] registros = new String[14];
+        DefaultTableModel modelo = new DefaultTableModel(null,nombresColumnas);
+        String sql = "SELECT * FROM material";
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection();
-        Statement stmt = null;
+        PreparedStatement pst = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM material";
-
-        try {
-          stmt = conex.createStatement();
-          rs = stmt.executeQuery(sql);
-        } catch (SQLException ex) {
-          Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-          stmt.close();
-          conex.close();
-          con.desconectar();
+        try{
+            pst = conex.prepareStatement(sql);                        
+            rs = pst.executeQuery();
+            while(rs.next()){
+                registros[0] = rs.getString("rubro_material");
+                registros[1] = rs.getString("nombre_material");
+                registros[2] = rs.getString("unidad_material");
+                registros[3] = rs.getString("cantidad_material");
+                registros[4] = rs.getString("costo_material");
+                registros[5] = rs.getString("sustentabilidad_material");
+                registros[6] = rs.getString("proveedor_material");
+                registros[7] = rs.getString("transporte_material");
+                registros[8] = rs.getString("costo_transporte");
+                registros[9] = rs.getString("manodeobra_material");
+                registros[10] = rs.getString("costo_manodeobra");
+                registros[11] = rs.getString("herramientas_material");
+                registros[12] = rs.getString("costo_herramientas");
+                registros[13] = rs.getString("costo_total");
+                modelo.addRow(registros);
+            }
         }
-
-        return rs;
-      }
-    
-    //ESTA FUNCION LLAMA A LA DE ARRIBA PARA MOSTRAR LO QUE VE
-    public void mostrarTodosMateriales() throws SQLException {
-        ResultSet rs =  selecTodosMateriales();
-
-        // Imprimir los resultados en la consola (Ejemplo)
-        while (rs.next()) {
-          String nombreMaterial = rs.getString("nombre_material");
-          String rubroMaterial = rs.getString("rubro_material");
-          
+        catch(SQLException e){  
+            JOptionPane.showMessageDialog(null,"Error al conectar"); 
         }
-
-       // POR TERMINAR PORQUE HAY QUE VER COMO SE VA A MOSTRAR EN LA INTERFAZ
-      }
+        finally{
+            try{
+                if (rs != null) rs.close();
+                if (pst != null) pst.close();
+                conex.close();
+                con.desconectar();
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
+         return modelo;
+    }
     
 }

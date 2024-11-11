@@ -4,17 +4,24 @@
  */
 package View;
 
+import Controller.ControlMateriales;
+import Model.Usuario;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aquil
  */
 public class buscarMaterial extends javax.swing.JFrame {
-
     /**
      * Creates new form buscarMaterial
      */
     public buscarMaterial() {
         initComponents();
+        mostrarMateriales();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
+        this.setResizable(false);
     }
 
     /**
@@ -33,13 +40,17 @@ public class buscarMaterial extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Rubro", "Cantidad", "Cost.Material", "Proveedor", "Cost.Transporte", "Mano de Obra", "Cost.Herramientas"
+                "Rubro", "Nombre", "Unidad", "Cantidad", "Costo", "Sustentabilidad", "Proveedor", "Transporte", "Costo Transporte", "Mano de Obra", "Costo M. Obra", "Herramientas", "Costo Herramientas", "Costo Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -48,11 +59,11 @@ public class buscarMaterial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
         );
 
         pack();
@@ -91,6 +102,15 @@ public class buscarMaterial extends javax.swing.JFrame {
                 new buscarMaterial().setVisible(true);
             }
         });
+    }
+    public void mostrarMateriales()
+    {
+        ControlMateriales control = new ControlMateriales();
+        
+        DefaultTableModel modelo = control.mostrarMateriales();
+        
+        jTable1.setModel(modelo);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
