@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author aquil
@@ -15,6 +17,8 @@ public class buscarMaterial extends javax.swing.JFrame {
      */
     public buscarMaterial() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
+        this.setResizable(false);
     }
 
     /**

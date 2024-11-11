@@ -101,12 +101,12 @@ public class crearMateriales extends javax.swing.JPanel {
         ingresarButtomLayout.setVerticalGroup(
             ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(ingresarLabel)
                 .addGap(18, 18, 18))
         );
 
-        contentSelectorMateriales.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 472, -1, -1));
+        contentSelectorMateriales.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, 60));
 
         nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -124,8 +124,8 @@ public class crearMateriales extends javax.swing.JPanel {
                 nombreMaterialTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 181, 229, -1));
-        contentSelectorMateriales.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 203, 229, 20));
+        contentSelectorMateriales.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 229, -1));
+        contentSelectorMateriales.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 200, 20));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -151,19 +151,19 @@ public class crearMateriales extends javax.swing.JPanel {
         );
 
         contentSelectorMateriales.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
-        contentSelectorMateriales.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 282, 229, 20));
+        contentSelectorMateriales.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 20));
 
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre");
         nombreLabel.setToolTipText("");
-        contentSelectorMateriales.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 150, -1, -1));
+        contentSelectorMateriales.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         rubroLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         rubroLabel.setForeground(new java.awt.Color(255, 255, 255));
         rubroLabel.setText("Rubro");
         rubroLabel.setToolTipText("");
-        contentSelectorMateriales.add(rubroLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 229, -1, -1));
+        contentSelectorMateriales.add(rubroLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         rubroTxt.setBackground(new java.awt.Color(0, 153, 153));
         rubroTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -181,13 +181,13 @@ public class crearMateriales extends javax.swing.JPanel {
                 rubroTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(rubroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 260, 229, -1));
+        contentSelectorMateriales.add(rubroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 229, -1));
 
         cantidadLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         cantidadLabel.setForeground(new java.awt.Color(255, 255, 255));
         cantidadLabel.setText("Cantidad");
         cantidadLabel.setToolTipText("");
-        contentSelectorMateriales.add(cantidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 308, -1, -1));
+        contentSelectorMateriales.add(cantidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         costoMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -205,14 +205,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoMaterialTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(costoMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 421, 144, -1));
-        contentSelectorMateriales.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 361, 229, 20));
+        contentSelectorMateriales.add(costoMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, -1));
+        contentSelectorMateriales.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 200, 20));
 
         costoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoLabel.setText("Costo Material");
         costoLabel.setToolTipText("");
-        contentSelectorMateriales.add(costoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 387, -1, -1));
+        contentSelectorMateriales.add(costoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
         cantidadTxt.setBackground(new java.awt.Color(0, 153, 153));
         cantidadTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -230,14 +230,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 cantidadTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(cantidadTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 339, 229, -1));
-        contentSelectorMateriales.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 446, 133, 20));
+        contentSelectorMateriales.add(cantidadTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 229, -1));
+        contentSelectorMateriales.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 200, 20));
 
         nombreProveedorLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreProveedorLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreProveedorLabel.setText("Nombre Proveedor");
         nombreProveedorLabel.setToolTipText("");
-        contentSelectorMateriales.add(nombreProveedorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 150, -1, -1));
+        contentSelectorMateriales.add(nombreProveedorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
 
         nombreProveedorTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreProveedorTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -255,14 +255,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 nombreProveedorTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(nombreProveedorTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 181, 238, -1));
-        contentSelectorMateriales.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 446, 196, 20));
+        contentSelectorMateriales.add(nombreProveedorTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 180, -1));
+        contentSelectorMateriales.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 196, 20));
 
         costoTansporteLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoTansporteLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoTansporteLabel.setText("Costo Transporte");
         costoTansporteLabel.setToolTipText("");
-        contentSelectorMateriales.add(costoTansporteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 229, -1, -1));
+        contentSelectorMateriales.add(costoTansporteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
 
         transporteTxt.setBackground(new java.awt.Color(0, 153, 153));
         transporteTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -280,14 +280,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 transporteTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(transporteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 260, 178, -1));
-        contentSelectorMateriales.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 203, 181, 20));
+        contentSelectorMateriales.add(transporteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 178, -1));
+        contentSelectorMateriales.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 170, 20));
 
         costoManoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoManoLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoManoLabel.setText("Costo Mano de Obra");
         costoManoLabel.setToolTipText("");
-        contentSelectorMateriales.add(costoManoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 308, -1, -1));
+        contentSelectorMateriales.add(costoManoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, -1, -1));
 
         costoManoTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoManoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -305,14 +305,14 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoManoTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(costoManoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 339, 316, -1));
-        contentSelectorMateriales.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 282, 178, 20));
+        contentSelectorMateriales.add(costoManoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 200, -1));
+        contentSelectorMateriales.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 178, 20));
 
         costoHerramientaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoHerramientaLabel.setForeground(new java.awt.Color(255, 255, 255));
         costoHerramientaLabel.setText("Costo Herramientas");
         costoHerramientaLabel.setToolTipText("");
-        contentSelectorMateriales.add(costoHerramientaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 387, -1, -1));
+        contentSelectorMateriales.add(costoHerramientaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
 
         costoHerramientaTxt.setBackground(new java.awt.Color(0, 153, 153));
         costoHerramientaTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -330,34 +330,34 @@ public class crearMateriales extends javax.swing.JPanel {
                 costoHerramientaTxtActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(costoHerramientaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 421, 316, -1));
-        contentSelectorMateriales.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 361, 200, 20));
+        contentSelectorMateriales.add(costoHerramientaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 190, -1));
+        contentSelectorMateriales.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 200, 20));
 
-        unidadesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidades" }));
+        unidadesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidades", "Metro (m)", "Céntimetro (cm)", "Metro cuadrado (m²)", "Metro cúbico (m³)", "Kilogramo (kg)", "Tonelada (t)", "Litro (L)", "Milímetro (mm)", "Pulgada (in)", "Libra (lb)" }));
         unidadesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unidadesBoxActionPerformed(evt);
             }
         });
-        contentSelectorMateriales.add(unidadesBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 418, -1, -1));
+        contentSelectorMateriales.add(unidadesBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 160, -1));
 
-        SustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sustentabilidad", "Item 2", "Item 3", "Item 4" }));
-        contentSelectorMateriales.add(SustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 153, -1, -1));
+        SustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sustentabilidad", "Muy Sustentable", "Sustentable", "Poco Sustentable", "No sustentable" }));
+        contentSelectorMateriales.add(SustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 130, -1));
 
-        transporteBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transporte", "Item 2", "Item 3", "Item 4" }));
-        contentSelectorMateriales.add(transporteBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 232, -1, -1));
+        transporteBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transporte", "Aereo", "Maritimo", "Terrestre" }));
+        contentSelectorMateriales.add(transporteBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
 
-        ManoDeObraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mano de obra", "Item 2", "Item 3", "Item 4" }));
-        contentSelectorMateriales.add(ManoDeObraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 311, -1, -1));
+        ManoDeObraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mano de obra", "Albañiles", "Carpinteros", "Electricistas", "Fontaneros", "Pintores", "Soldadores", "Yeseros", "Operadores ", "Techadores", "Jardineros" }));
+        contentSelectorMateriales.add(ManoDeObraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 120, -1));
 
-        herramientasBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Herramientas", "Item 2", "Item 3", "Item 4" }));
-        contentSelectorMateriales.add(herramientasBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 390, -1, -1));
+        herramientasBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Herramientas", "Martillo", "Cinta métrica", "Nivel", "Sierra de mano", "Taladro", "Llave inglesa", "Alicates", "Espátula", "Cincel", "Destornillador" }));
+        contentSelectorMateriales.add(herramientasBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentSelectorMateriales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentSelectorMateriales, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

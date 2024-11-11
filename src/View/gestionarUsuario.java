@@ -121,7 +121,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
 
         monedaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         monedaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        monedaLabel.setText("Moneda");
+        monedaLabel.setText("Moneda:");
 
         modificarButtom.setBackground(new java.awt.Color(0, 102, 102));
         modificarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -193,35 +193,35 @@ public class gestionarUsuario extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreDato.setForeground(new java.awt.Color(255, 255, 255));
         nombreDato.setText("s");
 
-        apellidoDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        apellidoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         apellidoDato.setForeground(new java.awt.Color(255, 255, 255));
         apellidoDato.setText("s");
 
-        usuarioDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        usuarioDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         usuarioDato.setForeground(new java.awt.Color(255, 255, 255));
         usuarioDato.setText("s");
 
-        passwordDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        passwordDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         passwordDato.setForeground(new java.awt.Color(255, 255, 255));
         passwordDato.setText("s");
 
-        paisDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        paisDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         paisDato.setForeground(new java.awt.Color(255, 255, 255));
         paisDato.setText("s");
 
-        institucionDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        institucionDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         institucionDato.setForeground(new java.awt.Color(255, 255, 255));
         institucionDato.setText("s");
 
-        carreraDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        carreraDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         carreraDato.setForeground(new java.awt.Color(255, 255, 255));
         carreraDato.setText("s");
 
-        monedaDato.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        monedaDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         monedaDato.setForeground(new java.awt.Color(255, 255, 255));
         monedaDato.setText("s");
 
@@ -269,7 +269,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
                         .addComponent(passwordDato)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(monedaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(monedaDato)
                         .addGap(186, 186, 186))))
             .addGroup(contentGestionLayout.createSequentialGroup()
