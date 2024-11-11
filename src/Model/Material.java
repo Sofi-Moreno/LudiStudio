@@ -13,7 +13,7 @@ public class Material {
             sustentabilidad,proveedor,transporte,manoDeObra,herramientas;
     
     private double costoMaterial,costoTransporte,costoMDObra,
-            costoHerramientas,costoTotatalMaterial;
+            costoHerramientas,costoTotalMaterial;
     
     private int cantidadMaterial;
     
@@ -30,12 +30,12 @@ public class Material {
         costoTransporte=0;
         costoMDObra=0;
         costoHerramientas=0;
-        costoTotatalMaterial=0;
+        costoTotalMaterial=0;
         cantidadMaterial=0;
     
     }
 
-    public Material(String rubro, String nombreMaterial, String unidadMaterial, String sustentabilidad, String proveedor, String transporte, String manoDeObra, String herramientas, double costoMaterial, double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotatalMaterial, int cantidadMaterial) {
+    public Material(String rubro, String nombreMaterial, String unidadMaterial, String sustentabilidad, String proveedor, String transporte, String manoDeObra, String herramientas, double costoMaterial, double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotalMaterial, int cantidadMaterial) {
         this.rubro = rubro;
         this.nombreMaterial = nombreMaterial;
         this.unidadMaterial = unidadMaterial;
@@ -48,7 +48,7 @@ public class Material {
         this.costoTransporte = costoTransporte;
         this.costoMDObra = costoMDObra;
         this.costoHerramientas = costoHerramientas;
-        this.costoTotatalMaterial = costoTotatalMaterial;
+        this.costoTotalMaterial = costoTotalMaterial;
         this.cantidadMaterial = cantidadMaterial;
     }
 
@@ -148,12 +148,12 @@ public class Material {
         this.costoHerramientas = costoHerramientas;
     }
 
-    public double getCostoTotatalMaterial() {
-        return costoTotatalMaterial;
+    public double getCostoTotalMaterial() {
+        return costoTotalMaterial;
     }
 
-    public void setCostoTotatalMaterial(double costoTotatalMaterial) {
-        this.costoTotatalMaterial = costoTotatalMaterial;
+    public void setCostoTotalMaterial(double costoTotalMaterial) {
+        this.costoTotalMaterial = costoTotalMaterial;
     }
 
     public int getCantidadMaterial() {
@@ -163,4 +163,5 @@ public class Material {
     public void setCantidadMaterial(int cantidadMaterial) {
         this.cantidadMaterial = cantidadMaterial;
     }
+
 }
