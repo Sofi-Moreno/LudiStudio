@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.Controller;
 import Model.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -14,13 +15,22 @@ import javax.swing.JOptionPane;
  */
 public class gestionarUsuario extends javax.swing.JPanel {
     Usuario usuarioActual;
+    Controller controller;
     /**
      * Creates new form gestionarUsuario
      */
     public gestionarUsuario(Usuario usuario) {
         initComponents();
+        controller = new Controller(this);
         usuarioActual = usuario;
         nombreDato.setText(usuario.getNombreUsuario());
+        apellidoDato.setText(usuario.getApellidoUsuario());
+        usuarioDato.setText(usuario.getUsuario());
+        passwordDato.setText(usuario.getClave());
+        paisDato.setText(usuario.getPaisUsuario());
+        institucionDato.setText(usuario.getInstitucionUsuario());
+        carreraDato.setText(usuario.getCarreraUsuario());
+        monedaDato.setText(usuario.getMonedaUsuario());
     }
 
     /**
@@ -318,7 +328,7 @@ public class gestionarUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void modificarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarButtomMouseClicked
-        modificarUsuario p3 = new modificarUsuario();
+        modificarUsuario p3 = new modificarUsuario(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
         contentGestion.removeAll();
@@ -338,7 +348,10 @@ public class gestionarUsuario extends javax.swing.JPanel {
     private void eliminarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtomMouseClicked
         int option = JOptionPane.showConfirmDialog( null, "¿Deseas continuar?", "Confirmación", JOptionPane.YES_NO_OPTION );
         if (option == JOptionPane.YES_OPTION) { 
-            //ELIMINAR USUARIO
+            if(controller.eliminarUsuario(usuarioActual)){
+                JOptionPane.showMessageDialog(null, "Usuario Eliminado Exitosamente.");
+                //cerrar main y abrir inicio
+            }
         } else if (option == JOptionPane.NO_OPTION) {
             //SEGUIMOS CON NUESTRAS VIDAS
         }

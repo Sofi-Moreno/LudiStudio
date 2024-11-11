@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -35,7 +37,6 @@ public class Controller {
         this.ventana = ventana;
     }
     //constructor para registrar unuario
-
     public Controller(JTextField usuarioRegistro, JTextField claveRegistro, JTextField nombreRegistro, JTextField apellidoRegistro, 
             JComboBox monedaRegistro, JComboBox paisRegistro, JComboBox institucionRegistro, JComboBox carreraRegistro, JPanel ventana) {
         this.usuarioRegistro = usuarioRegistro;
@@ -48,7 +49,10 @@ public class Controller {
         this.carreraRegistro = carreraRegistro;
         this.ventana = ventana;
     }
-
+    //constructor para eliminar
+    public Controller(JPanel ventana){
+        this.ventana = ventana;
+    }
     //VALIDACIONES PARA INICIAR SESION
     //validacion usuario
     public boolean validarUsuario(Usuario user) throws SQLException {
@@ -295,5 +299,102 @@ public class Controller {
         return bol;
     }
     
-    //modificar usuario
+    //MODIFICAR USUARIO
+    public boolean guardarModificacion(Usuario usuario) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        boolean bol = false;
+        PreparedStatement st = null;
+        String sql = "UPDATE usuario SET usuario = ?, contraseña = ?, apellido = ?, nombre = ?, pais = ?, moneda = ?, institucion = ?, carrera = ? WHERE id_usuario = ?";
+        try {
+            st = conex.prepareStatement(sql);
+            st.setString(1,usuarioRegistro.getText());
+            st.setString(2,claveRegistro.getText());
+            st.setString(3,apellidoRegistro.getText());
+            st.setString(4,nombreRegistro.getText());
+            st.setString(5,(String)paisRegistro.getSelectedItem());
+            st.setString(6,(String)monedaRegistro.getSelectedItem());
+            st.setString(7,(String)institucionRegistro.getSelectedItem());
+            st.setString(8,(String)carreraRegistro.getSelectedItem());
+            st.setInt(9, usuario.getId_usuario());
+            int rowsInserted = st.executeUpdate();
+            if(rowsInserted>0){
+                bol = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(st!=null) st.close();
+            conex.close();
+            con.desconectar();
+        }
+        return bol;
+    }
+    
+    //ELIMINAR USUARIO
+    //eliminarProyectosDelUsuario
+    public void eliminarProyecto(int id) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement st = null;
+        Statement stmt= null;
+        ResultSet rs = null;
+        int idMaterial = 0;
+        String sql1 = "DELETE FROM partes WHERE id_partes = ?";
+        String sql2 = "DELETE FROM proyecto WHERE id_proyecto = ?";
+        String sql3 = "SELECT materiales FROM proyecto WHERE id_proyecto = ?";
+        try {
+            st = conex.prepareStatement(sql3);
+            st.setInt(1,id);
+            rs = st.executeQuery();
+            if(rs.next()){
+                idMaterial = rs.getInt("materiales");
+            }
+            //aqui eliminamos
+            st = conex.prepareStatement(sql1);
+            st.setInt(1, idMaterial);
+            st.executeUpdate();
+            st = conex.prepareStatement(sql2);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            if(st!=null) st.close();
+            conex.close();
+            con.desconectar();
+        }
+    }
+    //eliminar usuario
+    public boolean eliminarUsuario(Usuario usuario){
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean bol = false;
+        int cont=0;
+        List<Integer> proyectos = new ArrayList<>();
+        try {
+            stmt = conex.prepareStatement("SELECT id_proyecto FROM proyecto WHERE usuario = ?");
+            stmt.setInt(1,usuario.getId_usuario());
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                proyectos.add(rs.getInt("id_proyecto"));
+            }
+            System.out.println(proyectos);
+            while(cont<proyectos.size()){
+                eliminarProyecto(proyectos.get(cont));
+                cont++;
+            }
+            stmt = conex.prepareStatement("DELETE FROM usuario WHERE id_usuario = ?");
+            stmt.setInt(1,usuario.getId_usuario());
+            stmt.executeUpdate();
+            bol = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return bol;
+    }
 }

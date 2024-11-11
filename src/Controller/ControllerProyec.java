@@ -201,50 +201,7 @@ public class ControllerProyec {
             con.desconectar();
         }
     }
-    //llenar tablita de vista previa
-//    public  DefaultTableModel llenarVistaPrevia(Proyecto proyecto, String parte) throws SQLException{
-//        ConnectionDB con = new ConnectionDB();
-//        Connection conex = con.getConnection(); 
-//        PreparedStatement stmt = null;
-//        ResultSet rs = null;
-//        int part = 0;
-//        try{
-//            stmt = conex.prepareStatement("SELECT "+parte+" FROM partes WHERE id_partes = ?");
-//            stmt.setInt(1, proyecto.getIdMateriales());
-//            System.out.println(proyecto.getIdMateriales());
-//            rs = stmt.executeQuery();
-//            if(rs.next()){
-//                part = rs.getInt(parte);
-//            }
-//            stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
-//            stmt.setInt(1, part);
-//            rs = stmt.executeQuery();
-//            if(rs.next()){
-//                String rubro = rs.getString("rubro_material");
-//                String nombre = rs.getString("nombre_material");
-//                String unidad = rs.getString("unidad_material");
-//                double costo = rs.getDouble("costo_material");
-//                String susten = rs.getString("sustentabilidad_material");
-//                String proveedor = rs.getString("proveedor_material");
-//                String transporte = rs.getString("transporte_material");
-//                double costoTransporte = rs.getDouble("costo_transporte");
-//                String manoObra = rs.getString("manodeobra_material");
-//                double costoManoObra = rs.getDouble("costo_manodeobra");
-//                String herramientas = rs.getString("herramientas_material");
-//                double costoHerramientas = rs.getDouble("costo_herramientas");
-//                double costoTotal = rs.getDouble("costo_total");
-//                tabla.addRow(new Object[]{rubro,nombre,unidad,costo,susten,proveedor,transporte,costoTransporte,manoObra,costoManoObra,herramientas,costoHerramientas,costoTotal});
-//            }
-//        }catch(SQLException ex){
-//            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
-//        }finally{
-//            if(stmt!=null) stmt.close();
-//            if(rs!=null) rs.close();
-//            conex.close();
-//            con.desconectar();
-//        }
-//        return tabla;
-//    }
+    //llenar tablita
     public DefaultTableModel llenarVistaPrevia(Proyecto proyecto){
         List<String> partes = new ArrayList<>();
         partes.add("Zapata");partes.add("MurosDeContención");partes.add("Columnas");partes.add("Vigas");
@@ -357,4 +314,5 @@ public class ControllerProyec {
         }
         return val;
     }
+    
 }

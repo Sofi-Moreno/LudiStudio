@@ -293,156 +293,83 @@ public class registroUsuario extends javax.swing.JPanel {
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
         usuarioActual=new Usuario();
-        int salida = 0;
         try{
-            do{
-                switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
-                    case 1:
-                        if (salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+            switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
+                case 1:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                    + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                    break;                     
+                case 2:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                    + "con mayuscula y continuar con minuscula.");
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");                               
+                    break;
+                default:
+                    switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
+                        case 1:
+                           JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
                             + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
-                            salida=1;
                             break;
-                        }
-                        break;                       
-                    case 2:
-                        if(salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
                             + "con mayuscula y continuar con minuscula.");
-                            salida=1;
                             break;
-                        }                   
-                        break;
-                    case 3:
-                        if(salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
-                            salida=1;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
                             break;
-                        }          
-                        break;
-                    default:
-                        switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
-                            case 1:
-                                if(salida==0){
-                                   JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
-                                    + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
-                                   salida=1;
-                                   break; 
-                                }
-                                break;
-                            case 2:
-                                if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
-                                    + "con mayuscula y continuar con minuscula.");
-                                    salida=1;
+                        default:   
+                            switch(controller.validarUsuarioRegistro(usuarioActual)){
+                                case 1:
+                                   JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
+                                   break;
+                                case 2:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                    + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
+                                    + "correcto (3-10).");
                                     break;
-                                }     
-                                break;
-                            case 3:
-                                if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
-                                    salida=1;
+                                case 3:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                    + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
+                                    break; 
+
+                                case 4:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
                                     break;
-                                }
-                                break;
-                                
-                            default:   
-                                switch(controller.validarUsuarioRegistro(usuarioActual)){
-                                    case 1:
-                                        if(salida==0){
-                                           JOptionPane.showMessageDialog(null, "El usuario que esta ingresando ya existe, ingreselo nuevamente.");
-                                           salida=1;
-                                           break;
-                                        }
-                                        
-                                        break;
-                                    case 2:
-                                        if(salida==0){
-                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
-                                            + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
-                                            + "correcto (3-10).");
-                                            salida=1;
+                                default:
+                                    switch(controller.validarContraseña(usuarioActual)){
+                                        case 1:
+                                            JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
                                             break;
-                                        }
-                                        break;
-                                        
-                                        //refrescar
-                                    case 3:
-                                        if(salida==0){
-                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
-                                            + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
-                                            salida=1;
-                                            break;   
-                                        }
-                                        break; 
-                                        
-                                    case 4:
-                                        if(salida==0){
-                                            JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
-                                            salida=1;
+                                        case 2:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
+                                            + "y no cumple con el tamaño correcto (3-10).");
                                             break;
-                                        }
-                                        break;
-                                        
-                                    default:
-                                        switch(controller.validarContraseña(usuarioActual)){
-                                            case 1:
-                                                if(salida==0){
-                                                    JOptionPane.showMessageDialog(null, "La contraseña que esta ingresando ya existe, ingresela nuevamente.");
-                                                    salida=1;
-                                                    break;
-                                                }                                                
-                                                break;
-                                            case 2:
-                                                if(salida==0){
-                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
-                                                    + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
-                                                    + "y no cumple con el tamaño correcto (3-10).");
-                                                    //refrescar
-                                                    salida=1;
-                                                    break;
-                                                }
-                                                break;
-                                                
-                                            case 3:
-                                                if(salida==0){
-                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
-                                                    + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
-                                                    //refrescar
-                                                    salida=1;
-                                                    break;
-                                                }
-                                                break;
-                                                
-                                            case 4:
-                                                if(salida==0){
-                                                    JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
-                                                    salida=1;
-                                                    break;
-                                                }
-                                                break;
-                                               
-                                                
-                                            default:
-                                                controller.guardarRegistroDB(usuarioActual);
-                                                JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
-                                                MainMenu main = new MainMenu(usuarioActual);
-                                                main.setVisible(true);
-                                                this.setVisible(false);
-                                                //decir ya se registro el usuario
-                                                break;
-                                        }
-                                        break;
-                                }
+
+                                        case 3:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
+                                            break;
+
+                                        case 4:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
+                                            break;
+                                        default:
+                                            controller.guardarModificacion(usuarioActual);
+                                            JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
+                                            MainMenu main = new MainMenu(usuarioActual);
+                                            main.setVisible(true);
+                                            this.setVisible(false);
+                                            break;
+                                    }
                                 break;
-                        }
+                            }
                         break;
-                }
+                    }
                 break;
-            }while(controller.validarNombreApellidoRegistro(usuarioActual,"nombre")!=0 
-                    || controller.validarNombreApellidoRegistro(usuarioActual,"apellido")!=0
-                    || controller.validarUsuarioRegistro(usuarioActual)!=0
-                    || controller.validarContraseña(usuarioActual)!=0);
+            }
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                 

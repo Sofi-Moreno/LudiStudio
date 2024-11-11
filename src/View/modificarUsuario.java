@@ -4,7 +4,14 @@
  */
 package View;
 
+import Controller.Controller;
+import Model.Proyecto;
+import Model.Usuario;
+import View.MainMenu;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +19,25 @@ import javax.swing.JOptionPane;
  * @author Riarb
  */
 public class modificarUsuario extends javax.swing.JPanel {
-
+    Proyecto proyecto;
+    Usuario usuarioActual;
+    Controller controller;
+    
     /**
      * Creates new form modificarUsuario
      */
-    public modificarUsuario() {
+    public modificarUsuario(Usuario usuario) {
         initComponents();
+        controller = new Controller(userTxt,passTxt,nombreTxt,apellidoTxt,monedaBox,paisBox,institucionBox,carreraBox,this);
+        usuarioActual = usuario;
+        nombreTxt.setText(usuario.getNombreUsuario());
+        apellidoTxt.setText(usuario.getApellidoUsuario());
+        userTxt.setText(usuario.getUsuario());
+        carreraBox.setSelectedItem(usuario.getCarreraUsuario());
+        paisBox.setSelectedItem(usuario.getPaisUsuario());
+        institucionBox.setSelectedItem(usuario.getInstitucionUsuario());
+        monedaBox.setSelectedItem(usuario.getMonedaUsuario());
+        passTxt.setText(usuario.getClave());
     }
 
     /**
@@ -292,7 +312,81 @@ public class modificarUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_carreraBoxActionPerformed
 
     private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        
+        try{
+            switch (controller.validarNombreApellidoRegistro(usuarioActual,"nombre")){
+                case 1:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                    + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                    break;                     
+                case 2:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no cumple con el patron de iniciar "
+                    + "con mayuscula y continuar con minuscula.");
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");                               
+                    break;
+                default:
+                    switch (controller.validarNombreApellidoRegistro(usuarioActual,"apellido")){
+                        case 1:
+                           JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                            + "con mayuscula y continuar con minuscula y no tienen el tamaño correcto (1-25).");
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "El apellido ingresado no cumple con el patron de iniciar "
+                            + "con mayuscula y continuar con minuscula.");
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "El apellido ingresado no tiene el tamaño correcto (1-25).");
+                            break;
+                        default:   
+                            switch(controller.validarUsuarioRegistro(usuarioActual)){
+                                case 2:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                    + "almenos una letra minuscula y alguno de estos caracteres !&$._*- y no cumple con el tamaño "
+                                    + "correcto (3-10).");
+                                    break;
+                                case 3:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el patron de tener almenos una letra mayuscula, "
+                                    + "almenos una letra minuscula y alguno de estos caracteres !&$._*-");
+                                    break; 
+
+                                case 4:
+                                    JOptionPane.showMessageDialog(null, "El usuario no cumple con el tamaño correcto (3-10).");
+                                    break;
+                                default:
+                                    switch(controller.validarContraseña(usuarioActual)){
+                                        case 2:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- "
+                                            + "y no cumple con el tamaño correcto (3-10).");
+                                            break;
+
+                                        case 3:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el patron de tener almenos una letra mayuscula, "
+                                            + "almenos una letra minuscula, almenos un numero(0-9) y alguno de estos caracteres !&$._*- ");
+                                            break;
+
+                                        case 4:
+                                            JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
+                                            break;
+                                        default:
+                                            controller.guardarModificacion(usuarioActual);
+                                            JOptionPane.showMessageDialog(null, "El usuario ha sido modificado con exito.");
+                                            MainMenu main = new MainMenu(usuarioActual);
+                                            main.setVisible(true);
+                                            this.setVisible(false);
+                                            break;
+                                    }
+                                break;
+                            }
+                        break;
+                    }
+                break;
+            }
+        }catch(SQLException ex){
+                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                
+        }
     }//GEN-LAST:event_entrarButtomMouseClicked
 
     private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
