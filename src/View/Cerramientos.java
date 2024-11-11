@@ -84,15 +84,13 @@ public class Cerramientos extends javax.swing.JPanel {
         precioLabel3 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
 
-        contentCerramientos.setBackground(new java.awt.Color(0, 204, 204));
+        contentCerramientos.setBackground(new java.awt.Color(0, 153, 153));
         contentCerramientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CERRAMIENTOS");
 
@@ -100,20 +98,20 @@ public class Cerramientos extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(162, 162, 162)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 613, -1));
+        contentCerramientos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 613, 110));
 
         deshabilitarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -145,7 +143,7 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom1Layout.setVerticalGroup(
             deshabilitarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deshabilitarButtom1Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(deshabilitarLabel1)
                 .addContainerGap())
         );
@@ -184,7 +182,7 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarButtom1Layout.setVerticalGroup(
             habilitarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, habilitarButtom1Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(habilitarLabel1)
                 .addContainerGap())
         );
@@ -197,7 +195,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 materialBox1ActionPerformed(evt);
             }
         });
-        contentCerramientos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 214, -1, -1));
+        contentCerramientos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         precio1Label.setText("Precio");
 
@@ -206,7 +204,7 @@ public class Cerramientos extends javax.swing.JPanel {
         precio1Layout.setHorizontalGroup(
             precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(precio1Label)
                 .addGap(29, 29, 29))
         );
@@ -217,7 +215,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        contentCerramientos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 100, -1));
 
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -243,9 +241,9 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarButtom2Layout.setHorizontalGroup(
             habilitarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(habilitarButtom2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(24, 24, 24)
                 .addComponent(habilitarLabel2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         habilitarButtom2Layout.setVerticalGroup(
             habilitarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +253,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        contentCerramientos.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 110, -1));
+        contentCerramientos.add(habilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 100, -1));
 
         deshabilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -279,9 +277,9 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom2Layout.setHorizontalGroup(
             deshabilitarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deshabilitarButtom2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(deshabilitarLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addGap(21, 21, 21)
+                .addComponent(deshabilitarLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
         deshabilitarButtom2Layout.setVerticalGroup(
             deshabilitarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +289,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 110, -1));
+        contentCerramientos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 100, -1));
 
         precioLabel2.setText("Precio");
 
@@ -300,7 +298,7 @@ public class Cerramientos extends javax.swing.JPanel {
         precioPanel2Layout.setHorizontalGroup(
             precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precioPanel2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(precioLabel2)
                 .addGap(29, 29, 29))
         );
@@ -311,10 +309,10 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, -1, -1));
+        contentCerramientos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 100, -1));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
-        contentCerramientos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, -1));
+        contentCerramientos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         contentCerramientos.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 248, 613, 10));
@@ -323,17 +321,17 @@ public class Cerramientos extends javax.swing.JPanel {
         contentCerramientos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 382, 613, 38));
 
         murosLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        murosLabel.setForeground(new java.awt.Color(0, 102, 102));
+        murosLabel.setForeground(new java.awt.Color(255, 255, 255));
         murosLabel.setText("Muros");
         contentCerramientos.add(murosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 152, 174, -1));
 
         ventanaLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        ventanaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        ventanaLabel.setForeground(new java.awt.Color(255, 255, 255));
         ventanaLabel.setText("Ventanas");
-        contentCerramientos.add(ventanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        contentCerramientos.add(ventanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         puertasLabel.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        puertasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        puertasLabel.setForeground(new java.awt.Color(255, 255, 255));
         puertasLabel.setText("Puertas");
         contentCerramientos.add(puertasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
@@ -360,20 +358,20 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarButtom3.setLayout(habilitarButtom3Layout);
         habilitarButtom3Layout.setHorizontalGroup(
             habilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, habilitarButtom3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(habilitarButtom3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(habilitarLabel3)
-                .addGap(44, 44, 44))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         habilitarButtom3Layout.setVerticalGroup(
             habilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, habilitarButtom3Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(habilitarLabel3)
                 .addContainerGap())
         );
 
-        contentCerramientos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 136, -1));
+        contentCerramientos.add(habilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 100, 30));
 
         deshabilitarButtom3.setBackground(new java.awt.Color(0, 102, 102));
         deshabilitarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -397,22 +395,22 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom3Layout.setHorizontalGroup(
             deshabilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deshabilitarButtom3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(deshabilitarLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+                .addGap(17, 17, 17)
+                .addComponent(deshabilitarLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
         deshabilitarButtom3Layout.setVerticalGroup(
             deshabilitarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deshabilitarButtom3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deshabilitarButtom3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(deshabilitarLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        contentCerramientos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+        contentCerramientos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 100, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
-        contentCerramientos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
+        contentCerramientos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 100, -1));
 
         precioLabel3.setText("Precio");
 
@@ -432,7 +430,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(precioPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
+        contentCerramientos.add(precioPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -469,44 +467,7 @@ public class Cerramientos extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        contentCerramientos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 190, -1));
-
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(entrarLabel)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(entrarLabel)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        contentCerramientos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, 60));
+        contentCerramientos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -687,24 +648,6 @@ public class Cerramientos extends javax.swing.JPanel {
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        cubierta p = new cubierta(proyecto,usuarioActual,presupuestoTotal);
-        p.setSize(613,530);
-        p.setLocation(0,0);
-        contentCerramientos.removeAll();
-        contentCerramientos.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentCerramientos.revalidate();
-        contentCerramientos.repaint();
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentCerramientos;
@@ -714,8 +657,6 @@ public class Cerramientos extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel1;
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;
     private javax.swing.JPanel habilitarButtom2;

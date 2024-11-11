@@ -36,8 +36,10 @@ public class verProyecto extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         ingresarButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         contentVer.setBackground(new java.awt.Color(0, 153, 153));
+        contentVer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -50,7 +52,7 @@ public class verProyecto extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(tituloLabel1)
                 .addGap(122, 122, 122))
         );
@@ -62,10 +64,13 @@ public class verProyecto extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
+        contentVer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, -1));
+
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre");
         nombreLabel.setToolTipText("");
+        contentVer.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 183, -1, -1));
 
         nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
@@ -83,6 +88,8 @@ public class verProyecto extends javax.swing.JPanel {
                 nombreMaterialTxtActionPerformed(evt);
             }
         });
+        contentVer.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 218, 374, -1));
+        contentVer.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 246, 364, 20));
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,38 +119,10 @@ public class verProyecto extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        javax.swing.GroupLayout contentVerLayout = new javax.swing.GroupLayout(contentVer);
-        contentVer.setLayout(contentVerLayout);
-        contentVerLayout.setHorizontalGroup(
-            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(contentVerLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreLabel)
-                    .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentVerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-        contentVerLayout.setVerticalGroup(
-            contentVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentVerLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(nombreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nombreMaterialTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                .addComponent(ingresarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
+        contentVer.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 443, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
+        contentVer.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -178,6 +157,7 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JPanel contentVer;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel nombreLabel;

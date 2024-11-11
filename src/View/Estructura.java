@@ -26,6 +26,9 @@ public class Estructura extends javax.swing.JPanel {
 
     /**
      * Creates new form Estructura
+     * @param proyec
+     * @param usuario
+     * @param presupuesto
      */
     public Estructura(Proyecto proyec, Usuario usuario,double presupuesto) {
         initComponents();
@@ -97,10 +100,8 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarLabel4 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
 
-        contentElementos.setBackground(new java.awt.Color(0, 204, 204));
+        contentElementos.setBackground(new java.awt.Color(0, 153, 153));
         contentElementos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
@@ -338,22 +339,22 @@ public class Estructura extends javax.swing.JPanel {
         contentElementos.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 406, 612, 19));
 
         losasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        losasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        losasLabel.setForeground(new java.awt.Color(242, 242, 242));
         losasLabel.setText("Losas");
         contentElementos.add(losasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, -1));
 
         entrepisoLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        entrepisoLabel.setForeground(new java.awt.Color(0, 102, 102));
+        entrepisoLabel.setForeground(new java.awt.Color(242, 242, 242));
         entrepisoLabel.setText("Entrepiso");
         contentElementos.add(entrepisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         culumnaLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        culumnaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        culumnaLabel.setForeground(new java.awt.Color(242, 242, 242));
         culumnaLabel.setText("Columnas");
         contentElementos.add(culumnaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 149, 120, -1));
 
         vigasLabel.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        vigasLabel.setForeground(new java.awt.Color(0, 102, 102));
+        vigasLabel.setForeground(new java.awt.Color(242, 242, 242));
         vigasLabel.setText("Vigas");
         contentElementos.add(vigasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
 
@@ -602,54 +603,17 @@ public class Estructura extends javax.swing.JPanel {
 
         contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 230, -1));
 
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(entrarLabel)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entrarButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(entrarLabel)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        contentElementos.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 60));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentElementos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentElementos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(contentElementos, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(contentElementos, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -907,25 +871,6 @@ public class Estructura extends javax.swing.JPanel {
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal);
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-
-        contentElementos.removeAll();
-        contentElementos.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentElementos.revalidate();
-        contentElementos.repaint();
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentElementos;
@@ -938,8 +883,6 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JLabel deshabilitarLabel2;
     private javax.swing.JLabel deshabilitarLabel3;
     private javax.swing.JLabel deshabilitarLabel4;
-    private javax.swing.JPanel entrarButtom;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel entrepisoLabel;
     private javax.swing.JPanel guardarButtom;
     private javax.swing.JPanel habilitarButtom1;

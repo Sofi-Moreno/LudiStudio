@@ -34,16 +34,21 @@ public class gestionarProyectos extends javax.swing.JPanel {
         contentProyectos = new javax.swing.JPanel();
         crearProyectoButtom = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         verProyectosButtom = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         eliminarProyectoButtom = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         modificarProyectosButtom = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
-        contentProyectos.setBackground(new java.awt.Color(0, 204, 204));
+        contentProyectos.setBackground(new java.awt.Color(0, 153, 153));
+        contentProyectos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         crearProyectoButtom.setBackground(new java.awt.Color(0, 102, 102));
         crearProyectoButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -63,22 +68,30 @@ public class gestionarProyectos extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Crear Proyecto");
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/aquitecto.png"))); // NOI18N
+
         javax.swing.GroupLayout crearProyectoButtomLayout = new javax.swing.GroupLayout(crearProyectoButtom);
         crearProyectoButtom.setLayout(crearProyectoButtomLayout);
         crearProyectoButtomLayout.setHorizontalGroup(
             crearProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crearProyectoButtomLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(crearProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
         crearProyectoButtomLayout.setVerticalGroup(
             crearProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(crearProyectoButtomLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
+
+        contentProyectos.add(crearProyectoButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         verProyectosButtom.setBackground(new java.awt.Color(0, 102, 102));
         verProyectosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -98,22 +111,32 @@ public class gestionarProyectos extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ver Proyectos");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
+
         javax.swing.GroupLayout verProyectosButtomLayout = new javax.swing.GroupLayout(verProyectosButtom);
         verProyectosButtom.setLayout(verProyectosButtomLayout);
         verProyectosButtomLayout.setHorizontalGroup(
             verProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, verProyectosButtomLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+            .addGroup(verProyectosButtomLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(54, 54, 54))
+            .addGroup(verProyectosButtomLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         verProyectosButtomLayout.setVerticalGroup(
             verProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(verProyectosButtomLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        contentProyectos.add(verProyectosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, 250));
 
         eliminarProyectoButtom.setBackground(new java.awt.Color(0, 102, 102));
         eliminarProyectoButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,22 +156,30 @@ public class gestionarProyectos extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Eliminar Proyecto");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/basura.png"))); // NOI18N
+
         javax.swing.GroupLayout eliminarProyectoButtomLayout = new javax.swing.GroupLayout(eliminarProyectoButtom);
         eliminarProyectoButtom.setLayout(eliminarProyectoButtomLayout);
         eliminarProyectoButtomLayout.setHorizontalGroup(
             eliminarProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(eliminarProyectoButtomLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(eliminarProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         eliminarProyectoButtomLayout.setVerticalGroup(
             eliminarProyectoButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(eliminarProyectoButtomLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        contentProyectos.add(eliminarProyectoButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
         modificarProyectosButtom.setBackground(new java.awt.Color(0, 102, 102));
         modificarProyectosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -168,61 +199,40 @@ public class gestionarProyectos extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Modificar Proyectos");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
+
         javax.swing.GroupLayout modificarProyectosButtomLayout = new javax.swing.GroupLayout(modificarProyectosButtom);
         modificarProyectosButtom.setLayout(modificarProyectosButtomLayout);
         modificarProyectosButtomLayout.setHorizontalGroup(
             modificarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(modificarProyectosButtomLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addGroup(modificarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         modificarProyectosButtomLayout.setVerticalGroup(
             modificarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(modificarProyectosButtomLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel6)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout contentProyectosLayout = new javax.swing.GroupLayout(contentProyectos);
-        contentProyectos.setLayout(contentProyectosLayout);
-        contentProyectosLayout.setHorizontalGroup(
-            contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentProyectosLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(crearProyectoButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(modificarProyectosButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(verProyectosButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eliminarProyectoButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        contentProyectosLayout.setVerticalGroup(
-            contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentProyectosLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(verProyectosButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crearProyectoButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(contentProyectosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modificarProyectosButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eliminarProyectoButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
-        );
+        contentProyectos.add(modificarProyectosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,9 +319,13 @@ public class gestionarProyectos extends javax.swing.JPanel {
     private javax.swing.JPanel eliminarProyectoButtom;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel modificarProyectosButtom;
     private javax.swing.JPanel verProyectosButtom;
     // End of variables declaration//GEN-END:variables

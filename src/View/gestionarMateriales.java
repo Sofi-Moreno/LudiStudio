@@ -291,14 +291,8 @@ public class gestionarMateriales extends javax.swing.JPanel {
 
     private void verMaterialesButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMaterialesButtomMouseClicked
         // TODO add your handling code here:
-        verMateriales p3 = new verMateriales();
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-
-        contentSelector.removeAll();
-        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentSelector.revalidate();
-        contentSelector.repaint();
+        buscarMaterial vista = new buscarMaterial();
+        vista.setVisible(true);
     }//GEN-LAST:event_verMaterialesButtomMouseClicked
 
 

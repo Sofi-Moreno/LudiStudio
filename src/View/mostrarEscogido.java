@@ -56,10 +56,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        entrarButtom = new javax.swing.JPanel();
-        entrarLabel = new javax.swing.JLabel();
         mostrarDatosButtom = new javax.swing.JPanel();
         entrarLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         autorDato = new javax.swing.JLabel();
         nombreDato = new javax.swing.JLabel();
         costoDato = new javax.swing.JLabel();
@@ -115,43 +114,6 @@ public class mostrarEscogido extends javax.swing.JPanel {
         jLabel4.setText("Presupuesto: ");
         contentVista.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
-        entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtomMouseExited(evt);
-            }
-        });
-
-        entrarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        entrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel.setText("VOLVER");
-
-        javax.swing.GroupLayout entrarButtomLayout = new javax.swing.GroupLayout(entrarButtom);
-        entrarButtom.setLayout(entrarButtomLayout);
-        entrarButtomLayout.setHorizontalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtomLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(entrarLabel)
-                .addGap(50, 50, 50))
-        );
-        entrarButtomLayout.setVerticalGroup(
-            entrarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtomLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addComponent(entrarLabel)
-                .addContainerGap())
-        );
-
-        contentVista.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
-
         mostrarDatosButtom.setBackground(new java.awt.Color(0, 102, 102));
         mostrarDatosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mostrarDatosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,6 +132,8 @@ public class mostrarEscogido extends javax.swing.JPanel {
         entrarLabel1.setForeground(new java.awt.Color(255, 255, 255));
         entrarLabel1.setText("MOSTRAR DATOS");
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
+
         javax.swing.GroupLayout mostrarDatosButtomLayout = new javax.swing.GroupLayout(mostrarDatosButtom);
         mostrarDatosButtom.setLayout(mostrarDatosButtomLayout);
         mostrarDatosButtomLayout.setHorizontalGroup(
@@ -178,6 +142,11 @@ public class mostrarEscogido extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addComponent(entrarLabel1)
                 .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         mostrarDatosButtomLayout.setVerticalGroup(
             mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,21 +154,34 @@ public class mostrarEscogido extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addComponent(entrarLabel1)
                 .addContainerGap(186, Short.MAX_VALUE))
+            .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 230, 230));
+        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 230, 230));
 
         String aux;
         aux="Pepe";
+        autorDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        autorDato.setForeground(new java.awt.Color(242, 242, 242));
         autorDato.setText(aux);
         contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
 
+        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        nombreDato.setForeground(new java.awt.Color(242, 242, 242));
         nombreDato.setText("Kiosco 69");
         contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, 30));
 
+        costoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        costoDato.setForeground(new java.awt.Color(242, 242, 242));
         costoDato.setText("4500$");
         contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 30));
 
+        presupuestoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        presupuestoDato.setForeground(new java.awt.Color(242, 242, 242));
         presupuestoDato.setText("5000$");
         contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
@@ -238,7 +220,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, -1, -1));
+        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -252,25 +234,6 @@ public class mostrarEscogido extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void entrarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseClicked
-        elementosComplementarios p = new elementosComplementarios(proyecto,usuarioActual,presupuestoTotal);
-        p.setSize(613,530);
-        p.setLocation(0,0);
-        contentVista.removeAll();
-        contentVista.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentVista.revalidate();
-        contentVista.repaint();
-
-    }//GEN-LAST:event_entrarButtomMouseClicked
-
-    private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered
-        entrarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtomMouseEntered
-
-    private void entrarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseExited
-        entrarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtomMouseExited
-
     private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
         vistaPrevia vista;
         try {
@@ -282,11 +245,11 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_mostrarDatosButtomMouseClicked
 
     private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered
-        // TODO add your handling code here:
+        mostrarDatosButtom.setBackground(new Color(0,153,204));
     }//GEN-LAST:event_mostrarDatosButtomMouseEntered
 
     private void mostrarDatosButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseExited
-        // TODO add your handling code here:
+        mostrarDatosButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_mostrarDatosButtomMouseExited
 
     private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
@@ -294,11 +257,11 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_entrarButtom2MouseClicked
 
     private void entrarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseEntered
-        // TODO add your handling code here:
+        entrarButtom2.setBackground(new Color(0,153,204));
     }//GEN-LAST:event_entrarButtom2MouseEntered
 
     private void entrarButtom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseExited
-        // TODO add your handling code here:
+        entrarButtom2.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_entrarButtom2MouseExited
 
 
@@ -306,15 +269,14 @@ public class mostrarEscogido extends javax.swing.JPanel {
     private javax.swing.JLabel autorDato;
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
-    private javax.swing.JPanel entrarButtom;
     private javax.swing.JPanel entrarButtom2;
-    private javax.swing.JLabel entrarLabel;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JLabel entrarLabel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel mostrarDatosButtom;
