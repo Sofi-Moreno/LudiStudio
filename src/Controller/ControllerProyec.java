@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.Proyecto;
+import Model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,6 +44,9 @@ public class ControllerProyec {
     //atributos de vista previa
     DefaultTableModel tabla;
     JFrame ventanita;
+    
+    //atributos ver
+    JLabel id;
     //CONSTRUCTORES
     //constructor para crear proyecto
     public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JPanel ventana){    
@@ -52,6 +56,9 @@ public class ControllerProyec {
         this.ventana = ventana;
     }
     public ControllerProyec(JPanel ventana){
+        this.ventana = ventana;
+    }
+    public ControllerProyec(JPanel ventana,JLabel id){
         this.ventana = ventana;
     }
     //constructor para eliminar
@@ -326,8 +333,66 @@ public class ControllerProyec {
 
     }
     //**************************VER PROYECTO**************************
+    public DefaultTableModel llenarVerProyecto(Usuario usuario){
+        String [] columnas = {"ID","NOMBRE"};
+        DefaultTableModel modelo = new DefaultTableModel(null,columnas);
+        String [] registros = new String[2];
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conex.prepareStatement("SELECT id_proyecto, nombre FROM proyecto WHERE usuario = ?");
+            stmt.setInt(1, usuario.getId_usuario());
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                registros [0] = String.valueOf(rs.getInt("id_proyecto"));
+                registros [1] = rs.getString("nombre");
+                modelo.addRow(registros);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return modelo;
+    }
     
-    //**************************ELIMINAR PROYECTO**************************
+//    public int validarID(Usuario usuario) throws SQLException{
+//        ConnectionDB con = new ConnectionDB();
+//        Connection conex = con.getConnection(); 
+//        PreparedStatement st = null;
+//        Statement stmt= null;
+//        ResultSet rs = null;
+//        int val = 0;
+//        boolean boleano = false;
+//        String patron = "^\\d+$";
+//        Pattern pattern = Pattern.compile(patron);
+//        Matcher matcher = pattern.matcher(idProyecto.getText());
+//        try{
+//            if(!matcher.matches()){
+//                val = 1; // si no cumple con el patron de solo poseer numeros
+//            }else{
+//                stmt = conex.createStatement();
+//                rs = stmt.executeQuery("SELECT id_proyecto FROM proyecto WHERE usuario = "+usuario.getId_usuario());
+//                while(rs.next()){
+//                    if(id.getText()==String.valueOf(rs.getInt("id_proyecto"))){
+//                        boleano = true;
+//                    }
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+//        }finally{
+//            if(stmt!=null) stmt.close();
+//            if(rs!=null) rs.close();
+//            if(st!=null) st.close();
+//            conex.close();
+//            con.desconectar();
+//        }
+//        
+//        return val;
+//    }
+    //**************************ELIMINAR PROYECTO**************************    //**************************ELIMINAR PROYECTO**************************
     public int eliminarProyecto() throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 

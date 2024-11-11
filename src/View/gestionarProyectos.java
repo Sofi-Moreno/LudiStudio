@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 
@@ -280,7 +281,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_crearProyectoButtomMouseClicked
 
     private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
-        verProyectoMenu p3 = new verProyectoMenu();
+        verProyectoMenu p3 = new verProyectoMenu(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 

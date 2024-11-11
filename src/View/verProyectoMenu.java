@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
 
 /**
@@ -11,12 +14,16 @@ import java.awt.Color;
  * @author Riarb
  */
 public class verProyectoMenu extends javax.swing.JPanel {
-
+    ControllerProyec controller;
+    Usuario usuarioActual;
     /**
      * Creates new form verProyectoMenu
      */
-    public verProyectoMenu() {
+    public verProyectoMenu(Usuario usuario) {
         initComponents();
+        controller = new ControllerProyec(this,nombreTxt);
+        usuarioActual = usuario;
+        table.setModel(controller.llenarVerProyecto(usuario));
     }
 
     /**
@@ -167,7 +174,8 @@ public class verProyectoMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        verProyecto p3 = new verProyecto();
+        
+        verProyecto p3 = new verProyecto(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
         contentVista.removeAll();
