@@ -4,8 +4,12 @@
  */
 package View;
 
+import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,12 +17,22 @@ import java.awt.Color;
  */
 public class verProyecto extends javax.swing.JPanel {
     Usuario usuarioActual;
+    Proyecto proyecto;
     /**
      * Creates new form verProyecto
      */
-    public verProyecto(Usuario usuario) {
+    public verProyecto(Usuario usuario, Proyecto proyec) {
         initComponents();
         usuarioActual = usuario;
+        proyecto = proyec;
+        nombreDato.setText(proyec.getNombreProyecto());
+        presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
+        autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
+        if("Dolares ($)".equals(usuario.getMonedaUsuario())){
+            costoDato.setText(String.valueOf(proyec.getPresupuesto())+" $");
+        }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
+            costoDato.setText(String.valueOf(proyec.getPresupuesto())+" Bs");
+        }
     }
 
     /**
@@ -209,8 +223,12 @@ public class verProyecto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
-        buscarProyecto vista = new buscarProyecto();
-        vista.setVisible(true);
+        try {
+            buscarProyecto vista = new buscarProyecto(proyecto);
+            vista.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(verProyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_mostrarDatosButtomMouseClicked
 
     private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered

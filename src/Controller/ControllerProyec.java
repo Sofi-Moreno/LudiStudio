@@ -45,8 +45,6 @@ public class ControllerProyec {
     DefaultTableModel tabla;
     JFrame ventanita;
     
-    //atributos ver
-    JLabel id;
     //CONSTRUCTORES
     //constructor para crear proyecto
     public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JPanel ventana){    
@@ -58,9 +56,7 @@ public class ControllerProyec {
     public ControllerProyec(JPanel ventana){
         this.ventana = ventana;
     }
-    public ControllerProyec(JPanel ventana,JLabel id){
-        this.ventana = ventana;
-    }
+   
     //constructor para eliminar
     public ControllerProyec(JPanel ventana,JTextField idProyecto) {
         this.ventana = ventana;
@@ -72,7 +68,7 @@ public class ControllerProyec {
         this.ventanita = ventanita;
     }
     
-    //constructor para modificar
+    //constructor para ver
     //**************************CREAR PROYECTO**************************
     //validacion de nombre del proyecto
     public boolean validarNombre(Proyecto proyecto) {
@@ -357,42 +353,58 @@ public class ControllerProyec {
         return modelo;
     }
     
-//    public int validarID(Usuario usuario) throws SQLException{
-//        ConnectionDB con = new ConnectionDB();
-//        Connection conex = con.getConnection(); 
-//        PreparedStatement st = null;
-//        Statement stmt= null;
-//        ResultSet rs = null;
-//        int val = 0;
-//        boolean boleano = false;
-//        String patron = "^\\d+$";
-//        Pattern pattern = Pattern.compile(patron);
-//        Matcher matcher = pattern.matcher(idProyecto.getText());
-//        try{
-//            if(!matcher.matches()){
-//                val = 1; // si no cumple con el patron de solo poseer numeros
-//            }else{
-//                stmt = conex.createStatement();
-//                rs = stmt.executeQuery("SELECT id_proyecto FROM proyecto WHERE usuario = "+usuario.getId_usuario());
-//                while(rs.next()){
-//                    if(id.getText()==String.valueOf(rs.getInt("id_proyecto"))){
-//                        boleano = true;
-//                    }
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
-//        }finally{
-//            if(stmt!=null) stmt.close();
-//            if(rs!=null) rs.close();
-//            if(st!=null) st.close();
-//            conex.close();
-//            con.desconectar();
-//        }
-//        
-//        return val;
-//    }
-    //**************************ELIMINAR PROYECTO**************************    //**************************ELIMINAR PROYECTO**************************
+    public int validarID(Usuario usuario, Proyecto proyecto) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        Statement stmt= null;
+        ResultSet rs = null;
+        int val = 0;
+        boolean boleano = false;
+        String patron = "^\\d+$";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(idProyecto.getText());
+        try{
+            if(!matcher.matches()){
+                val = 1; // si no cumple con el patron de solo poseer numeros
+            }else{
+                stmt = conex.createStatement();
+                rs = stmt.executeQuery("SELECT id_proyecto FROM proyecto WHERE usuario = "+usuario.getId_usuario());
+                while(rs.next()){
+                    if(idProyecto.getText().equals(String.valueOf(rs.getInt("id_proyecto")))){
+                        proyecto.setIdUsuario(rs.getInt("id_proyecto"));
+                        boleano = true;
+                    }
+                }
+                if(boleano){
+                    stmt = conex.createStatement();
+                    rs = stmt.executeQuery("SELECT * FROM proyecto WHERE id_proyecto ="+idProyecto.getText());
+                    if(rs.next()){
+                        proyecto.setIdUsuario(rs.getInt("usuario"));
+                        proyecto.setNombreProyecto(rs.getString("nombre"));
+                        proyecto.setPresupuesto(rs.getDouble("presupuesto"));
+                        proyecto.setPresupuestoTotal(rs.getDouble("presupuestoTotal"));
+                        proyecto.setFechaDeCreacion(rs.getString("fecha"));
+                        proyecto.setSustentabilidad(rs.getString("sustentabilidad"));
+                        proyecto.setIdMateriales(rs.getInt("materiales"));
+                        
+                    }
+                    
+                }else{
+                    val = 2; //si no existe
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            conex.close();
+            con.desconectar();
+        }
+        
+        return val;
+    }
+    //**************************ELIMINAR PROYECTO**************************
     public int eliminarProyecto() throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 

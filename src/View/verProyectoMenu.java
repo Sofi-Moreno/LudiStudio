@@ -8,6 +8,10 @@ import Controller.ControllerProyec;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +20,7 @@ import java.awt.Color;
 public class verProyectoMenu extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
+    Proyecto proyecto;
     /**
      * Creates new form verProyectoMenu
      */
@@ -23,6 +28,7 @@ public class verProyectoMenu extends javax.swing.JPanel {
         initComponents();
         controller = new ControllerProyec(this,nombreTxt);
         usuarioActual = usuario;
+        proyecto = new Proyecto();
         table.setModel(controller.llenarVerProyecto(usuario));
     }
 
@@ -174,14 +180,27 @@ public class verProyectoMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        
-        verProyecto p3 = new verProyecto(usuarioActual);
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-        contentVista.removeAll();
-        contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentVista.revalidate();
-        contentVista.repaint();
+        try {
+            switch(controller.validarID(usuarioActual, proyecto)){
+                case 1:
+                    JOptionPane.showMessageDialog(null, "El id ingresado solo debe poseer numeros.");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, "El id ingresado no existe.");
+                    break;
+                default:
+                    verProyecto p3 = new verProyecto(usuarioActual, proyecto);
+                    p3.setSize(613,530);
+                    p3.setLocation(0,0);
+                    contentVista.removeAll();
+                    contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                    contentVista.revalidate();
+                    contentVista.repaint();
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(verProyectoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
     private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed

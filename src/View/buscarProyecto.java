@@ -4,6 +4,12 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
+import Model.Usuario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -11,12 +17,17 @@ import javax.swing.ImageIcon;
  * @author Riarb
  */
 public class buscarProyecto extends javax.swing.JFrame {
-
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    static Proyecto proyecto;
     /**
      * Creates new form buscarProyecto
      */
-    public buscarProyecto() {
+    public buscarProyecto(Proyecto proyec) throws SQLException {
         initComponents();
+        controller = new ControllerProyec(this);
+        proyecto = proyec;
+        tablita.setModel(controller.llenarVistaPrevia(proyecto));
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         this.setResizable(false);
     }
@@ -112,7 +123,11 @@ public class buscarProyecto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new buscarProyecto().setVisible(true);
+                try {
+                    new buscarProyecto(proyecto).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(buscarProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
