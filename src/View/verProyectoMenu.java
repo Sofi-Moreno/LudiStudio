@@ -4,21 +4,19 @@
  */
 package View;
 
-import Model.Usuario;
 import java.awt.Color;
 
 /**
  *
  * @author Riarb
  */
-public class modificarProyecto extends javax.swing.JPanel {
-    Usuario usuarioActual;
+public class verProyectoMenu extends javax.swing.JPanel {
+
     /**
-     * Creates new form modificarProyecto
+     * Creates new form verProyectoMenu
      */
-    public modificarProyecto(Usuario user) {
+    public verProyectoMenu() {
         initComponents();
-        usuarioActual = user;
     }
 
     /**
@@ -30,6 +28,7 @@ public class modificarProyecto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         contentVista = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         tituloLabel = new javax.swing.JLabel();
@@ -42,6 +41,10 @@ public class modificarProyecto extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
 
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nombre del proyecto:");
+
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,23 +52,23 @@ public class modificarProyecto extends javax.swing.JPanel {
 
         tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel.setText("MODIFICAR PROYECTO");
+        tituloLabel.setText("VER PROYECTO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(tituloLabel)
-                .addGap(83, 83, 83))
+                .addGap(175, 175, 175))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(23, 23, 23)
                 .addComponent(tituloLabel)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         contentVista.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 14, 613, -1));
@@ -105,7 +108,7 @@ public class modificarProyecto extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
+        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,8 +149,8 @@ public class modificarProyecto extends javax.swing.JPanel {
         contentVista.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 250, -1));
         contentVista.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 230, 20));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
-        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
+        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -157,12 +160,14 @@ public class modificarProyecto extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentVista, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        SelectorDeEditar p3 = new SelectorDeEditar(usuarioActual);
+        verProyecto p3 = new verProyecto();
         p3.setSize(613,530);
         p3.setLocation(0,0);
         contentVista.removeAll();
@@ -176,7 +181,7 @@ public class modificarProyecto extends javax.swing.JPanel {
             nombreTxt.setText("");
             nombreTxt.setForeground(Color.black);
         }
-
+        
     }//GEN-LAST:event_nombreTxtMousePressed
 
     private void nombreTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTxtActionPerformed
@@ -196,6 +201,7 @@ public class modificarProyecto extends javax.swing.JPanel {
     private javax.swing.JPanel contentVista;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;

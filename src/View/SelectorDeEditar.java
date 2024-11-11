@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package View;
-
 import Controller.ControllerProyec;
 import Model.Proyecto;
 import Model.Usuario;
@@ -12,21 +11,19 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Riarb
  */
-public class SelectorDePartes extends javax.swing.JPanel {
+public class SelectorDeEditar extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
     /**
-     * Creates new form SelectorDePartes
-     * @param user
+     * Creates new form SelectorDeEditar
      */
-    public SelectorDePartes(Usuario user) {
+    public SelectorDeEditar(Usuario user) {
         initComponents();
         usuarioActual = user;
         presupuestoTotal = 0;
@@ -55,7 +52,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         presupuestTxt = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         nombreLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         contentSelector.setBackground(new java.awt.Color(0, 153, 153));
         contentSelector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,26 +123,26 @@ public class SelectorDePartes extends javax.swing.JPanel {
 
         tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel.setText("CREAR NUEVO PROYECTO");
+        tituloLabel.setText("EDITAR PROYECTO");
 
         javax.swing.GroupLayout panelTitleLayout = new javax.swing.GroupLayout(panelTitle);
         panelTitle.setLayout(panelTitleLayout);
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTitleLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(204, 204, 204)
                 .addComponent(tituloLabel)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         panelTitleLayout.setVerticalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTitleLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(tituloLabel)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
-        contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, -1, -1));
+        contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
 
         sustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Muy Sustentable", "Sustentable", "Poco Sustentable", "No sustentable" }));
         contentSelector.add(sustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 356, 167, -1));
@@ -181,8 +178,8 @@ public class SelectorDePartes extends javax.swing.JPanel {
         nombreLabel.setToolTipText("");
         contentSelector.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 147, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/aquitecto.png"))); // NOI18N
-        contentSelector.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
+        contentSelector.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -222,6 +219,14 @@ public class SelectorDePartes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
+    private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
+        ingresarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_ingresarButtomMouseEntered
+
+    private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
+        ingresarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_ingresarButtomMouseExited
+
     private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
         if (nombreTxt.getText().equals("Ingrese el nombre del proyecto")){
             nombreTxt.setText("");
@@ -252,20 +257,12 @@ public class SelectorDePartes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_presupuestTxtActionPerformed
 
-    private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
-        ingresarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_ingresarButtomMouseEntered
-
-    private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
-        ingresarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_ingresarButtomMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentSelector;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel nombreLabel;

@@ -28,68 +28,141 @@ public class verProyecto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentVer = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        tituloLabel1 = new javax.swing.JLabel();
-        nombreLabel = new javax.swing.JLabel();
-        nombreMaterialTxt = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
+        contentVista = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        tituloLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        mostrarDatosButtom = new javax.swing.JPanel();
+        entrarLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        autorDato = new javax.swing.JLabel();
+        nombreDato = new javax.swing.JLabel();
+        costoDato = new javax.swing.JLabel();
+        presupuestoDato = new javax.swing.JLabel();
         ingresarButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
-        contentVer.setBackground(new java.awt.Color(0, 153, 153));
-        contentVer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        contentVista.setBackground(new java.awt.Color(0, 153, 153));
+        contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
-        tituloLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        tituloLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel1.setText("Seleccionar Proyecto ");
+        tituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 40)); // NOI18N
+        tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLabel.setText("VER PROYECTO");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
-                .addComponent(tituloLabel1)
-                .addGap(122, 122, 122))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(150, Short.MAX_VALUE)
+                .addComponent(tituloLabel)
+                .addGap(175, 175, 175))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(tituloLabel)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        contentVista.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 14, 613, -1));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nombre del proyecto:");
+        contentVista.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Autor: ");
+        contentVista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Costo total: ");
+        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Presupuesto: ");
+        contentVista.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        mostrarDatosButtom.setBackground(new java.awt.Color(0, 102, 102));
+        mostrarDatosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mostrarDatosButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostrarDatosButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mostrarDatosButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mostrarDatosButtomMouseExited(evt);
+            }
+        });
+
+        entrarLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        entrarLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel1.setText("MOSTRAR DATOS");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
+
+        javax.swing.GroupLayout mostrarDatosButtomLayout = new javax.swing.GroupLayout(mostrarDatosButtom);
+        mostrarDatosButtom.setLayout(mostrarDatosButtomLayout);
+        mostrarDatosButtomLayout.setHorizontalGroup(
+            mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(tituloLabel1)
+                .addComponent(entrarLabel1)
                 .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        mostrarDatosButtomLayout.setVerticalGroup(
+            mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(entrarLabel1)
+                .addContainerGap(186, Short.MAX_VALUE))
+            .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        contentVer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, -1));
+        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 230, 230));
 
-        nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
-        nombreLabel.setText("Nombre");
-        nombreLabel.setToolTipText("");
-        contentVer.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 183, -1, -1));
+        String aux;
+        aux="Pepe";
+        autorDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        autorDato.setForeground(new java.awt.Color(242, 242, 242));
+        autorDato.setText(aux);
+        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
 
-        nombreMaterialTxt.setBackground(new java.awt.Color(0, 153, 153));
-        nombreMaterialTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        nombreMaterialTxt.setForeground(new java.awt.Color(204, 204, 204));
-        nombreMaterialTxt.setText("Ingrese el nombre del proyecto que desea ver");
-        nombreMaterialTxt.setToolTipText("");
-        nombreMaterialTxt.setBorder(null);
-        nombreMaterialTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                nombreMaterialTxtMousePressed(evt);
-            }
-        });
-        nombreMaterialTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreMaterialTxtActionPerformed(evt);
-            }
-        });
-        contentVer.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 218, 374, -1));
-        contentVer.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 246, 364, 20));
+        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        nombreDato.setForeground(new java.awt.Color(242, 242, 242));
+        nombreDato.setText("Kiosco 69");
+        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, 30));
+
+        costoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        costoDato.setForeground(new java.awt.Color(242, 242, 242));
+        costoDato.setText("4500$");
+        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 30));
+
+        presupuestoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        presupuestoDato.setForeground(new java.awt.Color(242, 242, 242));
+        presupuestoDato.setText("5000$");
+        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,7 +173,7 @@ public class verProyecto extends javax.swing.JPanel {
 
         ingresarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ingresarLabel.setText("BUSCAR");
+        ingresarLabel.setText("VOLVER");
 
         javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
         ingresarButtom.setLayout(ingresarButtomLayout);
@@ -119,49 +192,60 @@ public class verProyecto extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        contentVer.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 443, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ojo blanco.png"))); // NOI18N
-        contentVer.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
+        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMaterialTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proyecto que desea ver")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
-        }
-    }//GEN-LAST:event_nombreMaterialTxtMousePressed
-
-    private void nombreMaterialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreMaterialTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreMaterialTxtActionPerformed
-
-    private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+    private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
         buscarProyecto vista = new buscarProyecto();
         vista.setVisible(true);
+    }//GEN-LAST:event_mostrarDatosButtomMouseClicked
+
+    private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered
+        mostrarDatosButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_mostrarDatosButtomMouseEntered
+
+    private void mostrarDatosButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseExited
+        mostrarDatosButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_mostrarDatosButtomMouseExited
+
+    private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+        verProyectoMenu p3 = new verProyectoMenu();
+        p3.setSize(613,530);
+        p3.setLocation(0,0);
+        contentVista.removeAll();
+        contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        contentVista.revalidate();
+        contentVista.repaint();
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel contentVer;
+    private javax.swing.JLabel autorDato;
+    private javax.swing.JPanel contentVista;
+    private javax.swing.JLabel costoDato;
+    private javax.swing.JLabel entrarLabel1;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel nombreLabel;
-    private javax.swing.JTextField nombreMaterialTxt;
-    private javax.swing.JLabel tituloLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel mostrarDatosButtom;
+    private javax.swing.JLabel nombreDato;
+    private javax.swing.JLabel presupuestoDato;
+    private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables
 }

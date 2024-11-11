@@ -280,7 +280,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_crearProyectoButtomMouseClicked
 
     private void verProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProyectosButtomMouseClicked
-        verProyecto p3 = new verProyecto();
+        verProyectoMenu p3 = new verProyectoMenu();
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
@@ -302,7 +302,7 @@ public class gestionarProyectos extends javax.swing.JPanel {
     }//GEN-LAST:event_eliminarProyectoButtomMouseClicked
 
     private void modificarProyectosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarProyectosButtomMouseClicked
-        modificarProyecto p3 = new modificarProyecto();
+        modificarProyecto p3 = new modificarProyecto(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
 
