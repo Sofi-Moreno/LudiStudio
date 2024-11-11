@@ -19,14 +19,15 @@ import javax.swing.JOptionPane;
 public class inicioSesion extends javax.swing.JPanel {
     Usuario usuarioActual;
     Controller controller;
+    private Inicio ventanaInicio;
     /**
      * Creates new form inicioSesion
      */
-    public inicioSesion() {
+    public inicioSesion(Inicio ventanaInicio) {
+        this.ventanaInicio = ventanaInicio;
         initComponents();
         controller = new Controller(userTxt, passTxt,this);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,7 +226,7 @@ public class inicioSesion extends javax.swing.JPanel {
                         controller.iniciarSesion(usuarioActual);
                         MainMenu menu = new MainMenu(usuarioActual);
                         menu.setVisible(true);
-                        this.setVisible(false);
+                        ventanaInicio.setVisible(false);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);

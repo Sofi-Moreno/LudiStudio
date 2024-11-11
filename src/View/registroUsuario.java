@@ -19,10 +19,12 @@ import javax.swing.JOptionPane;
 public class registroUsuario extends javax.swing.JPanel {
     Usuario usuarioActual;
     Controller controller;
+    private Inicio ventanaInicio;
     /**
      * Creates new form registoUsuario
      */
-    public registroUsuario() {
+    public registroUsuario(Inicio ventanaInicio) {
+        this.ventanaInicio = ventanaInicio;
         initComponents();
         controller = new Controller(userTxt,passTxt,nombreTxt,apellidoTxt,monedaBox,paisBox,institucionBox,carreraBox,this);
     }
@@ -361,7 +363,7 @@ public class registroUsuario extends javax.swing.JPanel {
                                             JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
                                             MainMenu main = new MainMenu(usuarioActual);
                                             main.setVisible(true);
-                                            this.setVisible(false);
+                                            ventanaInicio.setVisible(false);
                                             break;
                                     }
                                 break;
