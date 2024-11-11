@@ -248,7 +248,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_salirButomMouseClicked
 
     private void iniciarSesionButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseClicked
-        inicioSesion p2 = new inicioSesion();
+        inicioSesion p2 = new inicioSesion(this);
         p2.setSize(617,530);
         p2.setLocation(0,0);
         
@@ -259,7 +259,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_iniciarSesionButtom1MouseClicked
 
     private void crearUsuarioButomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuarioButomMouseClicked
-        registroUsuario p2 = new registroUsuario();
+        registroUsuario p2 = new registroUsuario(this);
         p2.setSize(617,530);
         p2.setLocation(0,0);
         
