@@ -209,6 +209,11 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         contentFundamentos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 153, 141, -1));
 
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox1MouseClicked(evt);
+            }
+        });
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
@@ -331,6 +336,11 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         contentFundamentos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, -1, 22));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox2MouseClicked(evt);
+            }
+        });
         contentFundamentos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 367, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -501,11 +511,11 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
             try{
                 if(zap && !materialBox1.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Zapata = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
                 }
                 if(mur && !materialBox2.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET MurosDeContención = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -519,6 +529,22 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
             contentFundamentos.repaint();
         }
     }//GEN-LAST:event_guardarButtomMouseClicked
+
+    private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
+        try {
+            precio1Label.setText(controller.mostrarPrecio(materialBox1));
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox1MouseClicked
+
+    private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
+        try {
+            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
+        } catch (SQLException ex) {
+            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

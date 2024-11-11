@@ -202,7 +202,7 @@ public class ControllerProyec {
         }
     }
     //llenar tablita
-    public DefaultTableModel llenarVistaPrevia(Proyecto proyecto){
+    public DefaultTableModel llenarVistaPrevia(Proyecto proyecto) throws SQLException{
         List<String> partes = new ArrayList<>();
         partes.add("Zapata");partes.add("MurosDeContención");partes.add("Columnas");partes.add("Vigas");
         partes.add("Losas");partes.add("Entrepiso");partes.add("EstructuraDeCubierta");partes.add("Cubierta");partes.add("Muros");
@@ -243,7 +243,6 @@ public class ControllerProyec {
                     registros[12] = rs.getString("costo_herramientas");
                     registros[13] = rs.getString("costo_total");
                     modelo.addRow(registros);
-                    System.out.println(Arrays.toString(registros));
                 }
                 cont++;
             }
@@ -251,10 +250,81 @@ public class ControllerProyec {
            
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            conex.close();
+            con.desconectar();
         }
         return modelo;  
     }
-    
+    //mostrar el precio del material seleccionado
+    public String mostrarPrecio(JComboBox material) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String precio = "0";
+        try {
+            stmt = conex.prepareStatement("SELECT costo_total FROM material WHERE nombre_material = ?");
+            stmt.setString(1, (String) material.getSelectedItem());
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                precio = String.valueOf(rs.getDouble("costo_total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            conex.close();
+            con.desconectar();
+        }
+        return precio;  
+    }
+    //calculo de presupuesto total
+    public double calculoPresupuestoTotal(JComboBox material, Double presupuesto) throws SQLException{
+        double total=0, precio=0;
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try { 
+            stmt = conex.prepareStatement("SELECT costo_total FROM material WHERE nombre_material = ?");
+            stmt.setString(1, (String) material.getSelectedItem());
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                precio = rs.getDouble("costo_total");
+            }
+            total = presupuesto + precio;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            if(rs!=null) rs.close();
+            conex.close();
+            con.desconectar();
+        }
+        return total;
+    }
+    public void guardarProyecto(Double presupuesto, Proyecto proyecto) throws SQLException{
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        try {
+            stmt = conex.prepareStatement("UPDATE proyecto SET presupuestoTotal = ? WHERE id_proyecto = ?");
+            stmt.setDouble(1, presupuesto);
+            stmt.setInt(2, proyecto.getIdProyecto());
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(stmt!=null) stmt.close();
+            conex.close();
+            con.desconectar();
+        }
+
+    }
     //**************************VER PROYECTO**************************
     
     //**************************ELIMINAR PROYECTO**************************

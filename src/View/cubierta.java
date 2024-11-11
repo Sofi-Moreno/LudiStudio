@@ -181,6 +181,11 @@ public class cubierta extends javax.swing.JPanel {
         contentCubierta.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 153, -1, -1));
 
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox1MouseClicked(evt);
+            }
+        });
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
@@ -303,6 +308,11 @@ public class cubierta extends javax.swing.JPanel {
         contentCubierta.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, 22));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox2MouseClicked(evt);
+            }
+        });
         contentCubierta.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -474,11 +484,11 @@ public class cubierta extends javax.swing.JPanel {
             try{
                 if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET EstructuraDeCubierta = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
                 }
                 if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Cubierta = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -493,6 +503,22 @@ public class cubierta extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_guardarButtomMouseClicked
+
+    private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
+        try {
+            precio1Label.setText(controller.mostrarPrecio(materialBox1));
+        } catch (SQLException ex) {
+            Logger.getLogger(cubierta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox1MouseClicked
+
+    private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
+        try {
+            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
+        } catch (SQLException ex) {
+            Logger.getLogger(cubierta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

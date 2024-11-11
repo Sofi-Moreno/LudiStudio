@@ -36,7 +36,13 @@ public class mostrarEscogido extends javax.swing.JPanel {
         nombreDato.setText(proyec.getNombreProyecto());
         presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
         autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
-        costoDato.setText(String.valueOf(presupuesto));
+        if("Dolares ($)".equals(usuario.getMonedaUsuario())){
+            costoDato.setText(String.valueOf(presupuesto)+" $");
+        }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
+            costoDato.setText(String.valueOf(presupuesto)+" Bs");
+        }
+        
+        
     }
 
     /**
@@ -253,7 +259,12 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_mostrarDatosButtomMouseExited
 
     private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
-        // TODO add your handling code here:
+        try {
+            controller.guardarProyecto(presupuestoTotal, proyecto);
+        } catch (SQLException ex) {
+            Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //volver a main menu
     }//GEN-LAST:event_entrarButtom2MouseClicked
 
     private void entrarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseEntered

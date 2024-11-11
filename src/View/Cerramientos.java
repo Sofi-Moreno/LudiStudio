@@ -190,6 +190,11 @@ public class Cerramientos extends javax.swing.JPanel {
         contentCerramientos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, -1));
 
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox1MouseClicked(evt);
+            }
+        });
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
@@ -312,6 +317,11 @@ public class Cerramientos extends javax.swing.JPanel {
         contentCerramientos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 100, -1));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox2MouseClicked(evt);
+            }
+        });
         contentCerramientos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -410,6 +420,11 @@ public class Cerramientos extends javax.swing.JPanel {
         contentCerramientos.add(deshabilitarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 100, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox3MouseClicked(evt);
+            }
+        });
         contentCerramientos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 100, -1));
 
         precioLabel3.setText("Precio");
@@ -616,15 +631,15 @@ public class Cerramientos extends javax.swing.JPanel {
             try{
                 if(mur && !materialBox1.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Muros = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
                 }
                 if(vent && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Ventanas = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
+                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Ventanas = ? WHERE id_partes = ?");
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
                 }
                 if(puert && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Puertas = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
+                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Puertas = ? WHERE id_partes = ?");
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox3, presupuestoTotal);
                 }
                 
             }catch (SQLException ex) {
@@ -647,6 +662,30 @@ public class Cerramientos extends javax.swing.JPanel {
     private void guardarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseExited
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
+
+    private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
+        try {
+            precio1Label.setText(controller.mostrarPrecio(materialBox1));
+        } catch (SQLException ex) {
+            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox1MouseClicked
+
+    private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
+        try {
+            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
+        } catch (SQLException ex) {
+            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox2MouseClicked
+
+    private void materialBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox3MouseClicked
+        try {
+            precioLabel3.setText(controller.mostrarPrecio(materialBox3));
+        } catch (SQLException ex) {
+            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

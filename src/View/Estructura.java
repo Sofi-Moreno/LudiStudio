@@ -206,6 +206,11 @@ public class Estructura extends javax.swing.JPanel {
         contentElementos.add(habilitarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 145, -1, -1));
 
         materialBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox1MouseClicked(evt);
+            }
+        });
         materialBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox1ActionPerformed(evt);
@@ -330,6 +335,11 @@ public class Estructura extends javax.swing.JPanel {
         contentElementos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 341, 49, 22));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox2MouseClicked(evt);
+            }
+        });
         contentElementos.add(materialBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 341, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -359,6 +369,11 @@ public class Estructura extends javax.swing.JPanel {
         contentElementos.add(vigasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 274, -1, -1));
 
         materialBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox3MouseClicked(evt);
+            }
+        });
         materialBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox3ActionPerformed(evt);
@@ -367,6 +382,11 @@ public class Estructura extends javax.swing.JPanel {
         contentElementos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
 
         materialBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
+        materialBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                materialBox4MouseClicked(evt);
+            }
+        });
         materialBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialBox4ActionPerformed(evt);
@@ -835,19 +855,19 @@ public class Estructura extends javax.swing.JPanel {
             try{
                 if(column && !materialBox1.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Columnas = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precio1Label.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
                 }
                 if(los && !materialBox3.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Losas = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel3.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox3, presupuestoTotal);
                 }
                 if(vig && !materialBox2.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes Vigas = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel2.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
                 }
                 if(entrep && !materialBox4.getSelectedItem().equals("Material")){
                     controller.guardarMateriales(proyecto,materialBox4,"UPDATE partes SET Entrepiso = ? WHERE id_partes = ?");
-//                    presupuestoTotal = presupuestoTotal + Double.parseDouble(precioLabel4.getText());
+                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox4, presupuestoTotal);
                 }
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -870,6 +890,38 @@ public class Estructura extends javax.swing.JPanel {
     private void guardarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseExited
         guardarButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_guardarButtomMouseExited
+
+    private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
+        try {
+            precio1Label.setText(controller.mostrarPrecio(materialBox1));
+        } catch (SQLException ex) {
+            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox1MouseClicked
+
+    private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
+        try {
+            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
+        } catch (SQLException ex) {
+            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox2MouseClicked
+
+    private void materialBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox3MouseClicked
+        try {
+            precioLabel3.setText(controller.mostrarPrecio(materialBox3));
+        } catch (SQLException ex) {
+            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox3MouseClicked
+
+    private void materialBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox4MouseClicked
+        try {
+            precioLabel4.setText(controller.mostrarPrecio(materialBox4));
+        } catch (SQLException ex) {
+            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_materialBox4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
