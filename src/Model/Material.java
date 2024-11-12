@@ -12,10 +12,9 @@ public class Material {
     private String rubro,nombreMaterial,unidadMaterial,
             sustentabilidad,proveedor,transporte,manoDeObra,herramientas;
     
-    private double costoMaterial,costoTransporte,costoMDObra,
+    private double cantidadMaterial,costoMaterial,costoTransporte,costoMDObra,
             costoHerramientas,costoTotalMaterial;
     
-    private int cantidadMaterial;
     
     public Material(){
         rubro="";
@@ -156,7 +155,7 @@ public class Material {
         this.costoTotalMaterial = costoTotalMaterial;
     }
 
-    public int getCantidadMaterial() {
+    public double getCantidadMaterial() {
         return cantidadMaterial;
     }
 

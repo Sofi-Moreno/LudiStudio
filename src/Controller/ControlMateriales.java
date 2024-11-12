@@ -143,7 +143,7 @@ public class ControlMateriales {
     
     public int validarCostos(Material mat,String tipoDato){
         int e = 0; //valor sin errores
-        String patron= "^\\d+\\.\\d{3}$"; //Patron para ingresar un double con "." como decimal
+        String patron= "^\\d+(\\.\\d+)?$"; //Patron para ingresar un double con "." como decimal
         JTextField dato = null;           // NOTA: especificar que se debe utilizar "." en vez de
         if(tipoDato.equals("costo_material")){  // "," para escribir decimales
             dato = costoMRegistro;
@@ -158,13 +158,13 @@ public class ControlMateriales {
         }
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher((dato.getText()));
-        if(!matcher.matches() && (dato.getText().length()>4 || dato.getText().length()<1)){
+        if(!matcher.matches() && (dato.getText().length()>6 || dato.getText().length()<1)){
             e = 1;//no cumple el patron y no es del tamaño correcto
         }
         else if (!matcher.matches()){
             e = 2; //no cumple el patron
         }
-        else if(dato.getText().length()>4 || dato.getText().length()<1){
+        else if(dato.getText().length()>6 || dato.getText().length()<1){
             e = 3; //no tiene el tamaño correcto
         }
         else if(e==0 && tipoDato.equals("costo_material")){
@@ -187,7 +187,7 @@ public class ControlMateriales {
         Connection conex = con.getConnection(); 
         boolean bol = false;
         PreparedStatement st = null;
-        String sql = "INSERT INTO material (rubro_material, nombre_material, unidad_material, cantidad_material, costo_material, sustentabilidad_material, proveedor_material, transporte_material, costo_transporte, manodeobra_material, costo_manodeobra, herramientas_material, costo_herramientas, costo_total) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ?, costo_total = ? WHERE id_material = ?";
         mat.setCostoTotalMaterial(mat.getCostoMaterial() + mat.getCostoTransporte() + 
                     mat.getCostoMDObra() + mat.getCostoHerramientas());
         try {
@@ -195,7 +195,7 @@ public class ControlMateriales {
             st.setString(1,mat.getRubro());
             st.setString(2,mat.getNombreMaterial());
             st.setString(3,(String)unidadRegistro.getSelectedItem());
-            st.setInt(4,mat.getCantidadMaterial());
+            st.setDouble(4,mat.getCantidadMaterial());
             st.setDouble(5,mat.getCostoMaterial());
             st.setString(6,(String)sustRegistro.getSelectedItem());
             st.setString(7,mat.getProveedor());
@@ -338,13 +338,13 @@ public class ControlMateriales {
         PreparedStatement st = null;
         mat.setCostoTotalMaterial(mat.getCostoMaterial() + mat.getCostoTransporte() + 
                     mat.getCostoMDObra() + mat.getCostoHerramientas());
-        String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ? WHERE nombre_material = ?";
+        String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ?, costo_total = ? WHERE nombre_material = ?";
         try {
             st = conex.prepareStatement(sql);
             st.setString(1,mat.getRubro());
             st.setString(2,mat.getNombreMaterial());
             st.setString(3,(String)unidadRegistro.getSelectedItem());
-            st.setInt(4,mat.getCantidadMaterial());
+            st.setDouble(4,mat.getCantidadMaterial());
             st.setDouble(5,mat.getCostoMaterial());
             st.setString(6,(String)sustRegistro.getSelectedItem());
             st.setString(7,mat.getProveedor());
@@ -355,7 +355,7 @@ public class ControlMateriales {
             st.setString(12,(String)herraRegistro.getSelectedItem());
             st.setDouble(13,mat.getCostoHerramientas());
             st.setDouble(14,mat.getCostoTotalMaterial());
-
+            st.setString(15, mat.getNombreMaterial());
             int rowsUpdated = st.executeUpdate();
             if (rowsUpdated > 0) {
                 bol = true;
