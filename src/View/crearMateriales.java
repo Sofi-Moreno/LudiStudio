@@ -239,11 +239,10 @@ public class crearMateriales extends javax.swing.JPanel {
         nombreProveedorLabel.setToolTipText("");
         contentSelectorMateriales.add(nombreProveedorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
 
-        nombreProveedorTxt.setEditable(false);
         nombreProveedorTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreProveedorTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         nombreProveedorTxt.setForeground(new java.awt.Color(204, 204, 204));
-        nombreProveedorTxt.setText("Ingrese el nombre del proveedor ");
+        nombreProveedorTxt.setText("Ingrese el nombre del proveedor");
         nombreProveedorTxt.setToolTipText("");
         nombreProveedorTxt.setBorder(null);
         nombreProveedorTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -457,7 +456,7 @@ public class crearMateriales extends javax.swing.JPanel {
                                 switch(controller.validarCostos(materiales,"costo_material")){
                                     case 1:
                                         if(salida==0){
-                                           JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                           JOptionPane.showMessageDialog(null, "El costo del material ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
                                            salida=1;
                                            break;
                                         }
@@ -465,14 +464,14 @@ public class crearMateriales extends javax.swing.JPanel {
                                         break;
                                     case 2:
                                         if(salida==0){
-                                            JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                            JOptionPane.showMessageDialog(null, "El costo del material ingresado no es un numero");
                                             salida=1;
                                             break;
                                         }
                                         break;
                                     case 3:
                                         if(salida==0){
-                                            JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                            JOptionPane.showMessageDialog(null, "El costo del material ingresado no posee la longitud correcta (1-4 digitos)");
                                             salida=1;
                                             break;   
                                         }
@@ -506,7 +505,7 @@ public class crearMateriales extends javax.swing.JPanel {
                                 switch(controller.validarCostos(materiales,"costo_manodeobra")){
                             case 1:
                                 if(salida==0){
-                                   JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                   JOptionPane.showMessageDialog(null, "El costo mano de obra ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
                                    salida=1;
                                    break;
                                 }
@@ -514,14 +513,14 @@ public class crearMateriales extends javax.swing.JPanel {
                                 break;
                             case 2:
                                 if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                    JOptionPane.showMessageDialog(null, "El costo mano de obra ingresado no es un numero");
                                     salida=1;
                                     break;
                                 }
                                 break;
                             case 3:
                                 if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                    JOptionPane.showMessageDialog(null, "El costo mano de obra ingresado no posee la longitud correcta (1-4 digitos)");
                                     salida=1;
                                     break;   
                                 }
@@ -531,7 +530,7 @@ public class crearMateriales extends javax.swing.JPanel {
                         switch(controller.validarCostos(materiales,"costo_herramientas")){
                             case 1:
                                 if(salida==0){
-                                   JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                   JOptionPane.showMessageDialog(null, "El costo de herramientas ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
                                    salida=1;
                                    break;
                                 }
@@ -539,14 +538,14 @@ public class crearMateriales extends javax.swing.JPanel {
                                 break;
                             case 2:
                                 if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                    JOptionPane.showMessageDialog(null, "El costo de herramientas ingresado no es un numero");
                                     salida=1;
                                     break;
                                 }
                                 break;
                             case 3:
                                 if(salida==0){
-                                    JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                    JOptionPane.showMessageDialog(null, "El costo de herramientas ingresado no posee la longitud correcta (1-4 digitos)");
                                     salida=1;
                                     break;   
                                 }
@@ -556,21 +555,21 @@ public class crearMateriales extends javax.swing.JPanel {
                             switch(controller.validarCostos(materiales,"costo_transporte")){
                                 case 1:
                                     if(salida==0){
-                                       JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
+                                       JOptionPane.showMessageDialog(null, "El costo de transporte ingresado no es un numero y su longitud es incorrecta (1-4 digitos)");
                                        salida=1;
                                        break;
                                     }
                                     break;
                                 case 2:
                                     if(salida==0){
-                                        JOptionPane.showMessageDialog(null, "El costo ingresado no es un numero");
+                                        JOptionPane.showMessageDialog(null, "El costo de transporte ingresado no es un numero");
                                         salida=1;
                                         break;
                                     }
                                     break;
                                 case 3:
                                     if(salida==0){
-                                        JOptionPane.showMessageDialog(null, "El costo ingresado no posee la longitud correcta (1-4 digitos)");
+                                        JOptionPane.showMessageDialog(null, "El costo de transporte ingresado no posee la longitud correcta (1-4 digitos)");
                                         salida=1;
                                         break;   
                                     }
@@ -617,9 +616,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreMaterialTxtActionPerformed
 
     private void rubroTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rubroTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el rubro del material")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (rubroTxt.getText().equals("Ingrese el rubro del material")){
+            rubroTxt.setText("");
+            rubroTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_rubroTxtMousePressed
 
@@ -628,9 +627,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_rubroTxtActionPerformed
 
     private void costoMaterialTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoMaterialTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el costo material")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (costoMaterialTxt.getText().equals("Ingrese el costo material")){
+            costoMaterialTxt.setText("");
+            costoMaterialTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_costoMaterialTxtMousePressed
 
@@ -639,9 +638,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_costoMaterialTxtActionPerformed
 
     private void cantidadTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cantidadTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese la cantidad de material")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (cantidadTxt.getText().equals("Ingrese la cantidad de material")){
+            cantidadTxt.setText("");
+            cantidadTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_cantidadTxtMousePressed
 
@@ -650,9 +649,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_cantidadTxtActionPerformed
 
     private void nombreProveedorTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreProveedorTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el nombre del proveedor")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (nombreProveedorTxt.getText().equals("Ingrese el nombre del proveedor")){
+            nombreProveedorTxt.setText("");
+            nombreProveedorTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_nombreProveedorTxtMousePressed
 
@@ -661,9 +660,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreProveedorTxtActionPerformed
 
     private void transporteTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transporteTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el costo del transporte")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (transporteTxt.getText().equals("Ingrese el costo del transporte")){
+            transporteTxt.setText("");
+            transporteTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_transporteTxtMousePressed
 
@@ -672,9 +671,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_transporteTxtActionPerformed
 
     private void costoManoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoManoTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el costo de la mano de obra")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (costoManoTxt.getText().equals("Ingrese el costo de la mano de obra")){
+            costoManoTxt.setText("");
+            costoManoTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_costoManoTxtMousePressed
 
@@ -683,9 +682,9 @@ public class crearMateriales extends javax.swing.JPanel {
     }//GEN-LAST:event_costoManoTxtActionPerformed
 
     private void costoHerramientaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costoHerramientaTxtMousePressed
-        if (nombreMaterialTxt.getText().equals("Ingrese el costo de herramientas")){
-            nombreMaterialTxt.setText("");
-            nombreMaterialTxt.setForeground(Color.black);
+        if (costoHerramientaTxt.getText().equals("Ingrese el costo de herramientas")){
+            costoHerramientaTxt.setText("");
+            costoHerramientaTxt.setForeground(Color.black);
         }
     }//GEN-LAST:event_costoHerramientaTxtMousePressed
 
