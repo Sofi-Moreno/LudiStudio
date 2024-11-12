@@ -9,6 +9,7 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,11 +24,12 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<String> materiales;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
-    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario, double presupuesto) {
+    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario, double presupuesto, List<String> mat) {
         initComponents();
         zap=true;
         mur=true;
@@ -35,12 +37,14 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         proyecto = proyec;
         usuarioActual=usuario;
         presupuestoTotal = presupuesto;
+        materiales = mat;
         try {
-            controller.llenarBoxMateriales(materialBox1);
-            controller.llenarBoxMateriales(materialBox2);
+            controller.llenarBoxMateriales(materialBox1, mat);
+            controller.llenarBoxMateriales(materialBox2, mat);
         } catch (SQLException ex) {
             Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
     }
 
@@ -520,7 +524,7 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal);
+            Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal,materiales);
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentFundamentos.removeAll();

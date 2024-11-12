@@ -326,6 +326,14 @@ public class Controller {
             if(rowsInserted>0){
                 bol = true;
             }
+            usuario.setUsuario(usuarioRegistro.getText());
+            usuario.setClave(claveRegistro.getText());
+            usuario.setApellidoUsuario(apellidoRegistro.getText());
+            usuario.setNombreUsuario(nombreRegistro.getText());
+            usuario.setPaisUsuario((String) paisRegistro.getSelectedItem());
+            usuario.setMonedaUsuario((String) monedaRegistro.getSelectedItem());
+            usuario.setInstitucionUsuario((String) institucionRegistro.getSelectedItem());
+            usuario.setCarreraUsuario((String) carreraRegistro.getSelectedItem());
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }finally{

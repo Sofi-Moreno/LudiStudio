@@ -187,7 +187,7 @@ public class ControlMateriales {
         Connection conex = con.getConnection(); 
         boolean bol = false;
         PreparedStatement st = null;
-        String sql = "UPDATE material SET rubro_material = ?, nombre_material = ?, unidad_material = ?, cantidad_material = ?, costo_material = ?, sustentabilidad_material = ?, proveedor_material = ?, transporte_material = ?, costo_transporte = ?, manodeobra_material = ?, costo_manodeobra = ?, herramientas_material = ?, costo_herramientas = ?, costo_total = ? WHERE id_material = ?";
+        String sql = "INSERT INTO material(rubro_material, nombre_material, unidad_material, cantidad_material, costo_material, sustentabilidad_material, proveedor_material, transporte_material, costo_transporte, manodeobra_material, costo_manodeobra, herramientas_material, costo_herramientas, costo_total) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         mat.setCostoTotalMaterial(mat.getCostoMaterial() + mat.getCostoTransporte() + 
                     mat.getCostoMDObra() + mat.getCostoHerramientas());
         try {

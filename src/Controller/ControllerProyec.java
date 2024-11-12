@@ -152,7 +152,15 @@ public class ControllerProyec {
         return bol;
     }
     //llenar box de materiales
-    public void llenarBoxMateriales(JComboBox material) throws SQLException{
+    public void llenarBoxMateriales(JComboBox material, List<String> lista) throws SQLException{
+        int cont = 0;
+        while(cont<lista.size()){
+            material.addItem(lista.get(cont));
+            cont++;
+        }
+    }
+    
+    public void llenarListaMateriales(List<String> material) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt=  null;
@@ -162,7 +170,7 @@ public class ControllerProyec {
             stmt = conex.prepareStatement(sql);
             rs = stmt.executeQuery();
             while(rs.next()){
-                material.addItem(rs.getString("nombre_material"));
+                material.add(rs.getString("nombre_material"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
@@ -328,6 +336,8 @@ public class ControllerProyec {
         }
 
     }
+    
+    
     //**************************VER PROYECTO**************************
     public DefaultTableModel llenarVerProyecto(Usuario usuario){
         String [] columnas = {"ID","NOMBRE"};
@@ -352,7 +362,6 @@ public class ControllerProyec {
         
         return modelo;
     }
-    
     public int validarID(Usuario usuario, Proyecto proyecto) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
@@ -404,6 +413,8 @@ public class ControllerProyec {
         
         return val;
     }
+    
+    
     //**************************ELIMINAR PROYECTO**************************
     public int eliminarProyecto() throws SQLException{
         ConnectionDB con = new ConnectionDB();

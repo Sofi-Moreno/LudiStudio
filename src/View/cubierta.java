@@ -9,6 +9,7 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,10 +24,11 @@ public class cubierta extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<String> materiales;
     /**
      * Creates new form cubierta
      */
-    public cubierta(Proyecto proyec, Usuario usuario,double presupuesto) {
+    public cubierta(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
         initComponents();
         estructCubierta=true;
         cubiert= true;
@@ -34,9 +36,10 @@ public class cubierta extends javax.swing.JPanel {
         usuarioActual = usuario;
         proyecto = proyec;
         presupuestoTotal = presupuesto;
+        materiales = mat;
         try {
-            controller.llenarBoxMateriales(materialBox1);
-            controller.llenarBoxMateriales(materialBox2);
+            controller.llenarBoxMateriales(materialBox1,mat);
+            controller.llenarBoxMateriales(materialBox2,mat);
         } catch (SQLException ex) {
             Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -493,7 +496,7 @@ public class cubierta extends javax.swing.JPanel {
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal);
+            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal, materiales);
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentCubierta.removeAll();

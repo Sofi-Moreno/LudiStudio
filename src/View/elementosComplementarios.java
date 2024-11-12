@@ -9,6 +9,7 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,10 +24,11 @@ public class elementosComplementarios extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<String> materiales;
     /**
      * Creates new form elementosComplementarios
      */
-    public elementosComplementarios(Proyecto proyec, Usuario usuario,double presupuesto) {
+    public elementosComplementarios(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
         initComponents();
         esc = true;
         bar= true;
@@ -36,11 +38,12 @@ public class elementosComplementarios extends javax.swing.JPanel {
         usuarioActual = usuario;
         proyecto = proyec;
         presupuestoTotal= presupuesto;
+        materiales = mat;
         try {
-            controller.llenarBoxMateriales(materialBox1);
-            controller.llenarBoxMateriales(materialBox2);
-            controller.llenarBoxMateriales(materialBox3);
-            controller.llenarBoxMateriales(materialBox4);
+            controller.llenarBoxMateriales(materialBox1,mat);
+            controller.llenarBoxMateriales(materialBox2,mat);
+            controller.llenarBoxMateriales(materialBox3,mat);
+            controller.llenarBoxMateriales(materialBox4,mat);
         } catch (SQLException ex) {
             Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
         }

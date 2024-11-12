@@ -274,8 +274,12 @@ public class MainMenu extends javax.swing.JFrame {
         int confirmacion = JOptionPane.showOptionDialog(
             null,"¿Desea salir del sistema?", " ",
             JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
-        if (confirmacion==0)
-        this.dispose();
+        if (confirmacion==0){
+            Inicio menu = new Inicio();
+            menu.setVisible(true);
+            this.setVisible(false);
+        }
+            
     }//GEN-LAST:event_salirButomMouseClicked
 
     private void salirButomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButomMouseEntered

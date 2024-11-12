@@ -9,6 +9,7 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class Estructura extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<String> materiales;
 
     /**
      * Creates new form Estructura
@@ -30,7 +32,7 @@ public class Estructura extends javax.swing.JPanel {
      * @param usuario
      * @param presupuesto
      */
-    public Estructura(Proyecto proyec, Usuario usuario,double presupuesto) {
+    public Estructura(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
         initComponents();
         column=true;
         los=true;
@@ -40,11 +42,12 @@ public class Estructura extends javax.swing.JPanel {
         usuarioActual = usuario;
         proyecto = proyec;
         presupuestoTotal = presupuesto;
+        materiales = mat;
         try {
-            controller.llenarBoxMateriales(materialBox1);
-            controller.llenarBoxMateriales(materialBox2);
-            controller.llenarBoxMateriales(materialBox3);
-            controller.llenarBoxMateriales(materialBox4);
+            controller.llenarBoxMateriales(materialBox1,mat);
+            controller.llenarBoxMateriales(materialBox2,mat);
+            controller.llenarBoxMateriales(materialBox3,mat);
+            controller.llenarBoxMateriales(materialBox4,mat);
         } catch (SQLException ex) {
             Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -872,7 +875,7 @@ public class Estructura extends javax.swing.JPanel {
             }catch (SQLException ex) {
                 Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            cubierta p = new cubierta(proyecto,usuarioActual,presupuestoTotal);
+            cubierta p = new cubierta(proyecto,usuarioActual,presupuestoTotal,materiales);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();

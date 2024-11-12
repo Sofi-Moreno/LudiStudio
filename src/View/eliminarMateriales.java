@@ -203,59 +203,34 @@ public class eliminarMateriales extends javax.swing.JPanel {
         int salida = 0;
         int option = JOptionPane.showConfirmDialog( null, "¿Deseas continuar?", "Confirmación", JOptionPane.YES_NO_OPTION );
         if (option == JOptionPane.YES_OPTION) { 
-            //ELIMINAR MATERIAL
-        } else if (option == JOptionPane.NO_OPTION) {
             try{
-            do{
-                
                 switch (controlM.eliminarRegistroDB()){
                     case 1:
-                        if (salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos.");
-                            salida=1;
-                            break;
-                        }
-                        break;  
+                        JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos.");
+                        break;
                     case 2:
-                        if (salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos"
-                                    + "y no posee la longitud correcta (1-25 caracteres)");
-                            salida=1;
-                            break;
-                        }
+                        JOptionPane.showMessageDialog(null, "El nombre del material ingresado posee caracteres invalidos"
+                                + "y no posee la longitud correcta (1-25 caracteres)");
                         break;
                     case 3:
-                    if (salida==0){
                         JOptionPane.showMessageDialog(null, "El nombre del material ingresado no posee la longitud correcta (1-25 caracteres)");
-                        salida=1;
                         break;
-                    }
-                    break;
                     case 4:
-                    if (salida==0){
                         JOptionPane.showMessageDialog(null, "El material a eliminar no existe.");
-                        salida=1;
                         break;
-                    }
-                    break;
                     case 5:
-                    if (salida==0){
                         JOptionPane.showMessageDialog(null, "Error encontrando material");
-                        salida=1;
                         break;
-                    }
-                    break;
                     default:
-                        
+                        JOptionPane.showMessageDialog(null, "Material eliminado con exito.");
                         break;
                 }
              
-            }while(controlM.eliminarRegistroDB()!=0);
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                 
         }
-        }
+        } 
     }//GEN-LAST:event_entrarButtomMouseClicked
 
     private void entrarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtomMouseEntered

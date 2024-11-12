@@ -9,6 +9,8 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,15 +24,24 @@ public class SelectorDePartes extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<String> materiales;
     /**
      * Creates new form SelectorDePartes
      * @param user
      */
     public SelectorDePartes(Usuario user) {
         initComponents();
+        controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
+        materiales = new ArrayList<>();
+        try {
+            controller.llenarListaMateriales(materiales);
+            System.out.println(materiales);
+        } catch (SQLException ex) {
+            Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
+        }
         usuarioActual = user;
         presupuestoTotal = 0;
-        controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
+        
     }
 
     /**
@@ -207,7 +218,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
             }else{
                 try {
                     if(controller.guardarInformacion(proyecto)){
-                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal);
+                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal,materiales);
                         p3.setSize(613,530);
                         p3.setLocation(0,0);
                         contentSelector.removeAll();
