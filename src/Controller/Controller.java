@@ -289,6 +289,11 @@ public class Controller {
             if(rowsInserted>0){
                 bol = true;
             }
+            user.setPaisUsuario((String) paisRegistro.getSelectedItem());
+            user.setMonedaUsuario((String) monedaRegistro.getSelectedItem());
+            user.setInstitucionUsuario((String) institucionRegistro.getSelectedItem());
+            user.setCarreraUsuario((String) carreraRegistro.getSelectedItem());
+            
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }finally{

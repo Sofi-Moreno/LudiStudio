@@ -359,7 +359,7 @@ public class registroUsuario extends javax.swing.JPanel {
                                             JOptionPane.showMessageDialog(null, "La contraseña no cumple con el tamaño correcto (3-10).");
                                             break;
                                         default:
-                                            controller.guardarModificacion(usuarioActual);
+                                            controller.guardarRegistroDB(usuarioActual);
                                             JOptionPane.showMessageDialog(null, "El usuario ha sido registrado con exito.");
                                             MainMenu main = new MainMenu(usuarioActual);
                                             main.setVisible(true);
