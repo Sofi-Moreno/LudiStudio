@@ -261,8 +261,10 @@ public class mostrarEscogido extends javax.swing.JPanel {
     private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
         try {
             controller.guardarProyecto(presupuestoTotal, proyecto);
+            JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
         } catch (SQLException ex) {
             Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "El proyecto no ha sido guardado");
         }
         //volver a main menu
     }//GEN-LAST:event_entrarButtom2MouseClicked
