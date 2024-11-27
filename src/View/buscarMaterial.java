@@ -22,6 +22,7 @@ public class buscarMaterial extends javax.swing.JFrame {
         mostrarMateriales();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         this.setResizable(false);
+        this.setLocation(200, 80);
     }
 
     /**
@@ -38,6 +39,7 @@ public class buscarMaterial extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

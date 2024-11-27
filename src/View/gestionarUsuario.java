@@ -193,35 +193,35 @@ public class gestionarUsuario extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         nombreDato.setForeground(new java.awt.Color(255, 255, 255));
         nombreDato.setText("s");
 
-        apellidoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        apellidoDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         apellidoDato.setForeground(new java.awt.Color(255, 255, 255));
         apellidoDato.setText("s");
 
-        usuarioDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        usuarioDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         usuarioDato.setForeground(new java.awt.Color(255, 255, 255));
         usuarioDato.setText("s");
 
-        passwordDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        passwordDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         passwordDato.setForeground(new java.awt.Color(255, 255, 255));
         passwordDato.setText("s");
 
-        paisDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        paisDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         paisDato.setForeground(new java.awt.Color(255, 255, 255));
         paisDato.setText("s");
 
-        institucionDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        institucionDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         institucionDato.setForeground(new java.awt.Color(255, 255, 255));
         institucionDato.setText("s");
 
-        carreraDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        carreraDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         carreraDato.setForeground(new java.awt.Color(255, 255, 255));
         carreraDato.setText("s");
 
-        monedaDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        monedaDato.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         monedaDato.setForeground(new java.awt.Color(255, 255, 255));
         monedaDato.setText("s");
 

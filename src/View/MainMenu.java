@@ -23,6 +23,7 @@ public class MainMenu extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         usuarioActual = us;
         this.setResizable(false);
+        this.setLocation(200, 80);
     }
 
     /**

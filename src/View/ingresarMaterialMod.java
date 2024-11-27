@@ -49,6 +49,8 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
         tituloLabel1 = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -101,8 +103,8 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
                 nombreMaterialTxtActionPerformed(evt);
             }
         });
-        contentModMaterial.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 229, -1));
-        contentModMaterial.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 350, 20));
+        contentModMaterial.add(nombreMaterialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 229, -1));
+        contentModMaterial.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 350, 20));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -133,10 +135,25 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Ingresa el nombre del material a modificar");
         nombreLabel.setToolTipText("");
-        contentModMaterial.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        contentModMaterial.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modMateriales.png"))); // NOI18N
         contentModMaterial.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE"
+            }
+        ));
+        jScrollPane4.setViewportView(table);
+
+        contentModMaterial.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 300, 280));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,7 +163,7 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentModMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(contentModMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -230,10 +247,12 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
     private javax.swing.JLabel ingresarLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreMaterialTxt;
     private javax.swing.JPanel panelTitle;
+    private javax.swing.JTable table;
     private javax.swing.JLabel tituloLabel1;
     // End of variables declaration//GEN-END:variables
 }

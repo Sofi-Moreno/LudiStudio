@@ -60,6 +60,8 @@ public class verProyecto extends javax.swing.JPanel {
         presupuestoDato = new javax.swing.JLabel();
         ingresarButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
+        ingresarButtom1 = new javax.swing.JPanel();
+        ingresarLabel1 = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,9 +183,16 @@ public class verProyecto extends javax.swing.JPanel {
         contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ingresarButtomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ingresarButtomMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ingresarButtomMouseExited(evt);
             }
         });
 
@@ -209,6 +218,43 @@ public class verProyecto extends javax.swing.JPanel {
         );
 
         contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+
+        ingresarButtom1.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ingresarButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarButtom1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ingresarButtom1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ingresarButtom1MouseExited(evt);
+            }
+        });
+
+        ingresarLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        ingresarLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarLabel1.setText("VOLVER");
+
+        javax.swing.GroupLayout ingresarButtom1Layout = new javax.swing.GroupLayout(ingresarButtom1);
+        ingresarButtom1.setLayout(ingresarButtom1Layout);
+        ingresarButtom1Layout.setHorizontalGroup(
+            ingresarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom1Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(ingresarLabel1)
+                .addGap(33, 33, 33))
+        );
+        ingresarButtom1Layout.setVerticalGroup(
+            ingresarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom1Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(ingresarLabel1)
+                .addGap(15, 15, 15))
+        );
+
+        contentVista.add(ingresarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -249,6 +295,26 @@ public class verProyecto extends javax.swing.JPanel {
         contentVista.repaint();
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
+    private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
+        ingresarButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_ingresarButtomMouseEntered
+
+    private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
+        ingresarButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_ingresarButtomMouseExited
+
+    private void ingresarButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom1MouseClicked
+
+    private void ingresarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom1MouseEntered
+
+    private void ingresarButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom1MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel autorDato;
@@ -256,7 +322,9 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel costoDato;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JPanel ingresarButtom;
+    private javax.swing.JPanel ingresarButtom1;
     private javax.swing.JLabel ingresarLabel;
+    private javax.swing.JLabel ingresarLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

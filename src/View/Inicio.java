@@ -21,6 +21,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         this.setResizable(false);
+        this.setLocation(200, 80);
     }
 
     /**

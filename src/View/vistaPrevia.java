@@ -6,6 +6,7 @@ package View;
 
 import Controller.ControllerProyec;
 import Model.Proyecto;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ public class vistaPrevia extends javax.swing.JFrame {
         tablita.setModel(controller.llenarVistaPrevia(proyecto));
         this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
+        this.setLocation(200, 80);
         
 //        controller.llenarVistaPrevia(proyecto,"MurosDeContención",tablita);        
     }
@@ -47,6 +49,9 @@ public class vistaPrevia extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablita = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        setUndecorated(true);
 
         tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,6 +84,7 @@ public class vistaPrevia extends javax.swing.JFrame {
             }
         });
         tablita.setToolTipText("");
+        tablita.setSelectionBackground(new java.awt.Color(0, 153, 153));
         jScrollPane2.setViewportView(tablita);
 
         jButton1.setText("Volver");
@@ -93,6 +99,13 @@ public class vistaPrevia extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Imprimir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +113,10 @@ public class vistaPrevia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -110,7 +126,9 @@ public class vistaPrevia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -124,6 +142,10 @@ public class vistaPrevia extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +188,7 @@ public class vistaPrevia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablita;
