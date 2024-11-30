@@ -377,7 +377,7 @@ public class ControlMateriales {
         String []  nombresColumnas = {"Rubro","Nombre","Unidad","Cantidad", "Costo", "Sustentabilidad", "Proveedor", "Transporte", "Costo Transporte", "Mano De Obra", "Costo M. Obra", "Herramientas", "Costo Herramientas", "Costo Total"};
         String [] registros = new String[14];
         DefaultTableModel modelo = new DefaultTableModel(null,nombresColumnas);
-        String sql = "SELECT * FROM material";
+        String sql = "SELECT * FROM material ORDER BY costo_total DESC";
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection();
         PreparedStatement pst = null;
