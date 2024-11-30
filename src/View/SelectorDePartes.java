@@ -25,6 +25,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
     Proyecto proyecto;
     double presupuestoTotal;
     List<String> materiales;
+    List<String> datos;
     /**
      * Creates new form SelectorDePartes
      * @param user
@@ -39,6 +40,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        datos = new ArrayList<>();
         usuarioActual = user;
         presupuestoTotal = 0;
         

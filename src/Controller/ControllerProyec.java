@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Controller.Controller;
 import Model.Proyecto;
 import Model.Usuario;
 import java.sql.Connection;
@@ -67,6 +68,9 @@ public class ControllerProyec {
     public ControllerProyec(JFrame ventanita) {
         this.ventanita = ventanita;
     }
+    
+    //constructor modificar
+    
     
     //constructor para ver
     //**************************CREAR PROYECTO**************************
@@ -414,6 +418,62 @@ public class ControllerProyec {
         return val;
     }
     
+    //**************************Modificar proyecto**************************
+    public int modificarProyecto(Proyecto proyecto){
+        int val = 0;
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String patron = "^\\d+$";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(idProyecto.getText());
+        try{
+            if(!matcher.matches()){
+                val = 1;
+            }
+            else{
+                stmt = conex.prepareStatement("SELECT COUNT(*) AS cantidad FROM proyecto WHERE id_proyecto = ?");
+                stmt.setInt(1, Integer.parseInt(idProyecto.getText()));
+                rs = stmt.executeQuery();
+                if(rs.next()){
+                    if(rs.getInt("cantidad")==0){
+                        val = 2;
+                    }
+                    else{
+                        stmt = conex.prepareStatement("SELECT * FROM proyecto WHERE id_proyecto = ?");
+                        stmt.setInt(1, Integer.parseInt(idProyecto.getText()));
+                        rs = stmt.executeQuery();
+                        if(rs.next()){
+                            proyecto.setIdUsuario(rs.getInt("usuario"));
+                            proyecto.setNombreProyecto(rs.getString("nombre"));
+                            proyecto.setPresupuesto(rs.getDouble("presupuesto"));
+                            proyecto.setPresupuestoTotal(rs.getDouble("presupuestoTotal"));
+                            proyecto.setFechaDeCreacion(rs.getString("fecha"));
+                            proyecto.setSustentabilidad(rs.getString("sustentabilidad"));
+                            proyecto.setIdMateriales(rs.getInt("materiales"));
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+             try {
+               if (rs != null) rs.close();
+               if (stmt != null) stmt.close(); 
+                conex.close();
+                con.desconectar();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            
+        }
+        return val;
+    }
     
     //**************************ELIMINAR PROYECTO**************************
     public int eliminarProyecto() throws SQLException{

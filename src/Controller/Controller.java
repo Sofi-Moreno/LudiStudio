@@ -55,30 +55,35 @@ public class Controller {
     }
     //VALIDACIONES PARA INICIAR SESION
     //validacion usuario
-    public boolean validarUsuario(Usuario user) throws SQLException {
+    public boolean validarUsuario(Usuario user){
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         boolean bol = false;
-        String sql = "SELECT * FROM usuario";
         try{
-            stmt = conex.createStatement();
-            rs = stmt.executeQuery(sql);
-            while(rs.next()){
-                if(usuarioInicio.getText().equals(rs.getString("usuario"))){
-                    bol = true;
-                    user.setUsuario(usuarioInicio.getText());
+            stmt = conex.prepareStatement("SELECT COUNT(*) AS cantidad FROM usuario WHERE usuario = ?");
+            stmt.setString(1,usuarioInicio.getText());
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                if(rs.getInt("cantidad")==1){
+                bol = true;
+                user.setUsuario(usuarioInicio.getText());
                 }
             }
             
         }catch(SQLException ex){
             Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            rs.close();
-            stmt.close();
-            conex.close();
-            con.desconectar();
+            try {
+                if(stmt!=null) stmt.close();
+                if(rs!=null) rs.close();
+                conex.close();
+                con.desconectar();
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
         return bol;
     }
