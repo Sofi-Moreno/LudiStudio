@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -23,12 +24,12 @@ public class elementosComplementarios extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
     /**
      * Creates new form elementosComplementarios
      */
-    public elementosComplementarios(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
+    public elementosComplementarios(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
         initComponents();
         esc = true;
         bar= true;
@@ -36,17 +37,14 @@ public class elementosComplementarios extends javax.swing.JPanel {
         ramp=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
-        proyecto = proyec;
-        presupuestoTotal= presupuesto;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
         materiales = mat;
-        try {
-            controller.llenarBoxMateriales(materialBox1,mat);
-            controller.llenarBoxMateriales(materialBox2,mat);
-            controller.llenarBoxMateriales(materialBox3,mat);
-            controller.llenarBoxMateriales(materialBox4,mat);
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
+        controller.llenarBoxMateriales(materialBox4,mat);
+        
     }
 
     /**
@@ -815,27 +813,27 @@ public class elementosComplementarios extends javax.swing.JPanel {
         }else if(tech && materialBox4.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Techos' esta habilitada y no has escogido un material para ella.");
         }else{
-            try{
-                if(esc && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Escalera = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
-                }
-                if(bar && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Barandas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
-                }
-                if(ramp && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Rampas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox3, presupuestoTotal);
-                }
-                if(tech && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox4,"UPDATE partes SET Techos = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox4, presupuestoTotal);
-                }
-            }catch (SQLException ex) {
-                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            if(esc && !materialBox1.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox1, proyec, materiales);
+            }else{
+               proyec.add(null);
             }
-            mostrarEscogido p = new mostrarEscogido(proyecto,usuarioActual,presupuestoTotal);
+            if(bar && !materialBox2.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            if(ramp && !materialBox3.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox3, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            if(tech && !materialBox4.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox4, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();

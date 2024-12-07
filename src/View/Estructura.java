@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -23,8 +24,8 @@ public class Estructura extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
 
     /**
      * Creates new form Estructura
@@ -32,7 +33,7 @@ public class Estructura extends javax.swing.JPanel {
      * @param usuario
      * @param presupuesto
      */
-    public Estructura(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
+    public Estructura(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
         initComponents();
         column=true;
         los=true;
@@ -40,17 +41,14 @@ public class Estructura extends javax.swing.JPanel {
         entrep=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
-        proyecto = proyec;
-        presupuestoTotal = presupuesto;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
         materiales = mat;
-        try {
-            controller.llenarBoxMateriales(materialBox1,mat);
-            controller.llenarBoxMateriales(materialBox2,mat);
-            controller.llenarBoxMateriales(materialBox3,mat);
-            controller.llenarBoxMateriales(materialBox4,mat);
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
+        controller.llenarBoxMateriales(materialBox4,mat);
+        
     }
 
     /**
@@ -855,27 +853,27 @@ public class Estructura extends javax.swing.JPanel {
         }else if(entrep&& materialBox4.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Entrepiso' esta habilitada y no has escogido un material para ella.");
         }else{
-            try{
-                if(column && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Columnas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
-                }
-                if(los && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Losas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox3, presupuestoTotal);
-                }
-                if(vig && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes Vigas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
-                }
-                if(entrep && !materialBox4.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox4,"UPDATE partes SET Entrepiso = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox4, presupuestoTotal);
-                }
-            }catch (SQLException ex) {
-                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            if(column && !materialBox1.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox1, proyec, materiales);
+            }else{
+                proyec.add(null);
             }
-            cubierta p = new cubierta(proyecto,usuarioActual,presupuestoTotal,materiales);
+            if(los && !materialBox3.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox3, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            if(vig && !materialBox2.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            if(entrep && !materialBox4.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox4, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            cubierta p = new cubierta(proyecto,proyec,usuarioActual,materiales);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();
@@ -883,7 +881,6 @@ public class Estructura extends javax.swing.JPanel {
             contentElementos.revalidate();
             contentElementos.repaint();
         }
-        
     }//GEN-LAST:event_guardarButtomMouseClicked
 
     private void guardarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarButtomMouseEntered
@@ -895,35 +892,19 @@ public class Estructura extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseExited
 
     private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
-        try {
-            precio1Label.setText(controller.mostrarPrecio(materialBox1));
-        } catch (SQLException ex) {
-            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_materialBox1MouseClicked
 
     private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
-        try {
-            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
-        } catch (SQLException ex) {
-            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_materialBox2MouseClicked
 
     private void materialBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox3MouseClicked
-        try {
-            precioLabel3.setText(controller.mostrarPrecio(materialBox3));
-        } catch (SQLException ex) {
-            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_materialBox3MouseClicked
 
     private void materialBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox4MouseClicked
-        try {
-            precioLabel4.setText(controller.mostrarPrecio(materialBox4));
-        } catch (SQLException ex) {
-            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_materialBox4MouseClicked
 
 

@@ -29,9 +29,9 @@ public class verProyecto extends javax.swing.JPanel {
         presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
         autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
         if("Dolares ($)".equals(usuario.getMonedaUsuario())){
-            costoDato.setText(String.valueOf(proyec.getPresupuesto())+" $");
+            costoDato.setText(String.valueOf(proyec.getPresupuestoTotal())+" $");
         }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
-            costoDato.setText(String.valueOf(proyec.getPresupuesto())+" Bs");
+            costoDato.setText(String.valueOf(proyec.getPresupuestoTotal())+" Bs");
         }
     }
 

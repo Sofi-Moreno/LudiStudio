@@ -26,6 +26,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
         initComponents();
         controller = new ControllerProyec(this,idTxt);
         usuarioActual = user;
+        table.setModel(controller.llenarVerProyecto(user));
     }
 
     /**

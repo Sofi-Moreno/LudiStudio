@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import java.util.List;
 
 
 
@@ -24,25 +26,26 @@ public class mostrarEscogido extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
     double presupuestoTotal;
+    List<Material> proyec;
     /**
      * Creates new form mostrarEscogido
      */
-    public mostrarEscogido(Proyecto proyec, Usuario usuario,double presupuesto) {
+    public mostrarEscogido(Proyecto proyecto,java.util.List<Material> proyec, Usuario usuario) {
         initComponents();
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
-        proyecto = proyec;
-        presupuestoTotal= presupuesto;
-        nombreDato.setText(proyec.getNombreProyecto());
-        presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        nombreDato.setText(proyecto.getNombreProyecto());
+        presupuestoDato.setText(String.valueOf(proyecto.getPresupuesto()));
         autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
+        presupuestoTotal = controller.calculoPresupuestoTotal(proyec, presupuestoTotal);
         if("Dolares ($)".equals(usuario.getMonedaUsuario())){
-            costoDato.setText(String.valueOf(presupuesto)+" $");
+            costoDato.setText(String.valueOf(presupuestoTotal)+" $");
         }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
-            costoDato.setText(String.valueOf(presupuesto)+" Bs");
+            costoDato.setText(String.valueOf(presupuestoTotal)+" Bs");
         }
-        
-        
+        proyecto.setPresupuestoTotal(presupuestoTotal);
     }
 
     /**
@@ -242,12 +245,8 @@ public class mostrarEscogido extends javax.swing.JPanel {
 
     private void mostrarDatosButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseClicked
         vistaPrevia vista;
-        try {
-            vista = new vistaPrevia(proyecto);
-             vista.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        vista = new vistaPrevia(proyecto,proyec);
+        vista.setVisible(true);
     }//GEN-LAST:event_mostrarDatosButtomMouseClicked
 
     private void mostrarDatosButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarDatosButtomMouseEntered
@@ -260,7 +259,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
 
     private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
         try {
-            controller.guardarProyecto(presupuestoTotal, proyecto);
+            controller.guardarInformacion(proyecto, proyec);
             JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
         } catch (SQLException ex) {
             Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);

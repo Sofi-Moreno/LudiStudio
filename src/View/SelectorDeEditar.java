@@ -4,6 +4,7 @@
  */
 package View;
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -21,23 +22,28 @@ public class SelectorDeEditar extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
     /**
      * Creates new form SelectorDeEditar
      */
-    public SelectorDeEditar(Usuario user) {
+    public SelectorDeEditar(Usuario user,Proyecto proyecto) {
         initComponents();
-        controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, this);
+        controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, publicoBox, actividadBox, this);
         materiales = new ArrayList<>();
         try {
             controller.llenarListaMateriales(materiales);
-            System.out.println(materiales);
         } catch (SQLException ex) {
             Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
         }
         usuarioActual = user;
-        presupuestoTotal = 0;
+        this.proyecto = proyecto;
+        nombreTxt.setText(proyecto.getNombreProyecto());
+        presupuestTxt.setText(String.valueOf(proyecto.getPresupuesto()));
+        sustentabilidadBox.setSelectedItem(proyecto.getSustentabilidad());
+        publicoBox.setSelectedItem(proyecto.getPublico());
+        actividadBox.setSelectedItem(proyecto.getActividad());
+        
         
     }
 
@@ -64,6 +70,10 @@ public class SelectorDeEditar extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         nombreLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        presupuestoLabel1 = new javax.swing.JLabel();
+        publicoBox = new javax.swing.JComboBox<>();
+        presupuestoLabel2 = new javax.swing.JLabel();
+        actividadBox = new javax.swing.JComboBox<>();
 
         contentSelector.setBackground(new java.awt.Color(0, 153, 153));
         contentSelector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,14 +131,14 @@ public class SelectorDeEditar extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
-        contentSelector.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 182, 229, -1));
+        contentSelector.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 229, -1));
 
         presupuestoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         presupuestoLabel.setForeground(new java.awt.Color(255, 255, 255));
         presupuestoLabel.setText("Presupuesto");
         presupuestoLabel.setToolTipText("");
-        contentSelector.add(presupuestoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 231, -1, -1));
-        contentSelector.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 205, 229, 20));
+        contentSelector.add(presupuestoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        contentSelector.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 229, 10));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -156,13 +166,13 @@ public class SelectorDeEditar extends javax.swing.JPanel {
         contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
 
         sustentabilidadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Muy Sustentable", "Sustentable", "Poco Sustentable", "No sustentable" }));
-        contentSelector.add(sustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 356, 167, -1));
+        contentSelector.add(sustentabilidadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 167, -1));
 
         sustentabilidadLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         sustentabilidadLabel.setForeground(new java.awt.Color(255, 255, 255));
         sustentabilidadLabel.setText("Sustentabilidad");
         sustentabilidadLabel.setToolTipText("");
-        contentSelector.add(sustentabilidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 315, -1, -1));
+        contentSelector.add(sustentabilidadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         presupuestTxt.setBackground(new java.awt.Color(0, 153, 153));
         presupuestTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -180,17 +190,40 @@ public class SelectorDeEditar extends javax.swing.JPanel {
                 presupuestTxtActionPerformed(evt);
             }
         });
-        contentSelector.add(presupuestTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 266, -1, -1));
-        contentSelector.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 289, 229, 20));
+        contentSelector.add(presupuestTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        contentSelector.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 229, 20));
 
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre ");
         nombreLabel.setToolTipText("");
-        contentSelector.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 147, -1, -1));
+        contentSelector.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
         contentSelector.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
+
+        presupuestoLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        presupuestoLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        presupuestoLabel1.setText("Publico Objetivo");
+        presupuestoLabel1.setToolTipText("");
+        contentSelector.add(presupuestoLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        publicoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Infantes", "Adolescentes", "Adultos ", "Adultos Mayores", "Discapacitados", "Para todos", " " }));
+        contentSelector.add(publicoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 167, -1));
+
+        presupuestoLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        presupuestoLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        presupuestoLabel2.setText("Tipo de actividades");
+        presupuestoLabel2.setToolTipText("");
+        contentSelector.add(presupuestoLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+
+        actividadBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Educativas", "Recreativas", "Informativas", "Creaticas", "Multiuso" }));
+        actividadBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actividadBoxActionPerformed(evt);
+            }
+        });
+        contentSelector.add(actividadBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 167, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,24 +242,28 @@ public class SelectorDeEditar extends javax.swing.JPanel {
         proyecto.setIdUsuario(usuarioActual.getId_usuario());
         if(controller.validarNombre(proyecto)){
             JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
+        }else if(controller.validarPresupuesto(proyecto)){
+            JOptionPane.showMessageDialog(null, "El presupuesto no cuenta con el patron de solo contener nuemeros y punto(.), para marcar el decimal.");
+        }else if(sustentabilidadBox.getSelectedItem()=="---"){
+            JOptionPane.showMessageDialog(null, "Debes escoger un tipo de sustentabilidad.");
+        }else if(publicoBox.getSelectedItem()=="---"){
+            JOptionPane.showMessageDialog(null, "Debes escoger un  publico objetivo.");
+        }else if(actividadBox.getSelectedItem()=="---"){
+            JOptionPane.showMessageDialog(null, "Debes escoger un  tipo de actividad.");
         }else{
-            if(controller.validarPresupuesto(proyecto)){
-                JOptionPane.showMessageDialog(null, "El presupuesto no cuenta con el patron de solo contener nuemeros y punto(.), para marcar el decimal.");
-            }else{
-                try {
-                    if(controller.guardarInformacion(proyecto)){
-                        fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,usuarioActual,presupuestoTotal,materiales);
-                        p3.setSize(613,530);
-                        p3.setLocation(0,0);
-                        contentSelector.removeAll();
-                        contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-                        contentSelector.revalidate();
-                        contentSelector.repaint();
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+            proyecto.setNombreProyecto(nombreTxt.getText());
+            proyecto.setPresupuesto(Double.parseDouble(presupuestTxt.getText()));
+            proyecto.setFechaDeCreacion(controller.fecha());
+            proyecto.setSustentabilidad((String)sustentabilidadBox.getSelectedItem());
+            proyecto.setPublico((String)publicoBox.getSelectedItem());
+            proyecto.setActividad((String)actividadBox.getSelectedItem());
+            fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,proyec,usuarioActual,materiales);
+            p3.setSize(613,530);
+            p3.setLocation(0,0);
+            contentSelector.removeAll();
+            contentSelector.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentSelector.revalidate();
+            contentSelector.repaint();
         }
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
@@ -268,8 +305,13 @@ public class SelectorDeEditar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_presupuestTxtActionPerformed
 
+    private void actividadBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actividadBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> actividadBox;
     private javax.swing.JPanel contentSelector;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
@@ -281,6 +323,9 @@ public class SelectorDeEditar extends javax.swing.JPanel {
     private javax.swing.JPanel panelTitle;
     private javax.swing.JTextField presupuestTxt;
     private javax.swing.JLabel presupuestoLabel;
+    private javax.swing.JLabel presupuestoLabel1;
+    private javax.swing.JLabel presupuestoLabel2;
+    private javax.swing.JComboBox<String> publicoBox;
     private javax.swing.JComboBox<String> sustentabilidadBox;
     private javax.swing.JLabel sustentabilidadLabel;
     private javax.swing.JLabel tituloLabel;

@@ -9,7 +9,7 @@ package Model;
  * @author LAMM
  */
 public class Proyecto {
-    private String nombreProyecto,fechaDeCreacion, sustentabilidad;
+    private String nombreProyecto,fechaDeCreacion, sustentabilidad,publico,actividad,resumen;
     private double presupuesto, presupuestoTotal;
     private int idProyecto, idUsuario, idMateriales;
     
@@ -17,6 +17,9 @@ public class Proyecto {
         nombreProyecto = "";
         fechaDeCreacion = "";
         sustentabilidad = "";
+        publico = "";
+        actividad = "";
+        resumen = "";
         idProyecto = 0;
         idUsuario = 0;
         idMateriales =0;
@@ -24,18 +27,19 @@ public class Proyecto {
         presupuestoTotal = 0.0;
     }
 
-    public Proyecto(String nombreProyecto, String fechaDeCreacion, String sustentabilidad, double presupuesto, double presupuestoTotal, int idProyecto, int idUsuario, int idMateriales) {
+    public Proyecto(String nombreProyecto, String fechaDeCreacion, String sustentabilidad, String publico, String actividad, String resumen, double presupuesto, double presupuestoTotal, int idProyecto, int idUsuario, int idMateriales) {
         this.nombreProyecto = nombreProyecto;
         this.fechaDeCreacion = fechaDeCreacion;
         this.sustentabilidad = sustentabilidad;
+        this.publico = publico;
+        this.actividad = actividad;
+        this.resumen = resumen;
         this.presupuesto = presupuesto;
         this.presupuestoTotal = presupuestoTotal;
         this.idProyecto = idProyecto;
         this.idUsuario = idUsuario;
         this.idMateriales = idMateriales;
     }
-
-    
 
     public int getIdProyecto() {
         return idProyecto;
@@ -99,6 +103,30 @@ public class Proyecto {
 
     public void setSustentabilidad(String sustentabilidad) {
         this.sustentabilidad = sustentabilidad;
+    }
+
+    public String getPublico() {
+        return publico;
+    }
+
+    public void setPublico(String publico) {
+        this.publico = publico;
+    }
+
+    public String getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
+    }
+
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
     }
 
     

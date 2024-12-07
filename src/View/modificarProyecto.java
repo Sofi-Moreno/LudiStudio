@@ -4,8 +4,14 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,12 +19,17 @@ import java.awt.Color;
  */
 public class modificarProyecto extends javax.swing.JPanel {
     Usuario usuarioActual;
+    ControllerProyec controller;
+    Proyecto proyecto;
     /**
      * Creates new form modificarProyecto
      */
     public modificarProyecto(Usuario user) {
         initComponents();
         usuarioActual = user;
+        proyecto = new Proyecto();
+        controller = new ControllerProyec(this,idTxt);
+        table.setModel(controller.llenarVerProyecto(user));
     }
 
     /**
@@ -38,7 +49,7 @@ public class modificarProyecto extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        nombreTxt = new javax.swing.JTextField();
+        idTxt = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
 
@@ -127,23 +138,23 @@ public class modificarProyecto extends javax.swing.JPanel {
         jLabel2.setText("ID");
         contentVista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
 
-        nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
-        nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        nombreTxt.setForeground(new java.awt.Color(204, 204, 204));
-        nombreTxt.setText("Ingresar el ID del proyecto a buscar");
-        nombreTxt.setToolTipText("");
-        nombreTxt.setBorder(null);
-        nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        idTxt.setBackground(new java.awt.Color(0, 153, 153));
+        idTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        idTxt.setForeground(new java.awt.Color(204, 204, 204));
+        idTxt.setText("Ingresar el ID del proyecto a buscar");
+        idTxt.setToolTipText("");
+        idTxt.setBorder(null);
+        idTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                nombreTxtMousePressed(evt);
+                idTxtMousePressed(evt);
             }
         });
-        nombreTxt.addActionListener(new java.awt.event.ActionListener() {
+        idTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreTxtActionPerformed(evt);
+                idTxtActionPerformed(evt);
             }
         });
-        contentVista.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 250, -1));
+        contentVista.add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 250, -1));
         contentVista.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 230, 20));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plano blanco.png"))); // NOI18N
@@ -162,26 +173,42 @@ public class modificarProyecto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        SelectorDeEditar p3 = new SelectorDeEditar(usuarioActual);
-        p3.setSize(613,530);
-        p3.setLocation(0,0);
-        contentVista.removeAll();
-        contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentVista.revalidate();
-        contentVista.repaint();
+        try {
+            switch(controller.validarID(usuarioActual, proyecto)){
+                case 1:
+                    JOptionPane.showMessageDialog(null, "El id ingresado solo debe poseer numeros.");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, "El id ingresado no existe.");
+                    break;
+                default:
+                    SelectorDeEditar p3 = new SelectorDeEditar(usuarioActual,proyecto);
+                    p3.setSize(613,530);
+                    p3.setLocation(0,0);
+                    contentVista.removeAll();
+                    contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                    contentVista.revalidate();
+                    contentVista.repaint();
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(verProyectoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
-    private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
-        if (nombreTxt.getText().equals("Ingresar el ID del proyecto a buscar")){
-            nombreTxt.setText("");
-            nombreTxt.setForeground(Color.black);
+    private void idTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idTxtMousePressed
+        if (idTxt.getText().equals("Ingresar el ID del proyecto a buscar")){
+            idTxt.setText("");
+            idTxt.setForeground(Color.black);
         }
 
-    }//GEN-LAST:event_nombreTxtMousePressed
+    }//GEN-LAST:event_idTxtMousePressed
 
-    private void nombreTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTxtActionPerformed
+    private void idTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreTxtActionPerformed
+    }//GEN-LAST:event_idTxtActionPerformed
 
     private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
         ingresarButtom.setBackground(new Color(0,153,204));
@@ -194,6 +221,7 @@ public class modificarProyecto extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentVista;
+    private javax.swing.JTextField idTxt;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
     private javax.swing.JLabel jLabel2;
@@ -201,7 +229,6 @@ public class modificarProyecto extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField nombreTxt;
     private javax.swing.JTable table;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables

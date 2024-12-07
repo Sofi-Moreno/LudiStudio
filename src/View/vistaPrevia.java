@@ -5,9 +5,11 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -21,14 +23,15 @@ import javax.swing.ImageIcon;
 public class vistaPrevia extends javax.swing.JFrame {
     ControllerProyec controller;
     static Proyecto proyecto;
+    
     /**
      * Creates new form vistaPrevia
      */
-    public vistaPrevia(Proyecto proyecto) throws SQLException {
+    public vistaPrevia(Proyecto proyecto, List<Material> escogido){
         initComponents();
         this.proyecto = proyecto;
         controller = new ControllerProyec(this);
-        tablita.setModel(controller.llenarVistaPrevia(proyecto));
+        tablita.setModel(controller.llenarVistaPrevia(proyecto,escogido));
         this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/appLogo-removebg-preview.png")).getImage());
         this.setLocation(200, 80);
@@ -177,11 +180,9 @@ public class vistaPrevia extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                try {
-                    new vistaPrevia(proyecto).setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(vistaPrevia.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                List<Material> escogido = null;
+                new vistaPrevia(proyecto,escogido).setVisible(true);
+                
             }
         });
     }

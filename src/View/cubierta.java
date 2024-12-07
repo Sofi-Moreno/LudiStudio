@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -23,26 +24,23 @@ public class cubierta extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
     /**
      * Creates new form cubierta
      */
-    public cubierta(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
+    public cubierta(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
         initComponents();
         estructCubierta=true;
         cubiert= true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
-        proyecto = proyec;
-        presupuestoTotal = presupuesto;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
         materiales = mat;
-        try {
-            controller.llenarBoxMateriales(materialBox1,mat);
-            controller.llenarBoxMateriales(materialBox2,mat);
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        
         
     }
 
@@ -484,19 +482,17 @@ public class cubierta extends javax.swing.JPanel {
         }else if(cubiert && materialBox2.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Cubierta' esta habilitada y no has escogido un material para ella.");
         }else{
-            try{
-                if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET EstructuraDeCubierta = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
-                }
-                if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Cubierta = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
-                }
-            }catch (SQLException ex) {
-                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            if(estructCubierta && !materialBox1.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox1, proyec, materiales);
+            }else{
+                proyec.add(null);
             }
-            Cerramientos p3 = new Cerramientos(proyecto,usuarioActual,presupuestoTotal, materiales);
+            if(cubiert && !materialBox2.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            Cerramientos p3 = new Cerramientos(proyecto,proyec,usuarioActual,materiales);
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentCubierta.removeAll();
@@ -508,19 +504,11 @@ public class cubierta extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseClicked
 
     private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
-        try {
-            precio1Label.setText(controller.mostrarPrecio(materialBox1));
-        } catch (SQLException ex) {
-            Logger.getLogger(cubierta.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_materialBox1MouseClicked
 
     private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
-        try {
-            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
-        } catch (SQLException ex) {
-            Logger.getLogger(cubierta.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_materialBox2MouseClicked
 
 

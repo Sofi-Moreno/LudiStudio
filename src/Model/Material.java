@@ -14,9 +14,10 @@ public class Material {
     
     private double cantidadMaterial,costoMaterial,costoTransporte,costoMDObra,
             costoHerramientas,costoTotalMaterial;
-    
+    private int id_material;
     
     public Material(){
+        id_material = 0;
         rubro="";
         nombreMaterial="";
         unidadMaterial="";
@@ -34,7 +35,10 @@ public class Material {
     
     }
 
-    public Material(String rubro, String nombreMaterial, String unidadMaterial, String sustentabilidad, String proveedor, String transporte, String manoDeObra, String herramientas, double costoMaterial, double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotalMaterial, int cantidadMaterial) {
+    public Material(int id_material,String rubro, String nombreMaterial, String unidadMaterial, String sustentabilidad,
+            String proveedor, String transporte, String manoDeObra, String herramientas,double costoMaterial,
+            double costoTransporte, double costoMDObra, double costoHerramientas, double costoTotalMaterial, int cantidadMaterial) {
+        this.id_material = id_material;
         this.rubro = rubro;
         this.nombreMaterial = nombreMaterial;
         this.unidadMaterial = unidadMaterial;
@@ -51,6 +55,14 @@ public class Material {
         this.cantidadMaterial = cantidadMaterial;
     }
 
+    public int getId_material() {
+        return id_material;
+    }
+
+    public void setId_material(int id_material) {
+        this.id_material = id_material;
+    }
+    
     public String getRubro() {
         return rubro;
     }

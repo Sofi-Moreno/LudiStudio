@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -23,27 +24,24 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
-    public fundamentosYcimentacion(Proyecto proyec, Usuario usuario, double presupuesto, List<String> mat) {
+    public fundamentosYcimentacion(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
         initComponents();
         zap=true;
         mur=true;
         controller=new ControllerProyec(this);
-        proyecto = proyec;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
         usuarioActual=usuario;
-        presupuestoTotal = presupuesto;
         materiales = mat;
-        try {
-            controller.llenarBoxMateriales(materialBox1, mat);
-            controller.llenarBoxMateriales(materialBox2, mat);
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.llenarBoxMateriales(materialBox1, mat);
+        controller.llenarBoxMateriales(materialBox2, mat);
+       
         
         
     }
@@ -512,19 +510,19 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         }else if(mur && materialBox2.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Muros de Contención' esta habilitada y no has escogido un material para ella.");
         }else{
-            try{
                 if(zap && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Zapata = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
+                    controller.guardarMateriales(proyecto, materialBox1, proyec, materiales);
+                }
+                else{
+                    proyec.add(null);
                 }
                 if(mur && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET MurosDeContención = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
+                    controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
                 }
-            }catch (SQLException ex) {
-                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Estructura p3 = new Estructura(proyecto,usuarioActual,presupuestoTotal,materiales);
+                else{
+                    proyec.add(null);
+                }
+            Estructura p3 = new Estructura(proyecto,proyec,usuarioActual,materiales);
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentFundamentos.removeAll();

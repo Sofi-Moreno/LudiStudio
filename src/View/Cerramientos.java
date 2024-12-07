@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
@@ -23,28 +24,24 @@ public class Cerramientos extends javax.swing.JPanel {
     ControllerProyec controller;
     Usuario usuarioActual;
     Proyecto proyecto;
-    double presupuestoTotal;
-    List<String> materiales;
+    List<Material> materiales;
+    List<Material> proyec;
     /**
      * Creates new form Cerramientos
      */
-    public Cerramientos(Proyecto proyec, Usuario usuario,double presupuesto,List<String> mat) {
+    public Cerramientos(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
         initComponents();
         mur= true;
         vent=true;
         puert=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
-        proyecto = proyec;
-        presupuestoTotal = presupuesto;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
         materiales = mat;
-        try {
-            controller.llenarBoxMateriales(materialBox1,mat);
-            controller.llenarBoxMateriales(materialBox2,mat);
-            controller.llenarBoxMateriales(materialBox3,mat);
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
     }
 
     /**
@@ -631,24 +628,22 @@ public class Cerramientos extends javax.swing.JPanel {
         }else if(puert && materialBox3.getSelectedItem().equals("Material")){
             JOptionPane.showMessageDialog(null, "La parte llamada 'Puertas' esta habilitada y no has escogido un material para ella.");
         }else{
-            try{
-                if(mur && !materialBox1.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox1,"UPDATE partes SET Muros = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox1, presupuestoTotal);
-                }
-                if(vent && !materialBox2.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox2,"UPDATE partes SET Ventanas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox2, presupuestoTotal);
-                }
-                if(puert && !materialBox3.getSelectedItem().equals("Material")){
-                    controller.guardarMateriales(proyecto,materialBox3,"UPDATE partes SET Puertas = ? WHERE id_partes = ?");
-                    presupuestoTotal = controller.calculoPresupuestoTotal(materialBox3, presupuestoTotal);
-                }
-                
-            }catch (SQLException ex) {
-                Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
+            if(mur && !materialBox1.getSelectedItem().equals("Material")){
+               controller.guardarMateriales(proyecto, materialBox1, proyec, materiales);
+            }else{
+                proyec.add(null);
             }
-            elementosComplementarios p = new elementosComplementarios(proyecto,usuarioActual,presupuestoTotal,materiales);
+            if(vent && !materialBox2.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            if(puert && !materialBox3.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox3, proyec, materiales);
+            }else{
+                proyec.add(null);
+            }
+            elementosComplementarios p = new elementosComplementarios(proyecto,proyec,usuarioActual,materiales);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentCerramientos.removeAll();

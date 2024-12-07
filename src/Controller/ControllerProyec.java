@@ -5,8 +5,11 @@
 package Controller;
 
 import Controller.Controller;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +39,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControllerProyec {
     //atributos de primer panel (datos basicos)
     JTextField nombreProyecto, presupuestoInicial;
-    JComboBox sustentabilidad;
+    JComboBox sustentabilidad,publico, actividad;
     JPanel ventana;
     
     //atributos para eliminar
@@ -48,12 +51,17 @@ public class ControllerProyec {
     
     //CONSTRUCTORES
     //constructor para crear proyecto
-    public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JPanel ventana){    
+
+    public ControllerProyec(JTextField nombreProyecto, JTextField presupuestoInicial, JComboBox sustentabilidad, JComboBox publico, JComboBox actividad, JPanel ventana) {
         this.nombreProyecto = nombreProyecto;
         this.presupuestoInicial = presupuestoInicial;
         this.sustentabilidad = sustentabilidad;
+        this.publico = publico;
+        this.actividad = actividad;
         this.ventana = ventana;
     }
+    
+    
     public ControllerProyec(JPanel ventana){
         this.ventana = ventana;
     }
@@ -107,7 +115,7 @@ public class ControllerProyec {
         return fechita;
     }
     //guardar datos iniciales
-    public boolean guardarInformacion(Proyecto proyecto) throws SQLException{
+    public boolean guardarInformacion(Proyecto proyecto,List<Material> material) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         boolean bol = false;
@@ -115,36 +123,114 @@ public class ControllerProyec {
         PreparedStatement materiales= null;
         ResultSet resultado = null;
         try {
-            materiales = conex.prepareStatement("INSERT INTO partes(Zapata) VALUES(0)");
+            materiales = conex.prepareStatement("INSERT INTO partes(Zapata,MurosDeContención,Columnas,Vigas,Losas,Entrepiso,EstructuraDeCubierta,Cubierta,Muros,Ventanas,Puertas,Escalera,Rampas,Barandas,Techos)"
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            if(material.get(0)!=null){
+                materiales.setInt(1, material.get(0).getId_material());
+            }else{
+                materiales.setNull(1,java.sql.Types.INTEGER);
+            }
+            if(material.get(1)!=null){
+                materiales.setInt(2, material.get(1).getId_material());
+            }else{
+                materiales.setNull(2, java.sql.Types.INTEGER);
+            }
+            if(material.get(2)!=null){
+                materiales.setInt(3, material.get(2).getId_material());
+            }else{
+                materiales.setNull(3, java.sql.Types.INTEGER);
+            }
+            if(material.get(3)!=null){
+                materiales.setInt(4, material.get(3).getId_material());
+            }else{
+                materiales.setNull(4, java.sql.Types.INTEGER);
+            }
+            if(material.get(4)!=null){
+                materiales.setInt(5, material.get(4).getId_material());
+            }else{
+                materiales.setNull(5, java.sql.Types.INTEGER);
+            }
+            if(material.get(5)!=null){
+                materiales.setInt(6, material.get(5).getId_material());
+            }else{
+                materiales.setNull(6, java.sql.Types.INTEGER);
+            }
+            if(material.get(6)!=null){
+                materiales.setInt(7, material.get(6).getId_material());
+            }else{
+                materiales.setNull(7, java.sql.Types.INTEGER);
+            }
+            if(material.get(7)!=null){
+                materiales.setInt(8, material.get(7).getId_material());
+            }else{
+                materiales.setNull(8, java.sql.Types.INTEGER);
+            }
+            if(material.get(8)!=null){
+                materiales.setInt(9, material.get(8).getId_material());
+            }else{
+                materiales.setNull(9, java.sql.Types.INTEGER);
+            }
+            if(material.get(9)!=null){
+                materiales.setInt(10, material.get(9).getId_material());
+            }else{
+                materiales.setNull(10, java.sql.Types.INTEGER);
+            }
+            if(material.get(10)!=null){
+                materiales.setInt(11, material.get(10).getId_material());
+            }else{
+                materiales.setNull(11, java.sql.Types.INTEGER);
+            }
+            if(material.get(11)!=null){
+                materiales.setInt(12, material.get(11).getId_material());
+            }else{
+                materiales.setNull(12, java.sql.Types.INTEGER);
+            }
+            if(material.get(12)!=null){
+                materiales.setInt(13, material.get(12).getId_material());
+            }else{
+                materiales.setNull(13, java.sql.Types.INTEGER);
+            }
+            if(material.get(13)!=null){
+                materiales.setInt(14, material.get(13).getId_material());
+            }else{
+                materiales.setNull(14, java.sql.Types.INTEGER);
+            }
+            if(material.get(14)!=null){
+                materiales.setInt(15, material.get(14).getId_material());
+            }else{
+                materiales.setNull(15, java.sql.Types.INTEGER);
+            }
             materiales.executeUpdate();
-            materiales = conex.prepareStatement("SELECT id_partes FROM partes");
+            materiales = conex.prepareStatement("SELECT MAX(id_partes) AS ultimoID FROM partes");
             resultado = materiales.executeQuery();
             int ultimoIdPartes = 0; 
             while (resultado.next()) { 
-                ultimoIdPartes = resultado.getInt("id_partes"); 
+                ultimoIdPartes = resultado.getInt("ultimoID"); 
             }
             System.out.println(ultimoIdPartes);
-            st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto, fecha, sustentabilidad, materiales) VALUES (?,?,?,?,?,?)");
+            st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto,presupuestoTotal, fecha, sustentabilidad,publico,actividad,materiales) VALUES (?,?,?,?,?,?,?,?,?)");
             st.setInt(1,proyecto.getIdUsuario());
             st.setString(2,proyecto.getNombreProyecto());
             st.setDouble(3,proyecto.getPresupuesto());
-            st.setString(4,fecha());
-            st.setString(5,(String)sustentabilidad.getSelectedItem());
-            st.setInt(6,ultimoIdPartes);
+            st.setDouble(4,proyecto.getPresupuestoTotal());
+            st.setString(5,proyecto.getFechaDeCreacion());
+            st.setString(6,proyecto.getSustentabilidad());
+            st.setString(7,proyecto.getPublico());
+            st.setString(8,proyecto.getActividad());
+            st.setInt(9,ultimoIdPartes);
             int rowsInserted = st.executeUpdate();
             if(rowsInserted>0){
                 bol = true;
             }
-            proyecto.setFechaDeCreacion(fecha());
-            proyecto.setSustentabilidad((String)sustentabilidad.getSelectedItem());
             proyecto.setIdMateriales(ultimoIdPartes);
             
-            materiales = conex.prepareStatement("SELECT id_proyecto FROM proyecto WHERE nombre = ?");
-            materiales.setString(1, proyecto.getNombreProyecto()); 
+            materiales = conex.prepareStatement("SELECT MAX(id_proyecto) AS ultimoID FROM proyecto");
             resultado = materiales.executeQuery(); 
             if (resultado.next()) { 
-                proyecto.setIdProyecto(resultado.getInt("id_proyecto"));
+                proyecto.setIdProyecto(resultado.getInt("ultimoID"));
             }
+            System.out.println(proyecto.getIdProyecto());
+            System.out.println(proyecto.getIdMateriales());
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
@@ -156,25 +242,32 @@ public class ControllerProyec {
         return bol;
     }
     //llenar box de materiales
-    public void llenarBoxMateriales(JComboBox material, List<String> lista) throws SQLException{
+    public void llenarBoxMateriales(JComboBox material, List<Material> lista){
         int cont = 0;
+        Material mat;
         while(cont<lista.size()){
-            material.addItem(lista.get(cont));
+            mat = lista.get(cont);
+            material.addItem(mat.getNombreMaterial());
             cont++;
         }
     }
     
-    public void llenarListaMateriales(List<String> material) throws SQLException{
+    public void llenarListaMateriales(List<Material> materiales) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt=  null;
         ResultSet rs = null;
-        String sql = "SELECT nombre_material FROM material";
+        String sql = "SELECT * FROM material";
+        Material material;
         try {
             stmt = conex.prepareStatement(sql);
             rs = stmt.executeQuery();
             while(rs.next()){
-                material.add(rs.getString("nombre_material"));
+                material = new Material(rs.getInt("id_material"),rs.getString("rubro_material"),rs.getString("nombre_material"),
+                rs.getString("unidad_material"),rs.getString("sustentabilidad_material"),rs.getString("proveedor_material"),
+                rs.getString("transporte_material"),rs.getString("manodeobra_material"), rs.getString("herramientas_material"), rs.getDouble("costo_material"),
+                rs.getDouble("costo_transporte"),rs.getDouble("costo_manodeobra"),rs.getDouble("costo_herramientas"),rs.getDouble("costo_total"),0);
+                materiales.add(material);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,37 +279,105 @@ public class ControllerProyec {
         }
         
     }
-    //guardar materiales
-    public void guardarMateriales(Proyecto proyecto,JComboBox material, String sql) throws SQLException{
+    //llenar materiales escogidos en un proyecto
+    public void llenarListaEscogido(List<Material> materiales, Proyecto proyecto) throws SQLException{
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
-        PreparedStatement st = null;
-        PreparedStatement stmt = null;
+        PreparedStatement stmt=  null;
+        ResultSet res = null;
         ResultSet rs = null;
-        int id = 0;
-        String sql1 = "SELECT id_material FROM material WHERE nombre_material = ?";
+        Material material;
+        List<Integer> partes = new ArrayList<>(14);
+        int parte;
         try {
-            st = conex.prepareStatement(sql1);
-            st.setString(1, (String)material.getSelectedItem());
-            rs = st.executeQuery();
+            stmt = conex.prepareStatement("SELECT * FROM partes WHERE id_partes = ?");
+            stmt.setInt(1,proyecto.getIdMateriales());
+            rs = stmt.executeQuery();
             if(rs.next()){
-                id = rs.getInt("id_material");
+                parte = rs.getInt("Zapata");if(!rs.wasNull()){partes.add(0, parte);}else{partes.set(0, null);}
+                parte = rs.getInt("MurosDeContención");if(!rs.wasNull()){partes.set(1, parte);}else{partes.set(1, null);}
+                parte = rs.getInt("Columnas");if(!rs.wasNull()){partes.set(2, parte);}else{partes.set(2, null);}
+                parte = rs.getInt("Vigas");if(!rs.wasNull()){partes.set(3, parte);}else{partes.set(3, null);}
+                parte = rs.getInt("Losas");if(!rs.wasNull()){partes.set(4, parte);}else{partes.set(4, null);}
+                parte = rs.getInt("Entrepiso");if(!rs.wasNull()){partes.set(5, parte);}else{partes.set(5, null);}
+                parte = rs.getInt("EstructuraDeCubierta");if(!rs.wasNull()){partes.add(6, parte);}else{partes.set(6, null);}
+                parte = rs.getInt("Cubierta");if(!rs.wasNull()){partes.set(7, parte);}else{partes.set(7, null);}
+                parte = rs.getInt("Muros");if(!rs.wasNull()){partes.set(8, parte);}else{partes.set(8, null);}
+                parte = rs.getInt("Ventanas");if(!rs.wasNull()){partes.set(9, parte);}else{partes.set(9, null);}
+                parte = rs.getInt("Puertas");if(!rs.wasNull()){partes.set(10, parte);}else{partes.set(10, null);}
+                parte = rs.getInt("Escalera");if(!rs.wasNull()){partes.set(11, parte);}else{partes.set(11, null);}
+                
             }
-            stmt = conex.prepareStatement(sql);
-            stmt.setInt(1,id);
-            stmt.setInt(2,proyecto.getIdMateriales());
-            stmt.executeUpdate();
+            
+            
+            while(rs.next()){
+                material = new Material(rs.getInt("id_material"),rs.getString("rubro_material"),rs.getString("nombre_material"),
+                rs.getString("unidad_material"),rs.getString("sustentabilidad_material"),rs.getString("proveedor_material"),
+                rs.getString("transporte_material"),rs.getString("manodeobra_material"), rs.getString("herramientas_material"), rs.getDouble("costo_material"),
+                rs.getDouble("costo_transporte"),rs.getDouble("costo_manodeobra"),rs.getDouble("costo_herramientas"),rs.getDouble("costo_total"),0);
+                materiales.add(material);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            if(st!=null) st.close();
             if(stmt!=null) stmt.close();
             if(rs!=null) rs.close();
             conex.close();
             con.desconectar();
         }
+        
+    }
+    
+    //guardar materiales
+    public void guardarMateriales(Proyecto proyecto,JComboBox material,List<Material> proyec,List<Material> materiales){
+        int cont =0;
+        Material mat;
+        while(cont<materiales.size()){
+            mat = materiales.get(cont);
+            if(mat.getNombreMaterial()==material.getSelectedItem()){
+                proyec.add(mat);
+            }
+            cont++;
+        }
     }
     //llenar tablita
+    public DefaultTableModel llenarVistaPrevia(Proyecto proyecto, List<Material> escogido){
+        List<String> partes = new ArrayList<>();
+        partes.add("Zapata");partes.add("MurosDeContención");partes.add("Columnas");partes.add("Vigas");
+        partes.add("Losas");partes.add("Entrepiso");partes.add("EstructuraDeCubierta");partes.add("Cubierta");partes.add("Muros");
+        partes.add("Ventanas");partes.add("Puertas");partes.add("Escalera");partes.add("Rampas");partes.add("Barandas");partes.add("Techos");
+        String [] columnas = {"PARTE","RUBRO", "NOMBRE MATERIAL", "UNIDAD", "PRECIO MATERIAL", "SUSTENTABILIDAD", "PROVEEDOR", "TRANSPORTE", 
+            "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", "COSTO TOTAL"};
+        String [] registros = new String[14];
+        DefaultTableModel modelo = new DefaultTableModel(null,columnas);
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int part = 0;
+        int cont = 0;
+        while(cont<partes.size()){
+            if(escogido.get(cont)!=null){
+                registros[0] = partes.get(cont);
+                registros[1] = escogido.get(cont).getRubro();
+                registros[2] = escogido.get(cont).getNombreMaterial();
+                registros[3] = escogido.get(cont).getUnidadMaterial();
+                registros[4] = String.valueOf(escogido.get(cont).getCostoMaterial());
+                registros[5] = escogido.get(cont).getSustentabilidad();
+                registros[6] = escogido.get(cont).getProveedor();
+                registros[7] = escogido.get(cont).getTransporte();
+                registros[8] = String.valueOf(escogido.get(cont).getCostoTransporte());
+                registros[9] = escogido.get(cont).getManoDeObra();
+                registros[10] = String.valueOf(escogido.get(cont).getCostoMDObra());
+                registros[11] = escogido.get(cont).getHerramientas();
+                registros[12] = String.valueOf(escogido.get(cont).getCostoHerramientas());
+                registros[13] = String.valueOf(escogido.get(cont).getCostoTotalMaterial());
+                modelo.addRow(registros);
+            }
+            cont++;
+        }
+        return modelo;  
+    }
     public DefaultTableModel llenarVistaPrevia(Proyecto proyecto) throws SQLException{
         List<String> partes = new ArrayList<>();
         partes.add("Zapata");partes.add("MurosDeContención");partes.add("Columnas");partes.add("Vigas");
@@ -273,6 +434,7 @@ public class ControllerProyec {
         }
         return modelo;  
     }
+    
     //mostrar el precio del material seleccionado
     public String mostrarPrecio(JComboBox material) throws SQLException{
         ConnectionDB con = new ConnectionDB();
@@ -298,49 +460,19 @@ public class ControllerProyec {
         return precio;  
     }
     //calculo de presupuesto total
-    public double calculoPresupuestoTotal(JComboBox material, Double presupuesto) throws SQLException{
-        double total=0, precio=0;
-        ConnectionDB con = new ConnectionDB();
-        Connection conex = con.getConnection(); 
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try { 
-            stmt = conex.prepareStatement("SELECT costo_total FROM material WHERE nombre_material = ?");
-            stmt.setString(1, (String) material.getSelectedItem());
-            rs = stmt.executeQuery();
-            if(rs.next()){
-                precio = rs.getDouble("costo_total");
+    public double calculoPresupuestoTotal(List<Material> material, Double presupuesto){
+        int cont=0;
+        while(cont<material.size()){
+            Material mat = material.get(cont);
+            if(mat!=null){
+                presupuesto = presupuesto +mat.getCostoTotalMaterial();
             }
-            total = presupuesto + precio;
-        } catch (SQLException ex) {
-            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            if(stmt!=null) stmt.close();
-            if(rs!=null) rs.close();
-            conex.close();
-            con.desconectar();
+            cont++;
         }
-        return total;
+        BigDecimal numero = new BigDecimal(presupuesto).setScale(2, RoundingMode.HALF_UP);
+        presupuesto = numero.doubleValue();
+        return presupuesto;
     }
-    public void guardarProyecto(Double presupuesto, Proyecto proyecto) throws SQLException{
-        ConnectionDB con = new ConnectionDB();
-        Connection conex = con.getConnection(); 
-        PreparedStatement stmt = null;
-        try {
-            stmt = conex.prepareStatement("UPDATE proyecto SET presupuestoTotal = ? WHERE id_proyecto = ?");
-            stmt.setDouble(1, presupuesto);
-            stmt.setInt(2, proyecto.getIdProyecto());
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            if(stmt!=null) stmt.close();
-            conex.close();
-            con.desconectar();
-        }
-
-    }
-    
     
     //**************************VER PROYECTO**************************
     public DefaultTableModel llenarVerProyecto(Usuario usuario){
@@ -398,8 +530,9 @@ public class ControllerProyec {
                         proyecto.setPresupuestoTotal(rs.getDouble("presupuestoTotal"));
                         proyecto.setFechaDeCreacion(rs.getString("fecha"));
                         proyecto.setSustentabilidad(rs.getString("sustentabilidad"));
+                        proyecto.setPublico(rs.getString("publico"));
+                        proyecto.setActividad(rs.getString("actividad"));
                         proyecto.setIdMateriales(rs.getInt("materiales"));
-                        
                     }
                     
                 }else{
