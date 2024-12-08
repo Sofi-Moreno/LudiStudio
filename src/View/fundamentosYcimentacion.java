@@ -26,14 +26,14 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    List<Material> escogido;
+    String operacion;
 
     /**
      * Creates new form fundamentosYcimentacion
      */
-    public fundamentosYcimentacion(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
+    public fundamentosYcimentacion(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat, String operacion) {
         initComponents();
-        zap=true;
-        mur=true;
         controller=new ControllerProyec(this);
         this.proyecto = proyecto;
         this.proyec = proyec;
@@ -41,9 +41,30 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         materiales = mat;
         controller.llenarBoxMateriales(materialBox1, mat);
         controller.llenarBoxMateriales(materialBox2, mat);
-       
-        
-        
+        this.operacion=operacion;
+        zap=true;
+        mur=true;
+    }
+    
+    public fundamentosYcimentacion(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,List<Material> escogido, String operacion) {
+        initComponents();
+        controller=new ControllerProyec(this);
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.escogido = escogido;
+        usuarioActual=usuario;
+        materiales = mat;
+        controller.llenarBoxMateriales(materialBox1, mat);
+        controller.llenarBoxMateriales(materialBox2, mat);
+        this.operacion=operacion;
+        zap=true;
+        mur=true;
+        if(escogido.get(0)!=null){
+            materialBox1.setSelectedItem(escogido.get(0).getNombreMaterial());
+        }
+        if(escogido.get(1)!=null){
+            materialBox2.setSelectedItem(escogido.get(1).getNombreMaterial());
+        }
     }
 
     /**
@@ -522,7 +543,12 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
                 else{
                     proyec.add(null);
                 }
-            Estructura p3 = new Estructura(proyecto,proyec,usuarioActual,materiales);
+            Estructura p3 =null;
+            if(operacion == "Crear"){
+                p3 = new Estructura(proyecto,proyec,usuarioActual,materiales,operacion);
+            }else if(operacion == "Modificar"){
+                p3 = new Estructura(proyecto,proyec,usuarioActual,materiales,escogido,operacion);
+            }
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentFundamentos.removeAll();

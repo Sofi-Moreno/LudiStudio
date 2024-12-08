@@ -24,27 +24,29 @@ public class SelectorDeEditar extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    List<Material> escogido;
     /**
      * Creates new form SelectorDeEditar
      */
     public SelectorDeEditar(Usuario user,Proyecto proyecto) {
         initComponents();
+        this.proyecto = proyecto;
         controller = new ControllerProyec(nombreTxt, presupuestTxt, sustentabilidadBox, publicoBox, actividadBox, this);
         materiales = new ArrayList<>();
+        proyec = new ArrayList<>();
+        escogido = new ArrayList<>();
         try {
             controller.llenarListaMateriales(materiales);
+            controller.llenarListaEscogido(escogido, proyecto);
         } catch (SQLException ex) {
             Logger.getLogger(SelectorDePartes.class.getName()).log(Level.SEVERE, null, ex);
         }
         usuarioActual = user;
-        this.proyecto = proyecto;
         nombreTxt.setText(proyecto.getNombreProyecto());
         presupuestTxt.setText(String.valueOf(proyecto.getPresupuesto()));
         sustentabilidadBox.setSelectedItem(proyecto.getSustentabilidad());
         publicoBox.setSelectedItem(proyecto.getPublico());
         actividadBox.setSelectedItem(proyecto.getActividad());
-        
-        
     }
 
     /**
@@ -238,7 +240,6 @@ public class SelectorDeEditar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        proyecto = new Proyecto();
         proyecto.setIdUsuario(usuarioActual.getId_usuario());
         if(controller.validarNombre(proyecto)){
             JOptionPane.showMessageDialog(null, "El nombre ingresado no tiene el tamaño correcto (1-25)");
@@ -253,11 +254,10 @@ public class SelectorDeEditar extends javax.swing.JPanel {
         }else{
             proyecto.setNombreProyecto(nombreTxt.getText());
             proyecto.setPresupuesto(Double.parseDouble(presupuestTxt.getText()));
-            proyecto.setFechaDeCreacion(controller.fecha());
             proyecto.setSustentabilidad((String)sustentabilidadBox.getSelectedItem());
             proyecto.setPublico((String)publicoBox.getSelectedItem());
             proyecto.setActividad((String)actividadBox.getSelectedItem());
-            fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,proyec,usuarioActual,materiales);
+            fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,proyec,usuarioActual,materiales,escogido,"Modificar");
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentSelector.removeAll();

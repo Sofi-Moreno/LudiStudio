@@ -26,15 +26,13 @@ public class elementosComplementarios extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    List<Material> escogido;
+    String operacion;
     /**
      * Creates new form elementosComplementarios
      */
-    public elementosComplementarios(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
+    public elementosComplementarios(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,String operacion) {
         initComponents();
-        esc = true;
-        bar= true;
-        tech= true;
-        ramp=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
         this.proyecto = proyecto;
@@ -44,7 +42,42 @@ public class elementosComplementarios extends javax.swing.JPanel {
         controller.llenarBoxMateriales(materialBox2,mat);
         controller.llenarBoxMateriales(materialBox3,mat);
         controller.llenarBoxMateriales(materialBox4,mat);
-        
+        this.operacion=operacion;
+        esc = true;
+        ramp=true;
+        bar= true;
+        tech= true;
+    }
+    
+    public elementosComplementarios(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,List<Material> escogido,String operacion) {
+        initComponents();
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.escogido = escogido;
+        materiales = mat;
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
+        controller.llenarBoxMateriales(materialBox4,mat);
+        this.operacion=operacion;
+        esc = true;
+        ramp=true;
+        bar= true;
+        tech= true;
+        if(escogido.get(11)!=null){
+            materialBox1.setSelectedItem(escogido.get(11).getNombreMaterial());
+        }
+        if(escogido.get(12)!=null){
+            materialBox2.setSelectedItem(escogido.get(12).getNombreMaterial());
+        }
+        if(escogido.get(13)!=null){
+            materialBox3.setSelectedItem(escogido.get(13).getNombreMaterial());
+        }
+        if(escogido.get(14)!=null){
+            materialBox4.setSelectedItem(escogido.get(14).getNombreMaterial());
+        }
     }
 
     /**
@@ -818,13 +851,13 @@ public class elementosComplementarios extends javax.swing.JPanel {
             }else{
                proyec.add(null);
             }
-            if(bar && !materialBox2.getSelectedItem().equals("Material")){
-                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
+            if(ramp && !materialBox3.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox3, proyec, materiales);
             }else{
                 proyec.add(null);
             }
-            if(ramp && !materialBox3.getSelectedItem().equals("Material")){
-                controller.guardarMateriales(proyecto, materialBox3, proyec, materiales);
+            if(bar && !materialBox2.getSelectedItem().equals("Material")){
+                controller.guardarMateriales(proyecto, materialBox2, proyec, materiales);
             }else{
                 proyec.add(null);
             }
@@ -833,7 +866,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
             }else{
                 proyec.add(null);
             }
-            mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual);
+            mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual,operacion);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();

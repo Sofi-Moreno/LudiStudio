@@ -26,13 +26,14 @@ public class cubierta extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    String operacion;
+    List<Material> escogido;
+
     /**
      * Creates new form cubierta
      */
-    public cubierta(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
+    public cubierta(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,String operacion) {
         initComponents();
-        estructCubierta=true;
-        cubiert= true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
         this.proyecto = proyecto;
@@ -40,8 +41,30 @@ public class cubierta extends javax.swing.JPanel {
         materiales = mat;
         controller.llenarBoxMateriales(materialBox1,mat);
         controller.llenarBoxMateriales(materialBox2,mat);
-        
-        
+        this.operacion=operacion;
+        estructCubierta=true;
+        cubiert= true;
+    }
+    
+    public cubierta(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,List<Material> escogido,String operacion) {
+        initComponents();
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.escogido = escogido;
+        materiales = mat;
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        this.operacion=operacion;
+        estructCubierta=true;
+        cubiert= true;
+        if(escogido.get(6)!=null){
+            materialBox1.setSelectedItem(escogido.get(6).getNombreMaterial());
+        }
+        if(escogido.get(7)!=null){
+            materialBox2.setSelectedItem(escogido.get(7).getNombreMaterial());
+        }
     }
 
     /**
@@ -492,7 +515,12 @@ public class cubierta extends javax.swing.JPanel {
             }else{
                 proyec.add(null);
             }
-            Cerramientos p3 = new Cerramientos(proyecto,proyec,usuarioActual,materiales);
+            Cerramientos p3 = null;
+            if(operacion == "Crear"){
+                p3 = new Cerramientos(proyecto,proyec,usuarioActual,materiales,operacion);
+            }else if(operacion == "Modificar"){
+                p3 = new Cerramientos(proyecto,proyec,usuarioActual,materiales,escogido,operacion);
+            }
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentCubierta.removeAll();

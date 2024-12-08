@@ -255,7 +255,7 @@ public class SelectorDePartes extends javax.swing.JPanel {
             proyecto.setSustentabilidad((String)sustentabilidadBox.getSelectedItem());
             proyecto.setPublico((String)publicoBox.getSelectedItem());
             proyecto.setActividad((String)actividadBox.getSelectedItem());
-            fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,proyec,usuarioActual,materiales);
+            fundamentosYcimentacion p3 = new fundamentosYcimentacion(proyecto,proyec,usuarioActual,materiales,"Crear");
             p3.setSize(613,530);
             p3.setLocation(0,0);
             contentSelector.removeAll();

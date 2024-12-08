@@ -26,14 +26,13 @@ public class Cerramientos extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    List<Material> escogido;
+    String operacion;
     /**
      * Creates new form Cerramientos
      */
-    public Cerramientos(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
+    public Cerramientos(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,String operacion) {
         initComponents();
-        mur= true;
-        vent=true;
-        puert=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
         this.proyecto = proyecto;
@@ -42,6 +41,36 @@ public class Cerramientos extends javax.swing.JPanel {
         controller.llenarBoxMateriales(materialBox1,mat);
         controller.llenarBoxMateriales(materialBox2,mat);
         controller.llenarBoxMateriales(materialBox3,mat);
+        this.operacion=operacion;
+        mur= true;
+        vent=true;
+        puert=true;
+    }
+    
+    public Cerramientos(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat,List<Material> escogido,String operacion) {
+        initComponents();
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.escogido = escogido;
+        materiales = mat;
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
+        this.operacion=operacion;
+        mur= true;
+        vent=true;
+        puert=true;
+        if(escogido.get(8)!=null){
+            materialBox1.setSelectedItem(escogido.get(8).getNombreMaterial());
+        }
+        if(escogido.get(9)!=null){
+            materialBox2.setSelectedItem(escogido.get(9).getNombreMaterial());
+        }
+        if(escogido.get(10)!=null){
+            materialBox3.setSelectedItem(escogido.get(10).getNombreMaterial());
+        }
     }
 
     /**
@@ -643,7 +672,12 @@ public class Cerramientos extends javax.swing.JPanel {
             }else{
                 proyec.add(null);
             }
-            elementosComplementarios p = new elementosComplementarios(proyecto,proyec,usuarioActual,materiales);
+            elementosComplementarios p = null;
+            if(operacion == "Crear"){
+                p = new elementosComplementarios(proyecto,proyec,usuarioActual,materiales,operacion);
+            }else if(operacion == "Modificar"){
+                p = new elementosComplementarios(proyecto,proyec,usuarioActual,materiales,escogido,operacion);
+            }
             p.setSize(613,530);
             p.setLocation(0,0);
             contentCerramientos.removeAll();

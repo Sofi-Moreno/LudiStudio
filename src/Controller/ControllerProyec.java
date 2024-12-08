@@ -60,27 +60,18 @@ public class ControllerProyec {
         this.actividad = actividad;
         this.ventana = ventana;
     }
-    
-    
     public ControllerProyec(JPanel ventana){
         this.ventana = ventana;
     }
-   
     //constructor para eliminar
     public ControllerProyec(JPanel ventana,JTextField idProyecto) {
         this.ventana = ventana;
         this.idProyecto = idProyecto;
     }
     //constructor para vista previa
-
     public ControllerProyec(JFrame ventanita) {
         this.ventanita = ventanita;
     }
-    
-    //constructor modificar
-    
-    
-    //constructor para ver
     //**************************CREAR PROYECTO**************************
     //validacion de nombre del proyecto
     public boolean validarNombre(Proyecto proyecto) {
@@ -284,39 +275,49 @@ public class ControllerProyec {
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt=  null;
-        ResultSet res = null;
         ResultSet rs = null;
         Material material;
         List<Integer> partes = new ArrayList<>(14);
-        int parte;
+        int parte,cont=0;
         try {
             stmt = conex.prepareStatement("SELECT * FROM partes WHERE id_partes = ?");
             stmt.setInt(1,proyecto.getIdMateriales());
             rs = stmt.executeQuery();
             if(rs.next()){
-                parte = rs.getInt("Zapata");if(!rs.wasNull()){partes.add(0, parte);}else{partes.set(0, null);}
-                parte = rs.getInt("MurosDeContención");if(!rs.wasNull()){partes.set(1, parte);}else{partes.set(1, null);}
-                parte = rs.getInt("Columnas");if(!rs.wasNull()){partes.set(2, parte);}else{partes.set(2, null);}
-                parte = rs.getInt("Vigas");if(!rs.wasNull()){partes.set(3, parte);}else{partes.set(3, null);}
-                parte = rs.getInt("Losas");if(!rs.wasNull()){partes.set(4, parte);}else{partes.set(4, null);}
-                parte = rs.getInt("Entrepiso");if(!rs.wasNull()){partes.set(5, parte);}else{partes.set(5, null);}
-                parte = rs.getInt("EstructuraDeCubierta");if(!rs.wasNull()){partes.add(6, parte);}else{partes.set(6, null);}
-                parte = rs.getInt("Cubierta");if(!rs.wasNull()){partes.set(7, parte);}else{partes.set(7, null);}
-                parte = rs.getInt("Muros");if(!rs.wasNull()){partes.set(8, parte);}else{partes.set(8, null);}
-                parte = rs.getInt("Ventanas");if(!rs.wasNull()){partes.set(9, parte);}else{partes.set(9, null);}
-                parte = rs.getInt("Puertas");if(!rs.wasNull()){partes.set(10, parte);}else{partes.set(10, null);}
-                parte = rs.getInt("Escalera");if(!rs.wasNull()){partes.set(11, parte);}else{partes.set(11, null);}
-                
+                parte = rs.getInt("Zapata");if(!rs.wasNull()){partes.add(0, parte);}else{partes.add(0, null);}
+                parte = rs.getInt("MurosDeContención");if(!rs.wasNull()){partes.add(1, parte);}else{partes.add(1, null);}
+                parte = rs.getInt("Columnas");if(!rs.wasNull()){partes.add(2, parte);}else{partes.add(2, null);}
+                parte = rs.getInt("Vigas");if(!rs.wasNull()){partes.add(3, parte);}else{partes.add(3, null);}
+                parte = rs.getInt("Losas");if(!rs.wasNull()){partes.add(4, parte);}else{partes.add(4, null);}
+                parte = rs.getInt("Entrepiso");if(!rs.wasNull()){partes.add(5, parte);}else{partes.add(5, null);}
+                parte = rs.getInt("EstructuraDeCubierta");if(!rs.wasNull()){partes.add(6, parte);}else{partes.add(6, null);}
+                parte = rs.getInt("Cubierta");if(!rs.wasNull()){partes.add(7, parte);}else{partes.add(7, null);}
+                parte = rs.getInt("Muros");if(!rs.wasNull()){partes.add(8, parte);}else{partes.add(8, null);}
+                parte = rs.getInt("Ventanas");if(!rs.wasNull()){partes.add(9, parte);}else{partes.add(9, null);}
+                parte = rs.getInt("Puertas");if(!rs.wasNull()){partes.add(10, parte);}else{partes.add(10, null);}
+                parte = rs.getInt("Escalera");if(!rs.wasNull()){partes.add(11, parte);}else{partes.add(11, null);}
+                parte = rs.getInt("Rampas");if(!rs.wasNull()){partes.add(12, parte);}else{partes.add(12, null);}
+                parte = rs.getInt("Barandas");if(!rs.wasNull()){partes.add(13, parte);}else{partes.add(13, null);}
+                parte = rs.getInt("Techos");if(!rs.wasNull()){partes.add(14, parte);}else{partes.add(14, null);}
+            }
+            while(cont<partes.size()){
+                if(partes.get(cont)!=null){
+                    stmt = conex.prepareStatement("SELECT * FROM material WHERE id_material = ?");
+                    stmt.setInt(1,partes.get(cont));
+                    rs = stmt.executeQuery();
+                    if(rs.next()){
+                        material = new Material(rs.getInt("id_material"),rs.getString("rubro_material"),rs.getString("nombre_material"),
+                        rs.getString("unidad_material"),rs.getString("sustentabilidad_material"),rs.getString("proveedor_material"),
+                        rs.getString("transporte_material"),rs.getString("manodeobra_material"), rs.getString("herramientas_material"), rs.getDouble("costo_material"),
+                        rs.getDouble("costo_transporte"),rs.getDouble("costo_manodeobra"),rs.getDouble("costo_herramientas"),rs.getDouble("costo_total"),0);
+                        materiales.add(material);
+                    }
+                }else{
+                    materiales.add(null);
+                }
+                cont++;  
             }
             
-            
-            while(rs.next()){
-                material = new Material(rs.getInt("id_material"),rs.getString("rubro_material"),rs.getString("nombre_material"),
-                rs.getString("unidad_material"),rs.getString("sustentabilidad_material"),rs.getString("proveedor_material"),
-                rs.getString("transporte_material"),rs.getString("manodeobra_material"), rs.getString("herramientas_material"), rs.getDouble("costo_material"),
-                rs.getDouble("costo_transporte"),rs.getDouble("costo_manodeobra"),rs.getDouble("costo_herramientas"),rs.getDouble("costo_total"),0);
-                materiales.add(material);
-            }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
@@ -516,7 +517,6 @@ public class ControllerProyec {
                 rs = stmt.executeQuery("SELECT id_proyecto FROM proyecto WHERE usuario = "+usuario.getId_usuario());
                 while(rs.next()){
                     if(idProyecto.getText().equals(String.valueOf(rs.getInt("id_proyecto")))){
-                        proyecto.setIdUsuario(rs.getInt("id_proyecto"));
                         boleano = true;
                     }
                 }
@@ -524,6 +524,7 @@ public class ControllerProyec {
                     stmt = conex.createStatement();
                     rs = stmt.executeQuery("SELECT * FROM proyecto WHERE id_proyecto ="+idProyecto.getText());
                     if(rs.next()){
+                        proyecto.setIdProyecto(rs.getInt("id_proyecto"));
                         proyecto.setIdUsuario(rs.getInt("usuario"));
                         proyecto.setNombreProyecto(rs.getString("nombre"));
                         proyecto.setPresupuesto(rs.getDouble("presupuesto"));
@@ -534,7 +535,7 @@ public class ControllerProyec {
                         proyecto.setActividad(rs.getString("actividad"));
                         proyecto.setIdMateriales(rs.getInt("materiales"));
                     }
-                    
+
                 }else{
                     val = 2; //si no existe
                 }
@@ -552,46 +553,99 @@ public class ControllerProyec {
     }
     
     //**************************Modificar proyecto**************************
-    public int modificarProyecto(Proyecto proyecto){
-        int val = 0;
+    public void modificarProyecto(Proyecto proyecto, List<Material> material){
         ConnectionDB con = new ConnectionDB();
         Connection conex = con.getConnection(); 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String patron = "^\\d+$";
-        Pattern pattern = Pattern.compile(patron);
-        Matcher matcher = pattern.matcher(idProyecto.getText());
         try{
-            if(!matcher.matches()){
-                val = 1;
+            stmt = conex.prepareStatement("UPDATE proyecto SET nombre=?,presupuesto=?,presupuestoTotal=?,sustentabilidad=?,publico=?,actividad=? WHERE id_proyecto=?");
+            stmt.setString(1, proyecto.getNombreProyecto());
+            stmt.setDouble(2, proyecto.getPresupuesto());
+            stmt.setDouble(3, proyecto.getPresupuestoTotal());
+            stmt.setString(4, proyecto.getSustentabilidad());
+            stmt.setString(5, proyecto.getPublico());
+            stmt.setString(6, proyecto.getActividad());
+            stmt.setInt(7,proyecto.getIdProyecto());
+            stmt.executeUpdate();
+            stmt = conex.prepareStatement("UPDATE partes SET Zapata=?,MurosDeContención=?,Columnas=?,Vigas=?,Losas=?,Entrepiso=?,EstructuraDeCubierta=?,Cubierta=?,Muros=?,Ventanas=?,Puertas=?,Escalera=?,Rampas=?,Barandas=?,Techos=? WHERE id_partes = ?");
+            if(material.get(0)!=null){
+                stmt.setInt(1, material.get(0).getId_material());
+            }else{
+                stmt.setNull(1,java.sql.Types.INTEGER);
             }
-            else{
-                stmt = conex.prepareStatement("SELECT COUNT(*) AS cantidad FROM proyecto WHERE id_proyecto = ?");
-                stmt.setInt(1, Integer.parseInt(idProyecto.getText()));
-                rs = stmt.executeQuery();
-                if(rs.next()){
-                    if(rs.getInt("cantidad")==0){
-                        val = 2;
-                    }
-                    else{
-                        stmt = conex.prepareStatement("SELECT * FROM proyecto WHERE id_proyecto = ?");
-                        stmt.setInt(1, Integer.parseInt(idProyecto.getText()));
-                        rs = stmt.executeQuery();
-                        if(rs.next()){
-                            proyecto.setIdUsuario(rs.getInt("usuario"));
-                            proyecto.setNombreProyecto(rs.getString("nombre"));
-                            proyecto.setPresupuesto(rs.getDouble("presupuesto"));
-                            proyecto.setPresupuestoTotal(rs.getDouble("presupuestoTotal"));
-                            proyecto.setFechaDeCreacion(rs.getString("fecha"));
-                            proyecto.setSustentabilidad(rs.getString("sustentabilidad"));
-                            proyecto.setIdMateriales(rs.getInt("materiales"));
-                        }
-                        
-                    }
-                }
+            if(material.get(1)!=null){
+                stmt.setInt(2, material.get(1).getId_material());
+            }else{
+                stmt.setNull(2, java.sql.Types.INTEGER);
             }
-            
-            
+            if(material.get(2)!=null){
+                stmt.setInt(3, material.get(2).getId_material());
+            }else{
+                stmt.setNull(3, java.sql.Types.INTEGER);
+            }
+            if(material.get(3)!=null){
+                stmt.setInt(4, material.get(3).getId_material());
+            }else{
+                stmt.setNull(4, java.sql.Types.INTEGER);
+            }
+            if(material.get(4)!=null){
+                stmt.setInt(5, material.get(4).getId_material());
+            }else{
+                stmt.setNull(5, java.sql.Types.INTEGER);
+            }
+            if(material.get(5)!=null){
+                stmt.setInt(6, material.get(5).getId_material());
+            }else{
+                stmt.setNull(6, java.sql.Types.INTEGER);
+            }
+            if(material.get(6)!=null){
+                stmt.setInt(7, material.get(6).getId_material());
+            }else{
+                stmt.setNull(7, java.sql.Types.INTEGER);
+            }
+            if(material.get(7)!=null){
+                stmt.setInt(8, material.get(7).getId_material());
+            }else{
+                stmt.setNull(8, java.sql.Types.INTEGER);
+            }
+            if(material.get(8)!=null){
+                stmt.setInt(9, material.get(8).getId_material());
+            }else{
+                stmt.setNull(9, java.sql.Types.INTEGER);
+            }
+            if(material.get(9)!=null){
+                stmt.setInt(10, material.get(9).getId_material());
+            }else{
+                stmt.setNull(10, java.sql.Types.INTEGER);
+            }
+            if(material.get(10)!=null){
+                stmt.setInt(11, material.get(10).getId_material());
+            }else{
+                stmt.setNull(11, java.sql.Types.INTEGER);
+            }
+            if(material.get(11)!=null){
+                stmt.setInt(12, material.get(11).getId_material());
+            }else{
+                stmt.setNull(12, java.sql.Types.INTEGER);
+            }
+            if(material.get(12)!=null){
+                stmt.setInt(13, material.get(12).getId_material());
+            }else{
+                stmt.setNull(13, java.sql.Types.INTEGER);
+            }
+            if(material.get(13)!=null){
+                stmt.setInt(14, material.get(13).getId_material());
+            }else{
+                stmt.setNull(14, java.sql.Types.INTEGER);
+            }
+            if(material.get(14)!=null){
+                stmt.setInt(15, material.get(14).getId_material());
+            }else{
+                stmt.setNull(15, java.sql.Types.INTEGER);
+            }
+            stmt.setInt(16, proyecto.getIdMateriales());
+            stmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
@@ -605,7 +659,6 @@ public class ControllerProyec {
             } 
             
         }
-        return val;
     }
     
     //**************************ELIMINAR PROYECTO**************************

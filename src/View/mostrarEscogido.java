@@ -27,15 +27,17 @@ public class mostrarEscogido extends javax.swing.JPanel {
     Proyecto proyecto;
     double presupuestoTotal;
     List<Material> proyec;
+    String operacion;
     /**
      * Creates new form mostrarEscogido
      */
-    public mostrarEscogido(Proyecto proyecto,java.util.List<Material> proyec, Usuario usuario) {
+    public mostrarEscogido(Proyecto proyecto,java.util.List<Material> proyec, Usuario usuario,String operacion) {
         initComponents();
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
         this.proyecto = proyecto;
         this.proyec = proyec;
+        this.operacion =operacion;
         nombreDato.setText(proyecto.getNombreProyecto());
         presupuestoDato.setText(String.valueOf(proyecto.getPresupuesto()));
         autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
@@ -46,6 +48,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
             costoDato.setText(String.valueOf(presupuestoTotal)+" Bs");
         }
         proyecto.setPresupuestoTotal(presupuestoTotal);
+
     }
 
     /**
@@ -259,8 +262,14 @@ public class mostrarEscogido extends javax.swing.JPanel {
 
     private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
         try {
-            controller.guardarInformacion(proyecto, proyec);
-            JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
+            if(operacion == "Crear"){
+                controller.guardarInformacion(proyecto, proyec);
+                JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
+            }else if(operacion == "Modificar"){
+               controller.modificarProyecto(proyecto, proyec);
+               JOptionPane.showMessageDialog(null, "El proyecto ha sido modificado con exito");
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "El proyecto no ha sido guardado");

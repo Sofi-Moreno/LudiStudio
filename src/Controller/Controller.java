@@ -279,6 +279,7 @@ public class Controller {
         Connection conex = con.getConnection(); 
         boolean bol = false;
         PreparedStatement st = null;
+        ResultSet rs= null;
         String sql = "INSERT INTO usuario (usuario, contraseña, apellido, nombre, pais, moneda, institucion, carrera) VALUES (?,?,?,?,?,?,?,?)";
         try {
             st = conex.prepareStatement(sql);
@@ -298,11 +299,16 @@ public class Controller {
             user.setMonedaUsuario((String) monedaRegistro.getSelectedItem());
             user.setInstitucionUsuario((String) institucionRegistro.getSelectedItem());
             user.setCarreraUsuario((String) carreraRegistro.getSelectedItem());
-            
+            st = conex.prepareStatement("SELECT MAX(id_usuario) AS ultimoID FROM usuario");
+            rs = st.executeQuery();
+            if(rs.next()){
+                user.setId_usuario(rs.getInt("ultimoID"));
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             st.close();
+            rs.close();
             conex.close();
             con.desconectar();
         }

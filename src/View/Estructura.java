@@ -26,6 +26,8 @@ public class Estructura extends javax.swing.JPanel {
     Proyecto proyecto;
     List<Material> materiales;
     List<Material> proyec;
+    String operacion;
+    List<Material> escogido;
 
     /**
      * Creates new form Estructura
@@ -33,12 +35,8 @@ public class Estructura extends javax.swing.JPanel {
      * @param usuario
      * @param presupuesto
      */
-    public Estructura(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat) {
+    public Estructura(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat, String operacion) {
         initComponents();
-        column=true;
-        los=true;
-        vig=true;
-        entrep=true;
         controller=new ControllerProyec(this);
         usuarioActual = usuario;
         this.proyecto = proyecto;
@@ -48,6 +46,42 @@ public class Estructura extends javax.swing.JPanel {
         controller.llenarBoxMateriales(materialBox2,mat);
         controller.llenarBoxMateriales(materialBox3,mat);
         controller.llenarBoxMateriales(materialBox4,mat);
+        this.operacion=operacion;
+        column=true;
+        vig=true;
+        los=true;
+        entrep=true;
+    }
+    
+    public Estructura(Proyecto proyecto,List<Material> proyec, Usuario usuario,List<Material> mat, List<Material> escogido, String operacion) {
+        initComponents();
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.escogido = escogido;
+        materiales = mat;
+        controller.llenarBoxMateriales(materialBox1,mat);
+        controller.llenarBoxMateriales(materialBox2,mat);
+        controller.llenarBoxMateriales(materialBox3,mat);
+        controller.llenarBoxMateriales(materialBox4,mat);
+        this.operacion=operacion;
+        column=true;
+        vig=true;
+        los=true;
+        entrep=true;
+        if(escogido.get(2)!=null){
+            materialBox1.setSelectedItem(escogido.get(2).getNombreMaterial());
+        }
+        if(escogido.get(3)!=null){
+            materialBox2.setSelectedItem(escogido.get(3).getNombreMaterial());
+        }
+        if(escogido.get(4)!=null){
+            materialBox3.setSelectedItem(escogido.get(4).getNombreMaterial());
+        }
+        if(escogido.get(5)!=null){
+            materialBox4.setSelectedItem(escogido.get(5).getNombreMaterial());
+        }
         
     }
 
@@ -873,7 +907,12 @@ public class Estructura extends javax.swing.JPanel {
             }else{
                 proyec.add(null);
             }
-            cubierta p = new cubierta(proyecto,proyec,usuarioActual,materiales);
+            cubierta p = null;
+            if(operacion == "Crear"){
+                p = new cubierta(proyecto,proyec,usuarioActual,materiales,operacion);
+            }else if(operacion == "Modificar"){
+                p = new cubierta(proyecto,proyec,usuarioActual,materiales,escogido,operacion);
+            }
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();
