@@ -49,7 +49,7 @@ public class modificarUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel6 = new javax.swing.JPanel();
+        contentModU = new javax.swing.JPanel();
         nombreLabel = new javax.swing.JLabel();
         apellidoLabel = new javax.swing.JLabel();
         usuarioLabel = new javax.swing.JLabel();
@@ -76,48 +76,48 @@ public class modificarUsuario extends javax.swing.JPanel {
         institucionBox = new javax.swing.JComboBox<>();
         paisBox = new javax.swing.JComboBox<>();
 
-        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        contentModU.setBackground(new java.awt.Color(0, 153, 153));
+        contentModU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nombreLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombreLabel.setText("Nombre");
-        jPanel6.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        contentModU.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         apellidoLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         apellidoLabel.setForeground(new java.awt.Color(255, 255, 255));
         apellidoLabel.setText("Apellido");
-        jPanel6.add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        contentModU.add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         usuarioLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         usuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
         usuarioLabel.setText("Usuario");
-        jPanel6.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        contentModU.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
+        contentModU.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Moneda");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        contentModU.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Institución");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        contentModU.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         paisLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         paisLabel.setForeground(new java.awt.Color(255, 255, 255));
         paisLabel.setText("País");
-        jPanel6.add(paisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        contentModU.add(paisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         carreraLabel.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         carreraLabel.setForeground(new java.awt.Color(255, 255, 255));
         carreraLabel.setText("Carrera");
-        jPanel6.add(carreraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        contentModU.add(carreraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         monedaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Bolivares (Bs)", "Dolares ($)" }));
         monedaBox.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 monedaBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(monedaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, -1));
+        contentModU.add(monedaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, -1));
 
         carreraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ingenieria Civil", "Ingenieria Informatica", "Arquitectura" }));
         carreraBox.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 carreraBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(carreraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        contentModU.add(carreraBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -158,7 +158,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 .addGap(23, 23, 23))
         );
 
-        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 640, 100));
+        contentModU.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 640, 100));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -195,8 +195,8 @@ public class modificarUsuario extends javax.swing.JPanel {
                 .addGap(17, 17, 17))
         );
 
-        jPanel6.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 170, 60));
-        jPanel6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 240, 20));
+        contentModU.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 170, 60));
+        contentModU.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 240, 20));
 
         nombreTxt.setBackground(new java.awt.Color(0, 153, 153));
         nombreTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -217,7 +217,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 nombreTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, -1));
+        contentModU.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, -1));
 
         apellidoTxt.setBackground(new java.awt.Color(0, 153, 153));
         apellidoTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -235,7 +235,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 apellidoTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 290, -1));
+        contentModU.add(apellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 290, -1));
 
         userTxt.setBackground(new java.awt.Color(0, 153, 153));
         userTxt.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -253,12 +253,12 @@ public class modificarUsuario extends javax.swing.JPanel {
                 userTxtActionPerformed(evt);
             }
         });
-        jPanel6.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
+        contentModU.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("(nueva contraseña)");
-        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
+        contentModU.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
 
         passTxt.setBackground(new java.awt.Color(0, 153, 153));
         passTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
@@ -270,10 +270,10 @@ public class modificarUsuario extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel6.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 290, 20));
-        jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 240, 20));
-        jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 240, 20));
-        jPanel6.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 240, 20));
+        contentModU.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 290, 20));
+        contentModU.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 240, 20));
+        contentModU.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 240, 20));
+        contentModU.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 240, 20));
 
         institucionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "UCA", "UCAB", "PUCEM" }));
         institucionBox.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +281,7 @@ public class modificarUsuario extends javax.swing.JPanel {
                 institucionBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(institucionBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 150, -1));
+        contentModU.add(institucionBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 150, -1));
 
         paisBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Ecuador", "Venezuela", "El Salvador" }));
         paisBox.addActionListener(new java.awt.event.ActionListener() {
@@ -289,17 +289,17 @@ public class modificarUsuario extends javax.swing.JPanel {
                 paisBoxActionPerformed(evt);
             }
         });
-        jPanel6.add(paisBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
+        contentModU.add(paisBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 636, Short.MAX_VALUE)
+            .addComponent(contentModU, javax.swing.GroupLayout.PREFERRED_SIZE, 636, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentModU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -372,9 +372,13 @@ public class modificarUsuario extends javax.swing.JPanel {
                                         default:
                                             controller.guardarModificacion(usuarioActual);
                                             JOptionPane.showMessageDialog(null, "El usuario ha sido modificado con exito.");
-                                            MainMenu main = new MainMenu(usuarioActual);
-                                            main.setVisible(true);
-                                            this.setVisible(false);
+                                            Logo p = new Logo();
+                                            p.setSize(613,530);
+                                            p.setLocation(0,0);
+                                            contentModU.removeAll();
+                                            contentModU.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                                            contentModU.revalidate();
+                                            contentModU.repaint();
                                             break;
                                     }
                                 break;
@@ -504,6 +508,7 @@ public class modificarUsuario extends javax.swing.JPanel {
     private javax.swing.JTextField apellidoTxt;
     private javax.swing.JComboBox<String> carreraBox;
     private javax.swing.JLabel carreraLabel;
+    private javax.swing.JPanel contentModU;
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
     private javax.swing.JComboBox<String> institucionBox;
@@ -512,7 +517,6 @@ public class modificarUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

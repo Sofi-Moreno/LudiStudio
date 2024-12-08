@@ -82,16 +82,16 @@ public class MainMenu extends javax.swing.JFrame {
         salirButomLayout.setHorizontalGroup(
             salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salirButomLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         salirButomLayout.setVerticalGroup(
             salirButomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salirButomLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel2.add(salirButom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 340, 90));
@@ -119,16 +119,16 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarUsuarioButtom1Layout.setHorizontalGroup(
             gestionarUsuarioButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarUsuarioButtom1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(51, 51, 51)
                 .addComponent(jLabel3)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         gestionarUsuarioButtom1Layout.setVerticalGroup(
             gestionarUsuarioButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarUsuarioButtom1Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(29, 29, 29))
+                .addGap(28, 28, 28))
         );
 
         jPanel2.add(gestionarUsuarioButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 100));
@@ -192,17 +192,17 @@ public class MainMenu extends javax.swing.JFrame {
         gestionarProyectosButtom.setLayout(gestionarProyectosButtomLayout);
         gestionarProyectosButtomLayout.setHorizontalGroup(
             gestionarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestionarProyectosButtomLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+            .addGroup(gestionarProyectosButtomLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addComponent(jLabel5)
-                .addGap(47, 47, 47))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         gestionarProyectosButtomLayout.setVerticalGroup(
             gestionarProyectosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gestionarProyectosButtomLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel5)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jPanel2.add(gestionarProyectosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 340, 100));
@@ -231,7 +231,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(content2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         content2Layout.setVerticalGroup(
             content2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +253,7 @@ public class MainMenu extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
             .addComponent(content2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 

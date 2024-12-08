@@ -75,8 +75,10 @@ public class mostrarEscogido extends javax.swing.JPanel {
         nombreDato = new javax.swing.JLabel();
         costoDato = new javax.swing.JLabel();
         presupuestoDato = new javax.swing.JLabel();
-        entrarButtom2 = new javax.swing.JPanel();
+        imprimirButtom = new javax.swing.JPanel();
         entrarLabel2 = new javax.swing.JLabel();
+        entrarButtom3 = new javax.swing.JPanel();
+        entrarLabel3 = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -197,42 +199,79 @@ public class mostrarEscogido extends javax.swing.JPanel {
         presupuestoDato.setText("5000$");
         contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
-        entrarButtom2.setBackground(new java.awt.Color(0, 102, 102));
-        entrarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        entrarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
+        imprimirButtom.setBackground(new java.awt.Color(0, 102, 102));
+        imprimirButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imprimirButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                entrarButtom2MouseClicked(evt);
+                imprimirButtomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                entrarButtom2MouseEntered(evt);
+                imprimirButtomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                entrarButtom2MouseExited(evt);
+                imprimirButtomMouseExited(evt);
             }
         });
 
         entrarLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         entrarLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        entrarLabel2.setText("GUARDAR");
+        entrarLabel2.setText("IMPRIMIR");
 
-        javax.swing.GroupLayout entrarButtom2Layout = new javax.swing.GroupLayout(entrarButtom2);
-        entrarButtom2.setLayout(entrarButtom2Layout);
-        entrarButtom2Layout.setHorizontalGroup(
-            entrarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom2Layout.createSequentialGroup()
+        javax.swing.GroupLayout imprimirButtomLayout = new javax.swing.GroupLayout(imprimirButtom);
+        imprimirButtom.setLayout(imprimirButtomLayout);
+        imprimirButtomLayout.setHorizontalGroup(
+            imprimirButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imprimirButtomLayout.createSequentialGroup()
                 .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(entrarLabel2)
                 .addGap(50, 50, 50))
         );
-        entrarButtom2Layout.setVerticalGroup(
-            entrarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom2Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+        imprimirButtomLayout.setVerticalGroup(
+            imprimirButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imprimirButtomLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(entrarLabel2)
-                .addContainerGap())
+                .addGap(17, 17, 17))
         );
 
-        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, -1));
+        contentVista.add(imprimirButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, 60));
+
+        entrarButtom3.setBackground(new java.awt.Color(0, 102, 102));
+        entrarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrarButtom3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarButtom3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entrarButtom3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                entrarButtom3MouseExited(evt);
+            }
+        });
+
+        entrarLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        entrarLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        entrarLabel3.setText("GUARDAR");
+
+        javax.swing.GroupLayout entrarButtom3Layout = new javax.swing.GroupLayout(entrarButtom3);
+        entrarButtom3.setLayout(entrarButtom3Layout);
+        entrarButtom3Layout.setHorizontalGroup(
+            entrarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom3Layout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(entrarLabel3)
+                .addGap(50, 50, 50))
+        );
+        entrarButtom3Layout.setVerticalGroup(
+            entrarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom3Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(entrarLabel3)
+                .addGap(17, 17, 17))
+        );
+
+        contentVista.add(entrarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -242,7 +281,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentVista, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,39 +301,41 @@ public class mostrarEscogido extends javax.swing.JPanel {
         mostrarDatosButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_mostrarDatosButtomMouseExited
 
-    private void entrarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseClicked
-        try {
-            if(operacion == "Crear"){
-                controller.guardarInformacion(proyecto, proyec);
-                JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
-            }else if(operacion == "Modificar"){
-               controller.modificarProyecto(proyecto, proyec);
-               JOptionPane.showMessageDialog(null, "El proyecto ha sido modificado con exito");
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "El proyecto no ha sido guardado");
-        }
-        //volver a main menu
-    }//GEN-LAST:event_entrarButtom2MouseClicked
+    private void imprimirButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseClicked
 
-    private void entrarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseEntered
-        entrarButtom2.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_entrarButtom2MouseEntered
+           
+    }//GEN-LAST:event_imprimirButtomMouseClicked
 
-    private void entrarButtom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom2MouseExited
-        entrarButtom2.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_entrarButtom2MouseExited
+    private void imprimirButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseEntered
+        imprimirButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_imprimirButtomMouseEntered
+
+    private void imprimirButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseExited
+        imprimirButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_imprimirButtomMouseExited
+
+    private void entrarButtom3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom3MouseClicked
+
+    private void entrarButtom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom3MouseEntered
+
+    private void entrarButtom3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarButtom3MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel autorDato;
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
-    private javax.swing.JPanel entrarButtom2;
+    private javax.swing.JPanel entrarButtom3;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JLabel entrarLabel2;
+    private javax.swing.JLabel entrarLabel3;
+    private javax.swing.JPanel imprimirButtom;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

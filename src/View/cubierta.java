@@ -390,7 +390,7 @@ public class cubierta extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 220, 60));
+        contentCubierta.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 220, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -400,7 +400,7 @@ public class cubierta extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentCubierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentCubierta, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

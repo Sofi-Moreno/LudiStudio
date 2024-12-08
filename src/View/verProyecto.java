@@ -62,6 +62,10 @@ public class verProyecto extends javax.swing.JPanel {
         ingresarLabel = new javax.swing.JLabel();
         ingresarButtom1 = new javax.swing.JPanel();
         ingresarLabel1 = new javax.swing.JLabel();
+        ingresarButtom2 = new javax.swing.JPanel();
+        ingresarLabel2 = new javax.swing.JLabel();
+        ingresarButtom3 = new javax.swing.JPanel();
+        ingresarLabel3 = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -198,26 +202,26 @@ public class verProyecto extends javax.swing.JPanel {
 
         ingresarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ingresarLabel.setText("VOLVER");
+        ingresarLabel.setText("IMPRIMIR");
 
         javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
         ingresarButtom.setLayout(ingresarButtomLayout);
         ingresarButtomLayout.setHorizontalGroup(
             ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(ingresarLabel)
-                .addGap(33, 33, 33))
+                .addGap(34, 34, 34))
         );
         ingresarButtomLayout.setVerticalGroup(
             ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+            .addGroup(ingresarButtomLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(ingresarLabel)
-                .addGap(15, 15, 15))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
         ingresarButtom1.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -255,6 +259,80 @@ public class verProyecto extends javax.swing.JPanel {
         );
 
         contentVista.add(ingresarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+
+        ingresarButtom2.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ingresarButtom2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarButtom2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ingresarButtom2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ingresarButtom2MouseExited(evt);
+            }
+        });
+
+        ingresarLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        ingresarLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarLabel2.setText("VOLVER");
+
+        javax.swing.GroupLayout ingresarButtom2Layout = new javax.swing.GroupLayout(ingresarButtom2);
+        ingresarButtom2.setLayout(ingresarButtom2Layout);
+        ingresarButtom2Layout.setHorizontalGroup(
+            ingresarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom2Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(ingresarLabel2)
+                .addGap(33, 33, 33))
+        );
+        ingresarButtom2Layout.setVerticalGroup(
+            ingresarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom2Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(ingresarLabel2)
+                .addGap(15, 15, 15))
+        );
+
+        contentVista.add(ingresarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+
+        ingresarButtom3.setBackground(new java.awt.Color(0, 102, 102));
+        ingresarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ingresarButtom3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarButtom3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ingresarButtom3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ingresarButtom3MouseExited(evt);
+            }
+        });
+
+        ingresarLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        ingresarLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarLabel3.setText("VOLVER");
+
+        javax.swing.GroupLayout ingresarButtom3Layout = new javax.swing.GroupLayout(ingresarButtom3);
+        ingresarButtom3.setLayout(ingresarButtom3Layout);
+        ingresarButtom3Layout.setHorizontalGroup(
+            ingresarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom3Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(ingresarLabel3)
+                .addGap(33, 33, 33))
+        );
+        ingresarButtom3Layout.setVerticalGroup(
+            ingresarButtom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom3Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(ingresarLabel3)
+                .addGap(15, 15, 15))
+        );
+
+        contentVista.add(ingresarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -315,6 +393,30 @@ public class verProyecto extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresarButtom1MouseExited
 
+    private void ingresarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom2MouseClicked
+
+    private void ingresarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom2MouseEntered
+
+    private void ingresarButtom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom2MouseExited
+
+    private void ingresarButtom3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom3MouseClicked
+
+    private void ingresarButtom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom3MouseEntered
+
+    private void ingresarButtom3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarButtom3MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel autorDato;
@@ -323,8 +425,12 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JPanel ingresarButtom1;
+    private javax.swing.JPanel ingresarButtom2;
+    private javax.swing.JPanel ingresarButtom3;
     private javax.swing.JLabel ingresarLabel;
     private javax.swing.JLabel ingresarLabel1;
+    private javax.swing.JLabel ingresarLabel2;
+    private javax.swing.JLabel ingresarLabel3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
