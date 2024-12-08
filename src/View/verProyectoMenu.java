@@ -180,6 +180,7 @@ public class verProyectoMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+
         try {
             switch(controller.validarID(usuarioActual, proyecto)){
                 case 1:
