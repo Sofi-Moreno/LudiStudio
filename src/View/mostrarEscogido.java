@@ -227,12 +227,12 @@ public class mostrarEscogido extends javax.swing.JPanel {
         entrarButtom2Layout.setVerticalGroup(
             entrarButtom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entrarButtom2Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(entrarLabel2)
-                .addContainerGap())
+                .addGap(17, 17, 17))
         );
 
-        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, -1));
+        contentVista.add(entrarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -242,7 +242,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentVista, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentVista, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,9 +267,23 @@ public class mostrarEscogido extends javax.swing.JPanel {
             if(operacion == "Crear"){
                 controller.guardarInformacion(proyecto, proyec);
                 JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
+                Logo p = new Logo();
+                p.setSize(613,530);
+                p.setLocation(0,0);
+                contentVista.removeAll();
+                contentVista.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                contentVista.revalidate();
+                contentVista.repaint();
             }else if(operacion == "Modificar"){
                controller.modificarProyecto(proyecto, proyec);
                JOptionPane.showMessageDialog(null, "El proyecto ha sido modificado con exito");
+                Logo p = new Logo();
+                p.setSize(613,530);
+                p.setLocation(0,0);
+                contentVista.removeAll();
+                contentVista.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                contentVista.revalidate();
+                contentVista.repaint();
             }
             
         } catch (SQLException ex) {

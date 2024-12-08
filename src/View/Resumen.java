@@ -4,19 +4,31 @@
  */
 package View;
 
+import Controller.ControllerProyec;
+import Model.Material;
+import Model.Proyecto;
+import Model.Usuario;
 import java.awt.Color;
+import java.util.List;
 
 /**
  *
  * @author Riarb
  */
 public class Resumen extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Resumen
-     */
-    public Resumen() {
+    ControllerProyec controller;
+    Usuario usuarioActual;
+    Proyecto proyecto;
+    double presupuestoTotal;
+    List<Material> proyec;
+    String operacion;
+    public Resumen(Proyecto proyecto,java.util.List<Material> proyec, Usuario usuario,String operacion) {
         initComponents();
+        controller=new ControllerProyec(this);
+        usuarioActual = usuario;
+        this.proyecto = proyecto;
+        this.proyec = proyec;
+        this.operacion =operacion;
     }
 
     /**
@@ -28,7 +40,7 @@ public class Resumen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentSelector = new javax.swing.JPanel();
+        contentResumen = new javax.swing.JPanel();
         ingresarButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
         panelTitle = new javax.swing.JPanel();
@@ -37,8 +49,8 @@ public class Resumen extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        contentSelector.setBackground(new java.awt.Color(0, 153, 153));
-        contentSelector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        contentResumen.setBackground(new java.awt.Color(0, 153, 153));
+        contentResumen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,7 +87,7 @@ public class Resumen extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
 
-        contentSelector.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
+        contentResumen.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
 
         panelTitle.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -87,10 +99,10 @@ public class Resumen extends javax.swing.JPanel {
         panelTitle.setLayout(panelTitleLayout);
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
+            .addGroup(panelTitleLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
                 .addComponent(tituloLabel)
-                .addGap(126, 126, 126))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         panelTitleLayout.setVerticalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,10 +112,10 @@ public class Resumen extends javax.swing.JPanel {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        contentSelector.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
-        contentSelector.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 540, 190));
+        contentResumen.add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 630, -1));
+        contentResumen.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 540, 190));
 
-        add(contentSelector, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
+        add(contentResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 527));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
@@ -115,12 +127,18 @@ public class Resumen extends javax.swing.JPanel {
     }//GEN-LAST:event_ingresarButtomMouseEntered
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
-        
+            mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual,operacion);
+            p.setSize(613,530);
+            p.setLocation(0,0);
+            contentResumen.removeAll();
+            contentResumen.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+            contentResumen.revalidate();
+            contentResumen.repaint(); 
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel contentSelector;
+    private javax.swing.JPanel contentResumen;
     private javax.swing.JPanel ingresarButtom;
     private javax.swing.JLabel ingresarLabel;
     private javax.swing.JPanel panelTitle;

@@ -649,7 +649,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 220, 60));
+        contentElementos.add(guardarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 220, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -659,7 +659,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentElementos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentElementos, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -866,7 +866,7 @@ public class elementosComplementarios extends javax.swing.JPanel {
             }else{
                 proyec.add(null);
             }
-            mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual,operacion);
+            Resumen p = new Resumen(proyecto,proyec,usuarioActual,operacion);
             p.setSize(613,530);
             p.setLocation(0,0);
             contentElementos.removeAll();
