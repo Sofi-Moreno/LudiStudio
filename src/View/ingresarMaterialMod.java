@@ -28,6 +28,7 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
         initComponents();
         usuarioActual = user;
         controller = new ControlMateriales(nombreMaterialTxt);
+        table.setModel(controller.llenarVerMaterial());
     }
 
     /**

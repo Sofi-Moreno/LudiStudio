@@ -29,6 +29,7 @@ public class eliminarMateriales extends javax.swing.JPanel {
         initComponents();
         usuarioActual = user;
         controlM = new ControlMateriales(nombreElimTxt);
+        table.setModel(controlM.llenarVerMaterial());
     }
 
     /**

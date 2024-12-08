@@ -419,5 +419,26 @@ public class ControlMateriales {
         }
          return modelo;
     }
-    
+    public DefaultTableModel llenarVerMaterial(){
+        String [] columnas = {"ID","NOMBRE"};
+        DefaultTableModel modelo = new DefaultTableModel(null,columnas);
+        String [] registros = new String[2];
+        ConnectionDB con = new ConnectionDB();
+        Connection conex = con.getConnection(); 
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conex.prepareStatement("SELECT id_material, nombre_material FROM material");
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                registros [0] = String.valueOf(rs.getInt("id_material"));
+                registros [1] = rs.getString("nombre_material");
+                modelo.addRow(registros);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerProyec.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return modelo;
+    }
 }
