@@ -194,51 +194,51 @@ public class ingresarMaterialMod extends javax.swing.JPanel {
         nombreModi= new Material();
         int salida = 0;
         try{
-            do{
-                switch (controller.validarNombreModi(nombreModi)){
-                    case 1:
-                        if (salida==0){
-                            JOptionPane.showMessageDialog(null, "El material ingresado no existe por favor ingrese otro nombre.");
-                            salida=1;
-                            break;
-                        }
-                        break;                       
-                    case 2:
-                        if(salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos y no posee la "
-                                    + "longitud correcta (3-25 caracteres)");
-                            salida=1;
-                            break;
-                        }                   
+            switch (controller.validarNombreModi(nombreModi)){
+                case 1:
+                    if (salida==0){
+                        JOptionPane.showMessageDialog(null, "El material ingresado no existe por favor ingrese otro nombre.");
+                        salida=1;
                         break;
-                    case 3:
-                        if(salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos.");
-                            salida=1;
-                            break;
-                        }          
+                    }
+                    break;                       
+                case 2:
+                    if(salida==0){
+                        JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos y no posee la "
+                                + "longitud correcta (3-25 caracteres)");
+                        salida=1;
                         break;
-                    case 4:
-                        if(salida==0){
-                            JOptionPane.showMessageDialog(null, "El nombre no posee longitud correcta (3-25 caracteres)");
-                            salida=1;
-                            break;
-                        }          
+                    }                   
+                    break;
+                case 3:
+                    if(salida==0){
+                        JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos.");
+                        salida=1;
                         break;
-                    default:
-                    }    
-                }while(controller.validarNombreModi(nombreModi)!=0);
+                    }          
+                    break;
+                case 4:
+                    if(salida==0){
+                        JOptionPane.showMessageDialog(null, "El nombre no posee longitud correcta (3-25 caracteres)");
+                        salida=1;
+                        break;
+                    }          
+                    break;
+                default:
+                    modificarMateriales p2 = new modificarMateriales(usuarioActual,nombreModi);
+                    p2.setSize(617,530);
+                    p2.setLocation(0,0);
+
+                    contentModMaterial.removeAll();
+                    contentModMaterial.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                    contentModMaterial.revalidate();
+                    contentModMaterial.repaint();
+                    break;
+                }    
         }catch(SQLException ex){
                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);      
         }
-        modificarMateriales p2 = new modificarMateriales(usuarioActual,nombreModi);
-        p2.setSize(617,530);
-        p2.setLocation(0,0);
         
-        contentModMaterial.removeAll();
-        contentModMaterial.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
-        contentModMaterial.revalidate();
-        contentModMaterial.repaint();
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
 

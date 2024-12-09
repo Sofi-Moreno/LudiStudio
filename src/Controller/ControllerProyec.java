@@ -199,7 +199,7 @@ public class ControllerProyec {
                 ultimoIdPartes = resultado.getInt("ultimoID"); 
             }
             System.out.println(ultimoIdPartes);
-            st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto,presupuestoTotal, fecha, sustentabilidad,publico,actividad,materiales) VALUES (?,?,?,?,?,?,?,?,?)");
+            st = conex.prepareStatement("INSERT INTO proyecto (usuario, nombre, presupuesto,presupuestoTotal, fecha, sustentabilidad,publico,actividad,resumen,materiales) VALUES (?,?,?,?,?,?,?,?,?,?)");
             st.setInt(1,proyecto.getIdUsuario());
             st.setString(2,proyecto.getNombreProyecto());
             st.setDouble(3,proyecto.getPresupuesto());
@@ -208,7 +208,8 @@ public class ControllerProyec {
             st.setString(6,proyecto.getSustentabilidad());
             st.setString(7,proyecto.getPublico());
             st.setString(8,proyecto.getActividad());
-            st.setInt(9,ultimoIdPartes);
+            st.setString(9,proyecto.getResumen());
+            st.setInt(10,ultimoIdPartes);
             int rowsInserted = st.executeUpdate();
             if(rowsInserted>0){
                 bol = true;
@@ -533,6 +534,7 @@ public class ControllerProyec {
                         proyecto.setSustentabilidad(rs.getString("sustentabilidad"));
                         proyecto.setPublico(rs.getString("publico"));
                         proyecto.setActividad(rs.getString("actividad"));
+                        proyecto.setResumen(rs.getString("resumen"));
                         proyecto.setIdMateriales(rs.getInt("materiales"));
                     }
 
@@ -559,14 +561,15 @@ public class ControllerProyec {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try{
-            stmt = conex.prepareStatement("UPDATE proyecto SET nombre=?,presupuesto=?,presupuestoTotal=?,sustentabilidad=?,publico=?,actividad=? WHERE id_proyecto=?");
+            stmt = conex.prepareStatement("UPDATE proyecto SET nombre=?,presupuesto=?,presupuestoTotal=?,sustentabilidad=?,publico=?,actividad=?,resumen=? WHERE id_proyecto=?");
             stmt.setString(1, proyecto.getNombreProyecto());
             stmt.setDouble(2, proyecto.getPresupuesto());
             stmt.setDouble(3, proyecto.getPresupuestoTotal());
             stmt.setString(4, proyecto.getSustentabilidad());
             stmt.setString(5, proyecto.getPublico());
             stmt.setString(6, proyecto.getActividad());
-            stmt.setInt(7,proyecto.getIdProyecto());
+            stmt.setString(7, proyecto.getResumen());
+            stmt.setInt(8,proyecto.getIdProyecto());
             stmt.executeUpdate();
             stmt = conex.prepareStatement("UPDATE partes SET Zapata=?,MurosDeContención=?,Columnas=?,Vigas=?,Losas=?,Entrepiso=?,EstructuraDeCubierta=?,Cubierta=?,Muros=?,Ventanas=?,Puertas=?,Escalera=?,Rampas=?,Barandas=?,Techos=? WHERE id_partes = ?");
             if(material.get(0)!=null){

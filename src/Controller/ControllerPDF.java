@@ -61,7 +61,7 @@ public class ControllerPDF {
             PdfWriter.getInstance(document, new FileOutputStream("Pdfs\\"+dest));
             document.open();
             //pone margen
-            float margin = 2f * 72 / 2.54f;
+            float margin = 1f * 72 / 2.54f;
             document.setMargins(margin, margin, margin, margin);
             //coloca la imagen
             String im = "src\\imagenes\\appLogo-removebg-preview.png";
@@ -158,6 +158,7 @@ public class ControllerPDF {
                 "TRANSPORTE", "PRECIO TRANSPORTE", "MANO DE OBRA", "PRECIO MANO", "HERRAMIENTAS", "COSTO HERRAMIENTAS", 
                 "COSTO TOTAL"};
             PdfPTable table = new PdfPTable(14);
+            table.setWidthPercentage(100);
             float[] columnWidths = {3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f}; 
             table.setWidths(columnWidths);
             font = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.CENTER_BASELINE, BaseColor.BLACK);
@@ -170,22 +171,24 @@ public class ControllerPDF {
                 cont++;
             }
             cont = 0;
+            com.itextpdf.text.Font font1 = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK);
+            com.itextpdf.text.Font font2 = FontFactory.getFont(FontFactory.HELVETICA, 8, BaseColor.BLACK);
             for (Material mat : materiales) {
                 if(mat!=null){
-                    table.addCell(new Phrase(partes.get(cont)));
-                    table.addCell(new Phrase(mat.getRubro()));
-                    table.addCell(new Phrase(mat.getNombreMaterial()));
-                    table.addCell(new Phrase(mat.getUnidadMaterial()));
-                    table.addCell(new Phrase(String.valueOf(mat.getCostoMaterial())));
-                    table.addCell(new Phrase(mat.getSustentabilidad()));
-                    table.addCell(new Phrase(mat.getProveedor()));
-                    table.addCell(new Phrase(mat.getTransporte()));
-                    table.addCell(new Phrase(String.valueOf(mat.getCostoTransporte())));
-                    table.addCell(new Phrase(mat.getManoDeObra()));
-                    table.addCell(new Phrase(String.valueOf(mat.getCostoMDObra())));
-                    table.addCell(new Phrase(mat.getHerramientas()));
-                    table.addCell(new Phrase(String.valueOf(mat.getCostoHerramientas())));
-                    table.addCell(new Phrase(String.valueOf(mat.getCostoTotalMaterial())));
+                    table.addCell(new Phrase(partes.get(cont), font1));
+                    table.addCell(new Phrase(mat.getRubro(),font2));
+                    table.addCell(new Phrase(mat.getNombreMaterial(),font2));
+                    table.addCell(new Phrase(mat.getUnidadMaterial(),font2));
+                    table.addCell(new Phrase(String.valueOf(mat.getCostoMaterial()),font2));
+                    table.addCell(new Phrase(mat.getSustentabilidad(),font2));
+                    table.addCell(new Phrase(mat.getProveedor(),font2));
+                    table.addCell(new Phrase(mat.getTransporte(),font2));
+                    table.addCell(new Phrase(String.valueOf(mat.getCostoTransporte()),font2));
+                    table.addCell(new Phrase(mat.getManoDeObra(),font2));
+                    table.addCell(new Phrase(String.valueOf(mat.getCostoMDObra()),font2));
+                    table.addCell(new Phrase(mat.getHerramientas(),font2));
+                    table.addCell(new Phrase(String.valueOf(mat.getCostoHerramientas()),font2));
+                    table.addCell(new Phrase(String.valueOf(mat.getCostoTotalMaterial()),font2));
                 }
                 cont++;
             }
@@ -201,26 +204,5 @@ public class ControllerPDF {
         } catch (IOException ex) {
             Logger.getLogger(ControllerPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    
-    public static void main(String[] args){
-        Usuario usuario = new Usuario();
-        usuario.setNombreUsuario("Sofia");
-        usuario.setApellidoUsuario("Moreno");
-        usuario.setMonedaUsuario("Bolivares (Bs)");
-        Proyecto proyecto = new Proyecto();
-        proyecto.setIdProyecto(12345);
-        proyecto.setNombreProyecto("Mi proyecto");
-        proyecto.setFechaDeCreacion("08-12-2024");
-        proyecto.setSustentabilidad("Muy sustentable");
-        proyecto.setPublico("Adolescentes");
-        proyecto.setActividad("Recreativas");
-        proyecto.setResumen("Aqui va el resumen, el resumen puede ser lo largo que se pueda, quiero ver que tanto y como carajo se va aa imprimir, veamos que tal señores, pipipipi, i hate calculoooooo");
-        proyecto.setPresupuesto(1000.34);
-        proyecto.setPresupuestoTotal(13469.65);
-        List<Material> materiales= new ArrayList<>();
-        ControllerPDF pdf = new ControllerPDF(usuario,proyecto, materiales,"MiPDF.pdf");
-        pdf.imprimirProyecto();
     }
 }

@@ -302,6 +302,19 @@ public class ControlMateriales {
             while(rs.next()){
                 if(nombreBuscar.getText().equals(rs.getString("nombre_material"))){
                     bol = true;
+                    mat.setId_material(rs.getInt("id_material"));
+                    mat.setRubro(rs.getString("rubro_material"));
+                    mat.setUnidadMaterial(rs.getString("unidad_material"));
+                    mat.setSustentabilidad(rs.getString("sustentabilidad_material"));
+                    mat.setProveedor(rs.getString("proveedor_material"));
+                    mat.setTransporte(rs.getString("transporte_material"));
+                    mat.setManoDeObra(rs.getString("manodeobra_material"));
+                    mat.setHerramientas(rs.getString("herramientas_material"));
+                    mat.setCostoMaterial(rs.getDouble("costo_material"));
+                    mat.setCostoTransporte(rs.getDouble("costo_transporte"));
+                    mat.setCostoMDObra(rs.getDouble("costo_manodeobra"));
+                    mat.setCostoHerramientas(rs.getDouble("costo_herramientas"));
+                    mat.setCantidadMaterial((int) rs.getDouble("cantidad_material"));
                 }
             }
             if(bol==false){
@@ -319,6 +332,7 @@ public class ControlMateriales {
             }
             else{
                 mat.setNombreMaterial(nombreBuscar.getText());
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

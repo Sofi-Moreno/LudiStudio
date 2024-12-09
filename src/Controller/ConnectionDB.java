@@ -19,10 +19,10 @@ public class ConnectionDB {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, pass);
             if(connection!=null){
-                System.out.println("Conexion exitosa...");
+//                System.out.println("Conexion exitosa...");
             }
         }catch(ClassNotFoundException | SQLException e){
-            System.out.println("No se pudo conectar "+e);
+//            System.out.println("No se pudo conectar "+e);
         }
     }
     
@@ -33,7 +33,7 @@ public class ConnectionDB {
     public void desconectar(){
         connection = null;
         if(connection==null){
-            System.out.println("Conexion cerrada...");
+//            System.out.println("Conexion cerrada...");
         }
     }
 }

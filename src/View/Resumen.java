@@ -10,6 +10,7 @@ import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +30,9 @@ public class Resumen extends javax.swing.JPanel {
         this.proyecto = proyecto;
         this.proyec = proyec;
         this.operacion =operacion;
+        if(operacion == "Modificar"){
+            textArea1.setText(proyecto.getResumen());
+        }
     }
 
     /**
@@ -68,7 +72,7 @@ public class Resumen extends javax.swing.JPanel {
 
         ingresarLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ingresarLabel.setText("Ingresar");
+        ingresarLabel.setText("Guardar");
 
         javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
         ingresarButtom.setLayout(ingresarButtomLayout);
@@ -127,6 +131,12 @@ public class Resumen extends javax.swing.JPanel {
     }//GEN-LAST:event_ingresarButtomMouseEntered
 
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+        if(textArea1.getText().length()<1){
+            JOptionPane.showMessageDialog(null, "Debes escribir un resumen de tu proyecto.");
+        }else if(textArea1.getText().length()>300){
+            JOptionPane.showMessageDialog(null, "Debes escribir un resumen de 1-300 caracteres.");
+        }else{
+            proyecto.setResumen(textArea1.getText());
             mostrarEscogido p = new mostrarEscogido(proyecto,proyec,usuarioActual,operacion);
             p.setSize(613,530);
             p.setLocation(0,0);
@@ -134,6 +144,8 @@ public class Resumen extends javax.swing.JPanel {
             contentResumen.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
             contentResumen.revalidate();
             contentResumen.repaint(); 
+        }
+        
     }//GEN-LAST:event_ingresarButtomMouseClicked
 
 

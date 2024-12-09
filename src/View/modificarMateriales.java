@@ -30,6 +30,20 @@ public class modificarMateriales extends javax.swing.JPanel {
         materiales = nombreModi;
         usuarioActual = user;
         controller = new ControlMateriales(rubroTxt, nombreMaterialTxt, cantidadTxt, costoMaterialTxt, nombreProveedorTxt, transporteTxt, costoManoTxt, costoHerramientaTxt, unidadesBox, SustentabilidadBox, ManoDeObraBox, transporteBox, herramientasBox, this);
+        rubroTxt.setText(nombreModi.getRubro());
+        nombreMaterialTxt.setText(nombreModi.getNombreMaterial());
+        cantidadTxt.setText(String.valueOf(nombreModi.getCantidadMaterial()));
+        costoMaterialTxt.setText(String.valueOf(nombreModi.getCostoMaterial()));
+        nombreProveedorTxt.setText(nombreModi.getProveedor());
+        transporteTxt.setText(nombreModi.getTransporte());
+        costoManoTxt.setText(String.valueOf(nombreModi.getCostoMDObra()));
+        costoHerramientaTxt.setText(String.valueOf(nombreModi.getCostoHerramientas()));
+        unidadesBox.setSelectedItem(nombreModi.getUnidadMaterial());
+        SustentabilidadBox.setSelectedItem(nombreModi.getSustentabilidad());
+        ManoDeObraBox.setSelectedItem(nombreModi.getManoDeObra());
+        transporteBox.setSelectedItem(nombreModi.getTransporte());
+        herramientasBox.setSelectedItem(nombreModi.getHerramientas());
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -370,14 +384,14 @@ public class modificarMateriales extends javax.swing.JPanel {
     private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
         int salida = 0;
         try{
-                switch (controller.validarMaterialNombre(materiales)){
+                switch (controller.validarMaterialNombre(materiales)){                  
                     case 1:
                         if (salida==0){
                             JOptionPane.showMessageDialog(null, "El material ingresado ya existe por favor ingrese otro nombre.");
                             salida=1;
                             break;
                         }
-                        break;                       
+                        break;   
                     case 2:
                         if(salida==0){
                             JOptionPane.showMessageDialog(null, "El nombre cuenta con caracteres no validos y no posee la "

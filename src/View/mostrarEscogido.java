@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.ControllerPDF;
 import Controller.ControllerProyec;
 import Model.Material;
 import Model.Proyecto;
@@ -28,6 +29,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
     double presupuestoTotal;
     List<Material> proyec;
     String operacion;
+    boolean bol = false;
     /**
      * Creates new form mostrarEscogido
      */
@@ -302,7 +304,16 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_mostrarDatosButtomMouseExited
 
     private void imprimirButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseClicked
-
+        if(bol==true){
+            String nombre = JOptionPane.showInputDialog(null, "Ingrese como desea nombrar al pdf:", "Entrada de Nombre", JOptionPane.QUESTION_MESSAGE);
+            if(nombre!=null){
+                ControllerPDF pdf = new ControllerPDF(usuarioActual,proyecto,proyec,nombre+".pdf");
+                pdf.imprimirProyecto();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe guardar el proyecto antes de poder Imprimirlo.");
+        }
+        
            
     }//GEN-LAST:event_imprimirButtomMouseClicked
 
@@ -315,15 +326,27 @@ public class mostrarEscogido extends javax.swing.JPanel {
     }//GEN-LAST:event_imprimirButtomMouseExited
 
     private void entrarButtom3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseClicked
-        // TODO add your handling code here:
+        try {
+            if(operacion == "Crear"){
+                controller.guardarInformacion(proyecto, proyec);
+                JOptionPane.showMessageDialog(null, "El proyecto ha sido guardado con exito");
+            }else if(operacion == "Modificar"){
+               controller.modificarProyecto(proyecto, proyec);
+               JOptionPane.showMessageDialog(null, "El proyecto ha sido modificado con exito");
+            }
+            bol = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(mostrarEscogido.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "El proyecto no ha sido guardado");
+        }
     }//GEN-LAST:event_entrarButtom3MouseClicked
 
     private void entrarButtom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseEntered
-        // TODO add your handling code here:
+        entrarButtom3.setBackground(new Color(0,153,204));
     }//GEN-LAST:event_entrarButtom3MouseEntered
 
     private void entrarButtom3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarButtom3MouseExited
-        // TODO add your handling code here:
+        entrarButtom3.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_entrarButtom3MouseExited
 
 

@@ -4,12 +4,18 @@
  */
 package View;
 
+import Controller.ControllerPDF;
+import Controller.ControllerProyec;
+import Model.Material;
 import Model.Proyecto;
 import Model.Usuario;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,11 +24,13 @@ import java.util.logging.Logger;
 public class verProyecto extends javax.swing.JPanel {
     Usuario usuarioActual;
     Proyecto proyecto;
+    List<Material> escogido;
     /**
      * Creates new form verProyecto
      */
     public verProyecto(Usuario usuario, Proyecto proyec) {
         initComponents();
+        ControllerProyec controller = new ControllerProyec(this);
         usuarioActual = usuario;
         proyecto = proyec;
         nombreDato.setText(proyec.getNombreProyecto());
@@ -32,6 +40,12 @@ public class verProyecto extends javax.swing.JPanel {
             costoDato.setText(String.valueOf(proyec.getPresupuestoTotal())+" $");
         }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
             costoDato.setText(String.valueOf(proyec.getPresupuestoTotal())+" Bs");
+        }
+        escogido = new ArrayList<>();
+        try {
+            controller.llenarListaEscogido(escogido, proyecto);
+        } catch (SQLException ex) {
+            Logger.getLogger(verProyecto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -58,9 +72,9 @@ public class verProyecto extends javax.swing.JPanel {
         nombreDato = new javax.swing.JLabel();
         costoDato = new javax.swing.JLabel();
         presupuestoDato = new javax.swing.JLabel();
-        ingresarButtom = new javax.swing.JPanel();
+        imprimirButtom = new javax.swing.JPanel();
         ingresarLabel = new javax.swing.JLabel();
-        ingresarButtom1 = new javax.swing.JPanel();
+        volverButtom = new javax.swing.JPanel();
         ingresarLabel1 = new javax.swing.JLabel();
         ingresarButtom2 = new javax.swing.JPanel();
         ingresarLabel2 = new javax.swing.JLabel();
@@ -186,17 +200,17 @@ public class verProyecto extends javax.swing.JPanel {
         presupuestoDato.setText("5000$");
         contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
 
-        ingresarButtom.setBackground(new java.awt.Color(0, 102, 102));
-        ingresarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ingresarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
+        imprimirButtom.setBackground(new java.awt.Color(0, 102, 102));
+        imprimirButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imprimirButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ingresarButtomMouseClicked(evt);
+                imprimirButtomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ingresarButtomMouseEntered(evt);
+                imprimirButtomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ingresarButtomMouseExited(evt);
+                imprimirButtomMouseExited(evt);
             }
         });
 
@@ -204,36 +218,36 @@ public class verProyecto extends javax.swing.JPanel {
         ingresarLabel.setForeground(new java.awt.Color(255, 255, 255));
         ingresarLabel.setText("IMPRIMIR");
 
-        javax.swing.GroupLayout ingresarButtomLayout = new javax.swing.GroupLayout(ingresarButtom);
-        ingresarButtom.setLayout(ingresarButtomLayout);
-        ingresarButtomLayout.setHorizontalGroup(
-            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtomLayout.createSequentialGroup()
+        javax.swing.GroupLayout imprimirButtomLayout = new javax.swing.GroupLayout(imprimirButtom);
+        imprimirButtom.setLayout(imprimirButtomLayout);
+        imprimirButtomLayout.setHorizontalGroup(
+            imprimirButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imprimirButtomLayout.createSequentialGroup()
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(ingresarLabel)
                 .addGap(34, 34, 34))
         );
-        ingresarButtomLayout.setVerticalGroup(
-            ingresarButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ingresarButtomLayout.createSequentialGroup()
+        imprimirButtomLayout.setVerticalGroup(
+            imprimirButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(imprimirButtomLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(ingresarLabel)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        contentVista.add(ingresarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        contentVista.add(imprimirButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
-        ingresarButtom1.setBackground(new java.awt.Color(0, 102, 102));
-        ingresarButtom1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ingresarButtom1.addMouseListener(new java.awt.event.MouseAdapter() {
+        volverButtom.setBackground(new java.awt.Color(0, 102, 102));
+        volverButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        volverButtom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ingresarButtom1MouseClicked(evt);
+                volverButtomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ingresarButtom1MouseEntered(evt);
+                volverButtomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ingresarButtom1MouseExited(evt);
+                volverButtomMouseExited(evt);
             }
         });
 
@@ -241,24 +255,24 @@ public class verProyecto extends javax.swing.JPanel {
         ingresarLabel1.setForeground(new java.awt.Color(255, 255, 255));
         ingresarLabel1.setText("VOLVER");
 
-        javax.swing.GroupLayout ingresarButtom1Layout = new javax.swing.GroupLayout(ingresarButtom1);
-        ingresarButtom1.setLayout(ingresarButtom1Layout);
-        ingresarButtom1Layout.setHorizontalGroup(
-            ingresarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom1Layout.createSequentialGroup()
+        javax.swing.GroupLayout volverButtomLayout = new javax.swing.GroupLayout(volverButtom);
+        volverButtom.setLayout(volverButtomLayout);
+        volverButtomLayout.setHorizontalGroup(
+            volverButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, volverButtomLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(ingresarLabel1)
                 .addGap(33, 33, 33))
         );
-        ingresarButtom1Layout.setVerticalGroup(
-            ingresarButtom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ingresarButtom1Layout.createSequentialGroup()
+        volverButtomLayout.setVerticalGroup(
+            volverButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, volverButtomLayout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(ingresarLabel1)
                 .addGap(15, 15, 15))
         );
 
-        contentVista.add(ingresarButtom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+        contentVista.add(volverButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         ingresarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         ingresarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -363,7 +377,24 @@ public class verProyecto extends javax.swing.JPanel {
         mostrarDatosButtom.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_mostrarDatosButtomMouseExited
 
-    private void ingresarButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseClicked
+    private void imprimirButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseClicked
+        String nombre = JOptionPane.showInputDialog(null, "Ingrese como desea nombrar al pdf:", "Entrada de Nombre", JOptionPane.QUESTION_MESSAGE);
+        if(nombre!=null){
+            ControllerPDF pdf = new ControllerPDF(usuarioActual,proyecto,escogido,nombre+".pdf");
+            pdf.imprimirProyecto();
+        }
+        
+    }//GEN-LAST:event_imprimirButtomMouseClicked
+
+    private void imprimirButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseEntered
+        imprimirButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_imprimirButtomMouseEntered
+
+    private void imprimirButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimirButtomMouseExited
+        imprimirButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_imprimirButtomMouseExited
+
+    private void volverButtomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverButtomMouseClicked
         verProyectoMenu p3 = new verProyectoMenu(usuarioActual);
         p3.setSize(613,530);
         p3.setLocation(0,0);
@@ -371,30 +402,18 @@ public class verProyecto extends javax.swing.JPanel {
         contentVista.add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         contentVista.revalidate();
         contentVista.repaint();
-    }//GEN-LAST:event_ingresarButtomMouseClicked
+    }//GEN-LAST:event_volverButtomMouseClicked
 
-    private void ingresarButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseEntered
-        ingresarButtom.setBackground(new Color(0,153,204));
-    }//GEN-LAST:event_ingresarButtomMouseEntered
+    private void volverButtomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverButtomMouseEntered
+        volverButtom.setBackground(new Color(0,153,204));
+    }//GEN-LAST:event_volverButtomMouseEntered
 
-    private void ingresarButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtomMouseExited
-        ingresarButtom.setBackground(new Color(0,102,102));
-    }//GEN-LAST:event_ingresarButtomMouseExited
-
-    private void ingresarButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingresarButtom1MouseClicked
-
-    private void ingresarButtom1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingresarButtom1MouseEntered
-
-    private void ingresarButtom1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingresarButtom1MouseExited
+    private void volverButtomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverButtomMouseExited
+        volverButtom.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_volverButtomMouseExited
 
     private void ingresarButtom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom2MouseClicked
-        // TODO add your handling code here:
+        ingresarButtom2.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_ingresarButtom2MouseClicked
 
     private void ingresarButtom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarButtom2MouseEntered
@@ -423,8 +442,7 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
     private javax.swing.JLabel entrarLabel1;
-    private javax.swing.JPanel ingresarButtom;
-    private javax.swing.JPanel ingresarButtom1;
+    private javax.swing.JPanel imprimirButtom;
     private javax.swing.JPanel ingresarButtom2;
     private javax.swing.JPanel ingresarButtom3;
     private javax.swing.JLabel ingresarLabel;
@@ -441,5 +459,6 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel nombreDato;
     private javax.swing.JLabel presupuestoDato;
     private javax.swing.JLabel tituloLabel;
+    private javax.swing.JPanel volverButtom;
     // End of variables declaration//GEN-END:variables
 }
