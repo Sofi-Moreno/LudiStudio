@@ -38,7 +38,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        content1 = new javax.swing.JPanel();
         idTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         usuarioLabel = new javax.swing.JLabel();
@@ -53,8 +53,8 @@ public class eliminarProyecto extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content1.setBackground(new java.awt.Color(0, 153, 153));
+        content1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idTxt.setBackground(new java.awt.Color(0, 153, 153));
         idTxt.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -72,14 +72,14 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 idTxtActionPerformed(evt);
             }
         });
-        jPanel1.add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 190, -1));
+        content1.add(idTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        content1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 190, -1));
 
         usuarioLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         usuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
         usuarioLabel.setText("ID del Proyecto ");
         usuarioLabel.setToolTipText("");
-        jPanel1.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        content1.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -104,13 +104,13 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 80));
+        content1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 80));
 
         passwordLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Contraseña");
-        jPanel1.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 19));
+        content1.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, -1));
+        content1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 19));
 
         passTxt.setBackground(new java.awt.Color(0, 153, 153));
         passTxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -122,7 +122,7 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 passTxtMousePressed(evt);
             }
         });
-        jPanel1.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
+        content1.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
 
         entrarButtom.setBackground(new java.awt.Color(0, 102, 102));
         entrarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -159,10 +159,10 @@ public class eliminarProyecto extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
 
-        jPanel1.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+        content1.add(entrarButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/basura.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
+        content1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,17 +177,17 @@ public class eliminarProyecto extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(table);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 230));
+        content1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -228,9 +228,13 @@ public class eliminarProyecto extends javax.swing.JPanel {
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Proyecto Eliminado Exitosamente.");
-                    MainMenu menu = new MainMenu(usuarioActual);
-                    menu.setVisible(true);
-                    this.setVisible(false);
+                    Logo p = new Logo();
+                    p.setSize(613,530);
+                    p.setLocation(0,0);
+                    content1.removeAll();
+                    content1.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                    content1.revalidate();
+                    content1.repaint();
                     break;
             }
         } catch (SQLException ex) {
@@ -249,12 +253,12 @@ public class eliminarProyecto extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel content1;
     private javax.swing.JPanel entrarButtom;
     private javax.swing.JLabel entrarLabel;
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
