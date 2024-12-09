@@ -104,14 +104,10 @@ public class Estructura extends javax.swing.JPanel {
         habilitarButtom1 = new javax.swing.JPanel();
         habilitarLabel1 = new javax.swing.JLabel();
         materialBox1 = new javax.swing.JComboBox<>();
-        precio1 = new javax.swing.JPanel();
-        precio1Label = new javax.swing.JLabel();
         habilitarButtom2 = new javax.swing.JPanel();
         habilitarLabel2 = new javax.swing.JLabel();
         deshabilitarButtom2 = new javax.swing.JPanel();
         deshabilitarLabel2 = new javax.swing.JLabel();
-        precioPanel2 = new javax.swing.JPanel();
-        precioLabel2 = new javax.swing.JLabel();
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -121,10 +117,6 @@ public class Estructura extends javax.swing.JPanel {
         vigasLabel = new javax.swing.JLabel();
         materialBox3 = new javax.swing.JComboBox<>();
         materialBox4 = new javax.swing.JComboBox<>();
-        precio3 = new javax.swing.JPanel();
-        precioLabel3 = new javax.swing.JLabel();
-        precio4 = new javax.swing.JPanel();
-        precioLabel4 = new javax.swing.JLabel();
         habilitarButtom3 = new javax.swing.JPanel();
         habilitarLabel3 = new javax.swing.JLabel();
         deshabilitarButtom3 = new javax.swing.JPanel();
@@ -253,26 +245,6 @@ public class Estructura extends javax.swing.JPanel {
         });
         contentElementos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 204, -1, -1));
 
-        precio1Label.setText("Precio");
-
-        javax.swing.GroupLayout precio1Layout = new javax.swing.GroupLayout(precio1);
-        precio1.setLayout(precio1Layout);
-        precio1Layout.setHorizontalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(precio1Label)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        precio1Layout.setVerticalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio1Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(precio1Label))
-        );
-
-        contentElementos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 204, -1, -1));
-
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         habilitarButtom2.setEnabled(false);
@@ -349,26 +321,6 @@ public class Estructura extends javax.swing.JPanel {
 
         contentElementos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 310, 71, -1));
 
-        precioLabel2.setText("Precio");
-
-        javax.swing.GroupLayout precioPanel2Layout = new javax.swing.GroupLayout(precioPanel2);
-        precioPanel2.setLayout(precioPanel2Layout);
-        precioPanel2Layout.setHorizontalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precioPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(precioLabel2)
-                .addGap(29, 29, 29))
-        );
-        precioPanel2Layout.setVerticalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precioPanel2Layout.createSequentialGroup()
-                .addComponent(precioLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        contentElementos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 341, 49, 22));
-
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -428,46 +380,6 @@ public class Estructura extends javax.swing.JPanel {
             }
         });
         contentElementos.add(materialBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
-
-        precioLabel3.setText("Precio");
-
-        javax.swing.GroupLayout precio3Layout = new javax.swing.GroupLayout(precio3);
-        precio3.setLayout(precio3Layout);
-        precio3Layout.setHorizontalGroup(
-            precio3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio3Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(precioLabel3)
-                .addContainerGap())
-        );
-        precio3Layout.setVerticalGroup(
-            precio3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio3Layout.createSequentialGroup()
-                .addComponent(precioLabel3)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentElementos.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, 22));
-
-        precioLabel4.setText("Precio");
-
-        javax.swing.GroupLayout precio4Layout = new javax.swing.GroupLayout(precio4);
-        precio4.setLayout(precio4Layout);
-        precio4Layout.setHorizontalGroup(
-            precio4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(precioLabel4)
-                .addContainerGap())
-        );
-        precio4Layout.setVerticalGroup(
-            precio4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio4Layout.createSequentialGroup()
-                .addComponent(precioLabel4)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentElementos.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
 
         habilitarButtom3.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -710,8 +622,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
         culumnaLabel.setEnabled(false);
-        precio1Label.setEnabled(false);
-        precio1.setEnabled(false);
         materialBox1.setEnabled(false);
         column = false;
 
@@ -731,8 +641,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
         culumnaLabel.setEnabled(true);
-        precio1Label.setEnabled(true);
-        precio1.setEnabled(true);
         materialBox1.setEnabled(true);
         column = true;
     }//GEN-LAST:event_habilitarButtom1MouseClicked
@@ -755,8 +663,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
         vigasLabel.setEnabled(true);
-        precioLabel2.setEnabled(true);
-        precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
         vig = true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
@@ -775,8 +681,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
         vigasLabel.setEnabled(false);
-        precioLabel2.setEnabled(false);
-        precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
         vig = false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
@@ -803,8 +707,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom3.setEnabled(true);
         deshabilitarLabel3.setEnabled(true);
         losasLabel.setEnabled(true);
-        precioLabel3.setEnabled(true);
-        precio3.setEnabled(true);
         materialBox3.setEnabled(true);
         los=true;
     }//GEN-LAST:event_habilitarButtom3MouseClicked
@@ -823,8 +725,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom3.setEnabled(false);
         deshabilitarLabel3.setEnabled(false);
         losasLabel.setEnabled(false);
-        precioLabel3.setEnabled(false);
-        precio3.setEnabled(false);
         materialBox3.setEnabled(false);
         los=false;
     }//GEN-LAST:event_deshabilitarButtom3MouseClicked
@@ -843,8 +743,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom4.setEnabled(true);
         deshabilitarLabel4.setEnabled(true);
         entrepisoLabel.setEnabled(true);
-        precio4.setEnabled(true);
-        precioLabel4.setEnabled(true);
         materialBox4.setEnabled(true);
         entrep = true;
     }//GEN-LAST:event_habilitarButtom4MouseClicked
@@ -863,8 +761,6 @@ public class Estructura extends javax.swing.JPanel {
         deshabilitarButtom4.setEnabled(false);
         deshabilitarLabel4.setEnabled(false);
         entrepisoLabel.setEnabled(false);
-        precioLabel4.setEnabled(false);
-        precio4.setEnabled(false);
         materialBox4.setEnabled(false);
         entrep = false;
     }//GEN-LAST:event_deshabilitarButtom4MouseClicked
@@ -979,14 +875,6 @@ public class Estructura extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> materialBox2;
     private javax.swing.JComboBox<String> materialBox3;
     private javax.swing.JComboBox<String> materialBox4;
-    private javax.swing.JPanel precio1;
-    private javax.swing.JLabel precio1Label;
-    private javax.swing.JPanel precio3;
-    private javax.swing.JPanel precio4;
-    private javax.swing.JLabel precioLabel2;
-    private javax.swing.JLabel precioLabel3;
-    private javax.swing.JLabel precioLabel4;
-    private javax.swing.JPanel precioPanel2;
     private javax.swing.JLabel tituloLabel;
     private javax.swing.JLabel vigasLabel;
     // End of variables declaration//GEN-END:variables

@@ -87,14 +87,10 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         habilitarButtom1 = new javax.swing.JPanel();
         habilitarLabel1 = new javax.swing.JLabel();
         materialBox1 = new javax.swing.JComboBox<>();
-        precio1 = new javax.swing.JPanel();
-        precio1Label = new javax.swing.JLabel();
         habilitarButtom2 = new javax.swing.JPanel();
         habilitarLabel2 = new javax.swing.JLabel();
         deshabilitarButtom2 = new javax.swing.JPanel();
         deshabilitarLabel2 = new javax.swing.JLabel();
-        precioPanel2 = new javax.swing.JPanel();
-        precioLabel2 = new javax.swing.JLabel();
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -244,26 +240,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         });
         contentFundamentos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 209, -1, -1));
 
-        precio1Label.setText("Precio");
-
-        javax.swing.GroupLayout precio1Layout = new javax.swing.GroupLayout(precio1);
-        precio1.setLayout(precio1Layout);
-        precio1Layout.setHorizontalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(precio1Label)
-                .addGap(29, 29, 29))
-        );
-        precio1Layout.setVerticalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio1Layout.createSequentialGroup()
-                .addComponent(precio1Label)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentFundamentos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 209, -1, -1));
-
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         habilitarButtom2.setEnabled(false);
@@ -337,26 +313,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         );
 
         contentFundamentos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 315, -1, -1));
-
-        precioLabel2.setText("Precio");
-
-        javax.swing.GroupLayout precioPanel2Layout = new javax.swing.GroupLayout(precioPanel2);
-        precioPanel2.setLayout(precioPanel2Layout);
-        precioPanel2Layout.setHorizontalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precioPanel2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(precioLabel2)
-                .addGap(29, 29, 29))
-        );
-        precioPanel2Layout.setVerticalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precioPanel2Layout.createSequentialGroup()
-                .addComponent(precioLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        contentFundamentos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, -1, 22));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -441,8 +397,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
         zapataLabel.setEnabled(false);
-        precio1Label.setEnabled(false);
-        precio1.setEnabled(false);
         materialBox1.setEnabled(false);
         zap=false;
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
@@ -453,8 +407,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
         zapataLabel.setEnabled(true);
-        precio1Label.setEnabled(true);
-        precio1.setEnabled(true);
         materialBox1.setEnabled(true);
         zap=true;
     }//GEN-LAST:event_habilitarButtom1MouseClicked
@@ -481,8 +433,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
         murosLabel.setEnabled(true);
-        precioLabel2.setEnabled(true);
-        precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
         mur=true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
@@ -493,8 +443,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
         murosLabel.setEnabled(false);
-        precioLabel2.setEnabled(false);
-        precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
         mur=false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
@@ -559,19 +507,11 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseClicked
 
     private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
-        try {
-            precio1Label.setText(controller.mostrarPrecio(materialBox1));
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     
     }//GEN-LAST:event_materialBox1MouseClicked
 
     private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
-        try {
-            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
-        } catch (SQLException ex) {
-            Logger.getLogger(fundamentosYcimentacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     
     }//GEN-LAST:event_materialBox2MouseClicked
 
 
@@ -597,10 +537,6 @@ public class fundamentosYcimentacion extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> materialBox1;
     private javax.swing.JComboBox<String> materialBox2;
     private javax.swing.JLabel murosLabel;
-    private javax.swing.JPanel precio1;
-    private javax.swing.JLabel precio1Label;
-    private javax.swing.JLabel precioLabel2;
-    private javax.swing.JPanel precioPanel2;
     private javax.swing.JLabel zapataLabel;
     // End of variables declaration//GEN-END:variables
 }

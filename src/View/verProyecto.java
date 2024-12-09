@@ -80,6 +80,12 @@ public class verProyecto extends javax.swing.JPanel {
         ingresarLabel2 = new javax.swing.JLabel();
         ingresarButtom3 = new javax.swing.JPanel();
         ingresarLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        publicoDato = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        SustentabilidadDato = new javax.swing.JLabel();
+        actividadDato = new javax.swing.JLabel();
+        costoDato3 = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,8 +127,8 @@ public class verProyecto extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Costo total: ");
-        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jLabel3.setText("Sustentabilidad:");
+        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,25 +164,25 @@ public class verProyecto extends javax.swing.JPanel {
                 .addComponent(entrarLabel1)
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mostrarDatosButtomLayout.createSequentialGroup()
+                    .addContainerGap(28, Short.MAX_VALUE)
                     .addComponent(jLabel5)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(29, Short.MAX_VALUE)))
         );
         mostrarDatosButtomLayout.setVerticalGroup(
             mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(entrarLabel1)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
             .addGroup(mostrarDatosButtomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mostrarDatosButtomLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mostrarDatosButtomLayout.createSequentialGroup()
+                    .addContainerGap(35, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(9, Short.MAX_VALUE)))
         );
 
-        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 230, 230));
+        contentVista.add(mostrarDatosButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 230, 190));
 
         String aux;
         aux="Pepe";
@@ -232,10 +238,10 @@ public class verProyecto extends javax.swing.JPanel {
             .addGroup(imprimirButtomLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(ingresarLabel)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        contentVista.add(imprimirButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        contentVista.add(imprimirButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, -1, 60));
 
         volverButtom.setBackground(new java.awt.Color(0, 102, 102));
         volverButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -348,6 +354,36 @@ public class verProyecto extends javax.swing.JPanel {
 
         contentVista.add(ingresarButtom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Actividad:");
+        contentVista.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        publicoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        publicoDato.setForeground(new java.awt.Color(255, 255, 255));
+        publicoDato.setText("Publico:");
+        contentVista.add(publicoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Costo total: ");
+        contentVista.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        SustentabilidadDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        SustentabilidadDato.setForeground(new java.awt.Color(242, 242, 242));
+        SustentabilidadDato.setText("4500$");
+        contentVista.add(SustentabilidadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, 30));
+
+        actividadDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        actividadDato.setForeground(new java.awt.Color(242, 242, 242));
+        actividadDato.setText("4500$");
+        contentVista.add(actividadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, 30));
+
+        costoDato3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        costoDato3.setForeground(new java.awt.Color(242, 242, 242));
+        costoDato3.setText("4500$");
+        contentVista.add(costoDato3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, -1, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -438,9 +474,12 @@ public class verProyecto extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SustentabilidadDato;
+    private javax.swing.JLabel actividadDato;
     private javax.swing.JLabel autorDato;
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
+    private javax.swing.JLabel costoDato3;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JPanel imprimirButtom;
     private javax.swing.JPanel ingresarButtom2;
@@ -454,10 +493,13 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel mostrarDatosButtom;
     private javax.swing.JLabel nombreDato;
     private javax.swing.JLabel presupuestoDato;
+    private javax.swing.JLabel publicoDato;
     private javax.swing.JLabel tituloLabel;
     private javax.swing.JPanel volverButtom;
     // End of variables declaration//GEN-END:variables

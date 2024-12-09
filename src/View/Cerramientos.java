@@ -90,14 +90,10 @@ public class Cerramientos extends javax.swing.JPanel {
         habilitarButtom1 = new javax.swing.JPanel();
         habilitarLabel1 = new javax.swing.JLabel();
         materialBox1 = new javax.swing.JComboBox<>();
-        precio1 = new javax.swing.JPanel();
-        precio1Label = new javax.swing.JLabel();
         habilitarButtom2 = new javax.swing.JPanel();
         habilitarLabel2 = new javax.swing.JLabel();
         deshabilitarButtom2 = new javax.swing.JPanel();
         deshabilitarLabel2 = new javax.swing.JLabel();
-        precioPanel2 = new javax.swing.JPanel();
-        precioLabel2 = new javax.swing.JLabel();
         materialBox2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -109,8 +105,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom3 = new javax.swing.JPanel();
         deshabilitarLabel3 = new javax.swing.JLabel();
         materialBox3 = new javax.swing.JComboBox<>();
-        precioPanel3 = new javax.swing.JPanel();
-        precioLabel3 = new javax.swing.JLabel();
         guardarButtom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -231,26 +225,6 @@ public class Cerramientos extends javax.swing.JPanel {
         });
         contentCerramientos.add(materialBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        precio1Label.setText("Precio");
-
-        javax.swing.GroupLayout precio1Layout = new javax.swing.GroupLayout(precio1);
-        precio1.setLayout(precio1Layout);
-        precio1Layout.setHorizontalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precio1Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(precio1Label)
-                .addGap(29, 29, 29))
-        );
-        precio1Layout.setVerticalGroup(
-            precio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precio1Layout.createSequentialGroup()
-                .addComponent(precio1Label)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentCerramientos.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 100, -1));
-
         habilitarButtom2.setBackground(new java.awt.Color(0, 102, 102));
         habilitarButtom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         habilitarButtom2.setEnabled(false);
@@ -324,26 +298,6 @@ public class Cerramientos extends javax.swing.JPanel {
         );
 
         contentCerramientos.add(deshabilitarButtom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 100, -1));
-
-        precioLabel2.setText("Precio");
-
-        javax.swing.GroupLayout precioPanel2Layout = new javax.swing.GroupLayout(precioPanel2);
-        precioPanel2.setLayout(precioPanel2Layout);
-        precioPanel2Layout.setHorizontalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, precioPanel2Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(precioLabel2)
-                .addGap(29, 29, 29))
-        );
-        precioPanel2Layout.setVerticalGroup(
-            precioPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precioPanel2Layout.createSequentialGroup()
-                .addComponent(precioLabel2)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentCerramientos.add(precioPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 100, -1));
 
         materialBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material" }));
         materialBox2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -456,26 +410,6 @@ public class Cerramientos extends javax.swing.JPanel {
         });
         contentCerramientos.add(materialBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 100, -1));
 
-        precioLabel3.setText("Precio");
-
-        javax.swing.GroupLayout precioPanel3Layout = new javax.swing.GroupLayout(precioPanel3);
-        precioPanel3.setLayout(precioPanel3Layout);
-        precioPanel3Layout.setHorizontalGroup(
-            precioPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precioPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(precioLabel3)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        precioPanel3Layout.setVerticalGroup(
-            precioPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(precioPanel3Layout.createSequentialGroup()
-                .addComponent(precioLabel3)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        contentCerramientos.add(precioPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
-
         guardarButtom.setBackground(new java.awt.Color(0, 102, 102));
         guardarButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         guardarButtom.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -531,8 +465,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(false);
         deshabilitarLabel1.setEnabled(false);
         murosLabel.setEnabled(false);
-        precio1Label.setEnabled(false);
-        precio1.setEnabled(false);
         materialBox1.setEnabled(false);
         mur= false;
     }//GEN-LAST:event_deshabilitarButtom1MouseClicked
@@ -551,8 +483,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom1.setEnabled(true);
         deshabilitarLabel1.setEnabled(true);
         murosLabel.setEnabled(true);
-        precio1Label.setEnabled(true);
-        precio1.setEnabled(true);
         materialBox1.setEnabled(true);
         mur= true;
     }//GEN-LAST:event_habilitarButtom1MouseClicked
@@ -575,8 +505,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(true);
         deshabilitarLabel2.setEnabled(true);
         ventanaLabel.setEnabled(true);
-        precioLabel2.setEnabled(true);
-        precioPanel2.setEnabled(true);
         materialBox2.setEnabled(true);
         vent=true;
     }//GEN-LAST:event_habilitarButtom2MouseClicked
@@ -595,8 +523,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom2.setEnabled(false);
         deshabilitarLabel2.setEnabled(false);
         ventanaLabel.setEnabled(false);
-        precioLabel2.setEnabled(false);
-        precioPanel2.setEnabled(false);
         materialBox2.setEnabled(false);
         vent= false;
     }//GEN-LAST:event_deshabilitarButtom2MouseClicked
@@ -615,8 +541,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom3.setEnabled(true);
         deshabilitarLabel3.setEnabled(true);
         puertasLabel.setEnabled(true);
-        precioLabel3.setEnabled(true);
-        precioPanel3.setEnabled(true);
         materialBox3.setEnabled(true);
         puert =true;
     }//GEN-LAST:event_habilitarButtom3MouseClicked
@@ -635,8 +559,6 @@ public class Cerramientos extends javax.swing.JPanel {
         deshabilitarButtom3.setEnabled(false);
         deshabilitarLabel3.setEnabled(false);
         puertasLabel.setEnabled(false);
-        precioLabel3.setEnabled(false);
-        precioPanel3.setEnabled(false);
         materialBox3.setEnabled(false);
         puert =false;
     }//GEN-LAST:event_deshabilitarButtom3MouseClicked
@@ -696,27 +618,15 @@ public class Cerramientos extends javax.swing.JPanel {
     }//GEN-LAST:event_guardarButtomMouseExited
 
     private void materialBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox1MouseClicked
-        try {
-            precio1Label.setText(controller.mostrarPrecio(materialBox1));
-        } catch (SQLException ex) {
-            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_materialBox1MouseClicked
 
     private void materialBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox2MouseClicked
-        try {
-            precioLabel2.setText(controller.mostrarPrecio(materialBox2));
-        } catch (SQLException ex) {
-            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_materialBox2MouseClicked
 
     private void materialBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_materialBox3MouseClicked
-        try {
-            precioLabel3.setText(controller.mostrarPrecio(materialBox3));
-        } catch (SQLException ex) {
-            Logger.getLogger(Cerramientos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_materialBox3MouseClicked
 
 
@@ -744,12 +654,6 @@ public class Cerramientos extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> materialBox2;
     private javax.swing.JComboBox<String> materialBox3;
     private javax.swing.JLabel murosLabel;
-    private javax.swing.JPanel precio1;
-    private javax.swing.JLabel precio1Label;
-    private javax.swing.JLabel precioLabel2;
-    private javax.swing.JLabel precioLabel3;
-    private javax.swing.JPanel precioPanel2;
-    private javax.swing.JPanel precioPanel3;
     private javax.swing.JLabel puertasLabel;
     private javax.swing.JLabel ventanaLabel;
     // End of variables declaration//GEN-END:variables
