@@ -49,6 +49,9 @@ public class mostrarEscogido extends javax.swing.JPanel {
         }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
             costoDato.setText(String.valueOf(presupuestoTotal)+" Bs");
         }
+        SustentabilidadDato.setText(proyecto.getSustentabilidad());
+        actividadDato.setText(proyecto.getActividad());
+        publicoDATO.setText(proyecto.getPublico());
         proyecto.setPresupuestoTotal(presupuestoTotal);
 
     }
@@ -86,7 +89,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         actividadDato = new javax.swing.JLabel();
         SustentabilidadDato = new javax.swing.JLabel();
-        costoDato3 = new javax.swing.JLabel();
+        publicoDATO = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -306,10 +309,10 @@ public class mostrarEscogido extends javax.swing.JPanel {
         SustentabilidadDato.setText("4500$");
         contentVista.add(SustentabilidadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, 30));
 
-        costoDato3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        costoDato3.setForeground(new java.awt.Color(242, 242, 242));
-        costoDato3.setText("4500$");
-        contentVista.add(costoDato3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, 30));
+        publicoDATO.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        publicoDATO.setForeground(new java.awt.Color(242, 242, 242));
+        publicoDATO.setText("4500$");
+        contentVista.add(publicoDATO, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -390,7 +393,6 @@ public class mostrarEscogido extends javax.swing.JPanel {
     private javax.swing.JLabel autorDato;
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
-    private javax.swing.JLabel costoDato3;
     private javax.swing.JPanel entrarButtom3;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JLabel entrarLabel2;
@@ -408,6 +410,7 @@ public class mostrarEscogido extends javax.swing.JPanel {
     private javax.swing.JPanel mostrarDatosButtom;
     private javax.swing.JLabel nombreDato;
     private javax.swing.JLabel presupuestoDato;
+    private javax.swing.JLabel publicoDATO;
     private javax.swing.JLabel publicoDato;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables

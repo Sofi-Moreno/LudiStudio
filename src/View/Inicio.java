@@ -245,7 +245,7 @@ public class Inicio extends javax.swing.JFrame {
                         null,"¿Desea salir del sistema?", " ",
                         JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
         if (confirmacion==0) 
-            this.dispose();
+            System.exit(0);
     }//GEN-LAST:event_salirButomMouseClicked
 
     private void iniciarSesionButtom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionButtom1MouseClicked

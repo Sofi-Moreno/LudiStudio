@@ -36,6 +36,9 @@ public class verProyecto extends javax.swing.JPanel {
         nombreDato.setText(proyec.getNombreProyecto());
         presupuestoDato.setText(String.valueOf(proyec.getPresupuesto()));
         autorDato.setText(usuario.getNombreUsuario()+" "+usuario.getApellidoUsuario()+" ("+usuario.getUsuario()+").");
+        SustentabilidadDato.setText(proyecto.getSustentabilidad());
+        actividadDato.setText(proyecto.getActividad());
+        publicoDATO.setText(proyecto.getPublico());
         if("Dolares ($)".equals(usuario.getMonedaUsuario())){
             costoDato.setText(String.valueOf(proyec.getPresupuestoTotal())+" $");
         }else if("Bolivares (Bs)".equals(usuario.getMonedaUsuario())){
@@ -85,7 +88,7 @@ public class verProyecto extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         SustentabilidadDato = new javax.swing.JLabel();
         actividadDato = new javax.swing.JLabel();
-        costoDato3 = new javax.swing.JLabel();
+        publicoDATO = new javax.swing.JLabel();
 
         contentVista.setBackground(new java.awt.Color(0, 153, 153));
         contentVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,22 +121,22 @@ public class verProyecto extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre del proyecto:");
-        contentVista.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        contentVista.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Autor: ");
-        contentVista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        contentVista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sustentabilidad:");
-        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        contentVista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Presupuesto: ");
-        contentVista.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        contentVista.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         mostrarDatosButtom.setBackground(new java.awt.Color(0, 102, 102));
         mostrarDatosButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,22 +192,22 @@ public class verProyecto extends javax.swing.JPanel {
         autorDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         autorDato.setForeground(new java.awt.Color(242, 242, 242));
         autorDato.setText(aux);
-        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
+        contentVista.add(autorDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 30));
 
         nombreDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         nombreDato.setForeground(new java.awt.Color(242, 242, 242));
         nombreDato.setText("Kiosco 69");
-        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, 30));
+        contentVista.add(nombreDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, 30));
 
         costoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         costoDato.setForeground(new java.awt.Color(242, 242, 242));
         costoDato.setText("4500$");
-        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 30));
+        contentVista.add(costoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 30));
 
         presupuestoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         presupuestoDato.setForeground(new java.awt.Color(242, 242, 242));
         presupuestoDato.setText("5000$");
-        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 30));
+        contentVista.add(presupuestoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, 30));
 
         imprimirButtom.setBackground(new java.awt.Color(0, 102, 102));
         imprimirButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -357,32 +360,32 @@ public class verProyecto extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Actividad:");
-        contentVista.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        contentVista.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         publicoDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         publicoDato.setForeground(new java.awt.Color(255, 255, 255));
         publicoDato.setText("Publico:");
-        contentVista.add(publicoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
+        contentVista.add(publicoDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Costo total: ");
-        contentVista.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        contentVista.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         SustentabilidadDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         SustentabilidadDato.setForeground(new java.awt.Color(242, 242, 242));
         SustentabilidadDato.setText("4500$");
-        contentVista.add(SustentabilidadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, 30));
+        contentVista.add(SustentabilidadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, 30));
 
         actividadDato.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         actividadDato.setForeground(new java.awt.Color(242, 242, 242));
         actividadDato.setText("4500$");
-        contentVista.add(actividadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, 30));
+        contentVista.add(actividadDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, 30));
 
-        costoDato3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        costoDato3.setForeground(new java.awt.Color(242, 242, 242));
-        costoDato3.setText("4500$");
-        contentVista.add(costoDato3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, -1, 30));
+        publicoDATO.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        publicoDATO.setForeground(new java.awt.Color(242, 242, 242));
+        publicoDATO.setText("4500$");
+        contentVista.add(publicoDATO, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -479,7 +482,6 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JLabel autorDato;
     private javax.swing.JPanel contentVista;
     private javax.swing.JLabel costoDato;
-    private javax.swing.JLabel costoDato3;
     private javax.swing.JLabel entrarLabel1;
     private javax.swing.JPanel imprimirButtom;
     private javax.swing.JPanel ingresarButtom2;
@@ -499,6 +501,7 @@ public class verProyecto extends javax.swing.JPanel {
     private javax.swing.JPanel mostrarDatosButtom;
     private javax.swing.JLabel nombreDato;
     private javax.swing.JLabel presupuestoDato;
+    private javax.swing.JLabel publicoDATO;
     private javax.swing.JLabel publicoDato;
     private javax.swing.JLabel tituloLabel;
     private javax.swing.JPanel volverButtom;
